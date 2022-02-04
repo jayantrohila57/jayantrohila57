@@ -4,7 +4,7 @@
 - 🌱 I’m currently learning Web Development as Frontend but soon Full-Stack
 - 👯 I’m looking to collaborate on UI of the website & and make it responsive and beautiful.
 - 🤔 I’m looking for help with making React apps with more features.
-- 💬 Ask me about anything I'll happily reply...
+- 💬 Ask me about Photoshop, Responsive layout, CSS, or any other query. I'll happily reply...
 - 📫 How to reach me: just click this link https://linktr.ee/JayantRohila and got all my connections
 - 😄 Pronouns: Jayant Rohila
 - ⚡ Fun fact: I use tabs over spaces.
