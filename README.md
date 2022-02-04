@@ -7,7 +7,7 @@
 - 💬 Ask me about anything I'll happily reply...
 - 📫 How to reach me: just click this link https://linktr.ee/JayantRohila and got all my connections
 - 😄 Pronouns: Jayant Rohila
-- ⚡ Fun fact: I don't Know make react app 😂, but that's why want to I want help make sure to leave me a msg. 
+- ⚡ Fun fact: I use tabs over spaces.
 - 👍 Make sure to follow me ok!!
 <br/>  
 
