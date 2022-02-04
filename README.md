@@ -1,5 +1,4 @@
-### Hi there Myself Jayant Rohila 👋 
-
+### Hi there Myself Jayant Rohila 👋 -------------------  ![Profile views counter](https://komarev.com/ghpvc/?username=jayantrohila57&style=flat-square&color=86d62f)
 
 - 🔭 I’m currently working on Web-sites, Browser Extensions, Themes & Web Apps.
 - 🌱 I’m currently learning Web Development as Frontend but soon Full-Stack
@@ -13,9 +12,9 @@
 <br/>  
 
 ## My Skill Set  
-<table><tr><td valign="top" width="33%">
 
-<div align="center">  
+
+<div align="left">  
 <img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React" height="50" />  
 <img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/bootstrap-plain.svg" alt="Bootstrap" height="50" />  
 <img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/css3-original-wordmark.svg" alt="CSS3" height="50" />  
@@ -34,12 +33,10 @@
 <img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/aftereffects.png" alt="After Effects" height="50" />  
 </div>
 
-</td></tr></table>  
-
-![Profile views counter](https://komarev.com/ghpvc/?username=jayantrohila57&style=flat-square&color=86d62f)
-
 
 ## Github Stats  
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jayantrohila57&hide_border=true&layout=compact" align="left" />  
 
-<div align="center"><img src="https://github-readme-stats.vercel.app/api?username=jayantrohila57&show_icons=true&count_private=true&hide_border=true" align="center" /></div>  
+<img src="https://github.com/jayantrohila57/stats/blob/master/generated/languages.svg" align="left" />
+
+
+![](https://github.com/jayantrohila57/stats/blob/master/generated/overview.svg)
