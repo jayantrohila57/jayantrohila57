@@ -1,4 +1,4 @@
-### Hi there Myself Jayant Rohila 👋 -------------------  ![Profile views counter](https://komarev.com/ghpvc/?username=jayantrohila57&style=flat-square&color=86d62f)
+### Hi there Myself Jayant Rohila 👋 ------------------- ![Profile views counter](https://komarev.com/ghpvc/?username=jayantrohila57&style=flat-square&color=86d62f)
 
 - 🔭 I’m currently working on Web-sites, Browser Extensions, Themes & Web Apps.
 - 🌱 I’m currently learning Web Development as Frontend but soon Full-Stack
@@ -9,10 +9,9 @@
 - 😄 Pronouns: Jayant Rohila
 - ⚡ Fun fact: I use tabs over spaces.
 - 👍 Make sure to follow me ok!!
-<br/>  
+  <br/>
 
-## My Skill Set  
-
+## My Skill Set
 
 <div align="left">  
 <img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React" height="50" />  
@@ -33,10 +32,8 @@
 <img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/aftereffects.png" alt="After Effects" height="50" />  
 </div>
 
-
-## Github Stats  
+## Github Stats
 
 <img src="https://github.com/jayantrohila57/stats/blob/master/generated/languages.svg" align="left" />
-
 
 ![](https://github.com/jayantrohila57/stats/blob/master/generated/overview.svg)
