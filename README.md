@@ -1,11 +1,5 @@
-### Hi there Myself Jayant Rohila 👋 ------------------- ![Profile views counter](https://komarev.com/ghpvc/?username=jayantrohila57&style=flat-square&color=86d62f)
-- 💂‍♀️ My Portfolio link:- Jayant-rohila.site ...
-- 🔭 I’m currently working on Web-sites, Browser Extensions, Themes & Web Apps 
-- 🔗 Click this link to check my sites work: https://github.com/jayantrohila57/Websites#readme ...
-- 🌱 I’m currently learning Web Development as Frontend but soon Full-Stack
-- 👯 I’m looking to collaborate on UI of the website & and make it responsive and beautiful.
-- 🤔 I’m looking for help with making React apps with more features.
-- 💬 Ask me about Photoshop, Responsive layout, CSS, or any other query. I'll happily reply...
+-  #  Hi there Myself Jayant Rohila 👋 ------------------- ![Profile views counter](https://komarev.com/ghpvc/?username=jayantrohila57&style=flat-square&color=86d62f)
+- 🔭 I’m currently working on Web-sites, Browser Extensions, Themes & Web Apps, Web Development as Frontend but soon Full-Stack
 - 📫 How to reach me: just click this link: https://linktr.ee/JayantRohila and got all my connections
 - 😄 Pronouns: Jayant Rohila
 - ⚡ Fun fact: I use tabs over spaces.
