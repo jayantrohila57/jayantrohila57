@@ -3,7 +3,7 @@
 ### 🔭 I’m currently working on Web-sites, Themes & Web Apps, made with Full-Stack.
 <br/>👍 Make sure to follow me!! ![Profile views counter](https://komarev.com/ghpvc/?username=jayantrohila57&style=flat-square&color=86d62f)
 <p align="left">
- <a href="https://www.jayantrohila.dev/" target="_blank"><img alt="" src="https://img.shields.io/badge/Portfolio-red?logo=dribbble&logoColor=white" style="vertical-align:center" /></a>
+ <a href="https://jayantrohila.dev/" target="_blank"><img alt="" src="https://img.shields.io/badge/Portfolio-red?logo=dribbble&logoColor=white" style="vertical-align:center" /></a>
 <a href="https://twitter.com/jayant_rohila" target="_blank"><img alt="" src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?logo=Twitter&logoColor=white" style="vertical-align:center" /></a>
 <a href="https://www.linkedin.com/in/jayant-rohila/" target="_blank"><img alt="" src="https://img.shields.io/badge/LinkedIn-0077B5?style=normal&logo=linkedin&logoColor=white" style="vertical-align:center" /></a></a>
 </p><br/>
