@@ -1,23 +1,50 @@
-# 👋 Hi there Jayant Rohila Here        
+# Resume
 
-### 🔭 I’m currently working on Web-sites, Themes & Web Apps, made with Full-Stack.
-<br/>👍 Make sure to follow me!! ![Profile views counter](https://komarev.com/ghpvc/?username=jayantrohila57&style=flat-square&color=86d62f)
-<p align="left">
- <a href="https://jayantrohila.dev/" target="_blank"><img alt="" src="https://img.shields.io/badge/Portfolio-red?logo=dribbble&logoColor=white" style="vertical-align:center" /></a>
-<a href="https://twitter.com/jayant_rohila" target="_blank"><img alt="" src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?logo=Twitter&logoColor=white" style="vertical-align:center" /></a>
-<a href="https://www.linkedin.com/in/jayant-rohila/" target="_blank"><img alt="" src="https://img.shields.io/badge/LinkedIn-0077B5?style=normal&logo=linkedin&logoColor=white" style="vertical-align:center" /></a></a>
-</p><br/>
-  
-## My Skill
+## Summary
 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
-![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
-![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
+My name is Jayant Rohila. I'm 23 and a student who is pursuing CSE Degree lives in India.
+I love Coding and I’m currently working on Websites, Themes & WebApps.
+When I'm not coding, I'm a photographer guy who also loves to listen to lots of songs.
+
+#### About :-
+
+- Nationality Indian
+- Maratial Status : No
+
+#### Address :-
+
+Radha Vihar Colony, Near Numaish Camp, Saharanpur, UttarPradesh 247001.
+
+#### Contact:-
+
+- Phone: +91 7500-310-305
+- GitHub: @jayantrohila57
+- Email: mail@jayantrohila.dev
+
+## Education
+
+- Dev Bhoomi Group of Institutions, Saharanpur\
+   2020 – 2023(Bachelor of Technology, Computer Science)
+
+- DWARIKADHEESH RESEARCH EDUCATION & MGMT SCHOOL\
+  2016 – 2020
+  (Diploma of Education in Computer Science)
+
+## I primarily work with
+
+- NextJs, Js/Ts, Markdown, NPM/NodeJs
+- HTML5, CSS3, Tailwind, Material-UI
+- Netlify, Vercel, Firebase, & Heroku's Hosting
+- REST APIs, PWA, Next-Auth & Stripe
+- Configs, Github Actions, VS Code
+
+## Projects
+
+- Stats On Spotify
+  An Easy Approach To Review Your Spotify Data. Made using Nextjs, Next-Auth, Next-pwa, Tailwind CSS, Spotify API, hosted on Vercel.
+
+- Codethreads
+  CodeThreads is blogging site, Made With Nextjs, Tailwind CSS, GitHub-Template and blog made with Markdown Hosted on Vercel.
+
+- VoltSec
+  The VoltSec.io™ is solution for pinpoint vulnerabilities on web. Made With Nextjs, Tailwind CSS, AOS, Hosted on Vercel.
