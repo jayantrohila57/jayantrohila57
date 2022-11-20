@@ -127,5 +127,5 @@ I believe in implementing the knowledge which I have practice by making Projects
 
 ### Startup Template that I use now & then
 ```
-npx create-next-stack@0.1.6 --package-manager=npm --styling=tailwind-css --react-hook-form --prettier --formatting-pre-commit-hook --framer-motion --github-actions notes
+npx create-next-stack@0.1.6 --package-manager=npm --styling=tailwind-css --react-hook-form --prettier --formatting-pre-commit-hook --framer-motion --github-actions .
 ```
