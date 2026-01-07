@@ -1,8 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { baseMetadata } from "@/config/metadata";
-import type { Viewport } from "next";
 import { ThemeProvider } from "@/components/shared/theme/theme-provider";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { baseViewport } from "@/config/site.config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,10 +18,7 @@ const geistMono = Geist_Mono({
 
 export { baseMetadata as metadata };
 
-export const viewport: Viewport = {
-  themeColor: "#000000",
-  colorScheme: "light dark",
-};
+export { baseViewport as Viewport };
 
 export default function RootLayout({
   children,
@@ -31,7 +30,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Analytics />
+          <SpeedInsights />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

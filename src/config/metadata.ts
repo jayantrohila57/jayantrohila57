@@ -63,7 +63,9 @@ export const baseMetadata: Metadata = {
 
   // Manifest
   manifest: "/manifest.json",
-
+  other: {
+    "msapplication-config": "/browserconfig.xml",
+  },
   // Other metadata
   metadataBase: new URL(siteConfig.siteUrl),
   alternates: {

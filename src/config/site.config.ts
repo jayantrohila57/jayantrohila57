@@ -1,3 +1,5 @@
+import { Viewport } from "next";
+
 export const siteConfig = {
   siteName: "Jayant Rohila",
   siteTitle: "Jayant Rohila - Full Stack Developer",
@@ -66,6 +68,26 @@ export const siteConfig = {
 
 export type SiteConfig = typeof siteConfig;
 
+export const baseViewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    {
+      media: "(prefers-color-scheme: light)",
+      color: siteConfig.theme.backgroundColor,
+    },
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: siteConfig.theme.primaryColor,
+    },
+  ],
+
+  colorScheme: "light dark",
+  viewportFit: "cover",
+  interactiveWidget: "resizes-content",
+};
 // Helper function to get site URL
 export function getSiteUrl() {
   return siteConfig.siteUrl;
