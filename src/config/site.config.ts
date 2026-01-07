@@ -5,7 +5,7 @@ export const siteConfig = {
   siteTitle: "Jayant Rohila - Full Stack Developer",
   siteDescription:
     "Passionate full stack developer building modern web applications with cutting-edge technologies. Specializing in React, Next.js, Node.js, and cloud architecture.",
-  siteUrl: "https://jayantrohila.vercel.app",
+  siteUrl: "https://jayantrohila.com",
 
   author: {
     name: "Jayant Rohila",
@@ -20,7 +20,7 @@ export const siteConfig = {
     github: "https://github.com/jayantrohila57",
     linkedin: "https://linkedin.com/in/jayantrohila",
     twitter: "https://twitter.com/jayantrohila",
-    website: "https://jayantrohila.vercel.app",
+    website: "https://jayantrohila.com",
     devto: "https://dev.to/jayantrohila",
     codepen: "https://codepen.io/jayantrohila",
     stackoverflow: "https://stackoverflow.com/users/12345678/jayant-rohila",
