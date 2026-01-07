@@ -1,0 +1,76 @@
+[
+  {
+    "category": "Frontend",
+    "items": [
+      { "name": "React", "icon": "react", "proficiency": "expert" },
+      { "name": "Next.js", "icon": "nextjs", "proficiency": "expert" },
+      { "name": "TypeScript", "icon": "typescript", "proficiency": "expert" },
+      {
+        "name": "Tailwind CSS",
+        "icon": "tailwindcss",
+        "proficiency": "advanced"
+      },
+      { "name": "HTML5", "icon": "html5", "proficiency": "expert" },
+      { "name": "CSS3", "icon": "css", "proficiency": "expert" }
+    ]
+  },
+  {
+    "category": "Backend",
+    "items": [
+      { "name": "Node.js", "icon": "nodejs", "proficiency": "expert" },
+      { "name": "Express", "icon": "express", "proficiency": "advanced" },
+      { "name": "Python", "icon": "python", "proficiency": "advanced" },
+      { "name": "Go", "icon": "go", "proficiency": "intermediate" },
+      { "name": "GraphQL", "icon": "graphql", "proficiency": "advanced" },
+      { "name": "REST API", "icon": "api", "proficiency": "expert" }
+    ]
+  },
+  {
+    "category": "Database",
+    "items": [
+      { "name": "PostgreSQL", "icon": "postgresql", "proficiency": "expert" },
+      { "name": "MongoDB", "icon": "mongodb", "proficiency": "advanced" },
+      { "name": "Redis", "icon": "redis", "proficiency": "advanced" },
+      {
+        "name": "Elasticsearch",
+        "icon": "elasticsearch",
+        "proficiency": "intermediate"
+      }
+    ]
+  },
+  {
+    "category": "Cloud & DevOps",
+    "items": [
+      { "name": "AWS", "icon": "aws", "proficiency": "advanced" },
+      { "name": "Docker", "icon": "docker", "proficiency": "expert" },
+      { "name": "Kubernetes", "icon": "kubernetes", "proficiency": "advanced" },
+      {
+        "name": "Terraform",
+        "icon": "terraform",
+        "proficiency": "intermediate"
+      },
+      { "name": "GitHub Actions", "icon": "github", "proficiency": "advanced" },
+      { "name": "Vercel", "icon": "vercel", "proficiency": "expert" }
+    ]
+  },
+  {
+    "category": "Messaging & Streaming",
+    "items": [
+      {
+        "name": "Apache Kafka",
+        "icon": "apache-kafka",
+        "proficiency": "advanced"
+      },
+      { "name": "RabbitMQ", "icon": "rabbitmq", "proficiency": "intermediate" }
+    ]
+  },
+  {
+    "category": "Tools & Collaboration",
+    "items": [
+      { "name": "Git", "icon": "git", "proficiency": "expert" },
+      { "name": "VS Code", "icon": "vscode", "proficiency": "expert" },
+      { "name": "Figma", "icon": "figma", "proficiency": "intermediate" },
+      { "name": "Notion", "icon": "notion", "proficiency": "advanced" }
+    ]
+  }
+]

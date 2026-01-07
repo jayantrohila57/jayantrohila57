@@ -1,0 +1,177 @@
+[
+  {
+    "id": "1",
+    "company": "TechCorp Solutions",
+    "companyUrl": "https://techcorp.example.com",
+    "logo": "/companies/techcorp.svg",
+    "location": "San Francisco, CA (Remote)",
+    "type": "full-time",
+    "roles": [
+      {
+        "title": "Senior Full-Stack Developer",
+        "startDate": "2023-01",
+        "endDate": "Present",
+        "description": "Leading development of enterprise SaaS products serving Fortune 500 clients. Architecting scalable solutions and mentoring junior developers.",
+        "achievements": [
+          "Architected and delivered FinFlow platform processing $2B+ monthly transactions",
+          "Reduced API response times by 70% through database optimization and caching strategies",
+          "Led migration from monolith to microservices, improving deployment frequency by 400%",
+          "Mentored team of 5 developers, establishing code review practices and documentation standards"
+        ],
+        "tech": [
+          "Next.js",
+          "TypeScript",
+          "Node.js",
+          "PostgreSQL",
+          "Redis",
+          "AWS",
+          "Docker",
+          "Kubernetes"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "company": "CloudScale Inc.",
+    "companyUrl": "https://cloudscale.example.com",
+    "logo": "/companies/cloudscale.svg",
+    "location": "New York, NY (Hybrid)",
+    "type": "full-time",
+    "roles": [
+      {
+        "title": "Senior Backend Developer",
+        "startDate": "2021-06",
+        "endDate": "2022-12",
+        "description": "Built core infrastructure for a headless e-commerce platform serving 200+ online stores. Focused on high-availability systems and event-driven architecture.",
+        "achievements": [
+          "Designed event-driven architecture handling 50K+ concurrent users during peak traffic",
+          "Implemented multi-tenant data isolation achieving complete security compliance",
+          "Built real-time inventory synchronization system reducing overselling incidents by 99%",
+          "Established observability practices with Prometheus and Grafana, reducing MTTR by 60%"
+        ],
+        "tech": [
+          "Node.js",
+          "MongoDB",
+          "Kafka",
+          "Redis",
+          "Elasticsearch",
+          "AWS",
+          "Kubernetes",
+          "Terraform"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "company": "HealthFirst Technologies",
+    "companyUrl": "https://healthfirst.example.com",
+    "logo": "/companies/healthfirst.svg",
+    "location": "Boston, MA (On-site)",
+    "type": "full-time",
+    "roles": [
+      {
+        "title": "Lead Developer",
+        "startDate": "2020-03",
+        "endDate": "2021-05",
+        "description": "Led development of HIPAA-compliant patient portal serving 100K+ users. Managed a cross-functional team and coordinated with healthcare providers.",
+        "achievements": [
+          "Delivered patient portal that increased online appointment bookings by 40%",
+          "Achieved HIPAA compliance certification within 6 months of development start",
+          "Integrated with 8 different EHR systems using FHIR standards",
+          "Implemented telehealth video consultations seeing 10K+ monthly sessions"
+        ],
+        "tech": [
+          "React",
+          "Node.js",
+          "PostgreSQL",
+          "AWS",
+          "WebRTC",
+          "FHIR",
+          "Docker"
+        ]
+      },
+      {
+        "title": "Full-Stack Developer",
+        "startDate": "2019-01",
+        "endDate": "2020-02",
+        "description": "Developed features for healthcare management applications and internal tools.",
+        "achievements": [
+          "Built insurance claim processing module reducing manual work by 70%",
+          "Created automated reporting system for compliance documentation",
+          "Improved application performance by implementing lazy loading and code splitting"
+        ],
+        "tech": ["React", "Node.js", "PostgreSQL", "Redis", "Docker"]
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "company": "StartupHub",
+    "companyUrl": "https://startuphub.example.com",
+    "logo": "/companies/startuphub.svg",
+    "location": "Remote",
+    "type": "full-time",
+    "roles": [
+      {
+        "title": "Full-Stack Developer",
+        "startDate": "2018-06",
+        "endDate": "2018-12",
+        "description": "Early-stage startup developing social media management tools. Worked across the entire stack in a fast-paced environment.",
+        "achievements": [
+          "Built social media scheduling API handling 1M+ daily posts",
+          "Implemented cross-platform publishing for Twitter, Facebook, LinkedIn, and Instagram",
+          "Developed analytics dashboard providing actionable insights for content performance",
+          "Created automated rate limit management system maximizing API utilization"
+        ],
+        "tech": ["Node.js", "React", "MongoDB", "Redis", "AWS", "Docker"]
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "company": "Digital Agency Co.",
+    "companyUrl": "https://digitalagency.example.com",
+    "logo": "/companies/digitalagency.svg",
+    "location": "Mumbai, India",
+    "type": "full-time",
+    "roles": [
+      {
+        "title": "Junior Developer",
+        "startDate": "2017-01",
+        "endDate": "2018-05",
+        "description": "Started career building web applications for agency clients across various industries.",
+        "achievements": [
+          "Delivered 15+ client projects including e-commerce sites and corporate portals",
+          "Learned and applied responsive design principles across all projects",
+          "Introduced version control (Git) and improved team collaboration workflows",
+          "Built first real estate CRM that became a long-term client product"
+        ],
+        "tech": ["JavaScript", "React", "Node.js", "MySQL", "WordPress", "PHP"]
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "company": "Freelance",
+    "companyUrl": null,
+    "logo": null,
+    "location": "Remote",
+    "type": "freelance",
+    "roles": [
+      {
+        "title": "Freelance Developer",
+        "startDate": "2016-06",
+        "endDate": "2016-12",
+        "description": "Freelance web development while completing education. Built small business websites and learned web fundamentals.",
+        "achievements": [
+          "Completed 10+ freelance projects for local businesses",
+          "Developed strong client communication and project management skills",
+          "Self-taught React and Node.js through real project work"
+        ],
+        "tech": ["HTML", "CSS", "JavaScript", "PHP", "WordPress"]
+      }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "name": "Jayant Rohila",
+  "role": "Senior Full-Stack Developer",
+  "summary": "I architect and build high-performance web applications that scale. With 6+ years of experience, I specialize in React, Next.js, Node.js, and cloud infrastructure. I'm passionate about clean code, system design, and delivering exceptional user experiences.",
+  "bio": "I'm a Senior Full-Stack Developer based in India with a passion for building products that make a difference. I've worked with startups and enterprises alike, helping them scale their engineering teams and ship products that users love.\n\nMy expertise spans the entire development lifecycle – from initial architecture decisions to deployment and monitoring. I believe in writing code that's not just functional, but maintainable and scalable.\n\nWhen I'm not coding, you'll find me writing about system design, mentoring developers, or exploring new technologies. I'm always open to interesting projects and collaborations.",
+  "location": "India",
+  "email": "hello@jayant-rohila.dev",
+  "phone": "+91 98765 43210",
+  "availability": {
+    "status": "available",
+    "message": "Open to new opportunities and freelance projects"
+  },
+  "avatar": "/avatar.jpg",
+  "resume": "/resume.pdf",
+  "social": [
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/jayantrohila",
+      "icon": "GitHub",
+      "label": "GitHub Profile"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/jayantrohila",
+      "icon": "LinkedIn",
+      "label": "LinkedIn Profile"
+    },
+    {
+      "platform": "Twitter",
+      "url": "https://twitter.com/jayantrohila",
+      "icon": "Twitter",
+      "label": "Twitter Profile"
+    },
+    {
+      "platform": "Dev.to",
+      "url": "https://dev.to/jayantrohila",
+      "icon": "DevTo",
+      "label": "Dev.to Articles"
+    }
+  ]
+}

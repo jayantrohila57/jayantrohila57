@@ -1,0 +1,505 @@
+[
+  {
+    "id": "1",
+    "slug": "finflow-saas",
+    "title": "FinFlow SaaS Platform",
+    "subtitle": "Enterprise Financial Management Solution",
+    "description": "A comprehensive financial management platform serving 500+ enterprise clients with real-time analytics, automated reporting, and multi-currency support.",
+    "featured": true,
+    "category": "SaaS",
+    "role": "Lead Full-Stack Developer",
+    "year": 2024,
+    "duration": "8 months",
+    "thumbnail": "/projects/finflow-thumb.jpg",
+    "images": [
+      "/projects/finflow-1.jpg",
+      "/projects/finflow-2.jpg",
+      "/projects/finflow-3.jpg"
+    ],
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Redis",
+      "AWS",
+      "Stripe",
+      "Docker"
+    ],
+    "liveUrl": "https://finflow.example.com",
+    "githubUrl": null,
+    "overview": "FinFlow is an enterprise-grade financial management platform that helps CFOs and finance teams gain real-time visibility into their company's financial health. The platform processes over $2B in transactions monthly and serves clients across 40+ countries.",
+    "architecture": "Microservices architecture with Next.js frontend, Node.js API gateway, and specialized services for transactions, reporting, and notifications. Uses PostgreSQL with read replicas for analytics and Redis for caching and real-time features.",
+    "challenges": [
+      {
+        "title": "Multi-Currency Transaction Processing",
+        "description": "Implemented a robust currency conversion system with real-time exchange rates, handling complex scenarios like multi-leg transactions and historical rate lookups."
+      },
+      {
+        "title": "Real-Time Dashboard Performance",
+        "description": "Optimized dashboard queries to handle millions of records with sub-second response times using materialized views and smart caching strategies."
+      }
+    ],
+    "results": [
+      {
+        "metric": "Transaction Volume",
+        "value": "$2B+/month",
+        "description": "Monthly transaction volume processed through the platform"
+      },
+      {
+        "metric": "Query Performance",
+        "value": "95% under 200ms",
+        "description": "Dashboard queries completing within SLA"
+      },
+      {
+        "metric": "Client Growth",
+        "value": "300%",
+        "description": "Year-over-year client acquisition growth"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "slug": "commerce-cloud",
+    "title": "Commerce Cloud Platform",
+    "subtitle": "Headless E-Commerce Infrastructure",
+    "description": "A headless e-commerce platform powering 200+ online stores with multi-tenant architecture, inventory management, and payment processing.",
+    "featured": true,
+    "category": "E-Commerce",
+    "role": "Senior Backend Developer",
+    "year": 2023,
+    "duration": "12 months",
+    "thumbnail": "/projects/commerce-thumb.jpg",
+    "images": ["/projects/commerce-1.jpg", "/projects/commerce-2.jpg"],
+    "tech": [
+      "Node.js",
+      "MongoDB",
+      "Kafka",
+      "Redis",
+      "Elasticsearch",
+      "AWS",
+      "Kubernetes"
+    ],
+    "liveUrl": "https://commerce-cloud.example.com",
+    "githubUrl": null,
+    "overview": "Commerce Cloud is a headless e-commerce infrastructure that enables businesses to build custom storefronts while leveraging a powerful, scalable backend. The platform handles 50K+ concurrent users during peak sales events.",
+    "architecture": "Event-driven microservices using Kafka for inter-service communication. MongoDB for flexible product catalogs, Elasticsearch for search, and Redis for session management and caching.",
+    "challenges": [
+      {
+        "title": "Black Friday Scale",
+        "description": "Designed and implemented auto-scaling strategies to handle 10x normal traffic during peak sales events without service degradation."
+      },
+      {
+        "title": "Multi-Tenant Data Isolation",
+        "description": "Built a secure multi-tenant architecture ensuring complete data isolation while maintaining efficient resource utilization."
+      }
+    ],
+    "results": [
+      {
+        "metric": "Concurrent Users",
+        "value": "50K+",
+        "description": "Peak concurrent users handled during sales events"
+      },
+      {
+        "metric": "Uptime",
+        "value": "99.99%",
+        "description": "Platform availability over 12 months"
+      },
+      {
+        "metric": "API Latency",
+        "value": "p99 < 100ms",
+        "description": "99th percentile API response time"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "slug": "analytics-dashboard",
+    "title": "Real-Time Analytics Dashboard",
+    "subtitle": "Business Intelligence Platform",
+    "description": "A real-time analytics dashboard processing 10M+ events daily with interactive visualizations and custom reporting.",
+    "featured": true,
+    "category": "Dashboard",
+    "role": "Full-Stack Developer",
+    "year": 2023,
+    "duration": "6 months",
+    "thumbnail": "/projects/analytics-thumb.jpg",
+    "images": ["/projects/analytics-1.jpg", "/projects/analytics-2.jpg"],
+    "tech": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "ClickHouse",
+      "Apache Kafka",
+      "D3.js",
+      "Docker"
+    ],
+    "liveUrl": null,
+    "githubUrl": "https://github.com/jayantrohila/analytics-dashboard",
+    "overview": "A comprehensive business intelligence platform that transforms raw event data into actionable insights. Features real-time dashboards, custom report builders, and automated alerting.",
+    "architecture": "Stream processing pipeline using Kafka for event ingestion, ClickHouse for analytics storage, and React with D3.js for interactive visualizations. Node.js API layer with GraphQL.",
+    "challenges": [
+      {
+        "title": "Real-Time Data Processing",
+        "description": "Implemented a stream processing pipeline capable of handling 10M+ events daily with sub-second latency for dashboard updates."
+      },
+      {
+        "title": "Custom Visualization Engine",
+        "description": "Built a flexible chart builder allowing users to create custom visualizations without coding knowledge."
+      }
+    ],
+    "results": [
+      {
+        "metric": "Events Processed",
+        "value": "10M+/day",
+        "description": "Daily event processing capacity"
+      },
+      {
+        "metric": "Dashboard Load Time",
+        "value": "< 2s",
+        "description": "Average dashboard initial load time"
+      },
+      {
+        "metric": "User Adoption",
+        "value": "85%",
+        "description": "DAU/MAU ratio indicating strong engagement"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "slug": "payment-gateway-api",
+    "title": "Payment Gateway API",
+    "subtitle": "Financial Infrastructure",
+    "description": "A PCI-DSS compliant payment gateway processing $500M+ annually with support for multiple payment methods and currencies.",
+    "featured": false,
+    "category": "Fintech",
+    "role": "Backend Developer",
+    "year": 2022,
+    "duration": "10 months",
+    "thumbnail": "/projects/payment-thumb.jpg",
+    "images": ["/projects/payment-1.jpg"],
+    "tech": ["Node.js", "PostgreSQL", "Redis", "RabbitMQ", "AWS", "Terraform"],
+    "liveUrl": null,
+    "githubUrl": null,
+    "overview": "A secure, scalable payment gateway that handles credit cards, bank transfers, and digital wallets. Built with security-first architecture and comprehensive audit logging.",
+    "architecture": "Distributed system with dedicated services for payment processing, fraud detection, and reconciliation. Uses PostgreSQL with encryption at rest and Redis for rate limiting.",
+    "challenges": [
+      {
+        "title": "PCI-DSS Compliance",
+        "description": "Implemented comprehensive security measures including tokenization, encryption, and audit logging to achieve PCI-DSS Level 1 certification."
+      },
+      {
+        "title": "Multi-Provider Failover",
+        "description": "Built intelligent routing system with automatic failover between payment providers ensuring 99.99% transaction success rate."
+      }
+    ],
+    "results": [
+      {
+        "metric": "Transaction Volume",
+        "value": "$500M+/year",
+        "description": "Annual payment volume processed"
+      },
+      {
+        "metric": "Success Rate",
+        "value": "99.99%",
+        "description": "Transaction success rate with failover"
+      },
+      {
+        "metric": "Fraud Prevention",
+        "value": "98.5%",
+        "description": "Fraudulent transaction detection rate"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "slug": "devops-automation",
+    "title": "DevOps Automation Platform",
+    "subtitle": "CI/CD Infrastructure",
+    "description": "A comprehensive DevOps platform automating deployments across 50+ microservices with integrated monitoring and rollback capabilities.",
+    "featured": false,
+    "category": "DevOps",
+    "role": "DevOps Engineer",
+    "year": 2022,
+    "duration": "5 months",
+    "thumbnail": "/projects/devops-thumb.jpg",
+    "images": ["/projects/devops-1.jpg", "/projects/devops-2.jpg"],
+    "tech": [
+      "Go",
+      "Kubernetes",
+      "ArgoCD",
+      "Prometheus",
+      "Grafana",
+      "Terraform",
+      "AWS"
+    ],
+    "liveUrl": null,
+    "githubUrl": "https://github.com/jayantrohila/devops-platform",
+    "overview": "An internal platform that standardizes and automates the software delivery lifecycle. Features GitOps workflows, progressive rollouts, and integrated observability.",
+    "architecture": "GitOps-based architecture using ArgoCD for deployments, Terraform for infrastructure, and a custom Go service for workflow orchestration. Prometheus and Grafana for monitoring.",
+    "challenges": [
+      {
+        "title": "Zero-Downtime Deployments",
+        "description": "Implemented canary deployments with automatic rollback based on error rate thresholds, achieving true zero-downtime releases."
+      },
+      {
+        "title": "Multi-Environment Management",
+        "description": "Built configuration management system handling dev, staging, and production environments with proper secret management."
+      }
+    ],
+    "results": [
+      {
+        "metric": "Deploy Frequency",
+        "value": "50+/day",
+        "description": "Daily deployments across all services"
+      },
+      {
+        "metric": "Lead Time",
+        "value": "< 15 min",
+        "description": "Time from commit to production"
+      },
+      {
+        "metric": "Rollback Time",
+        "value": "< 30 sec",
+        "description": "Automatic rollback execution time"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "slug": "healthcare-portal",
+    "title": "Healthcare Patient Portal",
+    "subtitle": "HIPAA Compliant Platform",
+    "description": "A patient portal serving 100K+ users with appointment scheduling, medical records access, and telehealth integration.",
+    "featured": true,
+    "category": "Healthcare",
+    "role": "Lead Developer",
+    "year": 2021,
+    "duration": "14 months",
+    "thumbnail": "/projects/healthcare-thumb.jpg",
+    "images": ["/projects/healthcare-1.jpg", "/projects/healthcare-2.jpg"],
+    "tech": ["React", "Node.js", "PostgreSQL", "AWS", "WebRTC", "FHIR"],
+    "liveUrl": null,
+    "githubUrl": null,
+    "overview": "A comprehensive patient engagement platform enabling healthcare providers to offer digital services. Includes appointment booking, secure messaging, and video consultations.",
+    "architecture": "Monolithic backend with React frontend, PostgreSQL with row-level security, and WebRTC for video calls. Implements FHIR standards for healthcare interoperability.",
+    "challenges": [
+      {
+        "title": "HIPAA Compliance",
+        "description": "Implemented comprehensive security controls including encryption, access logging, and automatic session management to meet HIPAA requirements."
+      },
+      {
+        "title": "EHR Integration",
+        "description": "Built FHIR-compliant APIs to integrate with multiple Electronic Health Record systems for seamless data exchange."
+      }
+    ],
+    "results": [
+      {
+        "metric": "Active Users",
+        "value": "100K+",
+        "description": "Monthly active patients using the portal"
+      },
+      {
+        "metric": "Appointment Bookings",
+        "value": "40% increase",
+        "description": "Increase in online appointment bookings"
+      },
+      {
+        "metric": "Patient Satisfaction",
+        "value": "4.8/5",
+        "description": "Average patient satisfaction rating"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "slug": "inventory-management",
+    "title": "Inventory Management System",
+    "subtitle": "Supply Chain Optimization",
+    "description": "An AI-powered inventory management system reducing stockouts by 60% through predictive analytics and automated reordering.",
+    "featured": false,
+    "category": "Enterprise",
+    "role": "Senior Developer",
+    "year": 2021,
+    "duration": "8 months",
+    "thumbnail": "/projects/inventory-thumb.jpg",
+    "images": ["/projects/inventory-1.jpg"],
+    "tech": ["Python", "React", "PostgreSQL", "TensorFlow", "Redis", "Docker"],
+    "liveUrl": null,
+    "githubUrl": null,
+    "overview": "An intelligent inventory management platform that uses machine learning to predict demand and optimize stock levels. Integrates with ERP systems and supplier APIs.",
+    "architecture": "Python backend with TensorFlow for demand forecasting, React dashboard, and PostgreSQL for inventory data. Redis for real-time stock level tracking.",
+    "challenges": [
+      {
+        "title": "Demand Forecasting",
+        "description": "Built ML models considering seasonality, trends, and external factors to predict inventory demand with 92% accuracy."
+      },
+      {
+        "title": "Real-Time Stock Sync",
+        "description": "Implemented real-time synchronization across multiple warehouses and sales channels with conflict resolution."
+      }
+    ],
+    "results": [
+      {
+        "metric": "Stockout Reduction",
+        "value": "60%",
+        "description": "Reduction in stockout incidents"
+      },
+      {
+        "metric": "Forecast Accuracy",
+        "value": "92%",
+        "description": "Demand prediction accuracy"
+      },
+      {
+        "metric": "Inventory Costs",
+        "value": "25% reduction",
+        "description": "Reduction in carrying costs"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "slug": "social-media-api",
+    "title": "Social Media API Platform",
+    "subtitle": "Content Management Infrastructure",
+    "description": "A social media management API handling 1M+ daily posts with content scheduling, analytics, and multi-platform publishing.",
+    "featured": false,
+    "category": "API",
+    "role": "Backend Developer",
+    "year": 2020,
+    "duration": "7 months",
+    "thumbnail": "/projects/social-thumb.jpg",
+    "images": ["/projects/social-1.jpg", "/projects/social-2.jpg"],
+    "tech": ["Node.js", "MongoDB", "Redis", "Bull", "AWS SQS", "Docker"],
+    "liveUrl": null,
+    "githubUrl": "https://github.com/jayantrohila/social-api",
+    "overview": "A robust API platform enabling businesses to manage their social media presence across multiple platforms. Features scheduled posting, engagement analytics, and content optimization.",
+    "architecture": "Node.js API with MongoDB for content storage, Bull queues for scheduled posts, and Redis for caching. Connects to Twitter, Facebook, LinkedIn, and Instagram APIs.",
+    "challenges": [
+      {
+        "title": "Rate Limit Management",
+        "description": "Built intelligent rate limiting and request queuing system to maximize API utilization while respecting platform limits."
+      },
+      {
+        "title": "Cross-Platform Publishing",
+        "description": "Unified content format with automatic adaptation for each platform's requirements and character limits."
+      }
+    ],
+    "results": [
+      {
+        "metric": "Daily Posts",
+        "value": "1M+",
+        "description": "Posts published daily across platforms"
+      },
+      {
+        "metric": "API Uptime",
+        "value": "99.95%",
+        "description": "Service availability"
+      },
+      {
+        "metric": "Client Retention",
+        "value": "96%",
+        "description": "Annual client retention rate"
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "slug": "learning-platform",
+    "title": "E-Learning Platform",
+    "subtitle": "Educational Technology",
+    "description": "An interactive e-learning platform with video streaming, progress tracking, and gamification serving 50K+ students.",
+    "featured": false,
+    "category": "EdTech",
+    "role": "Full-Stack Developer",
+    "year": 2020,
+    "duration": "9 months",
+    "thumbnail": "/projects/learning-thumb.jpg",
+    "images": ["/projects/learning-1.jpg"],
+    "tech": [
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "AWS S3",
+      "CloudFront",
+      "Stripe"
+    ],
+    "liveUrl": "https://learning.example.com",
+    "githubUrl": null,
+    "overview": "A comprehensive e-learning platform offering video courses, interactive quizzes, and certification programs. Features adaptive learning paths and progress analytics.",
+    "architecture": "Next.js frontend with Node.js API, PostgreSQL for user and course data, AWS S3 and CloudFront for video delivery, and Stripe for subscriptions.",
+    "challenges": [
+      {
+        "title": "Video Streaming at Scale",
+        "description": "Implemented adaptive bitrate streaming with CDN delivery ensuring smooth playback for users worldwide."
+      },
+      {
+        "title": "Gamification Engine",
+        "description": "Built a flexible achievement and badge system that increased course completion rates by 45%."
+      }
+    ],
+    "results": [
+      {
+        "metric": "Active Students",
+        "value": "50K+",
+        "description": "Monthly active learners"
+      },
+      {
+        "metric": "Completion Rate",
+        "value": "72%",
+        "description": "Course completion rate"
+      },
+      {
+        "metric": "NPS Score",
+        "value": "68",
+        "description": "Net Promoter Score from student surveys"
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "slug": "real-estate-crm",
+    "title": "Real Estate CRM",
+    "subtitle": "Property Management Solution",
+    "description": "A CRM platform for real estate agencies managing 10K+ property listings with lead tracking and automated follow-ups.",
+    "featured": false,
+    "category": "CRM",
+    "role": "Full-Stack Developer",
+    "year": 2019,
+    "duration": "6 months",
+    "thumbnail": "/projects/realestate-thumb.jpg",
+    "images": ["/projects/realestate-1.jpg"],
+    "tech": ["React", "Node.js", "PostgreSQL", "Redis", "Twilio", "SendGrid"],
+    "liveUrl": null,
+    "githubUrl": null,
+    "overview": "A specialized CRM for real estate agencies featuring property listings, lead management, automated communications, and performance analytics for agents.",
+    "architecture": "React SPA with Node.js API, PostgreSQL for data storage, Redis for caching, and Twilio/SendGrid for automated communications.",
+    "challenges": [
+      {
+        "title": "Lead Scoring Algorithm",
+        "description": "Developed a lead scoring system using engagement data and property preferences to prioritize follow-ups effectively."
+      },
+      {
+        "title": "Automated Follow-up Sequences",
+        "description": "Built a flexible automation engine for multi-channel follow-up sequences with personalization."
+      }
+    ],
+    "results": [
+      {
+        "metric": "Property Listings",
+        "value": "10K+",
+        "description": "Active property listings managed"
+      },
+      {
+        "metric": "Lead Conversion",
+        "value": "35% increase",
+        "description": "Improvement in lead conversion rate"
+      },
+      {
+        "metric": "Agent Productivity",
+        "value": "50% increase",
+        "description": "Increase in deals closed per agent"
+      }
+    ]
+  }
+]

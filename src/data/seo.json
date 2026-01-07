@@ -1,0 +1,28 @@
+{
+  "titleTemplate": "%s | Jayant Rohila",
+  "defaultTitle": "Jayant Rohila - Senior Full-Stack Developer",
+  "defaultDescription": "Senior Full-Stack Developer with 6+ years of experience building scalable web applications, SaaS platforms, and distributed systems using React, Next.js, Node.js, and cloud technologies.",
+  "keywords": [
+    "Full-Stack Developer",
+    "Senior Software Engineer",
+    "React Developer",
+    "Next.js Developer",
+    "Node.js Developer",
+    "TypeScript",
+    "AWS",
+    "System Design",
+    "Web Development",
+    "SaaS Development"
+  ],
+  "openGraph": {
+    "type": "website",
+    "locale": "en_US",
+    "siteName": "Jayant Rohila Portfolio",
+    "defaultImage": "/og-image.jpg"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@jayantrohila",
+    "creator": "@jayantrohila"
+  }
+}

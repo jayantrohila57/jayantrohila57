@@ -1,15 +1,13 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
+import { Poppins, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/layout";
 import "./globals.css";
 import { baseMetadata } from "@/config/metadata";
-import { ThemeProvider } from "@/components/theme/theme-provider";
-import { ServiceWorkerProvider } from "@/components/sw/service-worker-provider";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { baseViewport } from "@/config/site.config";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 const geistMono = Geist_Mono({
@@ -17,8 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export { baseMetadata as metadata };
-export { baseViewport as Viewport };
+export const metadata: Metadata = baseMetadata;
 
 export default function RootLayout({
   children,
@@ -27,13 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider>
-          <ServiceWorkerProvider />
-          <Analytics />
-          <SpeedInsights />
+      <body className={`${poppins.variable} ${geistMono.variable} antialiased`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
       </body>
