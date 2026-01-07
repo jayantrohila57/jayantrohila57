@@ -42,10 +42,11 @@ export const siteConfig = {
       "portfolio",
       "jayant rohila",
     ],
-    ogImage: "/og-image.png",
-    twitterImage: "/twitter-image.png",
-    favicon: "/favicon.ico",
+    ogImage: "/opengraph-image",
+    twitterImage: "/twitter-image",
+    favicon: "/icon",
     robots: "index",
+    locale: "en_US",
   },
 
   theme: {

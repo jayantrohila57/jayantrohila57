@@ -17,7 +17,7 @@ export const baseMetadata: Metadata = {
   // Open Graph
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: siteConfig.seo.locale || "en_US",
     url: siteConfig.siteUrl,
     title: siteConfig.siteTitle,
     description: siteConfig.siteDescription,
@@ -38,7 +38,7 @@ export const baseMetadata: Metadata = {
     title: siteConfig.siteTitle,
     description: siteConfig.siteDescription,
     images: [`${siteConfig.siteUrl}/twitter-image`],
-    creator: "@jayantrohila",
+    creator: siteConfig.social.twitter ? `@${siteConfig.social.twitter.split("twitter.com/")[1]}` : undefined,
   },
 
   // Apple Web App
