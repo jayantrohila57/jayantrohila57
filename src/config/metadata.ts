@@ -24,7 +24,7 @@ export const baseMetadata: Metadata = {
     siteName: siteConfig.siteName,
     images: [
       {
-        url: `${siteConfig.siteUrl}/opengraph-image`,
+        url: `${siteConfig.siteUrl}/api/image?type=og`,
         width: 1200,
         height: 630,
         alt: `${siteConfig.siteName} - ${siteConfig.siteDescription}`,
@@ -37,8 +37,10 @@ export const baseMetadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.siteTitle,
     description: siteConfig.siteDescription,
-    images: [`${siteConfig.siteUrl}/twitter-image`],
-    creator: siteConfig.social.twitter ? `@${siteConfig.social.twitter.split("twitter.com/")[1]}` : undefined,
+    images: [`${siteConfig.siteUrl}/api/image?type=twitter`],
+    creator: siteConfig.social.twitter
+      ? `@${siteConfig.social.twitter.split("twitter.com/")[1]}`
+      : undefined,
   },
 
   // Apple Web App
@@ -46,6 +48,11 @@ export const baseMetadata: Metadata = {
     capable: true,
     statusBarStyle: "black-translucent",
     title: siteConfig.siteName,
+  },
+
+  // Web App Metadata
+  formatDetection: {
+    telephone: false,
   },
 
   // Robots
@@ -63,15 +70,24 @@ export const baseMetadata: Metadata = {
 
   // Icons
   icons: {
-    icon: siteConfig.seo.favicon || "/icon",
-    shortcut: "/icon",
-    apple: "/icon",
+    icon: "/api/image?type=icon&size=192",
+    shortcut: "/api/image?type=icon&size=192",
+    apple: "/api/image?type=apple&size=180",
   },
 
   // Manifest
-  manifest: "/manifest.json",
+  manifest: "/manifest.webmanifest",
   other: {
     "msapplication-config": "/browserconfig.xml",
+    "msapplication-TileColor": siteConfig.theme.primaryColor,
+    "theme-color": siteConfig.theme.primaryColor,
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "apple-mobile-web-app-title": siteConfig.siteName,
+    "application-name": siteConfig.siteName,
+    "msapplication-starturl": "/",
+    "msapplication-TileImage": "/api/image?type=icon&size=150",
   },
   // Other metadata
   metadataBase: new URL(siteConfig.siteUrl),

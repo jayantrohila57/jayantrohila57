@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["Jayant", "opengraph", "Rohila"]
+  "cSpell.words": ["Jayant", "opengraph", "Rohila"],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

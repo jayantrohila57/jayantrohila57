@@ -1,4 +1,4 @@
-import { ImageResponse } from "next/og";
+import { redirect } from "next/navigation";
 
 export const size = {
   width: 32,
@@ -7,23 +7,5 @@ export const size = {
 export const contentType = "image/png";
 
 export default function Icon() {
-  return new ImageResponse(
-    <div
-      style={{
-        fontSize: 22,
-        background: "black",
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "white",
-      }}
-    >
-      JR
-    </div>,
-    {
-      ...size,
-    },
-  );
+  redirect("/api/image?type=icon&size=32");
 }
