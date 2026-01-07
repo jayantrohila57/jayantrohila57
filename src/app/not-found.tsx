@@ -4,8 +4,6 @@ import Link from "next/link";
 import { Home } from "lucide-react";
 import { siteConfig } from "@/config/site.config";
 import { Button } from "@/components/ui/button";
-import { BackButton } from "@/components/not-found/back-button";
-import { TryAgainButton } from "@/components/not-found/try-again-button";
 
 export default function NotFound() {
   return (
@@ -40,10 +38,6 @@ export default function NotFound() {
               Back to Home
             </Link>
           </Button>
-
-          <BackButton />
-
-          <TryAgainButton />
         </div>
 
         {/* Helpful Links */}

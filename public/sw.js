@@ -18,7 +18,7 @@ self.addEventListener("install", (event) => {
     caches
       .open(STATIC_CACHE)
       .then((cache) => cache.addAll([OFFLINE_URL, "/manifest.webmanifest"]))
-      .catch(() => {})
+      .catch(() => {}),
   );
   self.skipWaiting();
 });
@@ -26,13 +26,15 @@ self.addEventListener("install", (event) => {
 /* ------------------ ACTIVATE ------------------ */
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => !key.includes(VERSION))
-          .map((key) => caches.delete(key))
-      )
-    )
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((key) => !key.includes(VERSION))
+            .map((key) => caches.delete(key)),
+        ),
+      ),
   );
   self.clients.claim();
 });
@@ -56,9 +58,7 @@ self.addEventListener("fetch", (event) => {
 
   /* ---------- NAVIGATION (Network → Offline) ---------- */
   if (request.mode === "navigate") {
-    event.respondWith(
-      fetch(request).catch(() => caches.match(OFFLINE_URL))
-    );
+    event.respondWith(fetch(request).catch(() => caches.match(OFFLINE_URL)));
     return;
   }
 
@@ -89,7 +89,7 @@ self.addEventListener("fetch", (event) => {
             return response;
           })
           .catch(() => undefined);
-      })
+      }),
     );
   }
 });

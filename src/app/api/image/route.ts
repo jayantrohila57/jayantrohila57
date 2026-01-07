@@ -1,8 +1,6 @@
 import { createElement } from "react";
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-
 /**
  * Supported query params:
  * - type: icon | apple | maskable | og | twitter | screenshot
