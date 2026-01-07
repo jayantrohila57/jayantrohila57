@@ -24,7 +24,7 @@ export const baseMetadata: Metadata = {
     siteName: siteConfig.siteName,
     images: [
       {
-        url: siteConfig.seo.ogImage || "/og-image.png",
+        url: siteConfig.seo.ogImage || "/opengraph-image",
         width: 1200,
         height: 630,
         alt: `${siteConfig.siteName} - ${siteConfig.siteDescription}`,
@@ -37,7 +37,7 @@ export const baseMetadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.siteTitle,
     description: siteConfig.siteDescription,
-    images: [siteConfig.seo.twitterImage || "/twitter-image.png"],
+    images: [siteConfig.seo.twitterImage || "/twitter-image"],
     creator: "@jayantrohila",
   },
 
@@ -56,9 +56,9 @@ export const baseMetadata: Metadata = {
 
   // Icons
   icons: {
-    icon: siteConfig.seo.favicon || "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: siteConfig.seo.favicon || "/icon",
+    shortcut: "/icon",
+    apple: "/icon",
   },
 
   // Manifest
