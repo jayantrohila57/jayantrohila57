@@ -24,7 +24,7 @@ export const baseMetadata: Metadata = {
     siteName: siteConfig.siteName,
     images: [
       {
-        url: siteConfig.seo.ogImage || "/opengraph-image",
+        url: `${siteConfig.siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: `${siteConfig.siteName} - ${siteConfig.siteDescription}`,
@@ -37,8 +37,15 @@ export const baseMetadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.siteTitle,
     description: siteConfig.siteDescription,
-    images: [siteConfig.seo.twitterImage || "/twitter-image"],
+    images: [`${siteConfig.siteUrl}/twitter-image`],
     creator: "@jayantrohila",
+  },
+
+  // Apple Web App
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: siteConfig.siteName,
   },
 
   // Robots
