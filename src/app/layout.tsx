@@ -6,6 +6,7 @@ import { ServiceWorkerProvider } from "@/components/service-worker-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { baseViewport } from "@/config/site.config";
+import PWAInstallTrigger from "@/components/shared/pwa/PWAInstallTrigger";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
           <ServiceWorkerProvider />
           <Analytics />
           <SpeedInsights />
+             <PWAInstallTrigger />
           {children}
         </ThemeProvider>
       </body>

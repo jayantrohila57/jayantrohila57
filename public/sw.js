@@ -17,8 +17,8 @@ const urlsToCache = [
 
   // Icons and generated images for meta/PWA
   "/icon", // Main icon (32x32)
-  "/api/icon/192", // PWA icon 192x192
-  "/api/icon/512", // PWA icon 512x512
+  "/api/image?type=icon&size=192", // PWA icon 192x192
+  "/api/image?type=icon&size=512", // PWA icon 512x512
   "/opengraph-image", // OG image for social sharing
   "/twitter-image", // Twitter card image
 
@@ -54,7 +54,7 @@ self.addEventListener("install", function (event) {
         console.error("Service Worker: Failed to cache files:", error);
         // Don't fail the installation, continue anyway
         return self.skipWaiting();
-      }),
+      })
   );
 });
 
@@ -73,20 +73,24 @@ self.addEventListener("activate", function (event) {
             ) {
               return caches.delete(cacheName);
             }
-          }),
+          })
         );
       })
       .then(function () {
         return self.clients.claim(); // Take control of all open pages
-      }),
+      })
   );
 });
 
 // Fetch event - serve from cache when offline, cache new resources
 self.addEventListener("fetch", function (event) {
-  // Exclude Vercel scripts from service worker handling
-  if (event.request.url.includes("https://va.vercel-scripts.com/")) {
-    return; // Do not handle this request
+  // Exclude all Vercel scripts and analytics from service worker handling
+  if (
+    event.request.url.includes("https://va.vercel-scripts.com/") ||
+    event.request.url.includes("/_vercel/") ||
+    event.request.url.includes("vercel.com")
+  ) {
+    return; // Do not handle Vercel requests
   }
 
   event.respondWith(
@@ -147,9 +151,12 @@ self.addEventListener("fetch", function (event) {
           if (event.request.destination === "document") {
             // For navigation requests, serve the offline page
             return caches.match("/offline");
-          } else if (event.request.url.includes("/icon/")) {
-            // For icon requests, serve the default icon
-            return caches.match("/icon");
+          } else if (event.request.url.includes("/api/image")) {
+            // For image API requests, serve a basic fallback
+            return new Response("Image not available", {
+              status: 404,
+              headers: { "Content-Type": "text/plain" },
+            });
           } else if (event.request.url.includes("/opengraph-image")) {
             // For OG image requests, serve a basic fallback
             return new Response("Offline - Image not available", {
@@ -158,7 +165,7 @@ self.addEventListener("fetch", function (event) {
             });
           }
         });
-    }),
+    })
   );
 });
 
@@ -166,16 +173,18 @@ self.addEventListener("fetch", function (event) {
 self.addEventListener("fetch", function (event) {
   if (
     event.request.url.includes(
-      "https://va.vercel-scripts.com/v1/script.debug.js",
-    )
+      "https://va.vercel-scripts.com/v1/script.debug.js"
+    ) ||
+    event.request.url.includes("/_vercel/insights/script.js") ||
+    event.request.url.includes("/_vercel/speed-insights/script.js")
   ) {
     event.respondWith(
       fetch(event.request).catch(function () {
         console.warn(
-          "Service Worker: Failed to load Vercel Web Analytics script. Check for ad blockers.",
+          "Service Worker: Failed to load Vercel Analytics script. Check for ad blockers."
         );
         return new Response("", { status: 204 });
-      }),
+      })
     );
   }
 });
@@ -188,22 +197,22 @@ self.addEventListener("fetch", function (event) {
   // Handle generated image routes
   if (
     pathname === "/icon" ||
-    pathname === "/icon/192" ||
+    pathname === "/api/image" ||
     pathname === "/opengraph-image" ||
     pathname === "/twitter-image"
   ) {
     event.respondWith(
-      caches.match(pathname).then(function (response) {
+      caches.match(event.request.url).then(function (response) {
         if (response) {
           return response;
         }
-        // Try to fetch and cache
+        // Try to fetch and cache (including redirects)
         return fetch(event.request)
           .then(function (fetchResponse) {
-            if (fetchResponse.ok) {
+            if (fetchResponse.ok || fetchResponse.status === 307) {
               const responseToCache = fetchResponse.clone();
               caches.open(CACHE_NAME).then(function (cache) {
-                cache.put(pathname, responseToCache);
+                cache.put(event.request, responseToCache);
               });
             }
             return fetchResponse;
@@ -212,14 +221,14 @@ self.addEventListener("fetch", function (event) {
             console.error(
               "Service Worker: Failed to fetch image:",
               pathname,
-              error,
+              error
             );
             return new Response("Image not available", {
               status: 404,
               headers: { "Content-Type": "text/plain" },
             });
           });
-      }),
+      })
     );
     return;
   }
@@ -248,14 +257,18 @@ self.addEventListener("fetch", function (event) {
               headers: { "Content-Type": "text/plain" },
             });
           });
-      }),
+      })
     );
     return;
   }
 
-  // Exclude Vercel scripts from service worker handling
-  if (event.request.url.includes("https://va.vercel-scripts.com/")) {
-    return; // Do not handle this request
+  // Exclude all Vercel scripts and analytics from service worker handling
+  if (
+    event.request.url.includes("https://va.vercel-scripts.com/") ||
+    event.request.url.includes("/_vercel/") ||
+    event.request.url.includes("vercel.com")
+  ) {
+    return; // Do not handle Vercel requests
   }
 
   event.respondWith(
@@ -316,9 +329,12 @@ self.addEventListener("fetch", function (event) {
           if (event.request.destination === "document") {
             // For navigation requests, serve the offline page
             return caches.match("/offline");
-          } else if (event.request.url.includes("/icon/")) {
-            // For icon requests, serve the default icon
-            return caches.match("/icon");
+          } else if (event.request.url.includes("/api/image")) {
+            // For image API requests, serve a basic fallback
+            return new Response("Image not available", {
+              status: 404,
+              headers: { "Content-Type": "text/plain" },
+            });
           } else if (event.request.url.includes("/opengraph-image")) {
             // For OG image requests, serve a basic fallback
             return new Response("Offline - Image not available", {
@@ -327,6 +343,6 @@ self.addEventListener("fetch", function (event) {
             });
           }
         });
-    }),
+    })
   );
 });
