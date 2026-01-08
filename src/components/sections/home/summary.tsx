@@ -76,8 +76,8 @@ export function Summary() {
               className="p-4"
             >
               <div className="flex items-start gap-3">
-                <div className="border p-2 bg-card">
-                  <Icon className="h-6 w-6 shrink-0 text-muted-foreground" />
+                <div className="border p-2 bg-green-600/10">
+                  <Icon className="h-6 w-6 shrink-0 text-green-600" />
                 </div>
                 <p className="text-xs leading-relaxed">{text}</p>
               </div>

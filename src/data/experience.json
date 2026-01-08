@@ -1,176 +1,97 @@
 [
   {
-    "id": "1",
-    "company": "TechCorp Solutions",
-    "companyUrl": "https://techcorp.example.com",
-    "logo": "/companies/techcorp.svg",
-    "location": "San Francisco, CA (Remote)",
+    "id": "3",
+    "company": "Binmile Technology",
+    "companyUrl": "",
+    "logo": "/companies/binmile-technology.svg",
+    "location": "Noida, India",
     "type": "full-time",
     "roles": [
       {
-        "title": "Senior Full-Stack Developer",
-        "startDate": "2023-01",
+        "title": "Software Developer",
+        "startDate": "2024-03",
         "endDate": "Present",
-        "description": "Leading development of enterprise SaaS products serving Fortune 500 clients. Architecting scalable solutions and mentoring junior developers.",
+        "description": "Working as a core contributor on multiple large-scale, production-ready products, including an event management platform, a primary e-commerce website, and an internal dashboard portal. Responsible for owning end-to-end full-stack development with a strong emphasis on scalability, performance, reliability, and long-term maintainability.",
         "achievements": [
-          "Architected and delivered FinFlow platform processing $2B+ monthly transactions",
-          "Reduced API response times by 70% through database optimization and caching strategies",
-          "Led migration from monolith to microservices, improving deployment frequency by 400%",
-          "Mentored team of 5 developers, establishing code review practices and documentation standards"
+          "Designed, developed, and deployed full-stack applications from scratch across multiple business-critical products",
+          "Implemented secure and scalable authentication and authorization systems",
+          "Optimized Docker images and CI/CD workflows to improve deployment efficiency and reduce infrastructure costs",
+          "Significantly improved application performance, SEO, and Core Web Vitals for user-facing platforms",
+          "Integrated LLM-powered features to streamline internal workflows and enhance product capabilities",
+          "Built complex, high-quality UI/UX features with a strong focus on accessibility and usability",
+          "Owned features end-to-end, from requirements gathering and technical design to production deployment"
         ],
         "tech": [
-          "Next.js",
           "TypeScript",
+          "Next.js",
+          "React",
           "Node.js",
-          "PostgreSQL",
-          "Redis",
-          "AWS",
           "Docker",
-          "Kubernetes"
+          "Cloud Platforms",
+          "PostgreSQL",
+          "REST APIs",
+          "Authentication & Security",
+          "SEO",
+          "LLMs"
         ]
       }
     ]
   },
   {
     "id": "2",
-    "company": "CloudScale Inc.",
-    "companyUrl": "https://cloudscale.example.com",
-    "logo": "/companies/cloudscale.svg",
-    "location": "New York, NY (Hybrid)",
-    "type": "full-time",
+    "company": "Teevro Solutions Pvt Ltd",
+    "companyUrl": "",
+    "logo": "/companies/teevro-solutions.svg",
+    "location": "India",
+    "type": "internship",
     "roles": [
       {
-        "title": "Senior Backend Developer",
-        "startDate": "2021-06",
-        "endDate": "2022-12",
-        "description": "Built core infrastructure for a headless e-commerce platform serving 200+ online stores. Focused on high-availability systems and event-driven architecture.",
+        "title": "Full Stack Developer Intern",
+        "startDate": "2023-01",
+        "endDate": "2023-04",
+        "description": "Completed a 4-month full-stack internship focused on building modern, performant, and scalable web applications using a contemporary JavaScript stack.",
         "achievements": [
-          "Designed event-driven architecture handling 50K+ concurrent users during peak traffic",
-          "Implemented multi-tenant data isolation achieving complete security compliance",
-          "Built real-time inventory synchronization system reducing overselling incidents by 99%",
-          "Established observability practices with Prometheus and Grafana, reducing MTTR by 60%"
+          "Developed full-stack applications using Next.js for frontend and Node.js for backend services",
+          "Integrated Sanity as a headless CMS to enable flexible and dynamic content management",
+          "Built fast, SEO-friendly static and hybrid websites using Astro",
+          "Collaborated with the team to design clean APIs and scalable application architecture"
         ],
         "tech": [
+          "Next.js",
           "Node.js",
-          "MongoDB",
-          "Kafka",
-          "Redis",
-          "Elasticsearch",
-          "AWS",
-          "Kubernetes",
-          "Terraform"
+          "Sanity",
+          "Astro",
+          "JavaScript",
+          "Full Stack Development"
         ]
       }
     ]
   },
   {
-    "id": "3",
-    "company": "HealthFirst Technologies",
-    "companyUrl": "https://healthfirst.example.com",
-    "logo": "/companies/healthfirst.svg",
-    "location": "Boston, MA (On-site)",
-    "type": "full-time",
+    "id": "1",
+    "company": "Braeon Technocrats Private Limited",
+    "companyUrl": "",
+    "logo": "/companies/braeon-technocrats.svg",
+    "location": "India",
+    "type": "internship",
     "roles": [
       {
-        "title": "Lead Developer",
-        "startDate": "2020-03",
-        "endDate": "2021-05",
-        "description": "Led development of HIPAA-compliant patient portal serving 100K+ users. Managed a cross-functional team and coordinated with healthcare providers.",
+        "title": "ServiceNow Administration & Development Intern",
+        "startDate": "2021-07",
+        "endDate": "2021-10",
+        "description": "Gained foundational experience in ServiceNow administration and development, focusing on configuring, managing, and extending applications within the ServiceNow ecosystem.",
         "achievements": [
-          "Delivered patient portal that increased online appointment bookings by 40%",
-          "Achieved HIPAA compliance certification within 6 months of development start",
-          "Integrated with 8 different EHR systems using FHIR standards",
-          "Implemented telehealth video consultations seeing 10K+ monthly sessions"
+          "Performed ServiceNow administration tasks including user, role, and instance configuration",
+          "Assisted in developing and customizing ServiceNow applications, workflows, and modules",
+          "Built a strong understanding of ServiceNow platform architecture and industry best practices"
         ],
         "tech": [
-          "React",
-          "Node.js",
-          "PostgreSQL",
-          "AWS",
-          "WebRTC",
-          "FHIR",
-          "Docker"
+          "ServiceNow",
+          "JavaScript",
+          "ITSM",
+          "ServiceNow Administration",
+          "ServiceNow Development"
         ]
-      },
-      {
-        "title": "Full-Stack Developer",
-        "startDate": "2019-01",
-        "endDate": "2020-02",
-        "description": "Developed features for healthcare management applications and internal tools.",
-        "achievements": [
-          "Built insurance claim processing module reducing manual work by 70%",
-          "Created automated reporting system for compliance documentation",
-          "Improved application performance by implementing lazy loading and code splitting"
-        ],
-        "tech": ["React", "Node.js", "PostgreSQL", "Redis", "Docker"]
-      }
-    ]
-  },
-  {
-    "id": "4",
-    "company": "StartupHub",
-    "companyUrl": "https://startuphub.example.com",
-    "logo": "/companies/startuphub.svg",
-    "location": "Remote",
-    "type": "full-time",
-    "roles": [
-      {
-        "title": "Full-Stack Developer",
-        "startDate": "2018-06",
-        "endDate": "2018-12",
-        "description": "Early-stage startup developing social media management tools. Worked across the entire stack in a fast-paced environment.",
-        "achievements": [
-          "Built social media scheduling API handling 1M+ daily posts",
-          "Implemented cross-platform publishing for Twitter, Facebook, LinkedIn, and Instagram",
-          "Developed analytics dashboard providing actionable insights for content performance",
-          "Created automated rate limit management system maximizing API utilization"
-        ],
-        "tech": ["Node.js", "React", "MongoDB", "Redis", "AWS", "Docker"]
-      }
-    ]
-  },
-  {
-    "id": "5",
-    "company": "Digital Agency Co.",
-    "companyUrl": "https://digitalagency.example.com",
-    "logo": "/companies/digitalagency.svg",
-    "location": "Mumbai, India",
-    "type": "full-time",
-    "roles": [
-      {
-        "title": "Junior Developer",
-        "startDate": "2017-01",
-        "endDate": "2018-05",
-        "description": "Started career building web applications for agency clients across various industries.",
-        "achievements": [
-          "Delivered 15+ client projects including e-commerce sites and corporate portals",
-          "Learned and applied responsive design principles across all projects",
-          "Introduced version control (Git) and improved team collaboration workflows",
-          "Built first real estate CRM that became a long-term client product"
-        ],
-        "tech": ["JavaScript", "React", "Node.js", "MySQL", "WordPress", "PHP"]
-      }
-    ]
-  },
-  {
-    "id": "6",
-    "company": "Freelance",
-    "companyUrl": null,
-    "logo": null,
-    "location": "Remote",
-    "type": "freelance",
-    "roles": [
-      {
-        "title": "Freelance Developer",
-        "startDate": "2016-06",
-        "endDate": "2016-12",
-        "description": "Freelance web development while completing education. Built small business websites and learned web fundamentals.",
-        "achievements": [
-          "Completed 10+ freelance projects for local businesses",
-          "Developed strong client communication and project management skills",
-          "Self-taught React and Node.js through real project work"
-        ],
-        "tech": ["HTML", "CSS", "JavaScript", "PHP", "WordPress"]
       }
     ]
   }

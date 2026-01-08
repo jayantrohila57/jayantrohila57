@@ -190,9 +190,11 @@ export interface Testimonial {
 // Tech Stack Types
 export interface TechCategory {
   category: string;
+  description: string;
   items: {
     name: string;
     icon: string;
+    description: string;
     proficiency: "expert" | "advanced" | "intermediate";
   }[];
 }

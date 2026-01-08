@@ -21,8 +21,8 @@ export default function SectionHeader({
         <Shell.RightDecoration />
       </Shell>
       <Shell>
-        <Shell.Container className="bg-muted/30 p-4">
-          <p className="text-xs font-mono font-medium uppercase tracking-wider text-muted-foreground">
+        <Shell.Container className="bg-muted/30 p-2 px-4">
+          <p className="text-xs font-mono text-green-500 font-medium uppercase tracking-wider">
             {subtitle}
           </p>
         </Shell.Container>
@@ -43,7 +43,7 @@ export default function SectionHeader({
         <Shell.TopDecoration />
       </Shell>
       <Shell>
-        <Shell.Container className="bg-muted/30 p-4">
+        <Shell.Container className="bg-muted/30 p-2 px-4">
           <p className="max-w-2xl text-base text-muted-foreground">
             {description}
           </p>

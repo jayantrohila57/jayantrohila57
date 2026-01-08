@@ -15,10 +15,6 @@ interface TechBadgeProps {
   className?: string;
 }
 
-/**
- * A badge component that displays a technology name with its corresponding SVGL icon.
- * Automatically handles light/dark mode icon variants.
- */
 export function TechBadge({
   tech,
   variant = "outline",

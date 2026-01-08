@@ -39,6 +39,7 @@ export function FeaturedProjectsSection() {
               length={featuredProjects?.length}
               key={project.id}
               className="p-4"
+              grid={1}
             >
               <Card className="group relative overflow-hidden transition-all hover:shadow-lg gap-0">
                 <CardHeader className="pb-6">

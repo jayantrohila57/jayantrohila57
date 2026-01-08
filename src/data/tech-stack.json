@@ -1,76 +1,278 @@
 [
   {
-    "category": "Frontend",
+    "category": "Core Technologies",
+    "description": "Fundamental web technologies and standards used to build accessible, responsive, and maintainable user interfaces with strong typing and modern language features.",
     "items": [
-      { "name": "React", "icon": "react", "proficiency": "expert" },
-      { "name": "Next.js", "icon": "nextjs", "proficiency": "expert" },
-      { "name": "TypeScript", "icon": "typescript", "proficiency": "expert" },
+      {
+        "name": "TypeScript",
+        "icon": "typescript",
+        "proficiency": "expert",
+        "description": "Extensive experience with strict typing, advanced generics, utility types, and large-scale codebases."
+      },
+      {
+        "name": "JavaScript (ES6+)",
+        "icon": "javascript",
+        "proficiency": "expert",
+        "description": "Deep understanding of modern JavaScript features, async patterns, and performance considerations."
+      },
+      {
+        "name": "HTML5",
+        "icon": "html5",
+        "proficiency": "expert",
+        "description": "Expertise in semantic markup, accessibility standards, and SEO-friendly structure."
+      },
+      {
+        "name": "CSS3",
+        "icon": "css3",
+        "proficiency": "expert",
+        "description": "Strong command of Flexbox, Grid, animations, and building scalable layouts."
+      },
       {
         "name": "Tailwind CSS",
         "icon": "tailwindcss",
-        "proficiency": "advanced"
+        "proficiency": "advanced",
+        "description": "Advanced usage of utility-first styling, theming, dark mode, and design systems."
       },
-      { "name": "HTML5", "icon": "html5", "proficiency": "expert" },
-      { "name": "CSS3", "icon": "css", "proficiency": "expert" }
-    ]
-  },
-  {
-    "category": "Backend",
-    "items": [
-      { "name": "Node.js", "icon": "nodejs", "proficiency": "expert" },
-      { "name": "Express", "icon": "express", "proficiency": "advanced" },
-      { "name": "Python", "icon": "python", "proficiency": "advanced" },
-      { "name": "Go", "icon": "go", "proficiency": "intermediate" },
-      { "name": "GraphQL", "icon": "graphql", "proficiency": "advanced" },
-      { "name": "REST API", "icon": "api", "proficiency": "expert" }
-    ]
-  },
-  {
-    "category": "Database",
-    "items": [
-      { "name": "PostgreSQL", "icon": "postgresql", "proficiency": "expert" },
-      { "name": "MongoDB", "icon": "mongodb", "proficiency": "advanced" },
-      { "name": "Redis", "icon": "redis", "proficiency": "advanced" },
       {
-        "name": "Elasticsearch",
-        "icon": "elasticsearch",
-        "proficiency": "intermediate"
+        "name": "Markdown",
+        "icon": "markdown",
+        "proficiency": "advanced",
+        "description": "Comfortable creating well-structured documentation and content-driven pages."
+      },
+      {
+        "name": "Responsive Design",
+        "icon": "responsive",
+        "proficiency": "expert",
+        "description": "Expert in mobile-first design, adaptive layouts, and cross-browser compatibility."
       }
     ]
   },
   {
-    "category": "Cloud & DevOps",
+    "category": "Frameworks & Libraries",
+    "description": "Modern frontend and backend frameworks and libraries for building scalable applications, managing state, and rich user interactions.",
     "items": [
-      { "name": "AWS", "icon": "aws", "proficiency": "advanced" },
-      { "name": "Docker", "icon": "docker", "proficiency": "expert" },
-      { "name": "Kubernetes", "icon": "kubernetes", "proficiency": "advanced" },
       {
-        "name": "Terraform",
-        "icon": "terraform",
-        "proficiency": "intermediate"
+        "name": "React.js",
+        "icon": "react",
+        "proficiency": "expert",
+        "description": "Extensive experience building complex component architectures and managing state effectively."
       },
-      { "name": "GitHub Actions", "icon": "github", "proficiency": "advanced" },
-      { "name": "Vercel", "icon": "vercel", "proficiency": "expert" }
+      {
+        "name": "Next.js",
+        "icon": "nextjs",
+        "proficiency": "expert",
+        "description": "Expertise with SSR, SSG, API routes, and performance optimization."
+      },
+      {
+        "name": "Nest.js",
+        "icon": "nestjs",
+        "proficiency": "advanced",
+        "description": "Strong experience with modular architecture, decorators, and backend patterns."
+      },
+      {
+        "name": "Express.js",
+        "icon": "express",
+        "proficiency": "advanced",
+        "description": "Advanced knowledge of building REST APIs and middleware-based services."
+      },
+      {
+        "name": "MUI",
+        "icon": "mui",
+        "proficiency": "advanced",
+        "description": "Proficient in building consistent UIs with Material Design components."
+      },
+      {
+        "name": "Recharts",
+        "icon": "recharts",
+        "proficiency": "advanced",
+        "description": "Experienced in creating interactive and data-driven visualizations."
+      },
+      {
+        "name": "RxJS",
+        "icon": "rxjs",
+        "proficiency": "intermediate",
+        "description": "Working knowledge of reactive programming and observable-based patterns."
+      },
+      {
+        "name": "Redux / RTK Query",
+        "icon": "redux",
+        "proficiency": "advanced",
+        "description": "Advanced state management with predictable data flow and async handling."
+      },
+      {
+        "name": "React Query",
+        "icon": "react-query",
+        "proficiency": "advanced",
+        "description": "Efficient server-state management with caching and synchronization."
+      },
+      {
+        "name": "RHF + Zod",
+        "icon": "react-hook-form",
+        "proficiency": "advanced",
+        "description": "Advanced form handling with schema-based validation."
+      },
+      {
+        "name": "Formik + Yup",
+        "icon": "formik",
+        "proficiency": "advanced",
+        "description": "Strong experience managing complex forms and validation logic."
+      },
+      {
+        "name": "TanStack Table",
+        "icon": "tanstack",
+        "proficiency": "advanced",
+        "description": "Advanced usage for building performant and flexible data tables."
+      },
+      {
+        "name": "Tiptap",
+        "icon": "tiptap",
+        "proficiency": "advanced",
+        "description": "Experience integrating rich-text editors with custom extensions."
+      },
+      {
+        "name": "DnD Kit",
+        "icon": "dnd-kit",
+        "proficiency": "advanced",
+        "description": "Proficient in implementing accessible drag-and-drop interactions."
+      },
+      {
+        "name": "date-fns",
+        "icon": "date-fns",
+        "proficiency": "advanced",
+        "description": "Comfortable handling date and time manipulation with lightweight utilities."
+      }
     ]
   },
   {
-    "category": "Messaging & Streaming",
+    "category": "Databases & NoSQL",
+    "description": "Databases and backend services for data storage, real-time updates, and content management.",
     "items": [
       {
-        "name": "Apache Kafka",
-        "icon": "apache-kafka",
-        "proficiency": "advanced"
+        "name": "MongoDB",
+        "icon": "mongodb",
+        "proficiency": "advanced",
+        "description": "Advanced experience with schema design, indexing, and aggregation pipelines."
       },
-      { "name": "RabbitMQ", "icon": "rabbitmq", "proficiency": "intermediate" }
+      {
+        "name": "Firebase",
+        "icon": "firebase",
+        "proficiency": "advanced",
+        "description": "Proficient with authentication, realtime databases, and hosting."
+      },
+      {
+        "name": "Sanity",
+        "icon": "sanity",
+        "proficiency": "advanced",
+        "description": "Strong experience with content modeling and GROQ-based querying."
+      }
     ]
   },
   {
-    "category": "Tools & Collaboration",
+    "category": "Development Tools & Practices",
+    "description": "Tooling and workflows that ensure code quality, testability, and efficient delivery.",
     "items": [
-      { "name": "Git", "icon": "git", "proficiency": "expert" },
-      { "name": "VS Code", "icon": "vscode", "proficiency": "expert" },
-      { "name": "Figma", "icon": "figma", "proficiency": "intermediate" },
-      { "name": "Notion", "icon": "notion", "proficiency": "advanced" }
+      {
+        "name": "Git",
+        "icon": "git",
+        "proficiency": "expert",
+        "description": "Expert-level version control with branching strategies and collaboration workflows."
+      },
+      {
+        "name": "Docker",
+        "icon": "docker",
+        "proficiency": "advanced",
+        "description": "Advanced containerization with multi-stage builds and image optimization."
+      },
+      {
+        "name": "Jest",
+        "icon": "jest",
+        "proficiency": "advanced",
+        "description": "Strong experience writing unit and integration tests."
+      },
+      {
+        "name": "ESLint",
+        "icon": "eslint",
+        "proficiency": "expert",
+        "description": "Expert at enforcing code standards and preventing common issues."
+      },
+      {
+        "name": "Prettier",
+        "icon": "prettier",
+        "proficiency": "expert",
+        "description": "Consistent code formatting across teams and projects."
+      },
+      {
+        "name": "Linux",
+        "icon": "linux",
+        "proficiency": "advanced",
+        "description": "Comfortable working in Linux environments for development and deployment."
+      },
+      {
+        "name": "SSH",
+        "icon": "ssh",
+        "proficiency": "advanced",
+        "description": "Secure remote access and server management using SSH."
+      }
+    ]
+  },
+  {
+    "category": "Additional Skills",
+    "description": "Cross-cutting skills focused on security, performance, reliability, and delivery.",
+    "items": [
+      {
+        "name": "Authentication (JWT, OAuth2)",
+        "icon": "auth",
+        "proficiency": "advanced",
+        "description": "Advanced implementation of secure authentication and authorization flows."
+      },
+      {
+        "name": "Session Management",
+        "icon": "session",
+        "proficiency": "advanced",
+        "description": "Experience managing secure and scalable user sessions."
+      },
+      {
+        "name": "PWA",
+        "icon": "pwa",
+        "proficiency": "advanced",
+        "description": "Building installable, offline-capable progressive web applications."
+      },
+      {
+        "name": "SEO",
+        "icon": "seo",
+        "proficiency": "advanced",
+        "description": "Strong understanding of technical and on-page SEO best practices."
+      },
+      {
+        "name": "API Design (REST)",
+        "icon": "api",
+        "proficiency": "expert",
+        "description": "Expert-level RESTful API design with scalability and maintainability in mind."
+      },
+      {
+        "name": "Performance Optimization",
+        "icon": "performance",
+        "proficiency": "advanced",
+        "description": "Optimizing bundle size, rendering performance, and runtime efficiency."
+      },
+      {
+        "name": "Security Hardening",
+        "icon": "security",
+        "proficiency": "advanced",
+        "description": "Applying best practices to reduce vulnerabilities and attack surfaces."
+      },
+      {
+        "name": "Observability",
+        "icon": "observability",
+        "proficiency": "intermediate",
+        "description": "Working knowledge of logging, monitoring, and tracing systems."
+      },
+      {
+        "name": "Agile (Scrum, Kanban)",
+        "icon": "agile",
+        "proficiency": "advanced",
+        "description": "Experienced working in agile teams with iterative delivery and feedback loops."
+      }
     ]
   }
 ]
