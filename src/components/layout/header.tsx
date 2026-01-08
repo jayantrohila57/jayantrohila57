@@ -24,7 +24,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full">
       <div
         className={cn(
-          "grid grid-cols-[0%_1.5rem_1fr_1.5rem_0%] md:grid-cols-[15%_2.5rem_1fr_2.5rem_15%] grid-rows-[1px_1fr_1px]",
+          "grid grid-cols-[0%_0.5rem_1fr_0.5rem_0%]  md:grid-cols-[15%_2.5rem_1fr_2.5rem_15%] grid-rows-[1px_1fr_1px]",
           "relative  w-full  bg-white [--pattern-fg:var(--color-black)]/10 dark:bg-background dark:[--pattern-fg:var(--color-white)]/10  z-50 w-full  bg-muted/30 backdrop-blur-xl supports-[backdrop-filter]:bg-muted",
         )}
       >

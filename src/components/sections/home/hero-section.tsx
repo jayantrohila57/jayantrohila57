@@ -27,7 +27,7 @@ export function HeroSection() {
     <Section>
       <div className="flex w-full flex-col">
         <Availability />
-        <h1 className="text-balance text-5xl font-semibold tracking-tight md:text-7xl lg:text-7xl">
+        <h1 className="text-balance text-3xl font-semibold tracking-tight md:text-7xl lg:text-7xl">
           Hi, I’m{" "}
           <span className="bg-gradient-to-r from-foreground via-foreground/80 to-muted-foreground bg-clip-text text-transparent">
             {profile.name}
