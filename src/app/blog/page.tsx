@@ -16,7 +16,7 @@ export default function BlogPage() {
 
   return (
     <LayoutWrapper>
-      <Section className="pt-20 md:pt-28">
+      <Section>
         <SectionHeader
           subtitle="Blog"
           title="Articles & Insights"

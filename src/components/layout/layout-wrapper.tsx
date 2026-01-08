@@ -9,7 +9,7 @@ interface LayoutWrapperProps {
 
 export function LayoutWrapper({ children, className }: LayoutWrapperProps) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen bg-background flex-col">
       <Header />
       <main className={cn("flex-1", className)}>{children}</main>
       <Footer />

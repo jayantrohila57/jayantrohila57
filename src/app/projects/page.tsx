@@ -15,7 +15,7 @@ export default function ProjectsPage() {
 
   return (
     <LayoutWrapper>
-      <Section className="pt-20 md:pt-28">
+      <Section>
         <SectionHeader
           subtitle="Portfolio"
           title="All Projects"

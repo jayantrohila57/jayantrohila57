@@ -150,13 +150,7 @@ function DomainSkillsGrid() {
 
 export function TechStackSection() {
   return (
-    <Section className="relative overflow-hidden bg-slate-50/50 dark:bg-slate-950/50">
-      {/* Abstract Background Decoration */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-        <div className="absolute top-[-5%] right-[-5%] w-[30%] h-[30%] rounded-full bg-primary/20 blur-[120px]" />
-        <div className="absolute bottom-[-5%] left-[-5%] w-[30%] h-[30%] rounded-full bg-primary/10 blur-[120px]" />
-      </div>
-
+    <Section>
       <SectionHeader
         subtitle="Expertise"
         title="Technical Arsenal"

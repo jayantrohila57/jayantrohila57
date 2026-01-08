@@ -3,12 +3,10 @@ import { cn } from "@/lib/utils";
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   as?: "section" | "div" | "article";
-  container?: boolean;
 }
 
 export function Section({
   as: Component = "section",
-  container = true,
   className,
   children,
   ...props
@@ -16,17 +14,21 @@ export function Section({
   return (
     <Component
       className={cn(
-        "py-16 md:py-20 lg:py-24",
-        container && "px-4 md:px-6 lg:px-8",
+        "grid grid-cols-[0%_1.5rem_1fr_1.5rem_0%] md:grid-cols-[15%_2.5rem_1fr_2.5rem_15%] grid-rows-[1px_1fr_1px]",
+        "relativeh-full w-full  bg-white [--pattern-fg:var(--color-black)]/10 dark:bg-background dark:[--pattern-fg:var(--color-white)]/10",
         className,
       )}
       {...props}
     >
-      {container ? (
-        <div className="mx-auto w-full max-w-6xl">{children}</div>
-      ) : (
-        children
-      )}
+      <div className="col-start-3 row-start-2 grid w-[100%] bg-card/30 p-2">
+        <div className="rounded-md bg-muted/30 pr-auto col-span-1 h-full w-full p-4">
+          {children}
+        </div>
+      </div>
+      <div className="relative -right-px col-start-2 row-span-full row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
+      <div className="relative -left-px col-start-4 row-span-full row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
+      <div className="relative col-span-full col-start-1 row-start-1 h-px bg-(--pattern-fg)"></div>
+      {/* <div className="relative col-span-full col-start-1 row-start-3 h-px bg-(--pattern-fg)"></div> */}
     </Component>
   );
 }
@@ -47,13 +49,7 @@ export function SectionHeader({
   className,
 }: SectionHeaderProps) {
   return (
-    <div
-      className={cn(
-        "mb-10 md:mb-12 lg:mb-16",
-        align === "center" && "text-center",
-        className,
-      )}
-    >
+    <div className={cn("mb-10 md:mb-12 lg:mb-16", className)}>
       {subtitle && (
         <p className="mb-2 text-sm font-medium uppercase tracking-wider text-muted-foreground">
           {subtitle}
@@ -66,7 +62,6 @@ export function SectionHeader({
         <p
           className={cn(
             "mt-4 max-w-2xl text-lg text-muted-foreground md:text-xl",
-            align === "center" && "text-center",
           )}
         >
           {description}

@@ -18,9 +18,14 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-muted/30">
-      <div className="mx-auto w-full max-w-6xl px-4 py-12 md:px-6 md:py-16 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+    <footer
+      className={cn(
+        "grid grid-cols-[0%_1.5rem_1fr_1.5rem_0%] md:grid-cols-[15%_2.5rem_1fr_2.5rem_15%] grid-rows-[1px_1fr_1px]",
+        "relative  w-full  bg-white [--pattern-fg:var(--color-black)]/10 dark:bg-background dark:[--pattern-fg:var(--color-white)]/10 z-50 w-full  bg-muted/30 ",
+      )}
+    >
+      <div className="col-start-3 row-start-2 grid w-[100%] bg-card/30 p-2">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 rounded-md bg-muted/30 pr-auto col-span-1 h-full w-full p-4">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link
@@ -105,18 +110,20 @@ export function Footer() {
               ))}
             </ul>
           </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
-          <p className="text-sm text-muted-foreground">
-            © {currentYear} {siteConfig.author.name}. All rights reserved.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Built with Next.js, Tailwind CSS, and shadcn/ui
-          </p>
+          <div className="mt-12 flex col-span-full  py-4 flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
+            <p className="text-sm text-muted-foreground">
+              © {currentYear} {siteConfig.author.name}. All rights reserved.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Built with Next.js, Tailwind CSS, and shadcn/ui
+            </p>
+          </div>
         </div>
       </div>
+      <div className="relative -right-px col-start-2 row-span-full row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
+      <div className="relative -left-px col-start-4 row-span-full row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
+      <div className="relative col-span-full col-start-1 row-start-2 h-px bg-(--pattern-fg)"></div>
+      <div className="relative -top-px col-span-full col-start-1 row-start-4 h-px bg-(--pattern-fg)"></div>
     </footer>
   );
 }

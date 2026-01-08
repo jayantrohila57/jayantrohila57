@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ExperiencePage() {
   return (
     <LayoutWrapper>
-      <Section className="pt-20 md:pt-28">
+      <Section>
         <SectionHeader
           subtitle="Career"
           title="Work Experience"

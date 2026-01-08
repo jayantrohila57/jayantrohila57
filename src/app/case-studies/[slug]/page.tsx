@@ -57,7 +57,7 @@ export default async function CaseStudyDetailPage({
   return (
     <LayoutWrapper>
       {/* Header */}
-      <Section className="pt-20 md:pt-28">
+      <Section>
         <Link
           href="/case-studies"
           className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"

@@ -60,7 +60,7 @@ export default async function ProjectDetailPage({
   return (
     <LayoutWrapper>
       {/* Hero Section */}
-      <Section className="pt-20 md:pt-28">
+      <Section>
         <Link
           href="/projects"
           className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
