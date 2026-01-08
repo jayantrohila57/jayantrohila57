@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { LayoutWrapper } from "@/components/layout";
-import { Section, SectionHeader } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { BlogCard } from "@/components/sections/blog";
 import blog from "@/data/blog.json";
 import type { BlogPost } from "@/data/types";
+import SectionHeader from "@/components/layout/section-header";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -16,13 +17,12 @@ export default function BlogPage() {
 
   return (
     <LayoutWrapper>
+      <SectionHeader
+        subtitle="Blog"
+        title="Articles & Insights"
+        description="Thoughts on software development, system design, and technology."
+      />
       <Section>
-        <SectionHeader
-          subtitle="Blog"
-          title="Articles & Insights"
-          description="Thoughts on software development, system design, and technology."
-        />
-
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
             <BlogCard key={post.id} post={post} />

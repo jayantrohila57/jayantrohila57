@@ -21,18 +21,16 @@ export function Footer() {
     <footer
       className={cn(
         "grid grid-cols-[0%_0.5rem_1fr_0.5rem_0%]  md:grid-cols-[15%_2.5rem_1fr_2.5rem_15%] grid-rows-[1px_1fr_1px]",
-        "relative  w-full  bg-white [--pattern-fg:var(--color-black)]/10 dark:bg-background dark:[--pattern-fg:var(--color-white)]/10 z-50 w-full  bg-muted/30 ",
+        "relative  w-full  bg-white [--pattern-fg:var(--color-black)]/10 dark:bg-background dark:[--pattern-fg:var(--color-white)]/10 z-50 ",
       )}
     >
-      <div className="col-start-3 row-start-2 grid w-[100%] bg-card/30 p-2">
+      <div className="col-start-3 row-start-2 grid w-full bg-card/30 p-2">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 rounded-md bg-muted/30 pr-auto col-span-1 h-full w-full p-4">
-          {/* Brand */}
           <div className="lg:col-span-2">
             <Link
               href="/"
               className="flex items-center gap-2 text-xl font-bold"
             >
-              <Code2 className="h-6 w-6" />
               <span>{siteConfig.logo.text}</span>
             </Link>
             <p className="mt-4 max-w-sm text-muted-foreground">
@@ -120,8 +118,8 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="relative -right-px col-start-2 row-span-full row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
-      <div className="relative -left-px col-start-4 row-span-full row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
+      <div className="relative -right-px col-start-2 row-span-full row-start-1 border-x border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed"></div>
+      <div className="relative -left-px col-start-4 row-span-full row-start-1 border-x border-x-(--pattern-fg) bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)] bg-size-[10px_10px] bg-fixed"></div>
       {/* <div className="relative col-span-full col-start-1 row-start-2 h-px bg-(--pattern-fg)"></div> */}
       <div className="relative -top-px col-span-full col-start-1 row-start-4 h-px bg-(--pattern-fg)"></div>
     </footer>

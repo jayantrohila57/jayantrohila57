@@ -35,7 +35,6 @@ export function Header() {
               href="/"
               className="flex items-center w-full   gap-2 text-xl font-bold transition-colors hover:text-primary"
             >
-              <Code2 className="h-6 w-6" />
               <span>{siteConfig.logo.text}</span>
             </Link>
 

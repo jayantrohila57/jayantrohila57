@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LayoutWrapper } from "@/components/layout";
-import { Section, SectionHeader } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
+import SectionHeader from "@/components/layout/section-header";
 import {
   SocialConnections,
   EmailCTA,
@@ -16,18 +17,16 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <LayoutWrapper>
+      <SectionHeader
+        subtitle="Contact"
+        title="Get in Touch"
+        description="I'm always interested in hearing about new projects and opportunities."
+      />
       <Section>
-        <SectionHeader
-          subtitle="Contact"
-          title="Get in Touch"
-          description="I'm always interested in hearing about new projects and opportunities."
-          align="center"
-        />
+        <AvailabilityStatus />
+        <EmailCTA />
+        <SocialConnections />
       </Section>
-
-      <AvailabilityStatus />
-      <EmailCTA />
-      <SocialConnections />
     </LayoutWrapper>
   );
 }

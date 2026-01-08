@@ -1,6 +1,6 @@
 "use client";
 
-import { Section, SectionHeader } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { SvglIcon } from "@/components/ui/icon";
 import techStack from "@/data/tech-stack.json";
 import type { TechCategory } from "@/data/types";
@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { techIconMap, getThemedIconName } from "@/components/ui/tech-icon-map";
 import { useEffect, useState } from "react";
+import SectionHeader from "@/components/layout/section-header";
 
 // --- Types & Config ---
 
@@ -150,42 +151,42 @@ function DomainSkillsGrid() {
 
 export function TechStackSection() {
   return (
-    <Section>
+    <>
       <SectionHeader
         subtitle="Expertise"
         title="Technical Arsenal"
         description="A specialized breakdown of core competencies and specialized technologies."
-        align="center"
       />
-
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Bento Grid Section */}
-        <div>
-          <div className="mb-6 flex items-end justify-between">
-            <div>
-              <h3 className="text-2xl font-bold tracking-tighter">
-                Domain Matrix
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Deep dive into specific technology stacks
-              </p>
+      <Section>
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Bento Grid Section */}
+          <div>
+            <div className="mb-6 flex items-end justify-between">
+              <div>
+                <h3 className="text-2xl font-bold tracking-tighter">
+                  Domain Matrix
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  Deep dive into specific technology stacks
+                </p>
+              </div>
+              <div className="hidden md:flex gap-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">
+                <div className="flex items-center gap-1.5">
+                  <div className="h-1 w-3 rounded-full bg-yellow-500" />{" "}
+                  Foundation
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="h-1 w-3 rounded-full bg-blue-500" /> advanced
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="h-1 w-3 rounded-full bg-green-500" /> expert
+                </div>
+              </div>
             </div>
-            <div className="hidden md:flex gap-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/60">
-              <div className="flex items-center gap-1.5">
-                <div className="h-1 w-3 rounded-full bg-yellow-500" />{" "}
-                Foundation
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="h-1 w-3 rounded-full bg-blue-500" /> advanced
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="h-1 w-3 rounded-full bg-green-500" /> expert
-              </div>
-            </div>
+            <DomainSkillsGrid />
           </div>
-          <DomainSkillsGrid />
         </div>
-      </div>
-    </Section>
+      </Section>
+    </>
   );
 }

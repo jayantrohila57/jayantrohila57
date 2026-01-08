@@ -1,8 +1,9 @@
-import { Section, SectionHeader } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { TechBadge } from "@/components/ui/tech-badge";
 import { Building2, Calendar, MapPin, CheckCircle2 } from "lucide-react";
 import type { Experience } from "@/data/types";
+import SectionHeader from "@/components/layout/section-header";
 
 interface ExperienceTimelineProps {
   experiences: Experience[];
@@ -11,6 +12,11 @@ interface ExperienceTimelineProps {
 export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
   return (
     <Section>
+      <SectionHeader
+        subtitle="Experience"
+        title="My Professional Journey"
+        description="A timeline of my career milestones and key achievements"
+      />
       <div className="relative">
         {/* Timeline line */}
         <div className="absolute left-4 top-0 h-full w-0.5 bg-border md:left-1/2 md:-translate-x-1/2" />

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { LayoutWrapper } from "@/components/layout";
-import { Section, SectionHeader } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import { ExperienceTimeline } from "@/components/sections/experience";
 import experience from "@/data/experience.json";
 import type { Experience } from "@/data/types";
+import SectionHeader from "@/components/layout/section-header";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -14,15 +15,14 @@ export const metadata: Metadata = {
 export default function ExperiencePage() {
   return (
     <LayoutWrapper>
+      <SectionHeader
+        subtitle="Career"
+        title="Work Experience"
+        description="My professional journey building products at scale."
+      />
       <Section>
-        <SectionHeader
-          subtitle="Career"
-          title="Work Experience"
-          description="My professional journey building products at scale."
-        />
+        <ExperienceTimeline experiences={experience as Experience[]} />
       </Section>
-
-      <ExperienceTimeline experiences={experience as Experience[]} />
     </LayoutWrapper>
   );
 }

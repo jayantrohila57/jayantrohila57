@@ -1,4 +1,4 @@
-import { Section, SectionHeader } from "@/components/layout/section";
+import { Section } from "@/components/layout/section";
 import profile from "@/data/profile.json";
 import { siteConfig } from "@/data/site.config";
 import {
@@ -22,11 +22,13 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 };
 
 import { SvglIcon, isSvglIcon } from "@/components/ui/icon";
+import SectionHeader from "@/components/layout/section-header";
 
 export function SocialConnections() {
   return (
     <Section>
       <SectionHeader
+        subtitle="Connect"
         title="Connect With Me"
         description="Find me on these platforms or reach out directly."
       />
