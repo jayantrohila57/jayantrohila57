@@ -27,7 +27,7 @@ export function HeroSection() {
     <>
       <Shell>
         <Shell.Container>
-          <div className="p-12"></div>
+          <div className="p-4 md:p-12"></div>
         </Shell.Container>
         <Shell.LeftDecoration />
         <Shell.RightDecoration />
