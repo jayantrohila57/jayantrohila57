@@ -19,6 +19,12 @@ export const postType = defineType({
       },
     }),
     defineField({
+      name: "excerpt",
+      title: "Excerpt",
+      type: "text",
+      rows: 3,
+    }),
+    defineField({
       name: "author",
       type: "reference",
       to: { type: "author" },
@@ -38,6 +44,13 @@ export const postType = defineType({
       ],
     }),
     defineField({
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [defineArrayMember({ type: "string" })],
+      options: { layout: "tags" },
+    }),
+    defineField({
       name: "categories",
       type: "array",
       of: [defineArrayMember({ type: "reference", to: { type: "category" } })],
@@ -47,8 +60,43 @@ export const postType = defineType({
       type: "datetime",
     }),
     defineField({
+      name: "updatedAt",
+      title: "Updated At",
+      type: "datetime",
+    }),
+    defineField({
+      name: "readTime",
+      title: "Read Time (minutes)",
+      type: "number",
+    }),
+    defineField({
+      name: "featured",
+      title: "Featured",
+      type: "boolean",
+      initialValue: false,
+    }),
+    defineField({
       name: "body",
       type: "blockContent",
+    }),
+    defineField({
+      name: "seo",
+      title: "SEO",
+      type: "object",
+      fields: [
+        defineField({ name: "title", title: "Title", type: "string" }),
+        defineField({
+          name: "description",
+          title: "Description",
+          type: "text",
+        }),
+        defineField({
+          name: "keywords",
+          title: "Keywords",
+          type: "array",
+          of: [defineArrayMember({ type: "string" })],
+        }),
+      ],
     }),
   ],
   preview: {

@@ -1,10 +1,9 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, MapPin } from "lucide-react";
-import profile from "@/data/profile.json";
+import Link from "next/link";
 import { Shell } from "@/components/layout/shell";
-import DecryptedText from "@/components/ui/decrypted-text";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import profile from "@/data/profile.json";
 
 const Availability = () => {
   const isAvailable = profile.availability.status === "available";

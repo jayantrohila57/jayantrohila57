@@ -1,6 +1,6 @@
 "use client";
-import { motion, Transition, Easing } from "motion/react";
-import { useEffect, useRef, useState, useMemo } from "react";
+import { type Easing, motion, type Transition } from "motion/react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 type BlurTextProps = {
   text?: string;
@@ -109,7 +109,7 @@ const BlurText: React.FC<BlurTextProps> = ({
 
         return (
           <motion.span
-            key={index}
+            key={`segment-${index}-${segment}`}
             initial={fromSnapshot}
             animate={inView ? animateKeyframes : fromSnapshot}
             transition={spanTransition}

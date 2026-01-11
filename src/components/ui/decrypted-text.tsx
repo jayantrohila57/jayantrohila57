@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion, HTMLMotionProps } from "motion/react";
+import { type HTMLMotionProps, motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 
 interface DecryptedTextProps extends HTMLMotionProps<"span"> {
   text: string;
@@ -228,7 +228,7 @@ export default function DecryptedText({
 
           return (
             <span
-              key={index}
+              key={`char-${index}-${char}`}
               className={isRevealedOrDone ? className : encryptedClassName}
             >
               {char}

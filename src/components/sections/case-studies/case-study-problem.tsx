@@ -1,7 +1,7 @@
-import { Section } from "@/components/layout/section";
 import { AlertCircle } from "lucide-react";
-import type { CaseStudy } from "@/data/types";
+import { Section } from "@/components/layout/section";
 import SectionHeader from "@/components/layout/section-header";
+import type { CaseStudy } from "@/data/types";
 
 interface CaseStudyProblemProps {
   caseStudy: CaseStudy;
@@ -28,8 +28,11 @@ export function CaseStudyProblem({ caseStudy }: CaseStudyProblemProps) {
               Key Challenges
             </h4>
             <ul className="space-y-3">
-              {caseStudy.problem.details.map((detail, i) => (
-                <li key={i} className="flex gap-3 text-muted-foreground">
+              {caseStudy.problem.details.map((detail, index) => (
+                <li
+                  key={`detail-${index}-${detail}`}
+                  className="flex gap-3 text-muted-foreground"
+                >
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-destructive" />
                   <span>{detail}</span>
                 </li>

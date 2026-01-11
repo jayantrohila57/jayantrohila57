@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { LayoutWrapper } from "@/components/layout";
 import { Section } from "@/components/layout/section";
+import SectionHeader from "@/components/layout/section-header";
 import { BlogCard } from "@/components/sections/blog";
 import blog from "@/data/blog.json";
 import type { BlogPost } from "@/data/types";
-import SectionHeader from "@/components/layout/section-header";
 
 export const metadata: Metadata = {
   title: "Blog",

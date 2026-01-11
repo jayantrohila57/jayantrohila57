@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "skills",
@@ -13,7 +13,7 @@ export default defineType({
       of: [
         {
           type: "object",
-          name: "category",
+          name: "skillCategory",
           fields: [
             defineField({
               name: "category",

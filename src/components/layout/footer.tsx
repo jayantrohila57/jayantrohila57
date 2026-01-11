@@ -1,6 +1,6 @@
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site.config";
-import { Github, Linkedin, Twitter, Mail, Code2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -12,7 +12,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Mail,
 };
 
-import { SvglIcon, isSvglIcon } from "@/components/ui/icon";
+import { isSvglIcon, SvglIcon, type SvglIconName } from "@/components/ui/icon";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -59,7 +59,7 @@ export function Footer() {
                   >
                     {isSvgl ? (
                       <SvglIcon
-                        name={social.icon as any}
+                        name={social.icon as SvglIconName}
                         className="h-4 w-4 text-current"
                       />
                     ) : (

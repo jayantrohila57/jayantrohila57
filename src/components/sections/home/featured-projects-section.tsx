@@ -1,23 +1,23 @@
+import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
+import { Section } from "@/components/layout/section";
+import SectionGrid from "@/components/layout/section-grid";
+import SectionHeader from "@/components/layout/section-header";
+import { Shell } from "@/components/layout/shell";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { TechBadge } from "@/components/ui/tech-badge";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Section } from "@/components/layout/section";
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { TechBadge } from "@/components/ui/tech-badge";
 import projects from "@/data/projects.json";
 import type { Project } from "@/data/types";
-import SectionHeader from "@/components/layout/section-header";
-import SectionGrid from "@/components/layout/section-grid";
-import { Shell } from "@/components/layout/shell";
 
 export function FeaturedProjectsSection() {
   const featuredProjects = (projects as Project[])

@@ -1,7 +1,3 @@
-import Link from "next/link";
-import { Section } from "@/components/layout/section";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   Building2,
@@ -9,12 +5,13 @@ import {
   CheckCircle2,
   MapPin,
 } from "lucide-react";
-import experience from "@/data/experience.json";
-import type { Experience } from "@/data/types";
-import SectionHeader from "@/components/layout/section-header";
+import Link from "next/link";
+import { Section } from "@/components/layout/section";
 import { SectionSingleGrid } from "@/components/layout/section-grid";
+import SectionHeader from "@/components/layout/section-header";
 import { Shell } from "@/components/layout/shell";
-import { TechBadge } from "@/components/ui/tech-badge";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
@@ -25,6 +22,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { TechBadge } from "@/components/ui/tech-badge";
+import type { Experience } from "@/data/types";
 
 export function ExperienceTimelineSection({
   experiences,
@@ -44,7 +43,7 @@ export function ExperienceTimelineSection({
         <div className="grid grid-cols-1">
           {experiences?.map((exp, index) => {
             const role = exp.roles[0];
-            const isCurrent = role.endDate === "Present";
+            const _isCurrent = role.endDate === "Present";
 
             return (
               <SectionSingleGrid
@@ -89,17 +88,15 @@ export function ExperienceTimelineSection({
                           Key Achievements
                         </h4>
                         <ul className="space-y-2">
-                          {role.achievements
-                            .slice(0, 3)
-                            .map((achievement, i) => (
-                              <li
-                                key={i}
-                                className="flex gap-2 text-sm text-muted-foreground"
-                              >
-                                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
-                                <span>{achievement}</span>
-                              </li>
-                            ))}
+                          {role.achievements.slice(0, 3).map((achievement) => (
+                            <li
+                              key={`${role.title}-${achievement}`}
+                              className="flex gap-2 text-sm text-muted-foreground"
+                            >
+                              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />
+                              <span>{achievement}</span>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     )}

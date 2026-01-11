@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { LayoutWrapper } from "@/components/layout";
 import { Section } from "@/components/layout/section";
-import { ExperienceTimeline } from "@/components/sections/experience";
-import experience from "@/data/experience.json";
-import type { Experience } from "@/data/types";
 import SectionHeader from "@/components/layout/section-header";
 
 export const metadata: Metadata = {

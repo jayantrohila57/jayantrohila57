@@ -1,15 +1,15 @@
+import { ArrowLeft, Building2, Calendar, Clock } from "lucide-react";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { LayoutWrapper } from "@/components/layout";
 import { Section } from "@/components/layout/section";
-import { Badge } from "@/components/ui/badge";
 import {
+  CaseStudyImpact,
   CaseStudyProblem,
   CaseStudySolution,
-  CaseStudyImpact,
 } from "@/components/sections/case-studies";
-import { ArrowLeft, Building2, Calendar, Clock } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import caseStudies from "@/data/case-studies.json";
 import type { CaseStudy } from "@/data/types";
 

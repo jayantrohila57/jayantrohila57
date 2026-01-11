@@ -16,6 +16,7 @@ export const structure: StructureResolver = (S) =>
               S.documentTypeListItem("experience").title("Experience"),
               S.documentTypeListItem("project").title("Projects"),
               S.documentTypeListItem("skills").title("Skills"),
+              S.documentTypeListItem("caseStudy").title("Case Studies"),
             ]),
         ),
 
@@ -37,10 +38,26 @@ export const structure: StructureResolver = (S) =>
 
       S.divider(),
 
+      // ===== SEO =====
+      S.listItem()
+        .title("SEO")
+        .icon(() => "🔍")
+        .child(S.documentTypeList("seoSettings").title("SEO Settings")),
+
+      S.divider(),
+
+      // ===== Settings =====
+      S.listItem()
+        .title("Settings")
+        .icon(() => "⚙️")
+        .child(S.documentTypeList("siteSettings").title("Site Settings")),
+
+      S.divider(),
+
       // ===== System =====
       S.listItem()
         .title("System")
-        .icon(() => "⚙️")
+        .icon(() => "🧩")
         .child(
           S.list()
             .title("System")
@@ -48,15 +65,9 @@ export const structure: StructureResolver = (S) =>
               S.documentTypeListItems().filter(
                 (item) =>
                   item.getId() &&
-                  ![
-                    "post",
-                    "category",
-                    "author",
-                    "profile",
-                    "experience",
-                    "project",
-                    "skills",
-                  ].includes(item.getId()!),
+                  !["post", "category", "author"].includes(
+                    item.getId() as string,
+                  ),
               ),
             ),
         ),

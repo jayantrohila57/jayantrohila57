@@ -1,6 +1,6 @@
-import { LucideIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 interface PageActionProps {
   href?: string;
@@ -27,7 +27,9 @@ export function PageActions({
 
   return (
     <div className={containerClass}>
-      {actions.map((action, index) => {
+      {actions.map((action) => {
+        const key =
+          action.href ?? `${action.text}-${action.variant ?? "default"}`;
         const buttonContent = (
           <>
             {action.icon && <action.icon className="h-5 w-5" />}
@@ -38,7 +40,7 @@ export function PageActions({
         if (action.href) {
           return (
             <Button
-              key={index}
+              key={key}
               asChild
               size={action.size || "lg"}
               variant={action.variant || "default"}
@@ -53,7 +55,7 @@ export function PageActions({
 
         return (
           <Button
-            key={index}
+            key={key}
             onClick={action.onClick}
             size={action.size || "lg"}
             variant={action.variant || "default"}

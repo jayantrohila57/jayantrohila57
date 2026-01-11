@@ -1,18 +1,18 @@
+import {
+  Bot,
+  Cloud,
+  Code2,
+  Container,
+  GitBranch,
+  Kanban,
+  Layout,
+  Plug,
+  Server,
+  Users,
+} from "lucide-react";
 import { Section } from "@/components/layout";
 import SectionGrid from "@/components/layout/section-grid";
 import SectionHeader from "@/components/layout/section-header";
-import {
-  Code2,
-  Server,
-  Layout,
-  Cloud,
-  Container,
-  Bot,
-  GitBranch,
-  Plug,
-  Kanban,
-  Users,
-} from "lucide-react";
 
 export function Summary() {
   const points: { text: string; icon: React.ElementType }[] = [

@@ -1,18 +1,18 @@
+import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { LayoutWrapper } from "@/components/layout";
 import { Section } from "@/components/layout/section";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
-  ProjectDetailOverview,
-  ProjectDetailTech,
   ProjectDetailArchitecture,
   ProjectDetailChallenges,
+  ProjectDetailOverview,
   ProjectDetailResults,
+  ProjectDetailTech,
 } from "@/components/sections/projects";
-import { ArrowLeft, ExternalLink, Github } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import projects from "@/data/projects.json";
 import type { Project } from "@/data/types";
 

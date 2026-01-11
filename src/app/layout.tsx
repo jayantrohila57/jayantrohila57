@@ -5,8 +5,8 @@ import {
 } from "next/font/google";
 import { ThemeProvider } from "@/components/layout";
 import "./globals.css";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { baseMetadata } from "@/config/metadata";
-import SmoothScroll from "@/components/layout/smooth-scroll";
 
 const fonts = Fonts({
   variable: "--font-main",
@@ -30,6 +30,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${fonts.variable} ${monoFonts.variable} antialiased`}>
+        <GoogleTagManager gtmId="G-9HFQLM7BCG" />
+        <GoogleAnalytics gaId="G-9HFQLM7BCG" />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -37,7 +39,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          <SmoothScroll />
+          {/* <SmoothScroll /> */}
         </ThemeProvider>
       </body>
     </html>

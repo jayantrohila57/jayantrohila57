@@ -1,11 +1,11 @@
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { LayoutWrapper } from "@/components/layout";
 import { Section } from "@/components/layout/section";
-import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import blog from "@/data/blog.json";
 import profile from "@/data/profile.json";
 import type { BlogPost } from "@/data/types";

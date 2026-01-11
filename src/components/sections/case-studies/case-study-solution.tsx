@@ -1,8 +1,8 @@
+import { CheckCircle2, Lightbulb } from "lucide-react";
 import { Section } from "@/components/layout/section";
-import { TechBadge } from "@/components/ui/tech-badge";
-import { Lightbulb, CheckCircle2 } from "lucide-react";
-import type { CaseStudy } from "@/data/types";
 import SectionHeader from "@/components/layout/section-header";
+import { TechBadge } from "@/components/ui/tech-badge";
+import type { CaseStudy } from "@/data/types";
 
 interface CaseStudySolutionProps {
   caseStudy: CaseStudy;
@@ -30,8 +30,11 @@ export function CaseStudySolution({ caseStudy }: CaseStudySolutionProps) {
                 Approach
               </h4>
               <ul className="space-y-3">
-                {caseStudy.solution.approach.map((step, i) => (
-                  <li key={i} className="flex gap-3 text-muted-foreground">
+                {caseStudy.solution.approach.map((step) => (
+                  <li
+                    key={`approach-${caseStudy.title}-${step}`}
+                    className="flex gap-3 text-muted-foreground"
+                  >
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
                     <span>{step}</span>
                   </li>

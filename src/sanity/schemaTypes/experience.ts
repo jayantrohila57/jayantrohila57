@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "experience",
@@ -43,6 +43,7 @@ export default defineType({
           { title: "Part-time", value: "part-time" },
           { title: "Contract", value: "contract" },
           { title: "Freelance", value: "freelance" },
+          { title: "Internship", value: "internship" },
         ],
         layout: "radio",
       },

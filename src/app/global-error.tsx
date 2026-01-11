@@ -1,16 +1,16 @@
 "use client";
 
-import { useEffect } from "react";
 import { AlertTriangle, Home as HomeIcon } from "lucide-react";
-import { ThemeProvider, LayoutWrapper } from "@/components/layout";
+import { useEffect } from "react";
+import { LayoutWrapper, ThemeProvider } from "@/components/layout";
 import "./globals.css";
 import {
   Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
   CardAction,
   CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
 import { PageActions } from "@/components/ui/page-actions";
 

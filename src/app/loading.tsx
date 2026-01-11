@@ -2,10 +2,10 @@ import { Loader2 } from "lucide-react";
 import { LayoutWrapper } from "@/components/layout";
 import {
   Card,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
 } from "@/components/ui/card";
 import { siteConfig } from "@/config/site.config";
 

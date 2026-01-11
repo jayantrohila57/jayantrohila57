@@ -1,4 +1,9 @@
+import { ArrowRight, Calendar, Clock } from "lucide-react";
 import Link from "next/link";
+import { Section } from "@/components/layout/section";
+import SectionHeader from "@/components/layout/section-header";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -6,14 +11,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Section } from "@/components/layout/section";
-import { ArrowRight, Clock, Calendar } from "lucide-react";
 import blog from "@/data/blog.json";
 import type { BlogPost } from "@/data/types";
-import SectionHeader from "@/components/layout/section-header";
 
 export function LatestPostsSection() {
   const latestPosts = (blog as BlogPost[]).slice(0, 3);

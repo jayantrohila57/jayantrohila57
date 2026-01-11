@@ -1,18 +1,17 @@
-import { Section } from "@/components/layout/section";
-import { Button } from "@/components/ui/button";
-import profile from "@/data/profile.json";
-import { siteConfig } from "@/data/site.config";
 import {
+  ArrowUpRight,
   Github,
   Linkedin,
-  Twitter,
   Mail,
   Newspaper,
-  ArrowUpRight,
+  Twitter,
 } from "lucide-react";
-
-import { SvglIcon, isSvglIcon } from "@/components/ui/icon";
+import { Section } from "@/components/layout/section";
 import SectionHeader from "@/components/layout/section-header";
+import { Button } from "@/components/ui/button";
+import { isSvglIcon, SvglIcon } from "@/components/ui/icon";
+import profile from "@/data/profile.json";
+import { siteConfig } from "@/data/site.config";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Github,
@@ -52,7 +51,7 @@ export function SocialLinksSection() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   {isSvgl ? (
                     <SvglIcon
-                      name={social.icon as any}
+                      name={social.icon as "LinkedIn"}
                       className="h-5 w-5 text-current"
                     />
                   ) : (

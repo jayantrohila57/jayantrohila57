@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils";
-import type { ComponentType, SVGProps } from "react";
 import * as SVGL from "@ridemountainpig/svgl-react";
+import type { ComponentType, SVGProps } from "react";
+import { cn } from "@/lib/utils";
 
 export type SvglIconName = keyof typeof SVGL;
 
@@ -9,10 +9,19 @@ export type SvglIconProps = {
   className?: string;
 };
 
+type SvglComponent = ComponentType<
+  SVGProps<SVGSVGElement> & { className?: string }
+>;
+
+const svglIconMap = new Map<SvglIconName, SvglComponent>(
+  Object.entries(SVGL).map(([key, component]) => [
+    key as SvglIconName,
+    component as SvglComponent,
+  ]),
+);
+
 export function SvglIcon({ name, className }: SvglIconProps) {
-  const Icon = SVGL[name] as ComponentType<
-    SVGProps<SVGSVGElement> & { className?: string }
-  >;
+  const Icon = svglIconMap.get(name);
   if (!Icon) return null;
   return (
     <Icon

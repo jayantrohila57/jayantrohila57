@@ -50,9 +50,9 @@ const SectionSingleGrid = ({
   index,
   length,
 }: SectionGridProps) => {
-  const isOdd = index % 2 === 0;
+  const _isOdd = index % 2 === 0;
   const last = length && index === length - 1;
-  const secondLast = length && index === length - 2;
+  const _secondLast = length && index === length - 2;
   return (
     <div
       className={cn(

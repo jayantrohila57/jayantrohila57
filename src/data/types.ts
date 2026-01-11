@@ -109,7 +109,7 @@ export interface Experience {
   companyUrl?: string;
   logo?: string;
   location: string;
-  type: "full-time" | "part-time" | "contract" | "freelance";
+  type: "full-time" | "part-time" | "contract" | "freelance" | "internship";
   roles: {
     title: string;
     startDate: string;
@@ -185,6 +185,49 @@ export interface Testimonial {
   role: string;
   company: string;
   avatar?: string;
+}
+
+export interface SkillItem {
+  name: string;
+  icon?: string;
+  proficiency: "expert" | "advanced" | "intermediate" | "beginner";
+  description?: string;
+}
+
+export interface SkillsCategory {
+  category: string;
+  description?: string;
+  items: SkillItem[];
+}
+
+export interface Skills {
+  categories: SkillsCategory[];
+}
+
+// Site Settings (Sanity) Types
+export interface SiteAuthor {
+  name: string;
+  email: string;
+  role: string;
+  bio: string;
+  location: string;
+  avatar?: string;
+}
+
+export interface SiteTheme {
+  primaryColor?: string;
+  backgroundColor?: string;
+  textColor?: string;
+}
+
+export interface SiteSettings {
+  siteName: string;
+  siteTitle: string;
+  siteDescription: string;
+  siteUrl: string;
+  author: SiteAuthor;
+  social: SocialLink[];
+  theme: SiteTheme;
 }
 
 // Tech Stack Types

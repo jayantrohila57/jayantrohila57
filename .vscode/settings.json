@@ -11,17 +11,15 @@
     "**/next-env.d.ts": true,
     "**/next.config.ts": true,
     "**/pnpm-workspace.yaml": true,
-    "**/.husky": true
+    "**/.husky": true,
+    "**/.next": true
   },
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
   "editor.formatOnType": false,
   "editor.codeActionsOnSave": {
-    "quickfix.biome": "always",
-    "source.organizeImports.biome": "always",
-    "source.fixAll.biome": "always"
+    "source.fixAll.biome": "explicit"
   },
-  "editor.formatOnSaveMode": "file",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,

@@ -1,7 +1,7 @@
+import { CheckCircle2, Clock, MapPin } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Clock, MapPin, CheckCircle2 } from "lucide-react";
 import profile from "@/data/profile.json";
 
 const statusConfig = {

@@ -1,12 +1,12 @@
 import { LayoutWrapper } from "@/components/layout";
 import {
-  HeroSection,
-  FeaturedProjectsSection,
-  TechStackSection,
   ExperienceTimelineSection,
-  TestimonialsSection,
+  FeaturedProjectsSection,
+  HeroSection,
   LatestPostsSection,
   SocialLinksSection,
+  TechStackSection,
+  TestimonialsSection,
 } from "@/components/sections/home";
 import { Summary } from "@/components/sections/home/summary";
 import { getExperiences, getSkills } from "@/sanity/query/queries";

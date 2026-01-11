@@ -1,14 +1,13 @@
-import { Section } from "@/components/layout/section";
-import profile from "@/data/profile.json";
-import { siteConfig } from "@/data/site.config";
 import {
+  ArrowUpRight,
   Github,
   Linkedin,
-  Twitter,
   Mail,
   Newspaper,
-  ArrowUpRight,
+  Twitter,
 } from "lucide-react";
+import { Section } from "@/components/layout/section";
+import profile from "@/data/profile.json";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Github,
@@ -21,8 +20,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   DevTo: Newspaper,
 };
 
-import { SvglIcon, isSvglIcon } from "@/components/ui/icon";
 import SectionHeader from "@/components/layout/section-header";
+import { isSvglIcon, SvglIcon, type SvglIconName } from "@/components/ui/icon";
 
 export function SocialConnections() {
   return (
@@ -51,7 +50,7 @@ export function SocialConnections() {
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                 {isSvgl ? (
                   <SvglIcon
-                    name={social.icon as any}
+                    name={social.icon as SvglIconName}
                     className="h-6 w-6 text-current"
                   />
                 ) : (
