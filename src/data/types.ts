@@ -104,7 +104,7 @@ export interface Project {
 
 // Experience Types
 export interface Experience {
-  id: string;
+  _id: string;
   company: string;
   companyUrl?: string;
   logo?: string;

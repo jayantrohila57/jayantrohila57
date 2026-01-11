@@ -123,8 +123,8 @@ function DomainCard({ category }: { category: TechCategory }) {
   );
 }
 
-export function TechStackSection() {
-  const categories = techStack as TechCategory[];
+export function TechStackSection({ skills }: { skills: any }) {
+  const categories = skills?.categories as TechCategory[];
 
   return (
     <>

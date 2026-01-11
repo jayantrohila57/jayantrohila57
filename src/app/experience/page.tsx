@@ -21,7 +21,7 @@ export default function ExperiencePage() {
         description="My professional journey building products at scale."
       />
       <Section>
-        <ExperienceTimeline experiences={experience as Experience[]} />
+        {/* <ExperienceTimeline experiences={experience as Experience[]} /> */}
       </Section>
     </LayoutWrapper>
   );

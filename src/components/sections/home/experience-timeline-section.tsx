@@ -26,8 +26,12 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-export function ExperienceTimelineSection() {
-  const recentExperience = (experience as Experience[]).slice(0, 3);
+export function ExperienceTimelineSection({
+  experiences,
+}: {
+  experiences: Experience[];
+}) {
+  // const recentExperience = experiences.slice(0, 3);
 
   return (
     <>
@@ -38,15 +42,15 @@ export function ExperienceTimelineSection() {
       />
       <Section>
         <div className="grid grid-cols-1">
-          {recentExperience.map((exp, index) => {
+          {experiences?.map((exp, index) => {
             const role = exp.roles[0];
             const isCurrent = role.endDate === "Present";
 
             return (
               <SectionSingleGrid
-                key={exp.id}
+                key={exp._id}
                 index={index}
-                length={recentExperience.length}
+                length={experiences?.length || 0}
                 className="p-4"
               >
                 <Card className="rounded-none">

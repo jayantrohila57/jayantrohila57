@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Download, MapPin } from "lucide-react";
 import profile from "@/data/profile.json";
 import { Shell } from "@/components/layout/shell";
+import DecryptedText from "@/components/ui/decrypted-text";
 
 const Availability = () => {
   const isAvailable = profile.availability.status === "available";
@@ -51,8 +52,7 @@ export function HeroSection() {
       <Shell>
         <Shell.Container className="bg-muted/30 p-4">
           <h1 className="text-balance text-3xl font-semibold tracking-tight md:text-6xl lg:text-7xl">
-            <span className="text-muted-foreground">Hi, I’m </span>
-            {profile.name}
+            {`Hi, I’m ${profile.name}`}
           </h1>
         </Shell.Container>
         <Shell.LeftDecoration />
