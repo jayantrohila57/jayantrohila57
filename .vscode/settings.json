@@ -1,4 +1,35 @@
 {
-  "cSpell.words": ["Jayant", "opengraph", "Rohila"],
-  "typescript.tsdk": "node_modules\\typescript\\lib"
+  "cSpell.words": ["groq", "Jayant", "opengraph", "Rohila"],
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/biome.json": true,
+    "**/components.json": true,
+    "**/next-env.d.ts": true,
+    "**/next.config.ts": true,
+    "**/pnpm-workspace.yaml": true,
+    "**/.husky": true,
+    "**/.next": true
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit"
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.suggest.showStatusBar": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.jsxAttributeCompletionStyle": "auto"
 }

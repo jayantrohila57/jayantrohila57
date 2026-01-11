@@ -1,14 +1,14 @@
 "use client";
 
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import * as React from "react";
 import { Section } from "@/components/layout/section";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import SectionHeader from "@/components/layout/section-header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import testimonials from "@/data/testimonials.json";
 import type { Testimonial } from "@/data/types";
-import SectionHeader from "@/components/layout/section-header";
 
 export function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -75,16 +75,17 @@ export function TestimonialsSection() {
             </Button>
 
             <div className="flex gap-2">
-              {allTestimonials.map((_, i) => (
+              {allTestimonials.map((testimonial, dotIndex) => (
                 <button
-                  key={i}
-                  onClick={() => setCurrentIndex(i)}
+                  type="button"
+                  key={`testimonial-dot-${testimonial.id ?? dotIndex}`}
+                  onClick={() => setCurrentIndex(dotIndex)}
                   className={`h-2 w-2 rounded-full transition-colors ${
-                    i === currentIndex
+                    dotIndex === currentIndex
                       ? "bg-primary"
                       : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
                   }`}
-                  aria-label={`Go to testimonial ${i + 1}`}
+                  aria-label={`Go to testimonial ${dotIndex + 1}`}
                 />
               ))}
             </div>

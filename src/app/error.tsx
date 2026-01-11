@@ -1,19 +1,19 @@
 "use client";
 
+import { AlertTriangle, Home as HomeIcon, RefreshCw } from "lucide-react";
 import { useEffect } from "react";
-import { AlertTriangle, RefreshCw, Home as HomeIcon } from "lucide-react";
 import { LayoutWrapper } from "@/components/layout";
 import {
   Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
   CardAction,
   CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
 import { PageActions } from "@/components/ui/page-actions";
 
-export default function Error({
+export default function ErrorPage({
   error,
   reset,
 }: {

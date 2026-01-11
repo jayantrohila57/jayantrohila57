@@ -1,15 +1,15 @@
+import { ArrowRight, TrendingUp } from "lucide-react";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, TrendingUp } from "lucide-react";
 import type { CaseStudy } from "@/data/types";
 
 interface CaseStudyCardProps {

@@ -1,14 +1,12 @@
-import { WifiOff, RefreshCw } from "lucide-react";
+import { WifiOff } from "lucide-react";
 import { LayoutWrapper } from "@/components/layout";
 import {
   Card,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardAction,
-  CardContent,
 } from "@/components/ui/card";
-import { PageActions } from "@/components/ui/page-actions";
 
 export default function OfflinePage() {
   return (

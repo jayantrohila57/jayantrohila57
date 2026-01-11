@@ -3,9 +3,9 @@ import { LayoutWrapper } from "@/components/layout";
 import { Section } from "@/components/layout/section";
 import SectionHeader from "@/components/layout/section-header";
 import {
-  SocialConnections,
-  EmailCTA,
   AvailabilityStatus,
+  EmailCTA,
+  SocialConnections,
 } from "@/components/sections/contact";
 
 export const metadata: Metadata = {

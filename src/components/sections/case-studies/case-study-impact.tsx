@@ -1,8 +1,8 @@
+import { Quote, TrendingUp } from "lucide-react";
 import { Section } from "@/components/layout/section";
-import { Card, CardContent } from "@/components/ui/card";
-import { TrendingUp, Quote } from "lucide-react";
-import type { CaseStudy } from "@/data/types";
 import SectionHeader from "@/components/layout/section-header";
+import { Card, CardContent } from "@/components/ui/card";
+import type { CaseStudy } from "@/data/types";
 
 interface CaseStudyImpactProps {
   caseStudy: CaseStudy;
@@ -23,8 +23,8 @@ export function CaseStudyImpact({ caseStudy }: CaseStudyImpactProps) {
 
         {/* Metrics */}
         <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {caseStudy.impact.metrics.map((metric, i) => (
-            <Card key={i} className="text-center">
+          {caseStudy.impact.metrics.map((metric) => (
+            <Card key={metric.label} className="text-center">
               <CardContent className="pt-6">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10">
                   <TrendingUp className="h-6 w-6 text-green-600 dark:text-green-400" />

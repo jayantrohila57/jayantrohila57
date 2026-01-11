@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { LayoutWrapper } from "@/components/layout";
 import { Section } from "@/components/layout/section";
+import SectionHeader from "@/components/layout/section-header";
 import { CaseStudyCard } from "@/components/sections/case-studies";
 import caseStudies from "@/data/case-studies.json";
 import type { CaseStudy } from "@/data/types";
-import SectionHeader from "@/components/layout/section-header";
 
 export const metadata: Metadata = {
   title: "Case Studies",

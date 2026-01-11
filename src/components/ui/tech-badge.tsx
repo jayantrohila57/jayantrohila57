@@ -1,12 +1,12 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import { Badge } from "@/components/ui/badge";
-import { techIconMap, getThemedIconName } from "@/components/ui/tech-icon-map";
 import * as SVGL from "@ridemountainpig/svgl-react";
+import { useTheme } from "next-themes";
 import type { ComponentType, SVGProps } from "react";
-import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { getThemedIconName, techIconMap } from "@/components/ui/tech-icon-map";
+import { cn } from "@/lib/utils";
 
 interface TechBadgeProps {
   tech: string;

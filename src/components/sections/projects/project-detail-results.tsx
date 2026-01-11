@@ -1,8 +1,8 @@
-import { Section } from "@/components/layout/section";
-import { Card, CardContent } from "@/components/ui/card";
 import { TrendingUp } from "lucide-react";
-import type { Project } from "@/data/types";
+import { Section } from "@/components/layout/section";
 import SectionHeader from "@/components/layout/section-header";
+import { Card, CardContent } from "@/components/ui/card";
+import type { Project } from "@/data/types";
 
 interface ProjectDetailResultsProps {
   project: Project;
@@ -19,7 +19,10 @@ export function ProjectDetailResults({ project }: ProjectDetailResultsProps) {
       <Section>
         <div className="grid gap-6 md:grid-cols-3">
           {project.results.map((result, index) => (
-            <Card key={index} className="text-center">
+            <Card
+              key={`result-${index}-${result.metric}`}
+              className="text-center"
+            >
               <CardContent className="pt-6">
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10">
                   <TrendingUp className="h-6 w-6 text-green-600 dark:text-green-400" />

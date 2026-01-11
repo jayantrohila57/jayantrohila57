@@ -1,9 +1,9 @@
+import { Building2, Calendar, CheckCircle2, MapPin } from "lucide-react";
 import { Section } from "@/components/layout/section";
+import SectionHeader from "@/components/layout/section-header";
 import { Badge } from "@/components/ui/badge";
 import { TechBadge } from "@/components/ui/tech-badge";
-import { Building2, Calendar, MapPin, CheckCircle2 } from "lucide-react";
 import type { Experience } from "@/data/types";
-import SectionHeader from "@/components/layout/section-header";
 
 interface ExperienceTimelineProps {
   experiences: Experience[];
@@ -21,18 +21,18 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
         <div className="relative">
           <div className="space-y-12">
             {experiences.map((exp, expIndex) =>
-              exp.roles.map((role, roleIndex) => {
-                const isEven = (expIndex + roleIndex) % 2 === 0;
+              exp?.roles.map((role, roleIndex) => {
+                const _isEven = (expIndex + roleIndex) % 2 === 0;
                 const isCurrent = role.endDate === "Present";
 
                 return (
-                  <div key={`${exp.id}-${roleIndex}`}>
+                  <div key={`${exp?._id}-${role.title ?? roleIndex}`}>
                     {/* Content */}
                     <div className="flex-1 md:px-8">
                       <div className="rounded-xl border bg-card p-6 shadow-sm transition-all hover:shadow-md">
                         <div className="mb-4 flex flex-wrap items-center gap-2">
                           <Badge variant="secondary" className="capitalize">
-                            {exp.type.replace("-", " ")}
+                            {exp?.type.replace("-", " ")}
                           </Badge>
                           {isCurrent && (
                             <Badge className="bg-green-500/10 text-green-600 dark:text-green-400">
@@ -46,11 +46,11 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
                         <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1.5">
                             <Building2 className="h-4 w-4" />
-                            <span className="font-medium">{exp.company}</span>
+                            <span className="font-medium">{exp?.company}</span>
                           </div>
                           <div className="flex items-center gap-1.5">
                             <MapPin className="h-4 w-4" />
-                            <span>{exp.location}</span>
+                            <span>{exp?.location}</span>
                           </div>
                           <div className="flex items-center gap-1.5">
                             <Calendar className="h-4 w-4" />
@@ -72,9 +72,9 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
                           <ul className="space-y-2">
                             {role.achievements
                               .slice(0, 3)
-                              .map((achievement, i) => (
+                              .map((achievement) => (
                                 <li
-                                  key={i}
+                                  key={`${role.title}-${achievement}`}
                                   className="flex gap-2 text-sm text-muted-foreground"
                                 >
                                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-green-500" />

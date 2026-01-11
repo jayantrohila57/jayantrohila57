@@ -1,4 +1,4 @@
-import { Viewport } from "next";
+import type { Viewport } from "next";
 
 export const siteConfig = {
   siteName: "Jayant Rohila",

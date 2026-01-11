@@ -14,6 +14,7 @@ const SectionGrid = ({
   index,
   length,
   grid,
+  ...props
 }: SectionGridProps) => {
   const isOdd = index % 2 === 0;
   const last = length && index === length - 1;
@@ -28,6 +29,7 @@ const SectionGrid = ({
           "grid-rows-[16px_1px_auto_1px] md:grid-rows-[16px_1px_auto_1px_16px]",
         last && "grid-rows-[16px_1px_auto_1px_16px]",
       )}
+      {...props}
     >
       <div className={cn("col-start-2 row-start-3 bg-muted/30", className)}>
         {children}
@@ -48,9 +50,9 @@ const SectionSingleGrid = ({
   index,
   length,
 }: SectionGridProps) => {
-  const isOdd = index % 2 === 0;
+  const _isOdd = index % 2 === 0;
   const last = length && index === length - 1;
-  const secondLast = length && index === length - 2;
+  const _secondLast = length && index === length - 2;
   return (
     <div
       className={cn(

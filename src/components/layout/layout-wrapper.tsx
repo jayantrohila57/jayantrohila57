@@ -1,6 +1,6 @@
-import { Header } from "./header";
-import { Footer } from "./footer";
 import { cn } from "@/lib/utils";
+import { Footer } from "./footer";
+import { Header } from "./header";
 
 interface LayoutWrapperProps {
   children: React.ReactNode;

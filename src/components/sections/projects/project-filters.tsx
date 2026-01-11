@@ -1,8 +1,9 @@
 "use client";
 
+import { X } from "lucide-react";
 import * as React from "react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -10,7 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { X } from "lucide-react";
 import type { Project } from "@/data/types";
 
 interface ProjectFiltersProps {
@@ -29,7 +29,11 @@ export function ProjectFilters({
   // Get unique values
   const allTech = React.useMemo(() => {
     const techSet = new Set<string>();
-    projects.forEach((p) => p.tech.forEach((t) => techSet.add(t)));
+    for (const project of projects) {
+      for (const tech of project.tech) {
+        techSet.add(tech);
+      }
+    }
     return Array.from(techSet).sort();
   }, [projects]);
 
@@ -56,7 +60,7 @@ export function ProjectFilters({
     }
 
     if (selectedYear !== "all") {
-      filtered = filtered.filter((p) => p.year === parseInt(selectedYear));
+      filtered = filtered.filter((p) => p.year === parseInt(selectedYear, 10));
     }
 
     onFilterChange(filtered);
@@ -126,6 +130,7 @@ export function ProjectFilters({
               <Badge variant="secondary" className="gap-1">
                 {selectedCategory}
                 <button
+                  type="button"
                   onClick={() => setSelectedCategory("all")}
                   className="ml-1 hover:text-destructive"
                 >
@@ -137,6 +142,7 @@ export function ProjectFilters({
               <Badge variant="secondary" className="gap-1">
                 {selectedTech}
                 <button
+                  type="button"
                   onClick={() => setSelectedTech("all")}
                   className="ml-1 hover:text-destructive"
                 >
@@ -148,6 +154,7 @@ export function ProjectFilters({
               <Badge variant="secondary" className="gap-1">
                 {selectedYear}
                 <button
+                  type="button"
                   onClick={() => setSelectedYear("all")}
                   className="ml-1 hover:text-destructive"
                 >

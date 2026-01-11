@@ -4,10 +4,10 @@ import { AlertTriangle, Home as HomeIcon } from "lucide-react";
 import { LayoutWrapper } from "@/components/layout";
 import {
   Card,
+  CardAction,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardAction,
 } from "@/components/ui/card";
 import { PageActions } from "@/components/ui/page-actions";
 

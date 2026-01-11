@@ -1,18 +1,18 @@
+import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardAction,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardAction,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { TechBadge } from "@/components/ui/tech-badge";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { TechBadge } from "@/components/ui/tech-badge";
 import type { Project } from "@/data/types";
 
 interface ProjectCardProps {

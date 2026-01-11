@@ -11,7 +11,7 @@ export function ServiceWorkerProvider() {
           // First, unregister any existing service workers to avoid conflicts
           navigator.serviceWorker
             .getRegistrations()
-            .then(function (registrations) {
+            .then((registrations) => {
               const unregisterPromises = registrations.map((registration) => {
                 return registration.unregister();
               });
@@ -58,7 +58,7 @@ export function ServiceWorkerProvider() {
                 .register("/test-sw.js", {
                   scope: "/",
                 })
-                .then((testRegistration) => {
+                .then((_testRegistration) => {
                   // Test service worker registered
                 })
                 .catch((testError) => {

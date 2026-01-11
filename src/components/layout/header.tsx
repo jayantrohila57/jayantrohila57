@@ -1,20 +1,20 @@
 "use client";
 
-import * as React from "react";
+import { Code2, Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { siteConfig } from "@/data/site.config";
-import { ThemeToggle } from "./theme-toggle";
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
-  SheetTrigger,
   SheetHeader,
   SheetTitle,
+  SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu, Code2 } from "lucide-react";
+import { siteConfig } from "@/data/site.config";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Header() {
   const pathname = usePathname();

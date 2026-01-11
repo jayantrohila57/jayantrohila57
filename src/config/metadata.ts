@@ -1,5 +1,5 @@
+import type { Metadata } from "next";
 import { siteConfig } from "./site.config";
-import type { Metadata, MetadataRoute } from "next";
 
 // Base metadata configuration
 export const baseMetadata: Metadata = {
@@ -162,7 +162,7 @@ export function generatePageMetadata(options: {
 // Function to generate structured data (JSON-LD)
 export function generateStructuredData(
   type: string,
-  data: Record<string, any>,
+  data: Record<string, unknown>,
 ) {
   const baseStructuredData = {
     "@context": "https://schema.org",

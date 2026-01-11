@@ -1,6 +1,5 @@
-import { siteConfig } from "@/config/site.config";
 import type { Metadata } from "next";
-import { generatePageMetadata as baseGeneratePageMetadata } from "@/config/metadata";
+import { siteConfig } from "@/config/site.config";
 
 export interface PageMetadataOptions {
   title?: string;
@@ -72,7 +71,7 @@ export function generatePageMetadata(
 
 export function generateStructuredData(
   type: string,
-  data: Record<string, any>,
+  data: Record<string, unknown>,
 ) {
   const baseStructuredData = {
     "@context": "https://schema.org",
