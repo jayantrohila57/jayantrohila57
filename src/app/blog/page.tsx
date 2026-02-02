@@ -3,8 +3,7 @@ import { LayoutWrapper } from "@/components/layout";
 import { Section } from "@/components/layout/section";
 import SectionHeader from "@/components/layout/section-header";
 import { BlogCard } from "@/components/sections/blog";
-import blog from "@/data/blog.json";
-import type { BlogPost } from "@/data/types";
+import { getPosts } from "@/sanity/query/queries";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -12,8 +11,8 @@ export const metadata: Metadata = {
     "Thoughts on software development, system design, performance optimization, and technology.",
 };
 
-export default function BlogPage() {
-  const posts = blog as BlogPost[];
+export default async function BlogPage() {
+  const posts = await getPosts();
 
   return (
     <LayoutWrapper>

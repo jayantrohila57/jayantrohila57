@@ -6,16 +6,15 @@ import { LayoutWrapper } from "@/components/layout";
 import { Section } from "@/components/layout/section";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import blog from "@/data/blog.json";
-import profile from "@/data/profile.json";
-import type { BlogPost } from "@/data/types";
+import { getPostBySlug, getPosts, getProfile } from "@/sanity/query/queries";
 
 interface BlogDetailPageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return (blog as BlogPost[]).map((post) => ({
+  const posts = await getPosts();
+  return posts.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -24,7 +23,7 @@ export async function generateMetadata({
   params,
 }: BlogDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = (blog as BlogPost[]).find((p) => p.slug === slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return { title: "Post Not Found" };
@@ -46,7 +45,10 @@ export async function generateMetadata({
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   const { slug } = await params;
-  const post = (blog as BlogPost[]).find((p) => p.slug === slug);
+  const [post, profile] = await Promise.all([
+    getPostBySlug(slug),
+    getProfile(),
+  ]);
 
   if (!post) {
     notFound();
@@ -68,7 +70,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           <div className="mx-auto max-w-3xl">
             {/* Tags */}
             <div className="mb-4 flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
+              {post.tags?.map((tag) => (
                 <Badge key={tag} variant="secondary">
                   {tag}
                 </Badge>
@@ -84,7 +86,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             <div className="mt-6 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
               <div className="flex items-center gap-3">
                 <Avatar className="h-10 w-10">
-                  <AvatarImage src={profile.avatar} alt={post.author} />
+                  <AvatarImage src={profile?.avatar} alt={post.author} />
                   <AvatarFallback>
                     {post.author
                       .split(" ")
@@ -94,7 +96,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                 </Avatar>
                 <div>
                   <p className="font-medium text-foreground">{post.author}</p>
-                  <p className="text-xs">{profile.role}</p>
+                  <p className="text-xs">{profile?.role}</p>
                 </div>
               </div>
               <div className="flex items-center gap-1">

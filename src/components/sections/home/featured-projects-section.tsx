@@ -16,13 +16,10 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { TechBadge } from "@/components/ui/tech-badge";
-import projects from "@/data/projects.json";
 import type { Project } from "@/data/types";
 
-export function FeaturedProjectsSection() {
-  const featuredProjects = (projects as Project[])
-    .filter((p) => p.featured)
-    .slice(0, 4);
+export function FeaturedProjectsSection({ projects }: { projects: Project[] }) {
+  const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);
 
   return (
     <>

@@ -10,6 +10,7 @@ import project from "./project";
 import seoSettings from "./seoSettings";
 import siteSettings from "./siteSettings";
 import skills from "./skills";
+import testimonial from "./testimonial";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -22,6 +23,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     profile,
     project,
     caseStudy,
+    testimonial,
     seoSettings,
     siteSettings,
   ],

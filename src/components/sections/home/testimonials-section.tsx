@@ -7,12 +7,17 @@ import SectionHeader from "@/components/layout/section-header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import testimonials from "@/data/testimonials.json";
 import type { Testimonial } from "@/data/types";
 
-export function TestimonialsSection() {
+export function TestimonialsSection({
+  testimonials,
+}: {
+  testimonials: Testimonial[];
+}) {
   const [currentIndex, setCurrentIndex] = React.useState(0);
-  const allTestimonials = testimonials as Testimonial[];
+  if (!testimonials || testimonials.length === 0) return null;
+
+  const allTestimonials = testimonials;
 
   const next = () => {
     setCurrentIndex((prev) => (prev + 1) % allTestimonials.length);

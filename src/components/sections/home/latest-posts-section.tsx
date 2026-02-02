@@ -12,11 +12,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import blog from "@/data/blog.json";
 import type { BlogPost } from "@/data/types";
 
-export function LatestPostsSection() {
-  const latestPosts = (blog as BlogPost[]).slice(0, 3);
+export function LatestPostsSection({ posts }: { posts: BlogPost[] }) {
+  const latestPosts = posts.slice(0, 3);
 
   return (
     <>

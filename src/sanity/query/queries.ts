@@ -8,7 +8,9 @@ import type {
   SEOConfig,
   SiteSettings,
   Skills,
+  Testimonial,
 } from "@/data/types";
+
 import { client } from "../lib/client";
 
 export const experiencesQuery = groq`
@@ -216,4 +218,70 @@ export async function getSeoSettings(): Promise<SEOConfig | null> {
 
 export async function getSiteSettings(): Promise<SiteSettings | null> {
   return client.fetch<SiteSettings | null>(siteSettingsQuery);
+}
+
+export const testimonialsQuery = groq`
+*[_type == "testimonial"] | order(featured desc, _createdAt desc){
+  "id": _id,
+  quote,
+  author,
+  role,
+  company,
+  "avatar": avatar.asset->url,
+  featured
+}`;
+
+export async function getTestimonials(): Promise<Testimonial[]> {
+  return client.fetch<Testimonial[]>(testimonialsQuery);
+}
+
+export const projectBySlugQuery = groq`
+*[_type == "project" && slug.current == $slug][0]{
+  "id": _id,
+  "slug": slug.current,
+  title,
+  subtitle,
+  description,
+  featured,
+  category,
+  role,
+  year,
+  duration,
+  "thumbnail": thumbnail.asset->url,
+  "images": images[].asset->url,
+  tech,
+  liveUrl,
+  githubUrl,
+  overview,
+  architecture,
+  challenges[]{title, description},
+  results[]{metric, value, description}
+}`;
+
+export async function getProjectBySlug(slug: string): Promise<Project | null> {
+  return client.fetch<Project | null>(projectBySlugQuery, { slug });
+}
+
+export const caseStudyBySlugQuery = groq`
+*[_type == "caseStudy" && slug.current == $slug][0]{
+  "id": _id,
+  "slug": slug.current,
+  title,
+  subtitle,
+  client,
+  industry,
+  duration,
+  year,
+  "thumbnail": thumbnail.asset->url,
+  featured,
+  problem{ summary, details },
+  solution{ summary, approach, tech },
+  impact{ summary, metrics[]{ label, value, description } },
+  testimonial{ quote, author, role }
+}`;
+
+export async function getCaseStudyBySlug(
+  slug: string,
+): Promise<CaseStudy | null> {
+  return client.fetch<CaseStudy | null>(caseStudyBySlugQuery, { slug });
 }

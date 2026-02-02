@@ -8,13 +8,21 @@ import {
   SocialConnections,
 } from "@/components/sections/contact";
 
+import { getProfile } from "@/sanity/query/queries";
+
 export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with me for project inquiries, collaborations, or just to say hello.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const profile = await getProfile();
+
+  if (!profile) {
+    return null;
+  }
+
   return (
     <LayoutWrapper>
       <SectionHeader
@@ -23,9 +31,9 @@ export default function ContactPage() {
         description="I'm always interested in hearing about new projects and opportunities."
       />
       <Section>
-        <AvailabilityStatus />
+        <AvailabilityStatus profile={profile} />
         <EmailCTA />
-        <SocialConnections />
+        <SocialConnections social={profile.social} />
       </Section>
     </LayoutWrapper>
   );

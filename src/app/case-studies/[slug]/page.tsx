@@ -10,15 +10,15 @@ import {
   CaseStudySolution,
 } from "@/components/sections/case-studies";
 import { Badge } from "@/components/ui/badge";
-import caseStudies from "@/data/case-studies.json";
-import type { CaseStudy } from "@/data/types";
+import { getCaseStudies, getCaseStudyBySlug } from "@/sanity/query/queries";
 
 interface CaseStudyDetailPageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return (caseStudies as CaseStudy[]).map((study) => ({
+  const studies = await getCaseStudies();
+  return studies.map((study) => ({
     slug: study.slug,
   }));
 }
@@ -27,7 +27,7 @@ export async function generateMetadata({
   params,
 }: CaseStudyDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const study = (caseStudies as CaseStudy[]).find((s) => s.slug === slug);
+  const study = await getCaseStudyBySlug(slug);
 
   if (!study) {
     return { title: "Case Study Not Found" };
@@ -48,7 +48,7 @@ export default async function CaseStudyDetailPage({
   params,
 }: CaseStudyDetailPageProps) {
   const { slug } = await params;
-  const study = (caseStudies as CaseStudy[]).find((s) => s.slug === slug);
+  const study = await getCaseStudyBySlug(slug);
 
   if (!study) {
     notFound();

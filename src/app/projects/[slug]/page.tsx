@@ -13,15 +13,16 @@ import {
 } from "@/components/sections/projects";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import projects from "@/data/projects.json";
-import type { Project } from "@/data/types";
 
 interface ProjectDetailPageProps {
   params: Promise<{ slug: string }>;
 }
 
+import { getProjectBySlug, getProjects } from "@/sanity/query/queries";
+
 export async function generateStaticParams() {
-  return (projects as Project[]).map((project) => ({
+  const projects = await getProjects();
+  return projects.map((project) => ({
     slug: project.slug,
   }));
 }
@@ -30,7 +31,7 @@ export async function generateMetadata({
   params,
 }: ProjectDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = (projects as Project[]).find((p) => p.slug === slug);
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     return { title: "Project Not Found" };
@@ -51,7 +52,7 @@ export default async function ProjectDetailPage({
   params,
 }: ProjectDetailPageProps) {
   const { slug } = await params;
-  const project = (projects as Project[]).find((p) => p.slug === slug);
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     notFound();

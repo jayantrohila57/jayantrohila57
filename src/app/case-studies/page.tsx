@@ -3,8 +3,7 @@ import { LayoutWrapper } from "@/components/layout";
 import { Section } from "@/components/layout/section";
 import SectionHeader from "@/components/layout/section-header";
 import { CaseStudyCard } from "@/components/sections/case-studies";
-import caseStudies from "@/data/case-studies.json";
-import type { CaseStudy } from "@/data/types";
+import { getCaseStudies } from "@/sanity/query/queries";
 
 export const metadata: Metadata = {
   title: "Case Studies",
@@ -12,8 +11,8 @@ export const metadata: Metadata = {
     "In-depth explorations of projects I've worked on, from problem to solution to impact.",
 };
 
-export default function CaseStudiesPage() {
-  const studies = caseStudies as CaseStudy[];
+export default async function CaseStudiesPage() {
+  const studies = await getCaseStudies();
 
   return (
     <LayoutWrapper>

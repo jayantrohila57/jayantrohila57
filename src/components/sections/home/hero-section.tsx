@@ -3,26 +3,63 @@ import Link from "next/link";
 import { Shell } from "@/components/layout/shell";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import profile from "@/data/profile.json";
+import type { Profile } from "@/data/types";
 
-const Availability = () => {
-  const isAvailable = profile.availability.status === "available";
+const Availability = ({
+  availability,
+}: {
+  availability: Profile["availability"];
+}) => {
+  const statusConfig = {
+    available: {
+      color: "text-green-600 dark:text-green-400",
+      bg: "bg-green-500/10",
+      border: "border-green-500/40",
+      dot: "bg-green-500",
+      ping: "bg-green-400",
+      label: "Available",
+    },
+    limited: {
+      color: "text-yellow-600 dark:text-yellow-400",
+      bg: "bg-yellow-500/10",
+      border: "border-yellow-500/40",
+      dot: "bg-yellow-500",
+      ping: "bg-yellow-400",
+      label: "Limited",
+    },
+    unavailable: {
+      color: "text-red-600 dark:text-red-400",
+      bg: "bg-red-500/10",
+      border: "border-red-500/40",
+      dot: "bg-red-500",
+      ping: "bg-red-400",
+      label: "Unavailable",
+    },
+  };
+
+  const config = statusConfig[availability.status];
 
   return (
     <Badge
       variant="outline"
-      className="gap-2 border-green-500/40 bg-green-500/10 px-4 py-1.5 text-green-600 dark:text-green-400"
+      className={`gap-2 ${config.border} ${config.bg} ${config.color} px-4 py-1.5`}
     >
       <span className="relative flex h-2 w-2">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-        <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+        <span
+          className={`absolute inline-flex h-full w-full animate-ping rounded-full ${config.ping} opacity-75`}
+        />
+        <span
+          className={`relative inline-flex h-2 w-2 rounded-full ${config.dot}`}
+        />
       </span>
-      {isAvailable ? profile.availability.message : "Not Available"}
+      {availability.message || config.label}
     </Badge>
   );
 };
 
-export function HeroSection() {
+export function HeroSection({ profile }: { profile: Profile | null }) {
+  if (!profile) return null;
+
   return (
     <>
       <Shell>
@@ -34,7 +71,7 @@ export function HeroSection() {
       </Shell>
       <Shell>
         <Shell.Container className="bg-muted/30 flex flex-col items-start justify-start p-4">
-          <Availability />
+          <Availability availability={profile.availability} />
         </Shell.Container>
         <Shell.LeftDecoration />
         <Shell.RightDecoration />

@@ -20,7 +20,37 @@ const monoFonts = MonoFonts({
   weight: ["400", "500", "700"],
 });
 
-export const metadata: Metadata = baseMetadata;
+import { siteConfig } from "@/config/site.config";
+import { getSeoSettings } from "@/sanity/query/queries";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seoSettings = await getSeoSettings();
+
+  if (!seoSettings) return baseMetadata;
+
+  return {
+    ...baseMetadata,
+    title: {
+      default:
+        seoSettings.defaultTitle ||
+        baseMetadata.title?.toString() ||
+        siteConfig.siteTitle,
+      template:
+        seoSettings.titleTemplate ||
+        baseMetadata.title?.toString() ||
+        `%s | ${siteConfig.siteName}`,
+    },
+    description: seoSettings.defaultDescription || baseMetadata.description,
+    keywords: seoSettings.keywords || baseMetadata.keywords,
+    openGraph: {
+      ...baseMetadata.openGraph,
+      title: seoSettings.openGraph?.siteName || baseMetadata.openGraph?.title,
+      description:
+        seoSettings.defaultDescription || baseMetadata.openGraph?.description,
+      // Add other OG mappings if needed
+    },
+  };
+}
 
 export default function RootLayout({
   children,

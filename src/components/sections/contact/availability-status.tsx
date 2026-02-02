@@ -2,7 +2,7 @@ import { CheckCircle2, Clock, MapPin } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import profile from "@/data/profile.json";
+import type { Profile } from "@/data/types";
 
 const statusConfig = {
   available: {
@@ -28,7 +28,7 @@ const statusConfig = {
   },
 };
 
-export function AvailabilityStatus() {
+export function AvailabilityStatus({ profile }: { profile: Profile }) {
   const statusKey = profile.availability.status as keyof typeof statusConfig;
   const status = statusConfig[statusKey];
   const Icon = status.icon;

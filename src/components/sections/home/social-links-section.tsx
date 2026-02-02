@@ -10,8 +10,8 @@ import { Section } from "@/components/layout/section";
 import SectionHeader from "@/components/layout/section-header";
 import { Button } from "@/components/ui/button";
 import { isSvglIcon, SvglIcon } from "@/components/ui/icon";
-import profile from "@/data/profile.json";
 import { siteConfig } from "@/data/site.config";
+import type { Profile } from "@/data/types";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Github,
@@ -24,7 +24,12 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   DevTo: Newspaper,
 };
 
-export function SocialLinksSection() {
+export function SocialLinksSection({
+  social,
+}: {
+  social: Profile["social"] | undefined;
+}) {
+  if (!social || social.length === 0) return null;
   return (
     <>
       <SectionHeader
@@ -34,16 +39,16 @@ export function SocialLinksSection() {
       />
       <Section className="bg-muted/30">
         <div className="mx-auto grid max-w-3xl gap-4 md:grid-cols-2">
-          {profile.social.map((social) => {
-            const isSvgl = isSvglIcon(social.icon);
-            const LucideIcon = iconMap[social.icon];
+          {social.map((socialItem) => {
+            const isSvgl = isSvglIcon(socialItem.icon);
+            const LucideIcon = iconMap[socialItem.icon];
 
             if (!isSvgl && !LucideIcon) return null;
 
             return (
               <a
-                key={social.platform}
-                href={social.url}
+                key={socialItem.platform}
+                href={socialItem.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4 rounded-xl border bg-card p-4 transition-all hover:border-primary hover:shadow-md"
@@ -51,7 +56,7 @@ export function SocialLinksSection() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   {isSvgl ? (
                     <SvglIcon
-                      name={social.icon as "LinkedIn"}
+                      name={socialItem.icon as "LinkedIn"}
                       className="h-5 w-5 text-current"
                     />
                   ) : (
@@ -59,9 +64,9 @@ export function SocialLinksSection() {
                   )}
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium">{social.platform}</p>
+                  <p className="font-medium">{socialItem.platform}</p>
                   <p className="text-sm text-muted-foreground">
-                    {social.label}
+                    {socialItem.label}
                   </p>
                 </div>
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

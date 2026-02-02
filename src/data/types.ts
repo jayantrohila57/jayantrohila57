@@ -185,6 +185,7 @@ export interface Testimonial {
   role: string;
   company: string;
   avatar?: string;
+  featured: boolean;
 }
 
 export interface SkillItem {
