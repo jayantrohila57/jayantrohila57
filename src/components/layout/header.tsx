@@ -12,7 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { siteConfig } from "@/data/site.config";
+import { siteConfig } from "@/config/site.config";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
 

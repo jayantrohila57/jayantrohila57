@@ -1,6 +1,6 @@
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
-import { siteConfig } from "@/data/site.config";
+import { siteConfig } from "@/config/site.config";
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {

@@ -10,7 +10,7 @@ import { Section } from "@/components/layout/section";
 import SectionHeader from "@/components/layout/section-header";
 import { Button } from "@/components/ui/button";
 import { isSvglIcon, SvglIcon } from "@/components/ui/icon";
-import { siteConfig } from "@/data/site.config";
+import { siteConfig } from "@/config/site.config";
 import type { Profile } from "@/data/types";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {

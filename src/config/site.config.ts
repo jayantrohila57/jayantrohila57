@@ -6,24 +6,66 @@ export const siteConfig = {
   siteDescription:
     "Passionate full stack developer building modern web applications with cutting-edge technologies. Specializing in React, Next.js, Node.js, and cloud architecture.",
   siteUrl: "https://jayantrohila.com",
+  domain: "jayant-rohila.dev",
+  name: "Jayant Rohila",
+  tagline: "Senior Full-Stack Developer",
 
   author: {
     name: "Jayant Rohila",
-    email: "jayant.rohila@example.com",
+    email: "jrohila55@gmail.com",
     role: "Full Stack Developer",
     bio: "I am a passionate full stack developer with 5+ years of experience building scalable web applications. I love working with modern JavaScript frameworks and cloud technologies.",
     location: "Delhi, India",
     avatar: "https://avatars.githubusercontent.com/u/12345678?v=4",
   },
 
-  social: {
-    github: "https://github.com/jayantrohila57",
-    linkedin: "https://linkedin.com/in/jayantrohila",
-    twitter: "https://twitter.com/jayantrohila",
-    website: "https://jayantrohila.com",
-    devto: "https://dev.to/jayantrohila",
-    codepen: "https://codepen.io/jayantrohila",
-    stackoverflow: "https://stackoverflow.com/users/12345678/jayant-rohila",
+  social: [
+    {
+      platform: "GitHub",
+      url: "https://github.com/jayantrohila57",
+      icon: "GitHub",
+      label: "Follow on GitHub",
+    },
+    {
+      platform: "LinkedIn",
+      url: "https://linkedin.com/in/jayantrohila",
+      icon: "LinkedIn",
+      label: "Connect on LinkedIn",
+    },
+    {
+      platform: "Twitter",
+      url: "https://twitter.com/jayantrohila",
+      icon: "Twitter",
+      label: "Follow on Twitter",
+    },
+    {
+      platform: "Email",
+      url: "mailto:hello@jayant-rohila.dev",
+      icon: "Mail",
+      label: "Send an email",
+    },
+  ],
+
+  navigation: [
+    { label: "Home", href: "/" },
+    { label: "Projects", href: "/projects" },
+    { label: "Experience", href: "/experience" },
+    { label: "Blog", href: "/blog" },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "Contact", href: "/contact" },
+  ],
+
+  logo: {
+    text: "JR",
+    icon: "Code2",
+  },
+
+  footer: {
+    copyright: `© ${new Date().getFullYear()} Jayant Rohila. All rights reserved.`,
+    links: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+    ],
   },
 
   seo: {
@@ -56,12 +98,12 @@ export const siteConfig = {
   },
 
   analytics: {
-    googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID,
+    googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID || "G-9HFQLM7BCG",
     vercelAnalytics: true,
   },
 
   contact: {
-    email: "jayant.rohila@example.com",
+    email: "hello@jayant-rohila.dev",
     formspreeId: process.env.FORMSPREE_ID,
     useEmailService: true,
   },

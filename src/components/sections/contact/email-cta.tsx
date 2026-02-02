@@ -2,7 +2,7 @@ import { Mail } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { siteConfig } from "@/data/site.config";
+import { siteConfig } from "@/config/site.config";
 
 export function EmailCTA() {
   return (

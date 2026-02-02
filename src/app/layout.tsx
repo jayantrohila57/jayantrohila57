@@ -20,34 +20,48 @@ const monoFonts = MonoFonts({
   weight: ["400", "500", "700"],
 });
 
+import SmoothScroll from "@/components/layout/smooth-scroll";
 import { siteConfig } from "@/config/site.config";
-import { getSeoSettings } from "@/sanity/query/queries";
+import { getSeoSettings, getSiteSettings } from "@/sanity/query/queries";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const seoSettings = await getSeoSettings();
+  const [seoSettings, siteSettings] = await Promise.all([
+    getSeoSettings(),
+    getSiteSettings(),
+  ]);
 
-  if (!seoSettings) return baseMetadata;
+  const defaultTitle =
+    seoSettings?.defaultTitle ||
+    siteSettings?.siteTitle ||
+    siteConfig.siteTitle;
+  const siteName =
+    seoSettings?.openGraph?.siteName ||
+    siteSettings?.siteName ||
+    siteConfig.siteName;
+
+  if (!seoSettings && !siteSettings) return baseMetadata;
 
   return {
     ...baseMetadata,
     title: {
-      default:
-        seoSettings.defaultTitle ||
-        baseMetadata.title?.toString() ||
-        siteConfig.siteTitle,
+      default: defaultTitle,
       template:
-        seoSettings.titleTemplate ||
+        seoSettings?.titleTemplate ||
         baseMetadata.title?.toString() ||
-        `%s | ${siteConfig.siteName}`,
+        `%s | ${siteName}`,
     },
-    description: seoSettings.defaultDescription || baseMetadata.description,
-    keywords: seoSettings.keywords || baseMetadata.keywords,
+    description:
+      seoSettings?.defaultDescription ||
+      siteSettings?.siteDescription ||
+      baseMetadata.description,
+    keywords: seoSettings?.keywords || baseMetadata.keywords,
     openGraph: {
       ...baseMetadata.openGraph,
-      title: seoSettings.openGraph?.siteName || baseMetadata.openGraph?.title,
+      title: siteName,
       description:
-        seoSettings.defaultDescription || baseMetadata.openGraph?.description,
-      // Add other OG mappings if needed
+        seoSettings?.defaultDescription ||
+        siteSettings?.siteDescription ||
+        (baseMetadata.description as string),
     },
   };
 }
@@ -57,11 +71,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const analyticsId = siteConfig.analytics.googleAnalyticsId || "";
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${fonts.variable} ${monoFonts.variable} antialiased`}>
-        <GoogleTagManager gtmId="G-9HFQLM7BCG" />
-        <GoogleAnalytics gaId="G-9HFQLM7BCG" />
+        <GoogleTagManager gtmId={analyticsId} />
+        <GoogleAnalytics gaId={analyticsId} />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -69,7 +85,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          {/* <SmoothScroll /> */}
+          <SmoothScroll />
         </ThemeProvider>
       </body>
     </html>

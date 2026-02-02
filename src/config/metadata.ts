@@ -38,9 +38,12 @@ export const baseMetadata: Metadata = {
     title: siteConfig.siteTitle,
     description: siteConfig.siteDescription,
     images: [`${siteConfig.siteUrl}/api/image?type=twitter`],
-    creator: siteConfig.social.twitter
-      ? `@${siteConfig.social.twitter.split("twitter.com/")[1]}`
-      : undefined,
+    creator: (() => {
+      const twitterUrl = siteConfig.social.find(
+        (s) => s.platform === "Twitter",
+      )?.url;
+      return twitterUrl ? `@${twitterUrl.split("twitter.com/")[1]}` : undefined;
+    })(),
   },
 
   // Apple Web App
@@ -181,7 +184,7 @@ export function generatePersonStructuredData() {
     jobTitle: siteConfig.author.role,
     description: siteConfig.author.bio,
     url: siteConfig.siteUrl,
-    sameAs: Object.values(siteConfig.social).filter(Boolean),
+    sameAs: siteConfig.social.map((s) => s.url).filter(Boolean),
     knowsAbout: siteConfig.seo.keywords,
     worksFor: {
       "@type": "Organization",
