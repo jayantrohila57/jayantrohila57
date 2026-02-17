@@ -3,7 +3,6 @@ import {
   M_PLUS_1 as Fonts,
   M_PLUS_1_Code as MonoFonts,
 } from "next/font/google";
-import { ThemeProvider } from "@/components/layout";
 import "./globals.css";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { baseMetadata } from "@/config/metadata";
@@ -20,7 +19,6 @@ const monoFonts = MonoFonts({
   weight: ["400", "500", "700"],
 });
 
-import SmoothScroll from "@/components/layout/smooth-scroll";
 import { siteConfig } from "@/config/site.config";
 import { getSeoSettings, getSiteSettings } from "@/sanity/query/queries";
 
@@ -78,15 +76,7 @@ export default function RootLayout({
       <body className={`${fonts.variable} ${monoFonts.variable} antialiased`}>
         <GoogleTagManager gtmId={analyticsId} />
         <GoogleAnalytics gaId={analyticsId} />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <SmoothScroll />
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

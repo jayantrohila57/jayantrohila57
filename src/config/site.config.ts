@@ -8,7 +8,7 @@ export const siteConfig = {
   siteUrl: "https://jayantrohila.com",
   domain: "jayant-rohila.dev",
   name: "Jayant Rohila",
-  tagline: "Senior Full-Stack Developer",
+  tagline: "Full-Stack Developer",
 
   author: {
     name: "Jayant Rohila",
