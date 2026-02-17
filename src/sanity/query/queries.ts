@@ -63,7 +63,7 @@ export const profileQuery = groq`
 }`;
 
 export const projectsQuery = groq`
-*[_type == "project"] | order(featured desc, year desc){
+*[_type == "project"] | order(year desc){
   "id": _id,
   "slug": slug.current,
   title,

@@ -19,6 +19,7 @@ const monoFonts = MonoFonts({
   weight: ["400", "500", "700"],
 });
 
+import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/config/site.config";
 import { getSeoSettings, getSiteSettings } from "@/sanity/query/queries";
 
@@ -73,10 +74,21 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${fonts.variable} ${monoFonts.variable} antialiased`}>
-        <GoogleTagManager gtmId={analyticsId} />
-        <GoogleAnalytics gaId={analyticsId} />
-        {children}
+      <body
+        className={`${fonts.variable} ${monoFonts.variable} antialiased relative`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <GoogleTagManager gtmId={analyticsId} />
+          <GoogleAnalytics gaId={analyticsId} />
+          <div className="isolate relative flex min-h-svh p-2 flex-col">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
