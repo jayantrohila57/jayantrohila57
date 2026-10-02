@@ -16,8 +16,8 @@ export function HeaderShell({ children, actions }: HeaderShellProps) {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60",
-        "md:border-transparent md:bg-transparent md:backdrop-blur-none md:supports-backdrop-filter:bg-transparent",
+        "sticky top-0 z-50 w-full border-b border-border bg-background",
+        "md:border-transparent md:bg-transparent md:backdrop-blur-none",
         scrolled &&
           "md:border-border md:bg-background/95 md:backdrop-blur-sm md:supports-backdrop-filter:bg-background/50",
       )}

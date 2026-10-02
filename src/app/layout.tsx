@@ -1,11 +1,11 @@
 import { GoogleAnalyticsLazy } from "@/components/analytics/google-analytics-lazy";
 import { RootJsonLd } from "@/components/json-ld";
-import { LenisInit } from "@/components/lenis-init";
+import { LenisGate } from "@/components/lenis-gate";
 import { baseMetadata } from "@/config/metadata";
 import { baseViewport, siteConfig } from "@/config/site";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./global.css";
 
 const ibmPlex = IBM_Plex_Sans({
@@ -14,14 +14,6 @@ const ibmPlex = IBM_Plex_Sans({
   variable: "--font-ibm-plex",
   display: "swap",
   preload: true,
-  adjustFontFallback: true,
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains",
-  display: "swap",
-  preload: false,
   adjustFontFallback: true,
 });
 
@@ -42,13 +34,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${ibmPlex.variable} ${jetbrains.variable} dark`}
+      className={`${ibmPlex.variable} dark`}
       suppressHydrationWarning
     >
+      <head>
+        <RootJsonLd />
+      </head>
       <body className="flex min-h-dvh flex-col antialiased">
         {children}
-        <RootJsonLd />
-        <LenisInit />
+        <LenisGate />
         {gaId ? <GoogleAnalyticsLazy gaId={gaId} /> : null}
         {useVercelInsights ? (
           <>

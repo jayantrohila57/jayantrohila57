@@ -14,7 +14,9 @@ import {
 
 export function HomeBelowFold() {
   return (
-    <>
+    <div
+      className="[contain-intrinsic-size:auto_1200px] [content-visibility:auto]"
+    >
       <SelectedWorkSection />
       <EngineeringSection />
       <StackSection />
@@ -24,6 +26,6 @@ export function HomeBelowFold() {
       <AboutTeaserSection />
       <ContactSection />
       <FinalCtaSection />
-    </>
+    </div>
   );
 }

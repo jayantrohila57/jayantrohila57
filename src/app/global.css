@@ -18,7 +18,7 @@
   --brand-foreground: #0b0d0f;
 
   --font-sans: var(--font-ibm-plex), system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
 
   --radius-sm: 6px;
   --radius-md: 10px;

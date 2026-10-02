@@ -31,12 +31,17 @@ function ArrowRightGlyph({ className }: { className?: string }) {
 
 export function PortfolioHero() {
   return (
-    <section className="relative overflow-hidden border-b border-border pt-10 pb-4 md:pt-14 md:pb-8">
+    <section
+      className={cn(
+        "relative overflow-hidden border-b border-border pt-10 pb-4 md:min-h-0 md:pt-14 md:pb-8",
+        "min-h-[calc(100svh-3.5rem)]",
+      )}
+    >
       <EfferdRail>
         <div className="relative z-10 flex max-w-2xl flex-col gap-5 px-4 pt-4 pb-8">
           <h1
             className={cn(
-              "text-balance font-semibold text-4xl leading-[0.95] tracking-tight text-foreground md:text-6xl",
+              "text-balance font-semibold text-5xl leading-[0.95] tracking-tight text-foreground md:text-6xl",
             )}
           >
             {profile.name.split(" ").join(" ")}
@@ -61,7 +66,10 @@ export function PortfolioHero() {
             />
           </Link>
 
-          <p className="text-muted-foreground text-sm leading-relaxed sm:text-base md:text-lg">
+          <p className="text-muted-foreground text-sm leading-relaxed md:hidden">
+            {profile.publicHeadline}
+          </p>
+          <p className="hidden text-muted-foreground text-sm leading-relaxed md:block md:text-lg">
             {profile.shortBio}
           </p>
           <p className="font-mono text-[11px] tracking-wide text-muted-foreground">

@@ -23,20 +23,10 @@ export function LenisInit() {
       return;
     }
 
-    const schedule =
-      typeof requestIdleCallback !== "undefined"
-        ? requestIdleCallback
-        : (cb: () => void) => window.setTimeout(cb, 1);
-
-    const cancel =
-      typeof cancelIdleCallback !== "undefined"
-        ? cancelIdleCallback
-        : (id: number) => window.clearTimeout(id);
-
     let rafId = 0;
     let destroyed = false;
 
-    const idleId = schedule(() => {
+    const startLenis = () => {
       void import("lenis").then(({ default: Lenis }) => {
         if (destroyed) return;
         const lenis = new Lenis({
@@ -53,11 +43,20 @@ export function LenisInit() {
         };
         rafId = requestAnimationFrame(raf);
       });
-    });
+    };
+
+    const idleId =
+      typeof requestIdleCallback !== "undefined"
+        ? requestIdleCallback(startLenis, { timeout: 3000 })
+        : window.setTimeout(startLenis, 1500);
 
     return () => {
       destroyed = true;
-      cancel(idleId as number);
+      if (typeof cancelIdleCallback !== "undefined") {
+        cancelIdleCallback(idleId as number);
+      } else {
+        window.clearTimeout(idleId as number);
+      }
       cancelAnimationFrame(rafId);
       lenisRef.current?.destroy();
       lenisRef.current = null;
