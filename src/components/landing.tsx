@@ -105,7 +105,8 @@ const docSections: DocSection[] = [
       {
         href: "/work/case-studies",
         title: "Case studies",
-        summary: "Inkly CMS, Env Manager, and Taskflow — what I built and why.",
+        summary:
+          "E-commerce (Razorpay), Env Manager, and Taskflow — problem, stack, and architecture.",
       },
       {
         href: "/work/skills",

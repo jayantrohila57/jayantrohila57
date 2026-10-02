@@ -1,0 +1,42 @@
+---
+title: E-commerce
+description: Production-oriented Next.js storefront with Razorpay and server-authoritative checkout.
+---
+
+## Problem
+
+I wanted a **production-shaped e-commerce** codebase — not a static product grid — with real auth, a database-backed catalog and orders, and **payment integration** where totals and provider charges stay aligned.
+
+## What I built
+
+A **Next.js storefront** with App Router routes, authenticated customer flows, staff-facing **Studio** (restricted to `staff` / `admin` per repo docs), and **Razorpay** checkout with webhook verification. The README documents **health endpoints** (`/api/health`, `/api/health/ready`), migrations and seed scripts, and runtime validation for production environment variables.
+
+Operator notes in the repo call out **server-authoritative checkout**: `order.previewCheckoutTotals` and `order.create` so UI, database order rows, and Razorpay amounts stay consistent.
+
+## Stack
+
+From the project README:
+
+- **Next.js** (App Router), **TypeScript**, **tRPC**
+- **Drizzle ORM** + **PostgreSQL** (Neon)
+- **Better Auth**
+- **Razorpay** (API keys + webhook HMAC via `RAZORPAY_WEBHOOK_SECRET`)
+- **Resend** for transactional email (documented env vars)
+- **Vitest**, **Biome**, optional **Sentry** and blob storage tokens
+
+## Architecture & highlights
+
+- **Payments:** Razorpay keys, public key for client, webhook URL `https://<your-domain>/api/webhooks/razorpay` documented in README  
+- **Config:** Required production env table (`DATABASE_URL`, `BETTER_AUTH_*`, `RAZORPAY_*`, `NEXT_PUBLIC_BASE_URL`, etc.) with optional Arcjet abuse protection  
+- **Data workflow:** `pnpm db:migrate`, `pnpm db:studio`, schema generation after changes  
+- **Quality:** `pnpm check` (Biome + TypeScript), `pnpm test` (Vitest)  
+- **Docs:** `docs/requirements.md` captures production audit notes for commerce correctness and security (useful for scope, not a launch claim)
+
+## Links
+
+- **Repository:** [github.com/jayantrohila57/e-commerce](https://github.com/jayantrohila57/e-commerce)  
+- **Live demo:** [e-commerce-jayantrohila.vercel.app](https://e-commerce-jayantrohila.vercel.app)
+
+## Result
+
+Public **repo and deployed demo** on Vercel. Sales volume, traffic, and production launch status are **not published** on this portfolio.
