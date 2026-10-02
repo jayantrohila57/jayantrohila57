@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  experimental: {
+    optimizePackageImports: ["lucide-react", "lenis"],
+  },
   async redirects() {
     return [
       { source: "/about/overview", destination: "/about", permanent: true },

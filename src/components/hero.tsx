@@ -64,7 +64,7 @@ export function PortfolioHero() {
           </div>
         </div>
 
-        <div className="border-t border-border bg-surface/40 p-2 md:p-3">
+        <div className="hidden border-t border-border bg-surface/40 p-2 md:block md:p-3">
           <div className="grid gap-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_minmax(0,1fr)]">
             <InterfaceWindow title="apps/" className="h-full">
               <div className="space-y-1 text-muted-foreground">
@@ -102,7 +102,7 @@ export function PortfolioHero() {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-border px-4 py-4 font-mono text-[10px] tracking-wider text-muted-foreground">
+        <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-border px-4 py-4 font-mono text-xs tracking-wider text-muted-foreground">
           {profile.heroStrip.map((tech, i) => (
             <span key={tech} className="flex items-center gap-4">
               {i > 0 ? (

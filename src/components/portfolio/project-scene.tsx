@@ -14,7 +14,7 @@ function EcommercePreview() {
           <span className="text-foreground">Transactions</span>
           <StatusBadge label="demo" status="demo" />
         </div>
-        <div className="grid grid-cols-3 gap-2 text-[10px] text-muted-foreground">
+        <div className="grid grid-cols-3 gap-2 text-xs text-muted-foreground">
           <span>Date</span>
           <span>Status</span>
           <span className="text-right">Amount</span>
@@ -26,14 +26,14 @@ function EcommercePreview() {
         ].map(([d, s, a]) => (
           <div
             key={d}
-            className="grid grid-cols-3 gap-2 border-t border-border py-1 text-[10px]"
+            className="grid grid-cols-3 gap-2 border-t border-border py-1 text-xs"
           >
             <span className="text-muted-foreground">{d}</span>
             <span>{s}</span>
             <span className="text-right">{a}</span>
           </div>
         ))}
-        <p className="pt-1 text-[9px] text-muted-foreground">
+        <p className="pt-1 text-xs text-muted-foreground">
           EXAMPLE · not live business data
         </p>
       </div>
@@ -56,7 +56,7 @@ function EnvManagerPreview() {
             </div>
           ),
         )}
-        <p className="text-[9px] text-muted-foreground">Secrets UI — illustrative</p>
+        <p className="text-xs text-muted-foreground">Secrets UI — illustrative</p>
       </div>
     </BrowserWindow>
   );
@@ -64,7 +64,7 @@ function EnvManagerPreview() {
 
 function TaskflowPreview() {
   return (
-    <div className="font-mono text-[10px] leading-relaxed text-muted-foreground">
+    <div className="font-mono text-xs leading-relaxed text-muted-foreground">
       <div className="mb-2 text-foreground">Architecture (from repo)</div>
       <pre>{`Next.js UI
     ↓
@@ -123,7 +123,7 @@ export function ProjectScene({
         )}
       >
         <div className="border-b border-border p-6 lg:border-r lg:border-b-0">
-          <p className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
+          <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
             {String(index).padStart(2, "0")} · {project.eyebrow}
           </p>
           <h3 className="mt-3 text-2xl font-semibold tracking-tight group-hover:text-link-accent">
@@ -132,7 +132,7 @@ export function ProjectScene({
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             {project.summary}
           </p>
-          <dl className="mt-6 grid gap-2 font-mono text-[10px] text-muted-foreground uppercase">
+          <dl className="mt-6 grid gap-2 font-mono text-xs text-muted-foreground uppercase">
             <div className="flex justify-between gap-4 border-t border-border pt-2">
               <dt>Status</dt>
               <dd className="text-foreground normal-case">{project.status}</dd>

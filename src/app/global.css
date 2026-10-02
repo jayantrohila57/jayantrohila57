@@ -209,6 +209,13 @@ body {
   html {
     @apply font-sans;
   }
+  pre,
+  code,
+  kbd,
+  samp {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
 }
 
 /* Portfolio link accent — avoids shadcn/token collisions on `text-accent` */

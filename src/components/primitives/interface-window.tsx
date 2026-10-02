@@ -25,7 +25,7 @@ export function InterfaceWindow({
           <span className="size-2 rounded-full bg-[#febc2e]" />
           <span className="size-2 rounded-full bg-[#28c840]" />
           {title ? (
-            <span className="ml-2 truncate font-mono text-[10px] text-muted">
+            <span className="ml-2 truncate font-mono text-xs text-muted">
               {title}
             </span>
           ) : null}
@@ -97,7 +97,7 @@ export function StatusBadge({
         ? "bg-amber-400"
         : "bg-muted";
   return (
-    <span className="inline-flex items-center gap-2 rounded-[var(--radius-sm)] border border-border px-2 py-1 font-mono text-[10px] text-muted uppercase">
+    <span className="inline-flex items-center gap-2 rounded-[var(--radius-sm)] border border-border px-2 py-1 font-mono text-xs text-muted uppercase">
       <span className={cn("size-1.5 rounded-full", dot)} />
       {label}
     </span>

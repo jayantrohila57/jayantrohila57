@@ -28,6 +28,8 @@ export const viewport = baseViewport;
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const gaId = siteConfig.analytics.googleAnalyticsId;
   const useGa = Boolean(gaId?.startsWith("G-"));
+  const useVercelInsights =
+    siteConfig.analytics.vercelAnalytics && process.env.VERCEL === "1";
 
   return (
     <html
@@ -41,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SmoothScroll>{children}</SmoothScroll>
         </TooltipProvider>
         {useGa && gaId ? <GoogleAnalytics gaId={gaId} /> : null}
-        {siteConfig.analytics.vercelAnalytics ? (
+        {useVercelInsights ? (
           <>
             <Analytics />
             <SpeedInsights />

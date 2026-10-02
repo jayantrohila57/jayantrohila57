@@ -4,6 +4,7 @@ import { ProjectScene } from "@/components/portfolio/project-scene";
 import {
   SectionFrame,
   SectionIntro,
+  inlineBodyLinkClass,
 } from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
 import { projects } from "@/data/portfolio";
@@ -26,7 +27,7 @@ export default function WorkPage() {
           title="Selected projects"
           description="Open-source projects with public repositories and hosted demos where available."
         />
-        <div className="mb-6 flex flex-wrap gap-2 font-mono text-[10px] text-muted-foreground uppercase">
+        <div className="mb-6 flex flex-wrap gap-2 font-mono text-xs text-muted-foreground uppercase">
           {filters.map((f) => (
             <span
               key={f}
@@ -48,7 +49,7 @@ export default function WorkPage() {
         bad-money and other private repositories are not listed here.{" "}
         <Link
           href="/contact"
-          className="text-link-accent hover:underline"
+          className={inlineBodyLinkClass}
         >
           Contact
         </Link>{" "}

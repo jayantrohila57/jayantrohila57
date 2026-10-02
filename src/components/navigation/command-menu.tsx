@@ -39,9 +39,9 @@ export function CommandMenu() {
         type="button"
         onClick={() => setOpen(true)}
         className="hidden items-center gap-2 rounded-[var(--radius-sm)] border border-border px-2 py-1 font-mono text-[11px] text-muted transition-colors hover:text-foreground md:inline-flex"
-        aria-label="Open command menu"
+        aria-label="Command menu, ⌘K"
       >
-        <span>⌘K</span>
+        <span aria-hidden="true">⌘K</span>
       </button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="overflow-hidden p-0">

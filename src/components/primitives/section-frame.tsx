@@ -69,6 +69,10 @@ export function SectionLabel({
 export const sectionActionLinkClass =
   "font-mono text-xs tracking-wide text-link-accent hover:underline";
 
+/** Inline links inside muted body copy (WCAG link-in-text-block). */
+export const inlineBodyLinkClass =
+  "font-medium text-foreground underline decoration-[color:var(--brand)] underline-offset-2 hover:text-link-accent";
+
 export function SectionIntro({
   title,
   label,
