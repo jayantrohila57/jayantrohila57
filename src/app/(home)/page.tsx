@@ -1,18 +1,12 @@
 import { LandingPage } from "@/components/landing";
-import type { Metadata } from "next";
-import { appName, siteUrl } from "@/lib/shared";
+import { generatePageMetadata } from "@/config/metadata";
 
-export const metadata: Metadata = {
-  title: appName,
+export const metadata = generatePageMetadata({
+  title: "Jayant Rohila — Product Engineer",
   description:
-    "Product engineer and public identity documentation for Jayant Rohila — versioned professional archive at jayantrohila.com.",
-  openGraph: {
-    title: `${appName} · Product Engineer`,
-    description:
-      "Public identity docs and professional archive. No private or legal records.",
-    url: siteUrl,
-  },
-};
+    "Product engineer at aiQmen. Public identity documentation and versioned professional archive at jayantrohila.com.",
+  path: "/",
+});
 
 export default function HomePage() {
   return <LandingPage />;

@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 import { getMDXComponents } from "@/components/mdx";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
+import { getAbsoluteUrl } from "@/config/site";
 import { getPageImageUrl, getPageMarkdownUrl, gitConfig } from "@/lib/shared";
 
 export default async function Page(props: PageProps<"/[...slug]">) {
@@ -57,11 +58,26 @@ export async function generateMetadata(
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
+  const path = `/${params.slug.join("/")}`;
+  const imageUrl = getPageImageUrl(page).url;
+
   return {
     title: page.data.title,
     description: page.data.description,
+    alternates: {
+      canonical: getAbsoluteUrl(path),
+    },
     openGraph: {
-      images: getPageImageUrl(page).url,
+      title: page.data.title,
+      description: page.data.description,
+      url: getAbsoluteUrl(path),
+      images: imageUrl,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.data.title,
+      description: page.data.description,
+      images: imageUrl,
     },
   };
 }

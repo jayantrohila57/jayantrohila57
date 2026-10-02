@@ -1,34 +1,40 @@
+import { RootJsonLd } from "@/components/json-ld";
+import { baseMetadata } from "@/config/metadata";
+import { baseViewport, siteConfig } from "@/config/site";
 import { RootProvider } from "fumadocs-ui/provider/next";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./global.css";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { appName, siteUrl } from "@/lib/shared";
 
 const inter = Inter({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: `${appName} — Product Engineer`,
-    template: `%s · ${appName}`,
-  },
-  description:
-    "Product engineer and versioned public identity documentation for Jayant Rohila. No private or legal records.",
-  openGraph: {
-    siteName: appName,
-    url: siteUrl,
-    locale: "en_US",
-    type: "website",
-  },
-};
+export const metadata = baseMetadata;
+export const viewport = baseViewport;
 
 export default function Layout({ children }: LayoutProps<"/">) {
+  const analyticsId = siteConfig.analytics.googleAnalyticsId;
+
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
+        <RootJsonLd />
         <RootProvider>{children}</RootProvider>
+        {analyticsId ? (
+          <>
+            <GoogleTagManager gtmId={analyticsId} />
+            <GoogleAnalytics gaId={analyticsId} />
+          </>
+        ) : null}
+        {siteConfig.analytics.vercelAnalytics ? (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        ) : null}
       </body>
     </html>
   );
