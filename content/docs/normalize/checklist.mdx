@@ -1,16 +1,19 @@
 ---
 title: Checklist
-description: Steps to normalize a new public fact into the archive.
+description: Notion → public site sync checklist.
 ---
 
-Use this checklist before merging content to `main`:
+Before merging a Notion export to `main`:
 
-1. **Classify** — Is the fact public, professional, and free of PII/legal restrictions? If not, stop.
-2. **Source** — Add or update a row in [Sources](/archive/sources) or the Notion ledger with a URL or HR reference.
-3. **Canonical field** — Pick one title, date range, or URL; log alternatives in [Conflicts](/archive/conflicts).
-4. **Cross-link** — Update [Timeline](/career/timeline), employer page, and [Bio](/about/bio) if needed.
-5. **Presence** — Ensure [LinkedIn](/presence/linkedin), [GitHub](/presence/github), and [Linktree](/presence/linktree) agree or document divergence.
-6. **Mentions** — If a third party published the fact, add ledger entry (URL required) under [Mentions](/archive/mentions).
-7. **Landing** — If the fact is “current role” level, update the `/` landing hero copy.
-8. **Changelog** — Note the change in [Changelog](/normalize/changelog).
-9. **Build** — Run `pnpm build` locally before opening a PR.
+1. **Redact** — Strip salary, bank, phone, emp ID, private work email, HR PDF text/links.  
+2. **Classify** — Employment vs interview vs hub (Lucsum).  
+3. **Canonicalize** — Pick one title/date; log alternates in [Conflicts](/archive/conflicts).  
+4. **Career** — Update [timeline](/career/timeline) + employer pages (incl. [Braeon](/career/braeon) if needed).  
+5. **Work** — Refresh [Projects](/work/projects) repo/deploy table and [Skills](/work/skills).  
+6. **Presence** — Align [Website](/presence/website), [LinkedIn](/presence/linkedin), [GitHub](/presence/github), [Linktree](/presence/linktree).  
+7. **Archive** — Append or refresh [Mentions](/archive/mentions) rows (URL required).  
+8. **Home** — Update `/` preview teasers in `src/components/landing.tsx`.  
+9. **Changelog** — Record sync date on [Changelog](/normalize/changelog).  
+10. **Build** — `pnpm build` locally.
+
+Optional public contact **jrohila55@gmail.com** only on [About overview](/about/overview) — omit from hero.

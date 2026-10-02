@@ -32,19 +32,19 @@ const docSections: DocSection[] = [
     title: "About",
     icon: User,
     intro:
-      "What this site is, how it relates to Notion, and a public narrative bio.",
+      "Notion = working SoT; this site = public published slice (synced 2026-10-02).",
     pages: [
       {
         href: "/about/overview",
         title: "Overview",
         summary:
-          "jayantrohila.com is a versioned public identity archive — not a legal vault. Current snapshot: Product Engineer at aiQmen (Noida), from 18 May 2026.",
+          "Publishing model, aiQmen snapshot (Noida, from 18 May 2026), exclusion policy (no payroll/phone/HR PDFs). Optional public contact email on this page only.",
       },
       {
         href: "/about/bio",
         title: "Bio",
         summary:
-          "Public narrative: aiQmen, Binmile (Associate Software Developer), Teevro internship, B.Tech and diploma (Saharanpur), freeCodeCamp Responsive Web Design (Feb 2022).",
+          "Full narrative: aiQmen, Binmile (Associate, trainee→associate Jun 2024), Teevro, Braeon ServiceNow trainee ~2021, education, freeCodeCamp cert URL, GitHub primary + jayantaiqmen.",
       },
     ],
   },
@@ -52,37 +52,43 @@ const docSections: DocSection[] = [
     id: "career",
     title: "Career",
     icon: Briefcase,
-    intro: "Employers, dates, and HR-aligned titles.",
+    intro: "Employers, internships, HR titles — incl. Braeon conflict note.",
     pages: [
       {
         href: "/career/timeline",
         title: "Timeline",
         summary:
-          "Chronological table: aiQmen (May 2026–present), Binmile (Mar 2024–LWD 16 Apr 2026), Teevro intern (Jan–Apr 2023), education and certification rows.",
+          "aiQmen → Binmile (LWD 16 Apr 2026) → Teevro → Braeon ~2021; education + freeCodeCamp link; Lucsum explicitly not employment.",
       },
       {
         href: "/career/aiqmen",
         title: "aiQmen",
         summary:
-          "Product Engineer / Consultant–Product Engineer at AIQMEN DESIGNS AND TECHNOLOGIES PVT LTD; DOJ 18 May 2026; Noida.",
+          "Product Engineer / Consultant–Product Engineer; AIQMEN DESIGNS AND TECHNOLOGIES PVT LTD; DOJ 18 May 2026; Noida; work GitHub jayantaiqmen.",
       },
       {
         href: "/career/binmile",
         title: "Binmile",
         summary:
-          "Associate Software Developer at Binmile Technologies Pvt. Ltd., 18 Mar 2024 – 16 Apr 2026. Canonical HR title over informal SDE labels.",
+          "Associate Software Developer 18 Mar 2024–16 Apr 2026; trainee until Associate from 17 Jun 2024; no private work email or emp IDs.",
       },
       {
         href: "/career/teevro",
         title: "Teevro",
         summary:
-          "Full Stack Development Intern at Teevro Solutions Pvt. Ltd., 24 Jan 2023 – 30 Apr 2023.",
+          "Full Stack Development Intern, Teevro Solutions Pvt. Ltd., 24 Jan–30 Apr 2023.",
+      },
+      {
+        href: "/career/braeon",
+        title: "Braeon",
+        summary:
+          "ServiceNow / Software Developer–Trainee ~Jul/Aug–Oct 2021; annexure date conflict documented — not current employment.",
       },
       {
         href: "/career/education",
         title: "Education",
         summary:
-          "B.Tech CS, Dev Bhoomi Group of Institutions (2020–2023); diploma CS, DWARIKADHEESH REMS (canonical 2016–2019); freeCodeCamp cert Feb 2022.",
+          "B.Tech CSE Dev Bhoomi 2020–2023; diploma DWARIKADHEESH (2016–2019 vs 2016–2020 conflict); freeCodeCamp Responsive Web Design certificate URL.",
       },
     ],
   },
@@ -90,25 +96,25 @@ const docSections: DocSection[] = [
     id: "work",
     title: "Work",
     icon: Layers,
-    intro: "Public projects, skills, and write-ups.",
+    intro: "23-repo portfolio table + evidence-linked skills (no years-per-skill).",
     pages: [
       {
         href: "/work/projects",
         title: "Projects",
         summary:
-          "bad-money open-source repo (jayantrohila57/bad-money). Lucsum noted as company/docs cross-link only — not employment.",
+          "Full repo + deploy table: libyui, taskflow, bad-money, ai-chat, e-commerce, codethread-black, 68m-holidays, and more. Lucsum = hub only.",
       },
       {
         href: "/work/case-studies",
         title: "Case studies",
         summary:
-          "Draft holder for longer public write-ups when URLs are pinned; points to Projects until posts exist.",
+          "Placeholder for long-form posts; links to SO answer on Sanity+Netlify and mentions ledger until dedicated write-ups exist.",
       },
       {
         href: "/work/skills",
         title: "Skills",
         summary:
-          "Product engineering, full-stack delivery, and documentation-first public identity — tied to public roles and repos.",
+          "Languages, frontend, backend, data/CMS, cloud, AI SDK, quality — synced from Notion/site inventory (~41 skills); microfrontends not claimed.",
       },
     ],
   },
@@ -116,34 +122,37 @@ const docSections: DocSection[] = [
     id: "presence",
     title: "Presence",
     icon: Globe,
-    intro: "Canonical URLs and handles for the public web.",
+    intro: "Canonical URLs plus extended Linktree footprint index.",
     pages: [
       {
         href: "/presence/website",
         title: "Website",
         summary:
-          "Primary site https://jayantrohila.com — landing at / and docs under paths like /about/overview.",
+          "jayantrohila.com + source repo; Notion→git publish model; stale legacy portfolio called out in conflicts.",
       },
       {
         href: "/presence/linkedin",
         title: "LinkedIn",
-        summary: "Profile: linkedin.com/in/jayant-rohila — align titles with Career timeline.",
+        summary:
+          "linkedin.com/in/jayant-rohila — Product Engineer @ aiQmen, Noida; align Binmile title with HR wording.",
       },
       {
         href: "/presence/github",
         title: "GitHub",
-        summary: "github.com/jayantrohila57 — includes bad-money and this docs repository.",
+        summary:
+          "jayantrohila57 (primary), jayantaiqmen (work), jayantrohila legacy + Pages repo, Sponsors profile.",
       },
       {
         href: "/presence/linktree",
         title: "Linktree",
-        summary: "linktr.ee/JayantRohila — should mirror canonical Presence URLs.",
+        summary:
+          "linktr.ee/JayantRohila — 35+ outbound links; payment URLs live only in mentions ledger (no amounts).",
       },
       {
         href: "/presence/domains-handles",
         title: "Domains & handles",
         summary:
-          "Inventory of public domains and social handles; no private inboxes on this site.",
+          "jayantrohila.com / .dev / .pages.dev; Twitter @jayant_rohila; extended social/dev handles → mentions table.",
       },
     ],
   },
@@ -151,25 +160,25 @@ const docSections: DocSection[] = [
     id: "archive",
     title: "Archive",
     icon: Archive,
-    intro: "Mentions, conflicts, and source bibliography.",
+    intro: "93-URL footprint ledger, conflict log, and source bibliography.",
     pages: [
       {
         href: "/archive/mentions",
         title: "Mentions",
         summary:
-          "Draft ledger for third-party citations; each entry needs a verified public URL before publish.",
+          "Full 93-row URL table (owned site, Linktree graph, repos, deploys, payments footprint without amounts) — synced 2026-10-02.",
       },
       {
         href: "/archive/conflicts",
         title: "Conflicts",
         summary:
-          "Diploma years 2016–2019 vs 2016–2020; Binmile title variants (Associate Software Developer vs SDE).",
+          "Diploma years, Binmile titles, Braeon annexure, stale VS Marketplace bio, legacy portfolio placeholders.",
       },
       {
         href: "/archive/sources",
         title: "Sources",
         summary:
-          "Canonical link table: site, LinkedIn, GitHub, Linktree, bad-money repo; Notion as private working SoT.",
+          "Primary URLs + crawl inventory; Notion working SoT; freeCodeCamp cert and skills.rest indexed.",
       },
     ],
   },
@@ -177,25 +186,25 @@ const docSections: DocSection[] = [
     id: "normalize",
     title: "Normalize",
     icon: Scale,
-    intro: "Rules and workflow for keeping public facts consistent.",
+    intro: "Notion→git sync rules from the public pack.",
     pages: [
       {
         href: "/normalize/charter",
         title: "Charter",
         summary:
-          "Mission: Apple-like consistency across public identity; in/out of scope for PII and HR material.",
+          "Notion SoT vs public slice; never publish payroll/phone/emp ID; Lucsum hub-only; skills without years-per-skill.",
       },
       {
         href: "/normalize/checklist",
         title: "Checklist",
         summary:
-          "Nine-step publish flow: classify fact, source, canonical field, cross-links, landing update, changelog, build.",
+          "Ten-step Notion export: redact, canonicalize, update career/work/presence/mentions, refresh home teasers, build.",
       },
       {
         href: "/normalize/changelog",
         title: "Changelog",
         summary:
-          "Site history including Fumadocs migration (#22), landing page, and public fact fill.",
+          "2026-10-02 Notion public pack sync (93 mentions, 23 projects, Braeon page); prior landing + Fumadocs (#22).",
       },
     ],
   },
@@ -288,10 +297,9 @@ export function LandingPage() {
               <span>Consultant–Product Engineer at aiQmen · Noida</span>
             </p>
             <p className="max-w-3xl text-lg text-fd-muted-foreground text-pretty md:text-xl">
-              This home page previews every section of the public docs — jump
-              straight into About, Career, Work, Presence, Archive, or
-              Normalize. Notion remains the working source of truth; git deploys
-              the curated public slice to jayantrohila.com.
+              This home previews every doc page (synced from the Notion public
+              pack, 2026-10-02). Notion remains the working source of truth;
+              this repo deploys the redacted public slice to jayantrohila.com.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
