@@ -1,11 +1,98 @@
 ---
 title: Case studies
-description: Deeper project stories when available.
+description: Deeper stories for selected open-source projects.
 ---
 
-I am collecting longer write-ups for selected work. In the meantime:
+Three projects I built and maintain in public. Each section follows the same shape: what it is, why I built it, what I implemented, a technical problem worth solving, and where it stands today. Descriptions are drawn from each repo’s README and public demos — no invented usage metrics.
 
-- **[Projects](/work/projects)** — repositories and live demos  
-- **[Stack Overflow — Sanity on Netlify](https://stackoverflow.com/questions/74642675/sanity-next-js-on-netlify)** — community answer (August 2023)  
+---
 
-More case studies will be added here as they are published.
+## Inkly CMS
+
+**Live:** [inkly-blog.vercel.app](https://inkly-blog.vercel.app) · **Repo:** [jayantrohila57/inkly-cms](https://github.com/jayantrohila57/inkly-cms)
+
+### What it is
+
+**Inkly** is a modern blogging platform with a **self-hosted CMS** — aimed at developers and creators who want full control over content, authors, and publishing workflow.
+
+### Why
+
+I wanted a **developer-first blog** that wasn’t locked to a hosted-only CMS: rich editing, roles, and SEO without giving up ownership of the database and deployment.
+
+### What I built
+
+- **Content workflow:** Draft, in review, scheduled, published, unpublished, and archive states  
+- **Authoring:** TipTap-based rich text, categories and tags, media with **Vercel Blob**  
+- **Access control:** NextAuth.js (GitHub OAuth) with roles (admin, editor, author, reviewer, reader, support)  
+- **Stack:** Next.js 15, React 19, TypeScript, Prisma 6, PostgreSQL, tRPC, TanStack Query, next-intl, Radix UI + Tailwind CSS 4  
+
+### Interesting technical problem
+
+Balancing **a full editorial workflow** (statuses + RBAC) with **App Router performance** — keeping admin mutations type-safe via **tRPC + Zod** while still using server components where they help first paint.
+
+### Result
+
+A deployable **self-hosted blogging CMS** with a public demo and open source under my GitHub account. Uptime and traffic numbers are not tracked on this page.
+
+---
+
+## Env Manager
+
+**Live:** [env-manager-web.vercel.app](https://env-manager-web.vercel.app) · **Repo:** [jayantrohila57/env-manager](https://github.com/jayantrohila57/env-manager)
+
+### What it is
+
+**Env Manager** is a **developer-first** app to manage **environment variables, secrets, and third-party credentials** across repositories and environments (dev, staging, production) — positioned as a single place for configuration that should feed local dev and CI/CD.
+
+### Why
+
+Copy-pasting `.env` files across machines and repos doesn’t scale; I wanted a **small, opinionated UI** around “one source of truth” for config that teams actually rotate and audit.
+
+### What I built
+
+- Multi-environment views and secure handling of secrets (as described in the project README)  
+- **Stack:** Next.js 16, React 19, TypeScript, Tailwind CSS, shadcn/ui, **Better Auth**, **Neon + Prisma**, deployed on Vercel  
+
+### Interesting technical problem
+
+**Secrets in a web UI** force clear boundaries: what is encrypted at rest, what never hits the client, and how auth gates every read/write — Better Auth + server-only Prisma access is the backbone of that split.
+
+### Result
+
+Working **live demo** and open repository documenting the intended CI/CD integration story. Production adoption metrics are not published here.
+
+---
+
+## Taskflow
+
+**Live:** [v1-taskflow.vercel.app](https://v1-taskflow.vercel.app/) · **Repo:** [jayantrohila57/taskflow](https://github.com/jayantrohila57/taskflow)
+
+### What it is
+
+**Taskflow** is a **multi-tenant task and project management platform** — organizations, projects, tasks, and collaboration features, with internationalized routes and an admin-style panel structure.
+
+### Why
+
+I use side projects to practice **enterprise-shaped problems** (tenancy, RBAC, long-lived domains) without a client NDA — task + project software is a natural fit.
+
+### What I built
+
+- **Multi-tenant org model** with roles and permissions (per README schema overview)  
+- **Auth surface:** email/password, GitHub OAuth, passkeys, 2FA, session management (as documented in repo)  
+- **Product areas:** task and project modules, user management, localized `[locale]` routing  
+- **Stack:** Next.js 15, TypeScript, Prisma 6, PostgreSQL, tRPC, TanStack Query, next-intl, Radix/shadcn, Tailwind CSS 4; optional Redis and PWA-related config in docs  
+
+### Interesting technical problem
+
+**Module boundaries in a large App Router app** — splitting `auth`, `organization`, `project`, and `task` into feature modules while keeping **one tRPC API** and a consistent permission check path across tenant boundaries.
+
+### Result
+
+Public codebase and **v1** deployment on Vercel. The README’s “enterprise-grade” wording describes intent and architecture; real-world team usage stats are not claimed here.
+
+---
+
+## More
+
+- **[Projects](/work/projects)** — full table of repositories  
+- **[Stack Overflow — Sanity on Netlify](https://stackoverflow.com/questions/74642675/sanity-next-js-on-netlify)** — community answer (August 2023)

@@ -3,7 +3,8 @@
   "version": "0.0.38",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "pnpm run generate:resume-pdf && next build",
+    "generate:resume-pdf": "tsx scripts/generate-resume-pdf.ts",
     "dev": "next dev",
     "start": "next start",
     "types:check": "next typegen && tsc --noEmit",
@@ -32,6 +33,8 @@
     "@types/react-dom": "^19.3.0",
     "postcss": "^8.5.28",
     "tailwindcss": "^4.3.3",
+    "pdf-lib": "^1.17.1",
+    "tsx": "^4.21.0",
     "typescript": "^7.0.2"
   }
 }
