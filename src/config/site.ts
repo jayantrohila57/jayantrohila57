@@ -4,14 +4,19 @@ export const siteConfig = {
   siteName: "Jayant Rohila",
   siteTitle: "Jayant Rohila — Product Engineer",
   siteDescription:
-    "Personal developer home for Jayant Rohila — product engineer at aiQmen, Noida. Career timeline, flagship projects, skills with evidence, and contact.",
+    "Product engineer at aiQmen, Noida — modern web products, typed APIs, and open-source projects including e-commerce, Env Manager, and Taskflow.",
   siteUrl: "https://jayantrohila.com",
 
   author: {
     name: "Jayant Rohila",
     role: "Product Engineer",
-    jobTitle: "Product Engineer / Consultant–Product Engineer",
+    jobTitle: "Product Engineer · aiQmen",
     employer: "aiQmen (AIQMEN DESIGNS AND TECHNOLOGIES PVT LTD)",
+  },
+
+  contact: {
+    email: "jrohila55@gmail.com",
+    location: "Noida, Uttar Pradesh, India",
   },
 
   social: {
@@ -19,6 +24,7 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/jayant-rohila/",
     linktree: "https://linktr.ee/JayantRohila",
     twitter: "https://twitter.com/jayant_rohila",
+    workGithub: "https://github.com/jayantaiqmen",
   },
 
   seo: {
@@ -26,7 +32,6 @@ export const siteConfig = {
       "jayant rohila",
       "product engineer",
       "software engineer",
-      "full stack developer",
       "next.js",
       "react",
       "typescript",
@@ -39,14 +44,22 @@ export const siteConfig = {
   },
 
   theme: {
-    primaryColor: "#000000",
-    backgroundColor: "#ffffff",
+    background: "#0b0d0f",
+    surface: "#12151a",
+    panel: "#161a21",
+    elevated: "#1c2129",
+    border: "#2a3038",
+    muted: "#8b939e",
+    foreground: "#eceff3",
+    accent: "#7dd3a8",
   },
 
   analytics: {
-    googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID || "G-9HFQLM7BCG",
+    googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID,
     vercelAnalytics: true,
   },
+
+  resumePath: "/resume",
 };
 
 export const baseViewport: Viewport = {
@@ -54,17 +67,8 @@ export const baseViewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: [
-    {
-      media: "(prefers-color-scheme: light)",
-      color: siteConfig.theme.backgroundColor,
-    },
-    {
-      media: "(prefers-color-scheme: dark)",
-      color: siteConfig.theme.primaryColor,
-    },
-  ],
-  colorScheme: "light dark",
+  themeColor: siteConfig.theme.background,
+  colorScheme: "dark",
   viewportFit: "cover",
   interactiveWidget: "resizes-content",
 };

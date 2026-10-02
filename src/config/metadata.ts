@@ -68,7 +68,7 @@ export const baseMetadata: Metadata = {
   manifest: "/manifest.webmanifest",
   other: {
     "msapplication-config": "/browserconfig.xml",
-    "msapplication-TileColor": siteConfig.theme.primaryColor,
+    "msapplication-TileColor": siteConfig.theme.background,
     "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "black-translucent",
