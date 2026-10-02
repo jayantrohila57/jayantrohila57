@@ -43,6 +43,12 @@ const docSections: DocSection[] = [
         summary:
           "Background from aiQmen and Binmile through internships, education in Saharanpur, and freeCodeCamp.",
       },
+      {
+        href: "/resume",
+        title: "Resume",
+        summary:
+          "Printable resume and PDF — experience, education, skills, and selected projects.",
+      },
     ],
   },
   {
@@ -251,14 +257,12 @@ export function LandingPage() {
               View projects
               <ArrowRight className="size-4" aria-hidden />
             </Link>
-            <a
-              href="https://www.linkedin.com/in/jayant-rohila/"
-              rel="noreferrer noopener"
-              target="_blank"
+            <Link
+              href="/resume"
               className="inline-flex items-center gap-2 rounded-lg border border-fd-border bg-fd-card px-4 py-2 text-sm font-medium transition-colors hover:bg-fd-accent/30"
             >
               Resume
-            </a>
+            </Link>
             <a
               href="https://github.com/jayantrohila57"
               rel="noreferrer noopener"
