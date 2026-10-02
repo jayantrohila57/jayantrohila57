@@ -13,7 +13,7 @@ import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getPageImageUrl, getPageMarkdownUrl, gitConfig } from "@/lib/shared";
 
-export default async function Page(props: PageProps<"/[[...slug]]">) {
+export default async function Page(props: PageProps<"/[...slug]">) {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
@@ -47,11 +47,11 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
 }
 
 export async function generateStaticParams() {
-  return source.generateParams();
+  return source.generateParams().filter((param) => param.slug.length > 0);
 }
 
 export async function generateMetadata(
-  props: PageProps<"/[[...slug]]">,
+  props: PageProps<"/[...slug]">,
 ): Promise<Metadata> {
   const params = await props.params;
   const page = source.getPage(params.slug);

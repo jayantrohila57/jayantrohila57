@@ -11,11 +11,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${appName} — Public identity docs`,
+    default: `${appName} — Product Engineer`,
     template: `%s · ${appName}`,
   },
   description:
-    "Versioned public documentation for Jayant Rohila’s professional identity archive. No private or legal records.",
+    "Product engineer and versioned public identity documentation for Jayant Rohila. No private or legal records.",
   openGraph: {
     siteName: appName,
     url: siteUrl,

@@ -1,10 +1,16 @@
 ---
 title: Checklist
-description: Repeatable steps to normalize a new public fact into the archive.
+description: Steps to normalize a new public fact into the archive.
 ---
 
-> **Draft** — placeholder only. Authoritative content will be synced from Notion later.
+Use this checklist before merging content to `main`:
 
-Repeatable steps to normalize a new public fact into the archive.
-
-This page intentionally contains no private contact details, compensation, legal documents, or government identifiers.
+1. **Classify** — Is the fact public, professional, and free of PII/legal restrictions? If not, stop.
+2. **Source** — Add or update a row in [Sources](/archive/sources) or the Notion ledger with a URL or HR reference.
+3. **Canonical field** — Pick one title, date range, or URL; log alternatives in [Conflicts](/archive/conflicts).
+4. **Cross-link** — Update [Timeline](/career/timeline), employer page, and [Bio](/about/bio) if needed.
+5. **Presence** — Ensure [LinkedIn](/presence/linkedin), [GitHub](/presence/github), and [Linktree](/presence/linktree) agree or document divergence.
+6. **Mentions** — If a third party published the fact, add ledger entry (URL required) under [Mentions](/archive/mentions).
+7. **Landing** — If the fact is “current role” level, update the `/` landing hero copy.
+8. **Changelog** — Note the change in [Changelog](/normalize/changelog).
+9. **Build** — Run `pnpm build` locally before opening a PR.
