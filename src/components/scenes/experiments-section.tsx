@@ -1,69 +1,40 @@
 import Link from "next/link";
+import { BlogsList, type BlogListItem } from "@/components/blogs-section";
+import { EfferdRail } from "@/components/efferd-rail";
 import {
   SectionFrame,
-  SectionIntro,
   SectionLabel,
-  BentoPanel,
 } from "@/components/primitives/section-frame";
 import { experiments } from "@/data/portfolio";
 
 export function ExperimentsSection() {
+  const items: BlogListItem[] = experiments.map((exp) => ({
+    title: exp.title,
+    date: exp.stack.slice(0, 2).join(" · "),
+    description: exp.summary,
+    href: exp.links.github ?? exp.links.live ?? "/experiments",
+  }));
+
   return (
-    <SectionFrame id="experiments">
-      <SectionLabel index="06" label="Experiments" />
-      <SectionIntro
-        title="Lab shelf — smaller tools and libraries."
-        action={
+    <SectionFrame id="experiments" border={false}>
+      <EfferdRail bordered={false}>
+        <SectionLabel index="06" label="Experiments" className="px-4" />
+        <BlogsList
+          intro={{
+            title: "Lab shelf — smaller tools and libraries.",
+            description: "Secondary repos from public source data.",
+          }}
+          items={items}
+        />
+        <div className="px-4 pb-6">
           <Link
             href="/experiments"
             className="font-mono text-xs tracking-wide text-accent hover:underline"
           >
             Open lab →
           </Link>
-        }
-      />
-      <div className="grid auto-rows-fr gap-1 md:grid-cols-12">
-        {experiments.map((exp, i) => (
-          <BentoPanel
-            key={exp.slug}
-            className={
-              i === 0
-                ? "md:col-span-7 md:row-span-2"
-                : i === 1
-                  ? "md:col-span-5"
-                  : "md:col-span-12"
-            }
-          >
-            <p className="font-mono text-[10px] text-muted uppercase">
-              Experiment
-            </p>
-            <h3 className="mt-2 text-lg font-semibold">{exp.title}</h3>
-            <p className="mt-2 text-sm text-muted">{exp.summary}</p>
-            <div className="mt-4 flex flex-wrap gap-3 font-mono text-[10px]">
-              {exp.links.github ? (
-                <a
-                  href={exp.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-accent hover:underline"
-                >
-                  GitHub
-                </a>
-              ) : null}
-              {exp.links.live ? (
-                <a
-                  href={exp.links.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted hover:text-foreground"
-                >
-                  Live
-                </a>
-              ) : null}
-            </div>
-          </BentoPanel>
-        ))}
-      </div>
+        </div>
+      </EfferdRail>
     </SectionFrame>
   );
 }

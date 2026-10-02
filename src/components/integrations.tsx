@@ -1,109 +1,90 @@
+import type React from "react";
 import { cn } from "@/lib/utils";
 import { DecorIcon } from "@/components/decor-icon";
+import { stackGroups } from "@/data/portfolio";
 
-type Integration = {
-	src: string;
-	name: string;
-	description: string;
-	isInvertable?: boolean;
-	icon?: React.ReactNode;
+export type IntegrationItem = {
+  name: string;
+  description: string;
+  icon?: React.ReactNode;
 };
 
-const data: Integration[] = [
-	{
-		src: "https://storage.efferd.com/logo/vercel.svg",
-		name: "Vercel",
-		description:
-			"Amet praesentium deserunt ex commodi tempore fuga voluptatem....",
-		isInvertable: true,
-	},
-	{
-		src: "https://storage.efferd.com/logo/openai.svg",
-		name: "OpenAI",
-		description:
-			"Amet praesentium deserunt ex commodi tempore fuga voluptatem....",
-		isInvertable: true,
-		icon: <DecorIcon position="bottom-left" />,
-	},
-	{
-		src: "https://storage.efferd.com/logo/supabase.svg",
-		name: "Supabase",
-		description:
-			"Amet praesentium deserunt ex commodi tempore fuga voluptatem....",
-	},
-	{
-		src: "https://storage.efferd.com/logo/github.svg",
-		name: "GitHub",
-		description:
-			"Amet praesentium deserunt ex commodi tempore fuga voluptatem....",
-		isInvertable: true,
-	},
-	{
-		src: "https://storage.efferd.com/logo/notion.svg",
-		name: "Notion",
-		description:
-			"Amet praesentium deserunt ex commodi tempore fuga voluptatem....",
-	},
-	{
-		src: "https://storage.efferd.com/logo/gmail.svg",
-		name: "Gmail",
-		description:
-			"Amet praesentium deserunt ex commodi tempore fuga voluptatem....",
-		icon: <DecorIcon position="top-left" />,
-	},
-];
-
-export function Integrations() {
-	return (
-		<div className="relative mx-auto max-w-5xl border">
-			<div className="grid grid-cols-2 gap-px bg-border md:grid-cols-3">
-				{data.map((item) => (
-					<IntegrationCard integration={item} key={item.name}>
-						{item.icon}
-					</IntegrationCard>
-				))}
-			</div>
-			<DecorIcon position="top-left" />
-			<DecorIcon position="top-right" />
-			<DecorIcon position="bottom-left" />
-			<DecorIcon position="bottom-right" />
-		</div>
-	);
+export function IntegrationsGrid({ items }: { items: IntegrationItem[] }) {
+  return (
+    <div className="relative mx-auto max-w-5xl border border-border">
+      <div className="grid grid-cols-2 gap-px bg-border md:grid-cols-3">
+        {items.map((item) => (
+          <IntegrationCard integration={item} key={item.name}>
+            {item.icon}
+          </IntegrationCard>
+        ))}
+      </div>
+      <DecorIcon position="top-left" />
+      <DecorIcon position="top-right" />
+      <DecorIcon position="bottom-left" />
+      <DecorIcon position="bottom-right" />
+    </div>
+  );
 }
 
 function IntegrationCard({
-	integration,
-	className,
-	children,
-	...props
+  integration,
+  className,
+  children,
+  ...props
 }: React.ComponentProps<"div"> & {
-	integration: Integration;
+  integration: IntegrationItem;
 }) {
-	return (
-		<div
-			className={cn(
-				"relative flex flex-col items-start gap-4 bg-background p-4 text-start md:p-6 md:even:bg-background/75",
-				className
-			)}
-			{...props}
-		>
-			<img
-				alt={integration.name}
-				className={cn(
-					"pointer-events-none size-8 shrink-0 select-none object-contain",
-					integration.isInvertable && "dark:invert"
-				)}
-				height={32}
-				src={integration.src}
-				width={32}
-			/>
-			<div className="space-y-1">
-				<h3 className="font-semibold">{integration.name}</h3>
-				<p className="text-muted-foreground text-xs md:text-sm">
-					{integration.description}
-				</p>
-			</div>
-			{children}
-		</div>
-	);
+  return (
+    <div
+      className={cn(
+        "relative flex flex-col items-start gap-3 bg-background p-4 text-start md:p-6 md:even:bg-background/75",
+        className,
+      )}
+      {...props}
+    >
+      <span className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
+        {integration.name}
+      </span>
+      <div className="space-y-1">
+        <h3 className="font-semibold text-sm md:text-base">{integration.name}</h3>
+        <p className="text-muted-foreground text-xs md:text-sm">
+          {integration.description}
+        </p>
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function buildStackIntegrations(): IntegrationItem[] {
+  const items: IntegrationItem[] = [];
+  for (const group of stackGroups) {
+    for (const item of group.items.slice(0, 2)) {
+      items.push({
+        name: item.name,
+        description: `${group.label} · used in ${item.projectSlugs.length} public project${item.projectSlugs.length === 1 ? "" : "s"}`,
+      });
+    }
+  }
+  return items.slice(0, 6);
+}
+
+export function PortfolioStackIntegrations() {
+  return <IntegrationsGrid items={buildStackIntegrations()} />;
+}
+
+const demoData: IntegrationItem[] = [
+  {
+    name: "Vercel",
+    description: "Playground placeholder integration card.",
+  },
+  {
+    name: "OpenAI",
+    description: "Demo copy only — not shown on live stack section.",
+  },
+];
+
+export function Integrations() {
+  return <IntegrationsGrid items={demoData} />;
 }

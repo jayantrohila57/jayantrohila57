@@ -7,20 +7,22 @@ import { ContactSection } from "@/components/contact-section";
 import { DecorIcon } from "@/components/decor-icon";
 import { NotFoundPage } from "@/components/efferd-not-found";
 import { FeatureSection } from "@/components/feature-section";
+import { Footer } from "@/components/footer";
 import { FullWidthDivider } from "@/components/full-width-divider";
 import { GridFiller } from "@/components/grid-filler";
 import { Header } from "@/components/header";
-import { HeroSection } from "@/components/hero";
+import { EfferdHeroDemo } from "@/components/hero";
 import { Integrations } from "@/components/integrations";
-import { LogoCloud } from "@/components/logo-cloud";
+import { LogoCloudDemo } from "@/components/logo-cloud";
 import { OutlineText } from "@/components/outline-text";
+import { PortfolioHero } from "@/components/hero";
 import { profile } from "@/data/portfolio";
 import { generatePageMetadata } from "@/config/metadata";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Efferd block playground",
   description:
-    "Preview installed @efferd registry blocks with placeholder copy before homepage wiring.",
+    "Preview installed @efferd registry blocks. Live site routes use adapted portfolio-bound variants.",
   path: "/playground/efferd",
   noIndex: true,
 });
@@ -42,7 +44,7 @@ function BlockFrame({
         </p>
         <h2 className="mt-2 font-medium text-xl">{title}</h2>
         <p className="mt-1 text-muted text-sm">
-          Placeholder preview — {profile.name} · {profile.publicHeadline}
+          Reference preview — {profile.name} · {profile.publicHeadline}
         </p>
       </div>
       {children}
@@ -57,47 +59,53 @@ export default function EfferdPlaygroundPage() {
         <header className="border-b px-4 py-8">
           <h1 className="font-semibold text-2xl">Efferd block playground</h1>
           <p className="mt-2 max-w-2xl text-muted text-sm">
-            Installed registry blocks for Jayant to pick section replacements. Homepage
-            composition unchanged.
+            Installed registry blocks for reference. Production pages compose
+            adapted variants from the same source files.
           </p>
         </header>
 
-        <BlockFrame id="header-1" title="Header">
+        <BlockFrame id="header-1" title="Header (live wiring)">
           <Header />
         </BlockFrame>
 
-        <BlockFrame id="hero-3" title="Hero (hero-3 installed; hero-2 overwrote shared hero.tsx)">
-          <HeroSection />
+        <BlockFrame id="hero-3" title="Hero (live PortfolioHero)">
+          <PortfolioHero />
         </BlockFrame>
 
-        <BlockFrame id="features-6" title="Features bento">
+        <BlockFrame id="hero-demo" title="Hero demo shell">
+          <EfferdHeroDemo />
+        </BlockFrame>
+
+        <BlockFrame id="features-6" title="Features bento (demo)">
           <FeatureSection />
         </BlockFrame>
 
-        <BlockFrame id="logo-cloud-1" title="Logo cloud">
-          <LogoCloud />
+        <BlockFrame id="logo-cloud-1" title="Logo cloud (demo wordmarks)">
+          <LogoCloudDemo />
         </BlockFrame>
 
-        <BlockFrame id="integrations-2" title="Integrations grid">
+        <BlockFrame id="integrations-2" title="Integrations grid (demo)">
           <Integrations />
         </BlockFrame>
 
-        <BlockFrame id="blogs-1" title="Blogs list">
+        <BlockFrame id="blogs-1" title="Blogs list (demo)">
           <BlogsSection />
         </BlockFrame>
 
-        <BlockFrame id="contact-5" title="Contact panel">
-          <div className="px-4">
-            <ContactSection />
-          </div>
+        <BlockFrame id="contact-5" title="Contact panel (live)">
+          <ContactSection />
         </BlockFrame>
 
         <BlockFrame id="contact-2" title="Contact cards">
           <Contact />
         </BlockFrame>
 
-        <BlockFrame id="cta-3" title="CTA">
+        <BlockFrame id="cta-3" title="CTA (live defaults)">
           <CallToAction />
+        </BlockFrame>
+
+        <BlockFrame id="footer-4" title="Footer (live)">
+          <Footer />
         </BlockFrame>
 
         <BlockFrame id="not-found-1" title="Not found">

@@ -1,165 +1,76 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
+import { CallToAction } from "@/components/cta";
+import { PortfolioContactPanel } from "@/components/contact-section";
+import { EfferdRail } from "@/components/efferd-rail";
 import {
   SectionFrame,
   SectionLabel,
-  BentoPanel,
 } from "@/components/primitives/section-frame";
 import { profile } from "@/data/portfolio";
-import { siteConfig } from "@/config/site";
 
 export function AboutTeaserSection() {
   return (
-    <SectionFrame id="about">
-      <SectionLabel index="08" label="About" />
-      <div className="grid gap-1 lg:grid-cols-2">
-        <BentoPanel dominant>
-          <p className="font-mono text-[10px] text-muted uppercase">Profile</p>
-          <h2 className="mt-3 text-2xl font-semibold">{profile.name}</h2>
-          <p className="mt-1 text-accent">{profile.title}</p>
-          <p className="mt-4 text-sm leading-relaxed text-muted">
-            {profile.longBio}
-          </p>
-          <p className="mt-4 font-mono text-xs text-muted">{profile.location}</p>
-          <Link
-            href="/about"
-            className="mt-6 inline-block font-mono text-xs text-accent hover:underline"
-          >
-            Read more →
-          </Link>
-        </BentoPanel>
-        <BentoPanel>
-          <p className="font-mono text-[10px] text-muted uppercase">Focus</p>
-          <ul className="mt-4 space-y-2 text-sm text-muted">
-            <li>Modern web applications (Next.js, React, TypeScript)</li>
-            <li>Typed APIs and data-heavy interfaces</li>
-            <li>Open-source projects with live demos on GitHub</li>
-          </ul>
-          <p className="mt-6 font-mono text-[10px] text-muted">
-            Lucsum is an upcoming brand hub only — not employment. PeLocal, Limetray,
-            Servoedge, and similar names are not listed as roles on this site.
-          </p>
-        </BentoPanel>
-      </div>
-    </SectionFrame>
-  );
-}
-
-export function ContactPanel() {
-  const [copied, setCopied] = useState(false);
-
-  async function copyEmail() {
-    await navigator.clipboard.writeText(profile.social.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
-
-  return (
-      <BentoPanel className="max-w-2xl font-mono text-sm">
-        <p className="text-muted">
-          <span className="text-accent">$</span> connect jayant
-        </p>
-        <dl className="mt-6 space-y-3">
-          <div className="flex flex-wrap gap-x-4 gap-y-1">
-            <dt className="w-20 text-muted">email</dt>
-            <dd>
-              <a
-                href={`mailto:${profile.social.email}`}
-                className="hover:text-accent"
-              >
-                {profile.social.email}
-              </a>
-              <button
-                type="button"
-                onClick={copyEmail}
-                className="ml-3 text-xs text-muted hover:text-foreground"
-              >
-                {copied ? "Copied" : "Copy"}
-              </button>
-            </dd>
+    <SectionFrame id="about" border={false}>
+      <EfferdRail>
+        <SectionLabel index="08" label="About" className="px-4 pt-4" />
+        <div className="grid gap-px border-t border-border bg-border md:grid-cols-2">
+          <div className="bg-background p-6">
+            <p className="font-mono text-[10px] text-muted-foreground uppercase">
+              Profile
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold">{profile.name}</h2>
+            <p className="mt-1 text-accent">{profile.title}</p>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              {profile.longBio}
+            </p>
+            <Link
+              href="/about"
+              className="mt-6 inline-block font-mono text-xs text-accent hover:underline"
+            >
+              Read more →
+            </Link>
           </div>
-          <div className="flex flex-wrap gap-x-4">
-            <dt className="w-20 text-muted">github</dt>
-            <dd>
-              <a
-                href={profile.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-accent"
-              >
-                github.com/jayantrohila57
-              </a>
-            </dd>
+          <div className="bg-background/80 p-6">
+            <p className="font-mono text-[10px] text-muted-foreground uppercase">
+              Focus
+            </p>
+            <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+              <li>Modern web applications (Next.js, React, TypeScript)</li>
+              <li>Typed APIs and data-heavy interfaces</li>
+              <li>Open-source projects with live demos on GitHub</li>
+            </ul>
+            <p className="mt-6 font-mono text-[10px] text-muted-foreground">
+              Lucsum is an upcoming brand hub only — not employment.
+            </p>
           </div>
-          <div className="flex flex-wrap gap-x-4">
-            <dt className="w-20 text-muted">linkedin</dt>
-            <dd>
-              <a
-                href={profile.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-accent"
-              >
-                linkedin.com/in/jayant-rohila
-              </a>
-            </dd>
-          </div>
-          {profile.openToOpportunities ? (
-            <div className="flex flex-wrap gap-x-4 border-t border-border-subtle pt-4">
-              <dt className="w-20 text-muted">status</dt>
-              <dd className="flex items-center gap-2">
-                <span className="size-1.5 rounded-full bg-accent" />
-                Open to opportunities
-              </dd>
-            </div>
-          ) : null}
-        </dl>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a
-            href={`mailto:${profile.social.email}`}
-            className="inline-flex h-10 items-center rounded-[var(--radius-sm)] border border-accent/40 bg-accent/10 px-4 text-sm text-accent"
-          >
-            Send email
-          </a>
-          <Link
-            href={siteConfig.resumePath}
-            className="inline-flex h-10 items-center rounded-[var(--radius-sm)] border border-border px-4 text-sm text-muted hover:text-foreground"
-          >
-            View resume
-          </Link>
         </div>
-      </BentoPanel>
+      </EfferdRail>
+    </SectionFrame>
   );
 }
 
 export function ContactSection() {
   return (
-    <SectionFrame id="contact">
-      <SectionLabel index="09" label="Contact" />
-      <ContactPanel />
+    <SectionFrame id="contact" border={false} className="py-12">
+      <EfferdRail bordered={false}>
+        <SectionLabel index="09" label="Contact" className="px-4" />
+        <PortfolioContactPanel className="mx-4" />
+      </EfferdRail>
     </SectionFrame>
   );
 }
 
 export function FinalCtaSection() {
   return (
-    <section className="border-t border-border py-20">
-      <div className="site-container text-center">
-        <p className="font-mono text-[11px] tracking-[0.2em] text-muted uppercase">
-          Build something useful
-        </p>
-        <h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
-          Have a product or system worth shipping?
-        </h2>
-        <Link
-          href="/contact"
-          className="mt-8 inline-flex h-11 items-center rounded-[var(--radius-sm)] border border-accent/40 bg-accent/10 px-6 text-sm text-accent hover:bg-accent/20"
-        >
-          Get in touch
-        </Link>
-      </div>
+    <section className="border-t border-border py-12 md:py-16">
+      <EfferdRail bordered={false}>
+        <CallToAction />
+      </EfferdRail>
     </section>
   );
+}
+
+/** @deprecated Use PortfolioContactPanel via ContactSection */
+export function ContactPanel() {
+  return <PortfolioContactPanel />;
 }

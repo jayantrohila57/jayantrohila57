@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { EfferdRail } from "@/components/efferd-rail";
+import { FeatureBento } from "@/components/feature-section";
 import {
-  BentoPanel,
   SectionFrame,
   SectionIntro,
   SectionLabel,
@@ -22,40 +23,48 @@ Shared UI system (shadcn / Tailwind)`,
                               ● live`,
   };
   return (
-    <pre className="mt-4 overflow-x-auto font-mono text-[10px] leading-relaxed text-muted">
+    <pre className="mt-4 overflow-x-auto font-mono text-[10px] leading-relaxed text-muted-foreground">
       {content[type] ?? content["type-flow"]}
     </pre>
   );
 }
 
 export function EngineeringSection() {
+  const features = engineeringPrinciples.map((item) => ({
+    title: item.title,
+    description: item.description,
+  }));
+
   return (
-    <SectionFrame id="engineering">
-      <SectionLabel index="02" label="Engineering" />
-      <SectionIntro
-        title="How I design and build software."
-        description="Product-first delivery with typed APIs, reusable UI, and repo-documented quality tooling."
-        action={
-          <Link
-            href="/engineering"
-            className="font-mono text-xs tracking-wide text-accent hover:underline"
-          >
-            Deep dive →
-          </Link>
-        }
-      />
-      <div className="grid gap-1 md:grid-cols-2">
-        {engineeringPrinciples.map((item, i) => (
-          <BentoPanel key={item.id} dominant={i === 0}>
-            <p className="font-mono text-[10px] text-muted">
-              {String(i + 1).padStart(2, "0")}
-            </p>
-            <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
-            <p className="mt-2 text-sm text-muted">{item.description}</p>
-            <PrincipleVisual type={item.visual} />
-          </BentoPanel>
-        ))}
-      </div>
+    <SectionFrame id="engineering" border={false}>
+      <EfferdRail>
+        <div className="px-4 pt-4">
+          <SectionLabel index="02" label="Engineering" />
+          <SectionIntro
+            title="How I design and build software."
+            description="Product-first delivery with typed APIs, reusable UI, and repo-documented quality tooling."
+            action={
+              <Link
+                href="/engineering"
+                className="font-mono text-xs tracking-wide text-accent hover:underline"
+              >
+                Deep dive →
+              </Link>
+            }
+          />
+        </div>
+        <FeatureBento features={features} />
+        <div className="grid gap-px border-t border-border bg-border md:grid-cols-2">
+          {engineeringPrinciples.map((item) => (
+            <div
+              className="bg-background p-4 md:p-6"
+              key={item.id}
+            >
+              <PrincipleVisual type={item.visual} />
+            </div>
+          ))}
+        </div>
+      </EfferdRail>
     </SectionFrame>
   );
 }

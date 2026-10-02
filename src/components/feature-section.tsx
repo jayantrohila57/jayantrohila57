@@ -1,93 +1,117 @@
 import { cn } from "@/lib/utils";
 import type React from "react";
 import { FullWidthDivider } from "@/components/full-width-divider";
-import { ZapIcon, ShieldCheckIcon, ActivityIcon, GlobeIcon } from "lucide-react";
+import {
+  ActivityIcon,
+  GlobeIcon,
+  LayersIcon,
+  ShieldCheckIcon,
+  ZapIcon,
+} from "lucide-react";
 
-type FeatureType = {
-	title: string;
-	icon: React.ReactNode;
-	description: string;
+export type FeatureItem = {
+  title: string;
+  description: string;
+  icon?: React.ReactNode;
 };
 
-export function FeatureSection() {
-	return (
-		<div className="mx-auto min-h-screen w-full max-w-5xl place-content-center space-y-12 border-x py-4">
-			<div className="relative grid grid-cols-1 gap-px bg-border md:grid-cols-2 lg:grid-cols-4">
-				<FullWidthDivider position="top" />
-				{features.map((feature) => (
-					<FeatureCard feature={feature} key={feature.title} />
-				))}
-				<FullWidthDivider position="bottom" />
-			</div>
-		</div>
-	);
+const defaultIcons = [
+  <ZapIcon key="z" />,
+  <ShieldCheckIcon key="s" />,
+  <ActivityIcon key="a" />,
+  <GlobeIcon key="g" />,
+];
+
+export function FeatureBento({ features }: { features: FeatureItem[] }) {
+  const cols =
+    features.length <= 3
+      ? "md:grid-cols-3"
+      : features.length === 4
+        ? "md:grid-cols-2 lg:grid-cols-4"
+        : "md:grid-cols-2 lg:grid-cols-3";
+
+  return (
+    <div className="relative w-full">
+      <div
+        className={cn(
+          "relative grid grid-cols-1 gap-px bg-border",
+          cols,
+        )}
+      >
+        <FullWidthDivider position="top" />
+        {features.map((feature, i) => (
+          <FeatureCard
+            feature={{
+              ...feature,
+              icon: feature.icon ?? defaultIcons[i % defaultIcons.length],
+            }}
+            key={feature.title}
+          />
+        ))}
+        <FullWidthDivider position="bottom" />
+      </div>
+    </div>
+  );
 }
 
 export function FeatureCard({
-	feature,
-	className,
-	...props
+  feature,
+  className,
+  children,
+  ...props
 }: React.ComponentProps<"div"> & {
-	feature: FeatureType;
+  feature: FeatureItem;
 }) {
-	return (
-		<div
-			className={cn(
-				"relative flex flex-col justify-between overflow-hidden bg-background p-4 md:p-6",
-				className
-			)}
-			{...props}
-		>
-			<div
-				className={cn(
-					"relative z-10 flex items-center pt-4 pb-6",
-					"[&_svg]:size-5 [&_svg]:text-primary"
-				)}
-			>
-				{feature.icon}
-			</div>
-
-			<div className="relative z-10 space-y-2">
-				<h3 className="font-medium text-foreground text-lg">{feature.title}</h3>
-				<p className="text-muted-foreground text-xs leading-relaxed">
-					{feature.description}
-				</p>
-			</div>
-		</div>
-	);
+  return (
+    <div
+      className={cn(
+        "relative flex flex-col justify-between overflow-hidden bg-background p-4 md:p-6",
+        className,
+      )}
+      {...props}
+    >
+      <div
+        className={cn(
+          "relative z-10 flex items-center pt-2 pb-4",
+          "[&_svg]:size-5 [&_svg]:text-primary",
+        )}
+      >
+        {feature.icon ?? <LayersIcon />}
+      </div>
+      <div className="relative z-10 space-y-2">
+        <h3 className="font-medium text-foreground text-lg">{feature.title}</h3>
+        <p className="text-muted-foreground text-xs leading-relaxed md:text-sm">
+          {feature.description}
+        </p>
+      </div>
+      {children}
+    </div>
+  );
 }
 
-const features: FeatureType[] = [
-	{
-		title: "Lightning Fast",
-		icon: (
-			<ZapIcon
-			/>
-		),
-		description: "Blazing fast performance with edge network optimizations.",
-	},
-	{
-		title: "Secure by Design",
-		icon: (
-			<ShieldCheckIcon
-			/>
-		),
-		description: "Enterprise-grade security, zero configuration required.",
-	},
-	{
-		title: "Real-time Sync",
-		icon: (
-			<ActivityIcon
-			/>
-		),
-		description: "Real-time data sync across all devices efficiently.",
-	},
-	{
-		title: "Global Scale",
-		icon: (
-			<GlobeIcon
-			/>
-		),
-		description: "Instant global deployment to 35+ regions worldwide.",
-	},
+const demoFeatures: FeatureItem[] = [
+  {
+    title: "Pattern preview",
+    description: "features-6 bento grid — live site uses engineering principles.",
+  },
+  {
+    title: "Typed boundaries",
+    description: "End-to-end types from UI through API layers.",
+  },
+  {
+    title: "Delivery",
+    description: "CI and deploy paths documented in public repos.",
+  },
+  {
+    title: "Product UI",
+    description: "Shared components and accessible interaction patterns.",
+  },
 ];
+
+export function FeatureSection() {
+  return (
+    <div className="mx-auto min-h-[40vh] w-full max-w-5xl place-content-center space-y-12 border-x py-4">
+      <FeatureBento features={demoFeatures} />
+    </div>
+  );
+}
