@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { EfferdRail } from "@/components/efferd-rail";
 import { FeatureBento } from "@/components/feature-section";
 import {
   SectionFrame,
@@ -36,35 +35,30 @@ export function EngineeringSection() {
   }));
 
   return (
-    <SectionFrame id="engineering" border={false}>
-      <EfferdRail>
-        <div className="px-4 pt-4">
-          <SectionLabel index="02" label="Engineering" />
-          <SectionIntro
-            title="How I design and build software."
-            description="Product-first delivery with typed APIs, reusable UI, and repo-documented quality tooling."
-            action={
-              <Link
-                href="/engineering"
-                className="font-mono text-xs tracking-wide text-accent hover:underline"
-              >
-                Deep dive →
-              </Link>
-            }
-          />
-        </div>
-        <FeatureBento features={features} />
-        <div className="grid gap-px border-t border-border bg-border md:grid-cols-2">
-          {engineeringPrinciples.map((item) => (
-            <div
-              className="bg-background p-4 md:p-6"
-              key={item.id}
+    <SectionFrame id="engineering" border>
+      <div className="px-4 pt-2">
+        <SectionLabel index="02" label="Engineering" />
+        <SectionIntro
+          title="How I design and build software."
+          description="Product-first delivery with typed APIs, reusable UI, and repo-documented quality tooling."
+          action={
+            <Link
+              href="/engineering"
+              className="font-mono text-xs tracking-wide text-[color:var(--accent-muted)] hover:underline"
             >
-              <PrincipleVisual type={item.visual} />
-            </div>
-          ))}
-        </div>
-      </EfferdRail>
+              Deep dive →
+            </Link>
+          }
+        />
+      </div>
+      <FeatureBento features={features} />
+      <div className="grid gap-px border-t border-border bg-border md:grid-cols-2">
+        {engineeringPrinciples.map((item) => (
+          <div className="bg-background p-4 md:p-6" key={item.id}>
+            <PrincipleVisual type={item.visual} />
+          </div>
+        ))}
+      </div>
     </SectionFrame>
   );
 }

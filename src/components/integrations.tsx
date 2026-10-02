@@ -9,9 +9,20 @@ export type IntegrationItem = {
   icon?: React.ReactNode;
 };
 
-export function IntegrationsGrid({ items }: { items: IntegrationItem[] }) {
+export function IntegrationsGrid({
+  items,
+  nested,
+}: {
+  items: IntegrationItem[];
+  nested?: boolean;
+}) {
   return (
-    <div className="relative mx-auto max-w-5xl border border-border">
+    <div
+      className={cn(
+        "relative w-full",
+        nested ? "border-0" : "mx-auto max-w-5xl border border-border",
+      )}
+    >
       <div className="grid grid-cols-2 gap-px bg-border md:grid-cols-3">
         {items.map((item) => (
           <IntegrationCard integration={item} key={item.name}>
@@ -70,8 +81,14 @@ function buildStackIntegrations(): IntegrationItem[] {
   return items.slice(0, 6);
 }
 
-export function PortfolioStackIntegrations() {
-  return <IntegrationsGrid items={buildStackIntegrations()} />;
+export function PortfolioStackIntegrations({
+  nested,
+}: {
+  nested?: boolean;
+} = {}) {
+  return (
+    <IntegrationsGrid items={buildStackIntegrations()} nested={nested} />
+  );
 }
 
 const demoData: IntegrationItem[] = [

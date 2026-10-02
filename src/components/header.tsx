@@ -53,7 +53,7 @@ export function Header({ commandSlot }: HeaderProps) {
             </a>
           </Button>
           {commandSlot}
-          <Button asChild size="sm">
+          <Button asChild size="sm" variant="accent">
             <Link href={siteConfig.resumePath}>Resume</Link>
           </Button>
         </div>

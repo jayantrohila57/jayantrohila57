@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { BlogsList, type BlogListItem } from "@/components/blogs-section";
-import { EfferdRail } from "@/components/efferd-rail";
-import { SectionFrame, SectionIntro } from "@/components/primitives/section-frame";
+import {
+  SectionFrame,
+  SectionIntro,
+} from "@/components/primitives/section-frame";
 import { experiments } from "@/data/portfolio";
 import { generatePageMetadata } from "@/config/metadata";
 
@@ -20,22 +22,21 @@ export default function ExperimentsPage() {
   }));
 
   return (
-    <SectionFrame border={false} className="pt-12">
-      <EfferdRail bordered={false}>
-        <div className="px-4">
-          <SectionIntro
-            title="Experiments"
-            description="Strong supporting repos from public source data — Inkly, libyui, image editor, Spotify stats, Patternlab."
-          />
-        </div>
-        <BlogsList items={items} />
-        <Link
-          href="/"
-          className="mt-10 inline-block px-4 pb-10 font-mono text-sm text-accent hover:underline"
-        >
-          ← Home
-        </Link>
-      </EfferdRail>
+    <SectionFrame border={false} spacing="tight" className="pt-8">
+      <div className="px-4">
+        <SectionIntro
+          label="Experiments"
+          title="Lab shelf"
+          description="Strong supporting repos from public source data — Inkly, libyui, image editor, Spotify stats, Patternlab."
+        />
+      </div>
+      <BlogsList items={items} />
+      <Link
+        href="/"
+        className="mt-8 inline-block px-4 pb-10 font-mono text-sm text-[color:var(--accent-muted)] hover:underline"
+      >
+        ← Home
+      </Link>
     </SectionFrame>
   );
 }

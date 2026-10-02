@@ -12,7 +12,7 @@ import { ArrowRightIcon } from "lucide-react";
 
 export function PortfolioHero() {
   return (
-    <section className="relative overflow-hidden pt-10 pb-4 md:pt-14 md:pb-8">
+    <section className="relative overflow-hidden border-b border-border pt-10 pb-4 md:pt-14 md:pb-8">
       <EfferdRail>
         <div className="relative z-10 flex max-w-2xl flex-col gap-5 px-4 pt-4 pb-8">
           <Link
@@ -49,7 +49,7 @@ export function PortfolioHero() {
           </p>
 
           <div className="flex w-fit flex-wrap items-center gap-3 pt-2">
-            <Button asChild variant="default">
+            <Button asChild variant="accent">
               <Link href="/work">
                 View work
                 <ArrowRightIcon data-icon="inline-end" />

@@ -42,7 +42,7 @@ export function CallToAction({
         <Button asChild variant="outline">
           <Link href={secondaryHref}>{secondaryLabel}</Link>
         </Button>
-        <Button asChild>
+        <Button asChild variant="accent">
           <Link href={primaryHref}>
             {primaryLabel}
             <ArrowRightIcon data-icon="inline-end" />

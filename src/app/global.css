@@ -121,9 +121,9 @@ body {
 
 .site-container {
   width: 100%;
-  max-width: 76rem;
+  max-width: 64rem;
   margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 1.75rem);
+  padding-inline: 1rem;
 }
 
 .border-grid {
@@ -154,6 +154,11 @@ body {
 .dark {
   --background: #0b0d0f;
   --foreground: #eceff3;
+  --surface: #12151a;
+  --panel: #161a21;
+  --elevated: #1c2129;
+  --border: #2a3038;
+  --border-subtle: #1f242b;
   --card: #161a21;
   --card-foreground: #eceff3;
   --popover: #161a21;
@@ -164,8 +169,10 @@ body {
   --secondary-foreground: #eceff3;
   --muted: #8b939e;
   --muted-foreground: #8b939e;
-  --accent: #1c2129;
-  --accent-foreground: #eceff3;
+  /* Portfolio accent green — shared CTAs and links */
+  --accent: #7dd3a8;
+  --accent-muted: #4a9b78;
+  --accent-foreground: #0b0d0f;
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);

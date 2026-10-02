@@ -1,5 +1,4 @@
 import { BlogsList, type BlogListItem } from "@/components/blogs-section";
-import { EfferdRail } from "@/components/efferd-rail";
 import { PortfolioContactPanel } from "@/components/contact-section";
 import {
   SectionFrame,
@@ -25,46 +24,49 @@ export default function AboutPage() {
 
   return (
     <>
-      <SectionFrame border={false} className="pt-12">
-        <EfferdRail>
-          <div className="px-4">
-            <SectionIntro title="About" description={profile.shortBio} />
+      <SectionFrame border={false} spacing="tight" className="pt-8">
+        <div className="px-4">
+          <SectionIntro label="About" title={profile.name} description={profile.shortBio} />
+        </div>
+        <div className="grid gap-px border-t border-border bg-border lg:grid-cols-3">
+          <div className="bg-background p-6 lg:col-span-2">
+            <p className="font-mono text-[10px] text-muted-foreground uppercase">
+              Profile
+            </p>
+            <p className="mt-2 text-[color:var(--accent-muted)]">{profile.title}</p>
+            <p className="mt-6 leading-relaxed text-muted-foreground">
+              {profile.longBio}
+            </p>
+            <p className="mt-6 font-mono text-sm text-muted-foreground">
+              {profile.location}
+            </p>
           </div>
-          <div className="grid gap-px border-t border-border bg-border lg:grid-cols-3">
-            <div className="bg-background p-6 lg:col-span-2">
-              <p className="font-mono text-[10px] text-muted uppercase">Profile</p>
-              <h2 className="mt-2 text-3xl font-semibold">{profile.name}</h2>
-              <p className="mt-2 text-accent">{profile.title}</p>
-              <p className="mt-6 leading-relaxed text-muted">{profile.longBio}</p>
-              <p className="mt-6 font-mono text-sm text-muted">{profile.location}</p>
-            </div>
-            <div className="bg-background/90 p-6">
-              <p className="font-mono text-[10px] text-muted uppercase">Education</p>
-              <ul className="mt-4 space-y-4 text-sm">
-                {resumeData.education.map((ed) => (
-                  <li key={ed.credential}>
-                    <p className="font-medium">{ed.credential}</p>
-                    <p className="text-muted">{ed.institution}</p>
-                    <p className="font-mono text-xs text-muted">{ed.period}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="bg-background p-6">
+            <p className="font-mono text-[10px] text-muted-foreground uppercase">
+              Education
+            </p>
+            <ul className="mt-4 space-y-4 text-sm">
+              {resumeData.education.map((ed) => (
+                <li key={ed.credential}>
+                  <p className="font-medium">{ed.credential}</p>
+                  <p className="text-muted-foreground">{ed.institution}</p>
+                  <p className="font-mono text-xs text-muted-foreground">
+                    {ed.period}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
-        </EfferdRail>
+        </div>
       </SectionFrame>
-      <SectionFrame id="experience" border={false}>
-        <EfferdRail>
-          <div className="px-4 pt-4">
-            <SectionIntro title="Experience" />
-          </div>
-          <BlogsList items={timeline} />
-        </EfferdRail>
+      <SectionFrame id="experience" border>
+        <div className="px-4 pt-2">
+          <SectionIntro title="Experience" />
+        </div>
+        <BlogsList items={timeline} />
       </SectionFrame>
-      <SectionFrame border={false} className="pb-16">
-        <EfferdRail bordered={false}>
-          <PortfolioContactPanel className="mx-4" />
-        </EfferdRail>
+      <SectionFrame border spacing="tight">
+        <PortfolioContactPanel className="mx-4" />
       </SectionFrame>
     </>
   );

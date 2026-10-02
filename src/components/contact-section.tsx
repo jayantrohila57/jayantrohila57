@@ -97,7 +97,7 @@ export function PortfolioContactPanel({ className }: { className?: string }) {
         ) : null}
       </div>
       <div className="flex flex-wrap gap-3 px-6 py-6">
-        <Button asChild>
+        <Button asChild variant="accent">
           <a href={`mailto:${profile.social.email}`}>Send email</a>
         </Button>
         <Button asChild variant="outline">

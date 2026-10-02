@@ -1,4 +1,4 @@
-import { EfferdRail } from "@/components/efferd-rail";
+import { SectionFrame } from "@/components/primitives/section-frame";
 import { ResumeView } from "@/components/resume-view";
 import { generatePageMetadata } from "@/config/metadata";
 
@@ -11,12 +11,10 @@ export const metadata = generatePageMetadata({
 
 export default function ResumePage() {
   return (
-    <main className="py-12">
-      <EfferdRail>
-        <div className="border-t border-border px-4 py-8 md:px-8">
-          <ResumeView />
-        </div>
-      </EfferdRail>
-    </main>
+    <SectionFrame border={false} spacing="tight" className="pt-8">
+      <div className="border-t border-border px-4 py-8 md:px-8">
+        <ResumeView />
+      </div>
+    </SectionFrame>
   );
 }

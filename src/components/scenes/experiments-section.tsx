@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { BlogsList, type BlogListItem } from "@/components/blogs-section";
-import { EfferdRail } from "@/components/efferd-rail";
 import {
   SectionFrame,
+  SectionIntro,
   SectionLabel,
 } from "@/components/primitives/section-frame";
 import { experiments } from "@/data/portfolio";
@@ -16,25 +16,23 @@ export function ExperimentsSection() {
   }));
 
   return (
-    <SectionFrame id="experiments" border={false}>
-      <EfferdRail bordered={false}>
-        <SectionLabel index="06" label="Experiments" className="px-4" />
-        <BlogsList
-          intro={{
-            title: "Lab shelf — smaller tools and libraries.",
-            description: "Secondary repos from public source data.",
-          }}
-          items={items}
-        />
-        <div className="px-4 pb-6">
-          <Link
-            href="/experiments"
-            className="font-mono text-xs tracking-wide text-accent hover:underline"
-          >
-            Open lab →
-          </Link>
-        </div>
-      </EfferdRail>
+    <SectionFrame id="experiments" border>
+      <SectionLabel index="06" label="Experiments" className="px-4 pt-2" />
+      <BlogsList
+        intro={{
+          title: "Lab shelf — smaller tools and libraries.",
+          description: "Secondary repos from public source data.",
+        }}
+        items={items}
+      />
+      <div className="px-4 pb-4">
+        <Link
+          href="/experiments"
+          className="font-mono text-xs tracking-wide text-[color:var(--accent-muted)] hover:underline"
+        >
+          Open lab →
+        </Link>
+      </div>
     </SectionFrame>
   );
 }

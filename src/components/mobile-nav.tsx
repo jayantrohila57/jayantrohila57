@@ -76,7 +76,7 @@ export function MobileNav({ commandSlot }: MobileNavProps) {
                   GitHub
                 </a>
               </Button>
-              <Button asChild className="w-full">
+              <Button asChild className="w-full" variant="accent">
                 <Link href={siteConfig.resumePath} onClick={() => setOpen(false)}>
                   Resume
                 </Link>

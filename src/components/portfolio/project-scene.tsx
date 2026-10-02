@@ -14,7 +14,7 @@ function EcommercePreview() {
           <span className="text-foreground">Transactions</span>
           <StatusBadge label="demo" status="demo" />
         </div>
-        <div className="grid grid-cols-3 gap-2 text-[10px] text-muted">
+        <div className="grid grid-cols-3 gap-2 text-[10px] text-muted-foreground">
           <span>Date</span>
           <span>Status</span>
           <span className="text-right">Amount</span>
@@ -26,14 +26,16 @@ function EcommercePreview() {
         ].map(([d, s, a]) => (
           <div
             key={d}
-            className="grid grid-cols-3 gap-2 border-t border-border-subtle py-1 text-[10px]"
+            className="grid grid-cols-3 gap-2 border-t border-border py-1 text-[10px]"
           >
-            <span className="text-muted">{d}</span>
+            <span className="text-muted-foreground">{d}</span>
             <span>{s}</span>
             <span className="text-right">{a}</span>
           </div>
         ))}
-        <p className="pt-1 text-[9px] text-muted">EXAMPLE · not live business data</p>
+        <p className="pt-1 text-[9px] text-muted-foreground">
+          EXAMPLE · not live business data
+        </p>
       </div>
     </BrowserWindow>
   );
@@ -47,14 +49,14 @@ function EnvManagerPreview() {
           (key) => (
             <div
               key={key}
-              className="flex items-center justify-between gap-2 border border-border-subtle px-2 py-1"
+              className="flex items-center justify-between gap-2 border border-border px-2 py-1"
             >
-              <span className="truncate text-muted">{key}</span>
-              <span className="text-accent">••••••</span>
+              <span className="truncate text-muted-foreground">{key}</span>
+              <span className="text-[color:var(--accent-muted)]">••••••</span>
             </div>
           ),
         )}
-        <p className="text-[9px] text-muted">Secrets UI — illustrative</p>
+        <p className="text-[9px] text-muted-foreground">Secrets UI — illustrative</p>
       </div>
     </BrowserWindow>
   );
@@ -62,7 +64,7 @@ function EnvManagerPreview() {
 
 function TaskflowPreview() {
   return (
-    <div className="font-mono text-[10px] leading-relaxed text-muted">
+    <div className="font-mono text-[10px] leading-relaxed text-muted-foreground">
       <div className="mb-2 text-foreground">Architecture (from repo)</div>
       <pre>{`Next.js UI
     ↓
@@ -112,7 +114,7 @@ export function ProjectScene({
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="group block border border-border bg-panel/40 transition-colors hover:border-accent/30 hover:bg-panel/70"
+      className="group block bg-background transition-colors hover:bg-card"
     >
       <div
         className={cn(
@@ -121,21 +123,21 @@ export function ProjectScene({
         )}
       >
         <div className="border-b border-border p-6 lg:border-r lg:border-b-0">
-          <p className="font-mono text-[10px] tracking-widest text-muted uppercase">
+          <p className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
             {String(index).padStart(2, "0")} · {project.eyebrow}
           </p>
-          <h3 className="mt-3 text-2xl font-semibold tracking-tight group-hover:text-accent">
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight group-hover:text-[color:var(--accent-muted)]">
             {project.title}
           </h3>
-          <p className="mt-3 text-sm leading-relaxed text-muted">
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             {project.summary}
           </p>
-          <dl className="mt-6 grid gap-2 font-mono text-[10px] text-muted uppercase">
-            <div className="flex justify-between gap-4 border-t border-border-subtle pt-2">
+          <dl className="mt-6 grid gap-2 font-mono text-[10px] text-muted-foreground uppercase">
+            <div className="flex justify-between gap-4 border-t border-border pt-2">
               <dt>Status</dt>
               <dd className="text-foreground normal-case">{project.status}</dd>
             </div>
-            <div className="flex justify-between gap-4 border-t border-border-subtle pt-2">
+            <div className="flex justify-between gap-4 border-t border-border pt-2">
               <dt>Stack</dt>
               <dd className="max-w-[60%] text-right text-foreground normal-case">
                 {project.stack.slice(0, 4).join(" · ")}
@@ -143,7 +145,7 @@ export function ProjectScene({
             </div>
           </dl>
         </div>
-        <div className="p-4 transition-transform duration-300 group-hover:translate-y-[-2px] md:p-6">
+        <div className="p-4 md:p-6">
           <ProjectVisual project={project} />
         </div>
       </div>

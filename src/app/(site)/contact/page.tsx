@@ -1,8 +1,10 @@
 import { CallToAction } from "@/components/cta";
 import { ContactSocialCards } from "@/components/contact";
 import { PortfolioContactPanel } from "@/components/contact-section";
-import { EfferdRail } from "@/components/efferd-rail";
-import { SectionFrame, SectionIntro } from "@/components/primitives/section-frame";
+import {
+  SectionFrame,
+  SectionIntro,
+} from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
 
 export const metadata = generatePageMetadata({
@@ -14,29 +16,22 @@ export const metadata = generatePageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <SectionFrame border={false} className="pt-12 pb-0">
-        <EfferdRail bordered={false}>
-          <div className="px-4">
-            <SectionIntro
-              title="Contact"
-              description="Reach out for product engineering conversations or open-source questions."
-            />
-          </div>
-        </EfferdRail>
+      <SectionFrame border={false} spacing="tight" className="pt-8">
+        <div className="px-4">
+          <SectionIntro
+            label="Contact"
+            title="Get in touch"
+            description="Reach out for product engineering conversations or open-source questions."
+          />
+        </div>
+        <PortfolioContactPanel className="mx-4" />
+        <div className="mt-10 border-t border-border pt-10">
+          <ContactSocialCards />
+        </div>
       </SectionFrame>
-      <SectionFrame border={false} className="pt-4 pb-8">
-        <EfferdRail bordered={false}>
-          <PortfolioContactPanel className="mx-4" />
-          <div className="mt-10">
-            <ContactSocialCards />
-          </div>
-        </EfferdRail>
+      <SectionFrame border spacing="tight">
+        <CallToAction />
       </SectionFrame>
-      <section className="border-t border-border py-12">
-        <EfferdRail bordered={false}>
-          <CallToAction />
-        </EfferdRail>
-      </section>
     </>
   );
 }
