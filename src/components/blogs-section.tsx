@@ -23,7 +23,7 @@ export function BlogCard({
   return (
     <Link
       className={cn(
-        "group flex min-h-24 w-full flex-col justify-center gap-y-1 p-4 hover:cursor-pointer hover:bg-accent/30 active:bg-accent dark:active:bg-accent/50",
+        "group flex min-h-24 w-full flex-col justify-center gap-y-1 p-4 hover:cursor-pointer hover:bg-secondary/60 active:bg-secondary",
         className,
       )}
       {...props}

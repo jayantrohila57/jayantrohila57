@@ -91,7 +91,7 @@ export function PortfolioContactPanel({ className }: { className?: string }) {
         </div>
         {profile.openToOpportunities ? (
           <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-            <span className="size-1.5 rounded-full bg-accent" />
+            <span className="size-1.5 rounded-full bg-brand" />
             Open to opportunities
           </p>
         ) : null}

@@ -1,16 +1,12 @@
 "use client";
 
-import { ReactLenis, useLenis } from "lenis/react";
-import { usePathname } from "next/navigation";
 import {
   useEffect,
+  useState,
   useSyncExternalStore,
+  type ComponentType,
   type ReactNode,
 } from "react";
-import "lenis/dist/lenis.css";
-
-/** Offset for sticky site header when scrolling to `#` anchors */
-const ANCHOR_OFFSET = 88;
 
 function subscribeReducedMotion(onStoreChange: () => void) {
   const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -34,73 +30,49 @@ function usePrefersReducedMotion() {
   );
 }
 
-/** Scroll to hash on load / client navigations (App Router). */
-function LenisRouteHashScroll() {
-  const lenis = useLenis();
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (!hash || hash.length < 2) return;
-
-    const scrollNative = () => {
-      const target = document.querySelector(hash);
-      target?.scrollIntoView({ block: "start" });
-    };
-
-    if (!lenis) {
-      scrollNative();
-      return;
-    }
-
-    const target = document.querySelector(hash);
-    if (!(target instanceof HTMLElement)) return;
-
-    const frame = requestAnimationFrame(() => {
-      lenis.scrollTo(target, { offset: -ANCHOR_OFFSET });
-    });
-    return () => cancelAnimationFrame(frame);
-  }, [pathname, lenis]);
-
-  return null;
-}
-
-const lenisOptions = {
-  lerp: 0.08,
-  smoothWheel: true,
-  syncTouch: false,
-  respectReducedMotion: true,
-  stopInertiaOnNavigate: true,
-  anchors: {
-    offset: -ANCHOR_OFFSET,
-  },
-} as const;
+type LenisRootComponent = ComponentType<{ children: ReactNode }>;
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   const reducedMotion = usePrefersReducedMotion();
+  const [LenisRoot, setLenisRoot] = useState<LenisRootComponent | null>(null);
 
-  if (reducedMotion) {
+  useEffect(() => {
+    if (reducedMotion) return;
+
+    const schedule =
+      typeof requestIdleCallback !== "undefined"
+        ? requestIdleCallback
+        : (cb: () => void) => window.setTimeout(cb, 1);
+
+    const cancel =
+      typeof cancelIdleCallback !== "undefined"
+        ? cancelIdleCallback
+        : (id: number) => window.clearTimeout(id);
+
+    const idleId = schedule(() => {
+      void import("@/components/lenis-root").then((mod) =>
+        setLenisRoot(() => mod.LenisRoot),
+      );
+    });
+
+    return () => cancel(idleId as number);
+  }, [reducedMotion]);
+
+  if (reducedMotion || !LenisRoot) {
     return <>{children}</>;
   }
 
-  return (
-    <ReactLenis root options={lenisOptions}>
-      <LenisRouteHashScroll />
-      {children}
-    </ReactLenis>
-  );
+  return <LenisRoot>{children}</LenisRoot>;
 }
 
-/** Pause Lenis while overlays (e.g. ⌘K dialog) are open so wheel/scroll stays on the modal. */
+/** Pause page scroll while overlays (e.g. ⌘K dialog) are open. */
 export function useLenisScrollLock(locked: boolean) {
-  const lenis = useLenis();
-
   useEffect(() => {
-    if (!lenis) return;
     if (!locked) return;
-    lenis.stop();
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     return () => {
-      lenis.start();
+      document.body.style.overflow = prev;
     };
-  }, [locked, lenis]);
+  }, [locked]);
 }

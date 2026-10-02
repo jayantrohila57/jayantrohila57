@@ -54,7 +54,7 @@ export function TerminalWindow({
           <div key={line} className="text-muted">
             {line.startsWith("$") ? (
               <>
-                <span className="text-accent">{line.slice(0, 1)} </span>
+                <span className="text-brand">{line.slice(0, 1)} </span>
                 {line.slice(2)}
               </>
             ) : (
@@ -92,7 +92,7 @@ export function StatusBadge({
 }) {
   const dot =
     status === "active"
-      ? "bg-accent"
+      ? "bg-brand"
       : status === "demo"
         ? "bg-amber-400"
         : "bg-muted";

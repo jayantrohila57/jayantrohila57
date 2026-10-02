@@ -1,9 +1,9 @@
+import { GoogleAnalyticsLazy } from "@/components/analytics/google-analytics-lazy";
 import { RootJsonLd } from "@/components/json-ld";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { baseMetadata } from "@/config/metadata";
 import { baseViewport, siteConfig } from "@/config/site";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
@@ -14,20 +14,27 @@ const ibmPlex = IBM_Plex_Sans({
   weight: ["400", "500", "600", "700"],
   variable: "--font-ibm-plex",
   display: "swap",
+  preload: true,
 });
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains",
   display: "swap",
+  preload: true,
 });
 
 export const metadata = baseMetadata;
 export const viewport = baseViewport;
 
+function resolveGaId(): string | null {
+  const id = siteConfig.analytics.googleAnalyticsId?.trim();
+  if (!id || !/^G-[A-Z0-9]+$/i.test(id)) return null;
+  return id;
+}
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  const gaId = siteConfig.analytics.googleAnalyticsId;
-  const useGa = Boolean(gaId?.startsWith("G-"));
+  const gaId = resolveGaId();
   const useVercelInsights =
     siteConfig.analytics.vercelAnalytics && process.env.VERCEL === "1";
 
@@ -42,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <TooltipProvider>
           <SmoothScroll>{children}</SmoothScroll>
         </TooltipProvider>
-        {useGa && gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+        {gaId ? <GoogleAnalyticsLazy gaId={gaId} /> : null}
         {useVercelInsights ? (
           <>
             <Analytics />

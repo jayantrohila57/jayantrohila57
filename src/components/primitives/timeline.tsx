@@ -51,7 +51,7 @@ export function TimelineItem({
         {period}
       </p>
       <h3 className="mt-2 text-xl font-semibold tracking-tight">{title}</h3>
-      <p className="mt-1 text-sm text-accent">{subtitle}</p>
+      <p className="mt-1 text-sm text-brand">{subtitle}</p>
       <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
         {summary}
       </p>

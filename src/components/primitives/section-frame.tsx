@@ -71,7 +71,7 @@ export const sectionActionLinkClass =
 
 /** Inline links inside muted body copy (WCAG link-in-text-block). */
 export const inlineBodyLinkClass =
-  "font-medium text-foreground underline decoration-[color:var(--brand)] underline-offset-2 hover:text-link-accent";
+  "font-medium text-foreground underline decoration-brand underline-offset-2 hover:text-link-accent";
 
 export function SectionIntro({
   title,

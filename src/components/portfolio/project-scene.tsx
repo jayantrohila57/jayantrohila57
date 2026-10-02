@@ -52,7 +52,7 @@ function EnvManagerPreview() {
               className="flex items-center justify-between gap-2 border border-border px-2 py-1"
             >
               <span className="truncate text-muted-foreground">{key}</span>
-              <span className="text-[color:var(--accent-muted)]">••••••</span>
+              <span className="text-brand">••••••</span>
             </div>
           ),
         )}
