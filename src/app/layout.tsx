@@ -1,7 +1,9 @@
 import { RootJsonLd } from "@/components/json-ld";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { baseMetadata } from "@/config/metadata";
 import { baseViewport, siteConfig } from "@/config/site";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
@@ -24,23 +26,21 @@ export const metadata = baseMetadata;
 export const viewport = baseViewport;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  const analyticsId = siteConfig.analytics.googleAnalyticsId;
+  const gaId = siteConfig.analytics.googleAnalyticsId;
+  const useGa = Boolean(gaId?.startsWith("G-"));
 
   return (
     <html
       lang="en"
-      className={`${ibmPlex.variable} ${jetbrains.variable}`}
+      className={`${ibmPlex.variable} ${jetbrains.variable} dark`}
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col antialiased">
         <RootJsonLd />
-        {children}
-        {analyticsId ? (
-          <>
-            <GoogleTagManager gtmId={analyticsId} />
-            <GoogleAnalytics gaId={analyticsId} />
-          </>
-        ) : null}
+        <TooltipProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </TooltipProvider>
+        {useGa && gaId ? <GoogleAnalytics gaId={gaId} /> : null}
         {siteConfig.analytics.vercelAnalytics ? (
           <>
             <Analytics />
