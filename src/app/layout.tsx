@@ -1,4 +1,6 @@
 import { RootJsonLd } from "@/components/json-ld";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { baseMetadata } from "@/config/metadata";
 import { baseViewport, siteConfig } from "@/config/site";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
@@ -29,12 +31,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${ibmPlex.variable} ${jetbrains.variable}`}
+      className={`${ibmPlex.variable} ${jetbrains.variable} dark`}
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col antialiased">
         <RootJsonLd />
-        {children}
+        <TooltipProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </TooltipProvider>
         {analyticsId ? (
           <>
             <GoogleTagManager gtmId={analyticsId} />
