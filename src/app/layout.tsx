@@ -46,8 +46,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col antialiased">
-        <RootJsonLd />
         <DeferredSmoothScroll>{children}</DeferredSmoothScroll>
+        <RootJsonLd />
         {gaId ? <GoogleAnalyticsLazy gaId={gaId} /> : null}
         {useVercelInsights ? (
           <>

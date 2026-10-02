@@ -50,7 +50,7 @@ export const siteConfig = {
     panel: "#161a21",
     elevated: "#1c2129",
     border: "#2a3038",
-    muted: "#8b939e",
+    muted: "#9aa3af",
     foreground: "#eceff3",
     accent: "#7dd3a8",
   },

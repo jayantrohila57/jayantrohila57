@@ -7,7 +7,7 @@
 :root {
   --background: #0b0d0f;
   --foreground: #eceff3;
-  --muted: #8b939e;
+  --muted: #9aa3af;
   --surface: #12151a;
   --panel: #161a21;
   --elevated: #1c2129;
@@ -33,7 +33,7 @@
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  --muted-foreground: #9aa3af;
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --input: oklch(0.922 0 0);
@@ -172,8 +172,8 @@ body {
   --primary-foreground: #0b0d0f;
   --secondary: #1c2129;
   --secondary-foreground: #eceff3;
-  --muted: #8b939e;
-  --muted-foreground: #8b939e;
+  --muted: #9aa3af;
+  --muted-foreground: #9aa3af;
   /* shadcn surface hover (bg-accent) — not for link text */
   --accent: #1c2129;
   --accent-foreground: #eceff3;
@@ -224,9 +224,5 @@ body {
   }
   .text-link-accent:hover {
     color: var(--color-brand-muted);
-  }
-  .below-fold-paint {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 800px;
   }
 }

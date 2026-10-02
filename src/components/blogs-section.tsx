@@ -28,12 +28,15 @@ export function BlogCard({
       )}
       {...props}
     >
-      <div className="relative flex items-end justify-center gap-2">
-        <h3 className="whitespace-nowrap font-medium text-foreground text-lg md:text-xl">
+      <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-end sm:gap-2">
+        <h3 className="min-w-0 text-pretty font-medium text-base text-foreground sm:text-lg md:text-xl">
           {title}
         </h3>
-        <span className="mb-[6px] w-full border-b-2 border-dashed border-border" />
-        <span className="whitespace-nowrap font-mono text-muted-foreground text-xs uppercase group-hover:text-foreground md:text-sm">
+        <span
+          aria-hidden
+          className="mb-[6px] hidden min-w-0 flex-1 border-b-2 border-dashed border-border sm:block"
+        />
+        <span className="shrink-0 font-mono text-[11px] text-muted-foreground uppercase sm:text-xs md:text-sm">
           {date}
         </span>
       </div>

@@ -21,7 +21,14 @@ export function EfferdRail({
         className,
       )}
     >
-      <div className={cn(bordered && "border-x border-border")}>{children}</div>
+      <div
+        className={cn(
+          bordered && "overflow-x-clip border-x border-border",
+          !bordered && "min-w-0 overflow-x-clip",
+        )}
+      >
+        {children}
+      </div>
     </div>
   );
 }

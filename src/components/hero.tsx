@@ -34,8 +34,17 @@ export function PortfolioHero() {
     <section className="relative overflow-hidden border-b border-border pt-10 pb-4 md:pt-14 md:pb-8">
       <EfferdRail>
         <div className="relative z-10 flex max-w-2xl flex-col gap-5 px-4 pt-4 pb-8">
+          <h1
+            className={cn(
+              "text-balance font-semibold text-4xl leading-[0.95] tracking-tight text-foreground md:text-6xl",
+            )}
+          >
+            {profile.name.split(" ").join(" ")}
+          </h1>
+
           <Link
             href="/about"
+            prefetch={false}
             className={cn(
               "group flex w-fit items-center gap-3 rounded-sm border bg-card p-1 shadow-xs",
             )}
@@ -52,14 +61,6 @@ export function PortfolioHero() {
             />
           </Link>
 
-          <h1
-            className={cn(
-              "text-balance font-semibold text-4xl leading-[0.95] tracking-tight md:text-6xl",
-            )}
-          >
-            {profile.name.split(" ").join(" ")}
-          </h1>
-
           <p className="text-muted-foreground text-sm leading-relaxed sm:text-base md:text-lg">
             {profile.shortBio}
           </p>
@@ -70,6 +71,7 @@ export function PortfolioHero() {
           <div className="flex w-fit flex-wrap items-center gap-3 pt-2">
             <Link
               href="/work"
+              prefetch={false}
               className={cn(buttonVariants({ variant: "accent" }))}
             >
               View work
@@ -77,12 +79,14 @@ export function PortfolioHero() {
             </Link>
             <Link
               href="/contact"
+              prefetch={false}
               className={cn(buttonVariants({ variant: "outline" }))}
             >
               Contact
             </Link>
             <Link
               href={siteConfig.resumePath}
+              prefetch={false}
               className={cn(buttonVariants({ variant: "outline" }))}
             >
               Resume
@@ -128,7 +132,7 @@ export function PortfolioHero() {
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-border px-4 py-4 font-mono text-xs tracking-wider text-muted-foreground">
+        <div className="flex min-w-0 flex-wrap gap-x-4 gap-y-2 border-t border-border px-4 py-4 font-mono text-xs tracking-wider text-muted-foreground">
           {profile.heroStrip.map((tech, i) => (
             <span key={tech} className="flex items-center gap-4">
               {i > 0 ? (

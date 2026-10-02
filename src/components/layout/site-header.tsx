@@ -10,6 +10,7 @@ export function SiteHeader() {
       <div className="flex min-w-0 items-center gap-4 md:gap-6">
         <Link
           href="/"
+          prefetch={false}
           className="rounded-lg px-2 py-2 hover:bg-muted/50 dark:hover:bg-muted/30"
         >
           <span className="font-mono text-xs tracking-[0.2em] uppercase">
