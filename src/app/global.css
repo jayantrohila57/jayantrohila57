@@ -96,6 +96,76 @@ body {
   letter-spacing: -0.02em;
 }
 
+/* Knowledge base article */
+.kb-article {
+  --fd-muted-foreground: var(--site-muted);
+}
+
+#nd-toc {
+  border-inline-start: 1px solid var(--site-border);
+  padding-inline-start: 1rem;
+}
+
+#nd-toc h3 {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--site-muted);
+}
+
+.kb-prose {
+  max-width: min(100%, 70ch);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--site-ink);
+}
+
+.kb-prose :where(h2, h3, h4) {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  scroll-margin-top: 5rem;
+}
+
+.kb-prose :where(h2) {
+  margin-top: 2.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--site-border);
+  font-size: 1.5rem;
+}
+
+.kb-prose :where(h3) {
+  margin-top: 1.75rem;
+  font-size: 1.2rem;
+}
+
+.kb-prose :where(a) {
+  color: var(--site-accent);
+  text-underline-offset: 3px;
+}
+
+.kb-prose :where(table) {
+  display: block;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  border: 1px solid var(--site-border);
+}
+
+.kb-prose :where(th, td) {
+  border: 1px solid var(--site-border);
+  padding: 0.5rem 0.75rem;
+}
+
+.kb-prose :where(blockquote) {
+  border-left: 3px solid var(--site-muted);
+  padding-left: 1rem;
+  color: var(--site-muted);
+}
+
+.kb-prose-wide {
+  max-width: none;
+}
+
 html > body[data-scroll-locked] {
   margin-right: 0px !important;
   --removed-body-scroll-bar-size: 0px !important;
