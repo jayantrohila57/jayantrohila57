@@ -1,6 +1,5 @@
-import { baseOptions } from "@/lib/layout.shared";
-import { HomeLayout } from "fumadocs-ui/layouts/home";
+import { SiteShell } from "@/components/site/site-shell";
 
 export default function Layout({ children }: LayoutProps<"/resume">) {
-  return <HomeLayout {...baseOptions()}>{children}</HomeLayout>;
+  return <SiteShell>{children}</SiteShell>;
 }

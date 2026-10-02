@@ -9,6 +9,7 @@ import {
 } from "fumadocs-ui/layouts/docs/page";
 import { notFound } from "next/navigation";
 import { getMDXComponents } from "@/components/mdx";
+import { SectionEnrichment } from "@/components/site/section-enrichments";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getAbsoluteUrl } from "@/config/site";
@@ -36,6 +37,7 @@ export default async function Page(props: PageProps<"/[...slug]">) {
         />
       </div>
       <DocsBody>
+        <SectionEnrichment slug={params.slug} />
         <MDX
           components={getMDXComponents({
             // this allows you to link to other pages with relative file paths

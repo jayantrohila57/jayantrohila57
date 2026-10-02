@@ -1,343 +1,280 @@
-import {
-  ArrowRight,
-  BookOpen,
-  Briefcase,
-  Compass,
-  Globe,
-  Layers,
-  User,
-} from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import Link from "next/link";
-import type { LucideIcon } from "lucide-react";
+import { CareerTimeline } from "@/components/site/career-timeline";
+import { PageHeader } from "@/components/site/page-header";
+import { ProjectCard } from "@/components/site/project-card";
+import { SectionLabel } from "@/components/site/section-label";
+import { TechnologyBadge } from "@/components/site/technology-badge";
+import { siteConfig } from "@/config/site";
+import { flagshipProjects, projects } from "@/data/projects";
+import { technologies, toolboxHighlightIds } from "@/data/technologies";
 
-type PreviewLink = {
-  href: string;
-  title: string;
-  summary: string;
+const currently = {
+  role: "Product Engineer @ aiQmen",
+  location: "Noida, India",
+  focus:
+    "Shipping web products with typed APIs and clear UX — employer deliverables stay off the public site.",
+  links: [
+    { label: "Work GitHub", href: "https://github.com/jayantaiqmen" },
+    { label: "Career timeline", href: "/career/timeline" },
+  ],
 };
 
-type DocSection = {
-  id: string;
-  title: string;
-  icon: LucideIcon;
-  intro: string;
-  pages: PreviewLink[];
-};
-
-const docSections: DocSection[] = [
-  {
-    id: "about",
-    title: "About",
-    icon: User,
-    intro: "Who I am and how to reach me.",
-    pages: [
-      {
-        href: "/about/overview",
-        title: "About",
-        summary:
-          "Who I am, what I build, stack highlights, and where to find my work and email.",
-      },
-      {
-        href: "/about/bio",
-        title: "Bio",
-        summary:
-          "Background from aiQmen and Binmile through internships, education in Saharanpur, and freeCodeCamp.",
-      },
-      {
-        href: "/resume",
-        title: "Resume",
-        summary:
-          "Printable resume and PDF — experience, education, skills, and selected projects.",
-      },
-    ],
-  },
-  {
-    id: "career",
-    title: "Career",
-    icon: Briefcase,
-    intro: "Where I have worked and studied.",
-    pages: [
-      {
-        href: "/career/timeline",
-        title: "Timeline",
-        summary:
-          "From Braeon (2021) and Teevro through Binmile to aiQmen today, plus degrees and certification.",
-      },
-      {
-        href: "/career/aiqmen",
-        title: "aiQmen",
-        summary: "Current role — Product Engineer / Consultant–Product Engineer, from May 2026.",
-      },
-      {
-        href: "/career/binmile",
-        title: "Binmile",
-        summary: "Associate Software Developer, 2024–2026.",
-      },
-      {
-        href: "/career/teevro",
-        title: "Teevro",
-        summary: "Full stack internship, early 2023.",
-      },
-      {
-        href: "/career/braeon",
-        title: "Braeon",
-        summary: "ServiceNow and software trainee experience, 2021.",
-      },
-      {
-        href: "/career/education",
-        title: "Education",
-        summary: "B.Tech, diploma, and freeCodeCamp certificate.",
-      },
-    ],
-  },
-  {
-    id: "work",
-    title: "Work",
-    icon: Layers,
-    intro: "Projects, skills, and stories.",
-    pages: [
-      {
-        href: "/work/projects",
-        title: "Projects",
-        summary:
-          "Open source and demos — libyui, taskflow, bad-money, ai-chat, e-commerce, VS Code theme, and more.",
-      },
-      {
-        href: "/work/case-studies",
-        title: "Case studies",
-        summary:
-          "E-commerce (Razorpay), Env Manager, and Taskflow — problem, stack, and architecture.",
-      },
-      {
-        href: "/work/skills",
-        title: "Skills",
-        summary:
-          "TypeScript, React, Next.js, Node, data stores, cloud, and the tooling I use day to day.",
-      },
-    ],
-  },
-  {
-    id: "presence",
-    title: "Contact & links",
-    icon: Globe,
-    intro: "Find me online.",
-    pages: [
-      {
-        href: "/presence/website",
-        title: "Website",
-        summary: "jayantrohila.com and the GitHub repo behind this portfolio.",
-      },
-      {
-        href: "/presence/linkedin",
-        title: "LinkedIn",
-        summary: "Professional profile — aiQmen, Noida.",
-      },
-      {
-        href: "/presence/github",
-        title: "GitHub",
-        summary: "Personal, work, and legacy accounts.",
-      },
-      {
-        href: "/presence/linktree",
-        title: "Linktree",
-        summary: "Shortcut hub for social and side links.",
-      },
-      {
-        href: "/presence/domains-handles",
-        title: "Domains & handles",
-        summary: "Domains and usernames I use publicly.",
-      },
-      {
-        href: "/archive/mentions",
-        title: "Elsewhere on the web",
-        summary: "Other profiles, demos, and community accounts worth knowing about.",
-      },
-      {
-        href: "/archive/conflicts",
-        title: "Profile notes",
-        summary:
-          "When LinkedIn, old sites, or certificates disagree — what I list here.",
-      },
-    ],
-  },
-];
-
-const publicLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/jayant-rohila/" },
-  { label: "GitHub", href: "https://github.com/jayantrohila57" },
-  { label: "Linktree", href: "https://linktr.ee/JayantRohila" },
-];
-
-function PreviewCard({ href, title, summary }: PreviewLink) {
-  return (
-    <Link
-      href={href}
-      className="group flex h-full flex-col rounded-xl border border-fd-border bg-fd-card p-4 transition-colors hover:border-fd-primary/40 hover:bg-fd-accent/20"
-    >
-      <h3 className="font-medium text-fd-foreground">{title}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-fd-muted-foreground">
-        {summary}
-      </p>
-      <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-fd-primary">
-        View
-        <ArrowRight
-          className="size-3.5 transition-transform group-hover:translate-x-0.5"
-          aria-hidden
-        />
-      </span>
-    </Link>
-  );
-}
-
-function DocSectionBlock({ section }: { section: DocSection }) {
-  const Icon = section.icon;
-  return (
-    <section
-      id={section.id}
-      className="scroll-mt-20 border-b border-fd-border py-12 last:border-b-0"
-      aria-labelledby={`${section.id}-heading`}
-    >
-      <div className="mb-6 flex items-start gap-3">
-        <span className="rounded-lg bg-fd-primary/10 p-2 text-fd-primary">
-          <Icon className="size-5" aria-hidden />
-        </span>
-        <div>
-          <h2
-            id={`${section.id}-heading`}
-            className="text-xl font-semibold tracking-tight"
-          >
-            {section.title}
-          </h2>
-          <p className="mt-1 text-sm text-fd-muted-foreground">{section.intro}</p>
-        </div>
-      </div>
-      <ul className="grid gap-3 sm:grid-cols-2">
-        {section.pages.map((page) => (
-          <li key={page.href}>
-            <PreviewCard {...page} />
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
+const openSourceHighlights = projects.filter(
+  (p) => !p.flagship && p.slug !== "jayantrohila57",
+).slice(0, 4);
 
 export function LandingPage() {
+  const toolbox = toolboxHighlightIds
+    .map((id) => technologies.find((t) => t.id === id))
+    .filter(Boolean);
+
   return (
-    <div className="flex flex-1 flex-col">
-      <section className="relative overflow-hidden border-b border-fd-border">
+    <div className="site-container pb-20">
+      <section className="relative border-b border-site-border py-16 md:py-24">
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-fd-primary/10 via-transparent to-transparent"
+          className="pointer-events-none absolute inset-y-0 right-0 w-1/3 max-w-md border-l border-site-border/60 opacity-40"
           aria-hidden
         />
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 py-16 md:py-20">
-          <p className="text-sm font-medium tracking-wide text-fd-muted-foreground uppercase">
-            Portfolio
-          </p>
-          <div className="space-y-4">
-            <h1 className="text-4xl font-semibold tracking-tight text-balance md:text-5xl">
-              Jayant Rohila
-            </h1>
-            <p className="inline-flex flex-wrap items-center gap-2 text-sm text-fd-muted-foreground">
-              <span className="rounded-full border border-fd-border bg-fd-secondary/50 px-3 py-1 font-medium text-fd-foreground">
-                Product Engineer
-              </span>
-              <span>aiQmen · Noida</span>
-            </p>
-            <p className="max-w-3xl text-lg text-fd-muted-foreground text-pretty md:text-xl">
-              I design and build web products — from product engineering at aiQmen
-              to open-source tools on GitHub. Browse my experience, projects, and
-              links below.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2">
+        <PageHeader
+          eyebrow="Developer home"
+          title="Product engineer building web systems with evidence, not adjectives."
+          description="Portfolio, career timeline, and project case studies for Jayant Rohila — full-stack work at aiQmen and open-source experiments on GitHub."
+        >
+          <div className="flex flex-wrap gap-3">
             <Link
-              href="/work/projects"
-              className="inline-flex items-center gap-2 rounded-lg bg-fd-primary px-4 py-2 text-sm font-medium text-fd-primary-foreground transition-opacity hover:opacity-90"
+              href="/work/case-studies"
+              className="inline-flex items-center gap-2 border border-site-ink bg-site-ink px-4 py-2.5 text-sm font-medium text-site-paper transition-opacity hover:opacity-90"
             >
-              View projects
+              Selected work
               <ArrowRight className="size-4" aria-hidden />
             </Link>
             <Link
               href="/resume"
-              className="inline-flex items-center gap-2 rounded-lg border border-fd-border bg-fd-card px-4 py-2 text-sm font-medium transition-colors hover:bg-fd-accent/30"
+              className="inline-flex items-center gap-2 border border-site-border px-4 py-2.5 text-sm font-medium text-site-ink hover:bg-site-surface"
             >
               Resume
             </Link>
             <a
-              href="https://github.com/jayantrohila57"
+              href={siteConfig.social.github}
               rel="noreferrer noopener"
               target="_blank"
-              className="inline-flex items-center gap-2 rounded-lg border border-fd-border bg-fd-card px-4 py-2 text-sm font-medium transition-colors hover:bg-fd-accent/30"
+              className="inline-flex items-center gap-2 border border-site-border px-4 py-2.5 text-sm font-medium text-site-ink hover:bg-site-surface"
             >
               GitHub
             </a>
-            <Link
-              href="/about/overview"
-              className="inline-flex items-center gap-2 rounded-lg border border-fd-border bg-fd-card px-4 py-2 text-sm font-medium transition-colors hover:bg-fd-accent/30"
+          </div>
+        </PageHeader>
+      </section>
+
+      <section
+        className="grid gap-8 border-b border-site-border py-14 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:gap-12"
+        aria-labelledby="currently-heading"
+      >
+        <div>
+          <SectionLabel>Currently</SectionLabel>
+          <h2
+            id="currently-heading"
+            className="mt-3 font-display text-2xl font-medium text-site-ink"
+          >
+            {currently.role}
+          </h2>
+          <p className="mt-2 font-mono text-xs text-site-muted">
+            {currently.location}
+          </p>
+          <p className="mt-4 text-sm leading-relaxed text-site-muted text-pretty">
+            {currently.focus}
+          </p>
+          <ul className="mt-4 space-y-2 text-sm">
+            {currently.links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-site-accent hover:underline"
+                >
+                  {link.label} →
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="border border-site-border bg-site-surface p-6 font-mono text-xs leading-relaxed text-site-muted">
+          <p className="text-site-ink">// workspace snapshot</p>
+          <p className="mt-3">stack: TypeScript · Next.js · tRPC · Postgres</p>
+          <p>shipping: product engineering @ aiQmen</p>
+          <p>oss: e-commerce · env-manager · taskflow</p>
+          <p className="mt-3 text-site-accent">
+            → case studies document real repo architecture
+          </p>
+        </div>
+      </section>
+
+      <section className="border-b border-site-border py-14" aria-labelledby="work-heading">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <SectionLabel>Selected work</SectionLabel>
+            <h2
+              id="work-heading"
+              className="mt-3 font-display text-3xl font-medium text-site-ink"
             >
-              About & contact
+              Flagship repositories
+            </h2>
+            <p className="mt-2 max-w-xl text-sm text-site-muted text-pretty">
+              Previews are drawn from READMEs and documented patterns — not
+              fabricated UI screenshots.
+            </p>
+          </div>
+          <Link
+            href="/work/projects"
+            className="text-sm font-medium text-site-accent hover:underline"
+          >
+            All projects →
+          </Link>
+        </div>
+        <div className="grid gap-6">
+          {flagshipProjects.map((project) => (
+            <ProjectCard key={project.slug} project={project} featured />
+          ))}
+        </div>
+      </section>
+
+      <section
+        className="grid gap-10 border-b border-site-border py-14 lg:grid-cols-2 lg:gap-16"
+        aria-labelledby="journey-heading"
+      >
+        <div>
+          <SectionLabel>Engineering journey</SectionLabel>
+          <h2
+            id="journey-heading"
+            className="mt-3 font-display text-3xl font-medium text-site-ink"
+          >
+            Career timeline
+          </h2>
+          <p className="mt-2 text-sm text-site-muted text-pretty">
+            From ServiceNow trainee work through Binmile delivery to product
+            engineering at aiQmen — dates match the public career index.
+          </p>
+          <Link
+            href="/career/timeline"
+            className="mt-4 inline-block text-sm font-medium text-site-accent hover:underline"
+          >
+            Full timeline & education →
+          </Link>
+        </div>
+        <CareerTimeline compact />
+      </section>
+
+      <section className="border-b border-site-border py-14" aria-labelledby="toolbox-heading">
+        <SectionLabel>Toolbox</SectionLabel>
+        <h2
+          id="toolbox-heading"
+          className="mt-3 font-display text-3xl font-medium text-site-ink"
+        >
+          Technologies with repo evidence
+        </h2>
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {toolbox.map((tech) =>
+            tech ? (
+              <TechnologyBadge key={tech.id} technology={tech} showEvidence />
+            ) : null,
+          )}
+        </div>
+        <Link
+          href="/work/skills"
+          className="mt-6 inline-block text-sm font-medium text-site-accent hover:underline"
+        >
+          Full skills index →
+        </Link>
+      </section>
+
+      <section className="border-b border-site-border py-14" aria-labelledby="oss-heading">
+        <SectionLabel>Open source</SectionLabel>
+        <h2
+          id="oss-heading"
+          className="mt-3 font-display text-3xl font-medium text-site-ink"
+        >
+          More on GitHub
+        </h2>
+        <ul className="mt-8 divide-y divide-site-border border border-site-border">
+          {openSourceHighlights.map((project) => (
+            <li
+              key={project.slug}
+              className="flex flex-col gap-2 p-4 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <div>
+                <p className="font-medium text-site-ink">{project.name}</p>
+                <p className="text-sm text-site-muted">{project.summary}</p>
+              </div>
+              <a
+                href={project.repo}
+                rel="noreferrer noopener"
+                target="_blank"
+                className="font-mono text-xs text-site-accent hover:underline"
+              >
+                repository →
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section
+        className="grid gap-10 py-14 md:grid-cols-2"
+        aria-labelledby="about-contact-heading"
+      >
+        <div>
+          <SectionLabel>About</SectionLabel>
+          <h2
+            id="about-contact-heading"
+            className="mt-3 font-display text-2xl font-medium text-site-ink"
+          >
+            Who I am
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-site-muted text-pretty">
+            I design and ship web products — full-stack applications with a
+            product-minded focus. This site is the structured public record:
+            career, projects, skills, and contact paths.
+          </p>
+          <Link
+            href="/about/overview"
+            className="mt-4 inline-block text-sm font-medium text-site-accent hover:underline"
+          >
+            Read about →
+          </Link>
+        </div>
+        <div className="border border-site-border bg-site-surface p-6">
+          <SectionLabel>Contact</SectionLabel>
+          <h3 className="mt-3 font-display text-xl text-site-ink">
+            Professional inquiries
+          </h3>
+          <p className="mt-3 text-sm text-site-muted">
+            Email or LinkedIn — same addresses listed on the public about page.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 text-sm">
+            <a
+              href="mailto:jrohila55@gmail.com"
+              className="inline-flex items-center gap-2 font-medium text-site-accent hover:underline"
+            >
+              <Mail className="size-4" aria-hidden />
+              jrohila55@gmail.com
+            </a>
+            <a
+              href={siteConfig.social.linkedin}
+              rel="noreferrer noopener"
+              target="_blank"
+              className="text-site-muted hover:text-site-accent hover:underline"
+            >
+              LinkedIn profile →
+            </a>
+            <Link
+              href="/contact"
+              className="text-site-muted hover:text-site-accent hover:underline"
+            >
+              Contact page →
             </Link>
           </div>
         </div>
       </section>
-
-      <div className="mx-auto w-full max-w-5xl px-6">
-        <nav
-          className="sticky top-0 z-10 -mx-6 border-b border-fd-border bg-fd-background/90 px-6 py-3 backdrop-blur-md"
-          aria-label="Portfolio sections"
-        >
-          <p className="mb-2 flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-fd-muted-foreground">
-            <Compass className="size-3.5" aria-hidden />
-            Sections
-          </p>
-          <ul className="flex flex-wrap gap-2">
-            {docSections.map((s) => (
-              <li key={s.id}>
-                <a
-                  href={`#${s.id}`}
-                  className="rounded-md border border-fd-border bg-fd-secondary/40 px-2.5 py-1 text-xs font-medium transition-colors hover:bg-fd-accent/50"
-                >
-                  {s.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="mb-4 flex items-center gap-2 pt-10 text-fd-muted-foreground">
-          <BookOpen className="size-5" aria-hidden />
-          <p className="text-sm font-medium uppercase tracking-wide">
-            Portfolio overview
-          </p>
-        </div>
-
-        {docSections.map((section) => (
-          <DocSectionBlock key={section.id} section={section} />
-        ))}
-      </div>
-
-      <footer className="mt-auto border-t border-fd-border bg-fd-secondary/20">
-        <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
-          <p className="text-sm text-fd-muted-foreground">
-            Jayant Rohila · Product Engineer · Noida
-          </p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-            {publicLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  rel="noreferrer noopener"
-                  target="_blank"
-                  className="text-fd-muted-foreground underline-offset-4 hover:text-fd-foreground hover:underline"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </footer>
     </div>
   );
 }

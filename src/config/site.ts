@@ -4,7 +4,7 @@ export const siteConfig = {
   siteName: "Jayant Rohila",
   siteTitle: "Jayant Rohila — Product Engineer",
   siteDescription:
-    "Portfolio of Jayant Rohila — product engineer at aiQmen, Noida. Experience, projects, skills, and links.",
+    "Personal developer home for Jayant Rohila — product engineer at aiQmen, Noida. Career timeline, flagship projects, skills with evidence, and contact.",
   siteUrl: "https://jayantrohila.com",
 
   author: {

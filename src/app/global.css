@@ -2,8 +2,98 @@
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
 
+/* —— Site design tokens (editorial / technical) —— */
+:root {
+  --site-paper: #f6f3ec;
+  --site-ink: #1c1916;
+  --site-muted: #5c564d;
+  --site-accent: #2f5c4a;
+  --site-border: #d9d2c6;
+  --site-surface: #efebe3;
+  --site-code-bg: #1a1816;
+  --site-code-fg: #e8e4dc;
+  --site-grid: #ffffff;
+
+  --font-display: var(--font-newsreader), "Georgia", serif;
+  --font-sans: var(--font-ibm-plex), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+.dark {
+  --site-paper: #121110;
+  --site-ink: #ece8df;
+  --site-muted: #9a9488;
+  --site-accent: #8fbf9f;
+  --site-border: #2e2b28;
+  --site-surface: #1a1917;
+  --site-code-bg: #0d0c0b;
+  --site-code-fg: #d8d4cb;
+  --site-grid: #ffffff;
+}
+
+@theme inline {
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --color-site-paper: var(--site-paper);
+  --color-site-ink: var(--site-ink);
+  --color-site-muted: var(--site-muted);
+  --color-site-accent: var(--site-accent);
+  --color-site-border: var(--site-border);
+  --color-site-surface: var(--site-surface);
+  --color-site-code-bg: var(--site-code-bg);
+  --color-site-code-fg: var(--site-code-fg);
+}
+
 html {
   scrollbar-gutter: stable;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--site-paper);
+  color: var(--site-ink);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.site-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Fumadocs docs shell — align with site chrome */
+#nd-docs-layout {
+  --fd-primary: var(--site-accent);
+  --fd-ring: var(--site-accent);
+}
+
+#nd-docs-layout [data-sidebar] {
+  border-color: var(--site-border);
+  background: var(--site-surface);
+}
+
+#nd-docs-layout article {
+  font-family: var(--font-sans);
+}
+
+#nd-docs-layout article h1 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
 }
 
 html > body[data-scroll-locked] {
