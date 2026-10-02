@@ -1,30 +1,31 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
-import { source } from "@/lib/source";
+import { projects } from "@/data/portfolio";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.siteUrl;
-
-  const docPages = source.getPages().map((page) => ({
-    url: `${baseUrl}/${page.slugs.join("/")}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const staticRoutes = [
+    "",
+    "/work",
+    "/engineering",
+    "/experiments",
+    "/about",
+    "/contact",
+    "/resume",
+  ];
 
   return [
-    {
-      url: baseUrl,
+    ...staticRoutes.map((path) => ({
+      url: `${baseUrl}${path}`,
       lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/resume`,
+      changeFrequency: "monthly" as const,
+      priority: path === "" ? 1 : 0.8,
+    })),
+    ...projects.map((p) => ({
+      url: `${baseUrl}/work/${p.slug}`,
       lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    ...docPages,
+      changeFrequency: "monthly" as const,
+      priority: p.featured ? 0.85 : 0.7,
+    })),
   ];
 }
