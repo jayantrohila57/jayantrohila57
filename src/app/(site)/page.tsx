@@ -1,31 +1,33 @@
+import { HeroSection } from "@/components/hero";
+import { BlogsSection } from "@/components/blogs-section";
+import { FeatureSection } from "@/components/feature-section";
+import { Integrations } from "@/components/integrations";
+import { ContactSection } from "@/components/contact-section";
+import { Contact } from "@/components/contact";
+import { CallToAction } from "@/components/cta";
 import {
-  HeroSection,
-  CurrentFocusSection,
-} from "@/components/scenes/hero-section";
-import { SelectedWorkSection } from "@/components/scenes/selected-work-section";
-import { EngineeringSection } from "@/components/scenes/engineering-section";
-import { StackSection } from "@/components/scenes/stack-section";
-import { ExperimentsSection } from "@/components/scenes/experiments-section";
-import { ExperienceSection } from "@/components/scenes/experience-section";
-import {
-  AboutTeaserSection,
-  ContactSection,
-  FinalCtaSection,
-} from "@/components/scenes/contact-section";
+  PortfolioAboutSection,
+  PortfolioExperienceSection,
+  PortfolioFocusSection,
+} from "@/components/portfolio-home-sections";
 
 export default function HomePage() {
   return (
-    <>
+    <div className="mx-auto min-h-dvh w-full max-w-5xl border-x bg-background">
       <HeroSection />
-      <SelectedWorkSection />
-      <EngineeringSection />
-      <StackSection />
-      <CurrentFocusSection />
-      <ExperimentsSection />
-      <ExperienceSection />
-      <AboutTeaserSection />
-      <ContactSection />
-      <FinalCtaSection />
-    </>
+      <PortfolioFocusSection />
+      <BlogsSection />
+      <FeatureSection />
+      <Integrations />
+      <PortfolioExperienceSection />
+      <PortfolioAboutSection />
+      <section className="space-y-8 py-12">
+        <div className="flex justify-center px-4">
+          <ContactSection />
+        </div>
+        <Contact />
+        <CallToAction />
+      </section>
+    </div>
   );
 }

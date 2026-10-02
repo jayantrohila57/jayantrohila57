@@ -1,9 +1,12 @@
+"use client";
+
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Portal, PortalBackdrop } from "@/components/portal";
-import { companyLinks, companyLinks2, productLinks } from "@/components/nav-links";
-import { LinkItem } from "@/components/sheard";
+import { mainNav } from "@/config/navigation";
+import { siteConfig } from "@/config/site";
 import { XIcon, MenuIcon } from "lucide-react";
 
 export function MobileNav() {
@@ -23,20 +26,18 @@ export function MobileNav() {
 				<div
 					className={cn(
 						"transition-all",
-						open ? "scale-100 opacity-100" : "scale-0 opacity-0"
+						open ? "scale-100 opacity-100" : "scale-0 opacity-0",
 					)}
 				>
-					<XIcon
-					/>
+					<XIcon />
 				</div>
 				<div
 					className={cn(
 						"absolute transition-all",
-						open ? "scale-0 opacity-0" : "scale-100 opacity-100"
+						open ? "scale-0 opacity-0" : "scale-100 opacity-100",
 					)}
 				>
-					<MenuIcon
-					/>
+					<MenuIcon />
 				</div>
 			</Button>
 			{open && (
@@ -45,40 +46,46 @@ export function MobileNav() {
 					<div
 						className={cn(
 							"size-full overflow-y-auto p-4",
-							"data-[slot=open]:zoom-in-97 ease-out data-[slot=open]:animate-in"
+							"data-[slot=open]:zoom-in-97 ease-out data-[slot=open]:animate-in",
 						)}
 						data-slot={open ? "open" : "closed"}
+						id="mobile-menu"
 					>
-						<div className="flex w-full flex-col gap-y-2">
-							<span className="text-sm">Product</span>
-							{productLinks.map((link) => (
-								<LinkItem
-									className="rounded-lg p-2 active:bg-muted dark:active:bg-muted/50"
-									key={`product-${link.label}`}
-									{...link}
-								/>
+						<div className="flex w-full flex-col gap-y-1">
+							{mainNav.map((link) => (
+								<Link
+									className="rounded-lg p-3 text-sm active:bg-muted dark:active:bg-muted/50"
+									href={link.href}
+									key={link.href}
+									onClick={() => setOpen(false)}
+								>
+									{link.label}
+								</Link>
 							))}
-							<span className="text-sm">Company</span>
-							{companyLinks.map((link) => (
-								<LinkItem
-									className="rounded-lg p-2 active:bg-muted dark:active:bg-muted/50"
-									key={`company-${link.label}`}
-									{...link}
-								/>
-							))}
-							{companyLinks2.map((link) => (
-								<LinkItem
-									className="rounded-lg p-2 active:bg-muted dark:active:bg-muted/50"
-									key={`company-${link.label}`}
-									{...link}
-								/>
-							))}
+							<Link
+								className="rounded-lg p-3 text-sm active:bg-muted dark:active:bg-muted/50"
+								href="/contact"
+								onClick={() => setOpen(false)}
+							>
+								Contact
+							</Link>
 						</div>
 						<div className="mt-5 flex flex-col gap-2">
-							<Button className="w-full" variant="outline">
-								Sign In
+							<Button asChild className="w-full" variant="outline">
+								<Link href={siteConfig.resumePath} onClick={() => setOpen(false)}>
+									Resume
+								</Link>
 							</Button>
-							<Button className="w-full">Get Started</Button>
+							<Button asChild className="w-full">
+								<Link
+									href={siteConfig.social.github}
+									onClick={() => setOpen(false)}
+									rel="noopener noreferrer"
+									target="_blank"
+								>
+									GitHub
+								</Link>
+							</Button>
 						</div>
 					</div>
 				</Portal>

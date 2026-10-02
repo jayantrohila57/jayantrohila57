@@ -16,51 +16,26 @@ export function LogoCloud() {
 	);
 }
 
+/** Wordmarks aligned with tools in portfolio.ts stack groups (not employer logos). */
 const logos = [
 	{
 		src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
-		alt: "Vercel Logo",
+		alt: "Vercel",
+	},
+	{
+		src: "https://storage.efferd.com/logo/github-wordmark.svg",
+		alt: "GitHub",
 	},
 	{
 		src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
-		alt: "Supabase Logo",
+		alt: "PostgreSQL ecosystem",
 	},
 	{
-		src: "https://storage.efferd.com/logo/openai-wordmark.svg",
-		alt: "OpenAI Logo",
-	},
-	{
-		src: "https://storage.efferd.com/logo/dub-wordmark.svg",
-		alt: "Dub Logo",
-	},
-	{
-		src: "https://storage.efferd.com/logo/turso-wordmark.svg",
-		alt: "Turso Logo",
-	},
-
-	{
-		src: "https://storage.efferd.com/logo/github-wordmark.svg",
-		alt: "GitHub Logo",
-	},
-	{
-		src: "https://storage.efferd.com/logo/claude-wordmark.svg",
-		alt: "Claude AI Logo",
-	},
-	{
-		src: "https://storage.efferd.com/logo/nvidia-wordmark.svg",
-		alt: "Nvidia Logo",
+		src: "https://storage.efferd.com/logo/stripe-wordmark.svg",
+		alt: "Payments (Razorpay in e-commerce project)",
 	},
 	{
 		src: "https://storage.efferd.com/logo/clerk-wordmark.svg",
-		alt: "Clerk Logo",
-	},
-	{
-		src: "https://storage.efferd.com/logo/bolt-wordmark.svg",
-		alt: "Bolt Logo",
-	},
-
-	{
-		src: "https://storage.efferd.com/logo/stripe-wordmark.svg",
-		alt: "Stripe Logo",
+		alt: "Auth patterns (Better Auth in repos)",
 	},
 ];

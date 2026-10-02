@@ -57,8 +57,8 @@ export default function EfferdPlaygroundPage() {
         <header className="border-b px-4 py-8">
           <h1 className="font-semibold text-2xl">Efferd block playground</h1>
           <p className="mt-2 max-w-2xl text-muted text-sm">
-            Installed registry blocks for Jayant to pick section replacements. Homepage
-            composition unchanged.
+            Reference preview of installed blocks. Live landing uses the same components
+            with portfolio data on `/`.
           </p>
         </header>
 

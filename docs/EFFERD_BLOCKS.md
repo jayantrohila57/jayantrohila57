@@ -12,7 +12,7 @@ Style: **new-york**. Install: `pnpm dlx shadcn@latest add @efferd/<id> --overwri
 
 Preview installed blocks (placeholder copy): **`/playground/efferd`**
 
-Homepage and site routes are **not** rewired yet — wait for Jayant’s section replacement list.
+Homepage (`src/app/(site)/page.tsx`) uses installed blocks with data from `src/data/portfolio.ts`. Site header uses **`header-1`** (`src/components/header.tsx`) with `mainNav` from `src/config/navigation.ts`.
 
 ## Installed (free / CLI OK)
 

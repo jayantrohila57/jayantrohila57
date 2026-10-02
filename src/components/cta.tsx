@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { DecorIcon } from "@/components/decor-icon";
 import { ArrowRightIcon } from "lucide-react";
@@ -16,18 +17,22 @@ export function CallToAction() {
 			<div className="absolute top-0 left-1/2 -z-10 h-full border-l border-dashed" />
 
 			<h2 className="text-center font-semibold text-xl md:text-3xl">
-				Start for Free Today!
+				Build something maintainable together
 			</h2>
 			<p className="text-balance text-center font-medium text-muted-foreground text-sm md:text-base">
-				Begin your 6-day free trial today to fully explore and experience all
-				the features and benefits we offer.
+				Product engineering for web apps, typed APIs, and developer-facing UI —
+				grounded in the repos and demos on this site.
 			</p>
 
-			<div className="flex items-center justify-center gap-2">
-				<Button variant="outline">Contact Sales</Button>
-				<Button>
-					Get Started{" "}
-					<ArrowRightIcon data-icon="inline-end" />
+			<div className="flex flex-wrap items-center justify-center gap-2">
+				<Button asChild variant="outline">
+					<Link href="/work">Browse work</Link>
+				</Button>
+				<Button asChild>
+					<Link href="/contact">
+						Start a conversation
+						<ArrowRightIcon data-icon="inline-end" />
+					</Link>
 				</Button>
 			</div>
 		</div>

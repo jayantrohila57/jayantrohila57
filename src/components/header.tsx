@@ -1,11 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Logo } from "@/components/logo";
 import { useScroll } from "@/hooks/use-scroll";
 import { Button } from "@/components/ui/button";
 import { DesktopNav } from "@/components/desktop-nav";
 import { MobileNav } from "@/components/mobile-nav";
+import { CommandMenu } from "@/components/navigation/command-menu";
+import { siteConfig } from "@/config/site";
 
 export function Header() {
 	const scrolled = useScroll(10);
@@ -17,21 +19,32 @@ export function Header() {
 					scrolled,
 			})}
 		>
-			<nav className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4">
+			<nav
+				aria-label="Primary"
+				className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4"
+			>
 				<div className="flex items-center gap-5">
-					<a
-						className="rounded-lg px-3 py-2.5 hover:bg-muted dark:hover:bg-muted/50"
-						href="#"
+					<Link
+						className="rounded-lg px-2 py-2 font-mono text-xs tracking-[0.2em] uppercase hover:bg-muted dark:hover:bg-muted/50"
+						href="/"
 					>
-						<Logo className="h-4" />
-					</a>
+						{siteConfig.author.name}
+					</Link>
 					<DesktopNav />
 				</div>
 				<div className="hidden items-center gap-2 md:flex">
-					<Button variant="outline">Sign In</Button>
-					<Button>Get Started</Button>
+					<Button asChild variant="outline">
+						<Link href={siteConfig.resumePath}>Resume</Link>
+					</Button>
+					<Button asChild>
+						<Link href="/contact">Contact</Link>
+					</Button>
+					<CommandMenu />
 				</div>
-				<MobileNav />
+				<div className="flex items-center gap-2 md:hidden">
+					<CommandMenu />
+					<MobileNav />
+				</div>
 			</nav>
 		</header>
 	);
