@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteFooterLazy } from "@/components/layout/site-footer-lazy";
 import { SiteHeader } from "@/components/layout/site-header";
 
 export function SiteShell({ children }: { children: ReactNode }) {
@@ -7,7 +7,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
     <>
       <SiteHeader />
       <main className="flex-1">{children}</main>
-      <SiteFooter />
+      <SiteFooterLazy />
     </>
   );
 }

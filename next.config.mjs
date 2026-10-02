@@ -1,8 +1,16 @@
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
+  productionBrowserSourceMaps: false,
+  poweredByHeader: false,
   experimental: {
-    optimizePackageImports: ["lucide-react", "lenis"],
+    optimizePackageImports: [
+      "lucide-react",
+      "lenis",
+      "radix-ui",
+      "@radix-ui/react-dialog",
+      "cmdk",
+    ],
   },
   async redirects() {
     return [

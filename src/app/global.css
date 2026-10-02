@@ -225,4 +225,8 @@ body {
   .text-link-accent:hover {
     color: var(--color-brand-muted);
   }
+  .below-fold-paint {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+  }
 }

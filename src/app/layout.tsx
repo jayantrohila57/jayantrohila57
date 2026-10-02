@@ -1,7 +1,6 @@
 import { GoogleAnalyticsLazy } from "@/components/analytics/google-analytics-lazy";
 import { RootJsonLd } from "@/components/json-ld";
-import { SmoothScroll } from "@/components/smooth-scroll";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { DeferredSmoothScroll } from "@/components/deferred-smooth-scroll";
 import { baseMetadata } from "@/config/metadata";
 import { baseViewport, siteConfig } from "@/config/site";
 import { Analytics } from "@vercel/analytics/next";
@@ -11,17 +10,19 @@ import "./global.css";
 
 const ibmPlex = IBM_Plex_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600"],
   variable: "--font-ibm-plex",
   display: "swap",
   preload: true,
+  adjustFontFallback: true,
 });
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains",
   display: "swap",
-  preload: true,
+  preload: false,
+  adjustFontFallback: true,
 });
 
 export const metadata = baseMetadata;
@@ -46,9 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-dvh flex-col antialiased">
         <RootJsonLd />
-        <TooltipProvider>
-          <SmoothScroll>{children}</SmoothScroll>
-        </TooltipProvider>
+        <DeferredSmoothScroll>{children}</DeferredSmoothScroll>
         {gaId ? <GoogleAnalyticsLazy gaId={gaId} /> : null}
         {useVercelInsights ? (
           <>

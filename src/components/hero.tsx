@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { EfferdRail } from "@/components/efferd-rail";
 import {
   InterfaceWindow,
@@ -8,7 +8,26 @@ import {
 } from "@/components/primitives/interface-window";
 import { siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
-import { ArrowRightIcon } from "lucide-react";
+function ArrowRightGlyph({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+  );
+}
 
 export function PortfolioHero() {
   return (
@@ -28,7 +47,7 @@ export function PortfolioHero() {
               {profile.publicHeadline}
             </span>
             <span className="block h-5 border-l" />
-            <ArrowRightIcon
+            <ArrowRightGlyph
               className="size-3 pr-1 duration-150 ease-out group-hover:translate-x-0.5"
             />
           </Link>
@@ -49,18 +68,25 @@ export function PortfolioHero() {
           </p>
 
           <div className="flex w-fit flex-wrap items-center gap-3 pt-2">
-            <Button asChild variant="accent">
-              <Link href="/work">
-                View work
-                <ArrowRightIcon data-icon="inline-end" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/contact">Contact</Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href={siteConfig.resumePath}>Resume</Link>
-            </Button>
+            <Link
+              href="/work"
+              className={cn(buttonVariants({ variant: "accent" }))}
+            >
+              View work
+              <ArrowRightGlyph className="size-4" />
+            </Link>
+            <Link
+              href="/contact"
+              className={cn(buttonVariants({ variant: "outline" }))}
+            >
+              Contact
+            </Link>
+            <Link
+              href={siteConfig.resumePath}
+              className={cn(buttonVariants({ variant: "outline" }))}
+            >
+              Resume
+            </Link>
           </div>
         </div>
 

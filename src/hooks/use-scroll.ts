@@ -6,22 +6,38 @@ export function useScroll(downThreshold: number, upThreshold?: number) {
 	const scrollUpThreshold = upThreshold ?? downThreshold / 2;
 
 	useEffect(() => {
+		const mq = window.matchMedia("(min-width: 768px)");
+		if (!mq.matches) {
+			setScrolled(false);
+			return;
+		}
+
 		const handleScroll = () => {
 			const y = window.scrollY;
-			// Hysteresis: different thresholds for up/down to prevent flickering
 			setScrolled((prev) => {
 				if (prev) {
-					// Currently scrolled - only unscroll when below lower threshold
 					return y > scrollUpThreshold;
 				}
-				// Currently not scrolled - only scroll when above higher threshold
 				return y > downThreshold;
 			});
 		};
 
+		const onMqChange = () => {
+			if (!mq.matches) {
+				setScrolled(false);
+				window.removeEventListener("scroll", handleScroll);
+				return;
+			}
+			handleScroll();
+		};
+
 		window.addEventListener("scroll", handleScroll, { passive: true });
+		mq.addEventListener("change", onMqChange);
 		handleScroll();
-		return () => window.removeEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+			mq.removeEventListener("change", onMqChange);
+		};
 	}, [downThreshold, scrollUpThreshold]);
 
 	return scrolled;
