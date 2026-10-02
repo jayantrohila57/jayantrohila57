@@ -45,11 +45,11 @@ export function MobileNav({ commandSlot }: MobileNavProps) {
         </div>
       </Button>
       {open && (
-        <Portal className="top-14">
+        <Portal>
           <PortalBackdrop />
           <div
             className={cn(
-              "relative z-10 flex min-h-0 flex-1 flex-col overflow-y-auto bg-background p-4",
+              "relative z-10 flex min-h-0 flex-1 flex-col overflow-y-auto bg-background px-4 pt-14 pb-4",
               "data-[slot=open]:zoom-in-97 ease-out data-[slot=open]:animate-in",
             )}
             data-slot={open ? "open" : "closed"}

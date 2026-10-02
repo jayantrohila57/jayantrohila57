@@ -132,15 +132,15 @@ export function PortfolioHero() {
           </p>
         </div>
 
-        <div className="flex min-w-0 flex-wrap gap-x-4 gap-y-2 border-t border-border px-4 py-4 font-mono text-xs tracking-wider text-muted-foreground">
+        <div className="flex w-full min-w-0 max-w-full flex-wrap gap-x-4 gap-y-2 border-t border-border px-4 py-4 font-mono text-xs tracking-wider text-muted-foreground">
           {profile.heroStrip.map((tech, i) => (
-            <span key={tech} className="flex items-center gap-4">
+            <span key={tech} className="inline-flex max-w-full shrink-0 items-center gap-4">
               {i > 0 ? (
-                <span aria-hidden className="hidden text-border sm:inline">
+                <span aria-hidden className="hidden text-border md:inline">
                   /
                 </span>
               ) : null}
-              {tech}
+              <span className="break-words">{tech}</span>
             </span>
           ))}
         </div>

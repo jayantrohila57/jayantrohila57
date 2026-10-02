@@ -42,7 +42,12 @@ export function PortfolioContactPanel({ className }: { className?: string }) {
   }
 
   return (
-    <div className={cn("relative mx-auto w-full max-w-lg border border-border", className)}>
+    <div
+      className={cn(
+        "relative mx-auto w-full max-w-lg overflow-hidden border border-border",
+        className,
+      )}
+    >
       <div className="border-b px-6 py-8">
         <div className="mb-6 flex flex-col gap-2">
           <h2 className="font-semibold text-xl md:text-2xl">Get in touch</h2>

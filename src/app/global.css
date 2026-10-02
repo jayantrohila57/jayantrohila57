@@ -108,6 +108,7 @@
 html {
   scrollbar-gutter: stable;
   color-scheme: dark;
+  overflow-x: clip;
 }
 
 [id] {
@@ -118,6 +119,8 @@ body {
   font-family: var(--font-sans);
   background-color: var(--background);
   min-height: 100dvh;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 ::selection {

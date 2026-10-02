@@ -19,7 +19,7 @@ export function IntegrationsGrid({
   return (
     <div
       className={cn(
-        "relative w-full",
+        "relative w-full overflow-hidden",
         nested ? "border-0" : "mx-auto max-w-5xl border border-border",
       )}
     >

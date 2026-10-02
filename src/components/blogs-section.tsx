@@ -23,20 +23,20 @@ export function BlogCard({
   return (
     <Link
       className={cn(
-        "group flex min-h-24 w-full flex-col justify-center gap-y-1 p-4 hover:cursor-pointer hover:bg-secondary/60 active:bg-secondary",
+        "group flex min-h-24 w-full max-w-full min-w-0 flex-col justify-center gap-y-1 overflow-hidden p-4 hover:cursor-pointer hover:bg-secondary/60 active:bg-secondary",
         className,
       )}
       {...props}
     >
-      <div className="flex min-w-0 flex-col gap-1 sm:flex-row sm:items-end sm:gap-2">
-        <h3 className="min-w-0 text-pretty font-medium text-base text-foreground sm:text-lg md:text-xl">
+      <div className="flex w-full min-w-0 max-w-full flex-col gap-1 md:flex-row md:items-end md:gap-2">
+        <h3 className="min-w-0 max-w-full break-words font-medium text-base text-pretty text-foreground [overflow-wrap:anywhere] md:text-xl">
           {title}
         </h3>
         <span
           aria-hidden
-          className="mb-[6px] hidden min-w-0 flex-1 border-b-2 border-dashed border-border sm:block"
+          className="mb-[6px] hidden min-w-0 flex-1 border-b-2 border-dashed border-border md:block"
         />
-        <span className="shrink-0 font-mono text-[11px] text-muted-foreground uppercase sm:text-xs md:text-sm">
+        <span className="max-w-full shrink-0 self-start font-mono text-[11px] text-muted-foreground uppercase md:self-auto md:text-sm">
           {date}
         </span>
       </div>
@@ -66,9 +66,9 @@ export function BlogsList({
           ) : null}
         </div>
       ) : null}
-      <div className="relative">
+      <div className="relative min-w-0 max-w-full overflow-hidden">
         <FullWidthDivider />
-        <div className="divide-y divide-border">
+        <div className="min-w-0 divide-y divide-border">
           {items.map((blog) => (
             <BlogCard {...blog} key={blog.href + blog.title} href={blog.href} />
           ))}

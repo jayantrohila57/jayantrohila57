@@ -21,7 +21,7 @@ export function CallToAction({
   secondaryLabel = "View work",
 }: CallToActionProps) {
   return (
-    <div className="relative mx-auto flex w-full max-w-3xl flex-col justify-between gap-y-4 border-y border-border px-4 py-10 dark:bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)]">
+    <div className="relative mx-auto flex w-full max-w-3xl flex-col justify-between gap-y-4 overflow-hidden border-y border-border px-4 py-10 dark:bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)]">
       <DecorIcon className="size-4" position="top-left" />
       <DecorIcon className="size-4" position="top-right" />
       <DecorIcon className="size-4" position="bottom-left" />

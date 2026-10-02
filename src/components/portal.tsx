@@ -31,7 +31,7 @@ function Portal({ className, ...props }: React.ComponentProps<"div">) {
 	return createPortal(
 		<div
 			className={cn(
-				"fixed inset-0 isolate z-40 flex flex-col bg-background",
+				"fixed inset-0 isolate z-[100] flex flex-col bg-background",
 				className,
 			)}
 			{...props}
@@ -44,8 +44,8 @@ function PortalBackdrop({ className, ...props }: React.ComponentProps<"div">) {
 	return (
 		<div
 			className={cn(
-				"data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-0 bg-background duration-300 data-[state=closed]:animate-out data-[state=open]:animate-in",
-				className
+				"fixed inset-0 z-0 bg-background",
+				className,
 			)}
 			{...props}
 		/>
