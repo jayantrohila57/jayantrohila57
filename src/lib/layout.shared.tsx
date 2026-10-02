@@ -10,12 +10,12 @@ export function baseOptions(): BaseLayoutProps {
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
     links: [
       {
-        text: "Docs",
+        text: "About",
         url: "/about/overview",
       },
       {
-        text: "Career",
-        url: "/career/timeline",
+        text: "Projects",
+        url: "/work/projects",
       },
       {
         text: "GitHub",

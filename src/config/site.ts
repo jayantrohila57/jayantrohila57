@@ -4,7 +4,7 @@ export const siteConfig = {
   siteName: "Jayant Rohila",
   siteTitle: "Jayant Rohila — Product Engineer",
   siteDescription:
-    "Product engineer and public identity documentation for Jayant Rohila — versioned professional archive at jayantrohila.com.",
+    "Portfolio of Jayant Rohila — product engineer at aiQmen, Noida. Experience, projects, skills, and links.",
   siteUrl: "https://jayantrohila.com",
 
   author: {
@@ -18,20 +18,21 @@ export const siteConfig = {
     github: "https://github.com/jayantrohila57",
     linkedin: "https://www.linkedin.com/in/jayant-rohila/",
     linktree: "https://linktr.ee/JayantRohila",
-    twitter: "https://twitter.com/jayantrohila",
+    twitter: "https://twitter.com/jayant_rohila",
   },
 
   seo: {
     keywords: [
       "jayant rohila",
       "product engineer",
-      "public identity docs",
       "software engineer",
       "full stack developer",
       "next.js",
+      "react",
       "typescript",
       "portfolio",
-      "jayantrohila.com",
+      "noida",
+      "aiqmen",
     ],
     locale: "en_US",
     robots: "index" as const,

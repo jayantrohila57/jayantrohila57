@@ -81,7 +81,7 @@ export const baseMetadata: Metadata = {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
   category: "technology",
-  classification: "documentation",
+  classification: "portfolio",
   referrer: "origin-when-cross-origin",
 };
 
