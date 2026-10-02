@@ -5,6 +5,7 @@ import {
   SectionFrame,
   SectionIntro,
   SectionLabel,
+  sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
 import { getFeaturedProjects } from "@/data/portfolio";
 
@@ -21,7 +22,7 @@ export function SelectedWorkSection() {
           action={
             <Link
               href="/work"
-              className="font-mono text-xs tracking-wide text-[color:var(--accent-muted)] hover:underline"
+              className={sectionActionLinkClass}
             >
               View all →
             </Link>

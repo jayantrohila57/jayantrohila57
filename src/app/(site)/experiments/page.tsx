@@ -33,7 +33,7 @@ export default function ExperimentsPage() {
       <BlogsList items={items} />
       <Link
         href="/"
-        className="mt-8 inline-block px-4 pb-10 font-mono text-sm text-[color:var(--accent-muted)] hover:underline"
+        className="mt-8 inline-block px-4 pb-10 font-mono text-sm text-link-accent hover:underline"
       >
         ← Home
       </Link>

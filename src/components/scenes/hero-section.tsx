@@ -21,7 +21,7 @@ export function CurrentFocusSection() {
 
   return (
     <SectionFrame id="focus" border>
-      <SectionLabel index="05" label="Current focus" className="px-4 pt-2" />
+      <SectionLabel index="04" label="Current focus" className="px-4 pt-2" />
       <div className="relative grid grid-cols-1 gap-px bg-border md:grid-cols-3">
         <FullWidthDivider position="top" />
         {items.map((item) => (

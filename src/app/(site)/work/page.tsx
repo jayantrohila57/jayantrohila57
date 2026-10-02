@@ -48,7 +48,7 @@ export default function WorkPage() {
         bad-money and other private repositories are not listed here.{" "}
         <Link
           href="/contact"
-          className="text-[color:var(--accent-muted)] hover:underline"
+          className="text-link-accent hover:underline"
         >
           Contact
         </Link>{" "}

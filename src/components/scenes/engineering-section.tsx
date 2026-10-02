@@ -4,6 +4,7 @@ import {
   SectionFrame,
   SectionIntro,
   SectionLabel,
+  sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
 import { engineeringPrinciples } from "@/data/portfolio";
 
@@ -44,7 +45,7 @@ export function EngineeringSection() {
           action={
             <Link
               href="/engineering"
-              className="font-mono text-xs tracking-wide text-[color:var(--accent-muted)] hover:underline"
+              className={sectionActionLinkClass}
             >
               Deep dive →
             </Link>

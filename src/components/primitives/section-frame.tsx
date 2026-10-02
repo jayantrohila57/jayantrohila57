@@ -65,19 +65,30 @@ export function SectionLabel({
   );
 }
 
+/** Mono action links in section headers (visible green on dark). */
+export const sectionActionLinkClass =
+  "font-mono text-xs tracking-wide text-link-accent hover:underline";
+
 export function SectionIntro({
   title,
   label,
   description,
   action,
+  compact,
 }: {
   title: string;
   label?: string;
   description?: string;
   action?: ReactNode;
+  compact?: boolean;
 }) {
   return (
-    <div className="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
+    <div
+      className={cn(
+        "flex flex-col gap-4 md:flex-row md:items-end md:justify-between",
+        compact ? "mb-4 md:mb-5" : "mb-8 md:mb-10",
+      )}
+    >
       <div className="max-w-2xl">
         {label ? (
           <p className="mb-2 font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">

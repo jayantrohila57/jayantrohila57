@@ -33,7 +33,7 @@ export default function AboutPage() {
             <p className="font-mono text-[10px] text-muted-foreground uppercase">
               Profile
             </p>
-            <p className="mt-2 text-[color:var(--accent-muted)]">{profile.title}</p>
+            <p className="mt-2 text-sm text-muted-foreground">{profile.title}</p>
             <p className="mt-6 leading-relaxed text-muted-foreground">
               {profile.longBio}
             </p>

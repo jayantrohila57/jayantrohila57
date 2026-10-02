@@ -126,7 +126,7 @@ export function ProjectScene({
           <p className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
             {String(index).padStart(2, "0")} · {project.eyebrow}
           </p>
-          <h3 className="mt-3 text-2xl font-semibold tracking-tight group-hover:text-[color:var(--accent-muted)]">
+          <h3 className="mt-3 text-2xl font-semibold tracking-tight group-hover:text-link-accent">
             {project.title}
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { resumeData, RESUME_PDF_PATH } from "@/lib/resume-data";
 import { Download, Printer } from "lucide-react";
 import Link from "next/link";
@@ -17,25 +18,19 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
     <div className="resume-print-root mx-auto w-full max-w-3xl">
       {showActions ? (
         <div className="resume-no-print mb-8 flex flex-wrap items-center gap-3">
-          <a
-            href={RESUME_PDF_PATH}
-            download
-            className="inline-flex items-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-4 py-2 text-sm font-medium text-accent transition-opacity hover:opacity-90"
-          >
-            <Download className="size-4" aria-hidden />
-            Download PDF
-          </a>
-          <button
-            type="button"
-            onClick={handlePrint}
-            className="inline-flex items-center gap-2 rounded-lg border border-border bg-panel px-4 py-2 text-sm font-medium transition-colors hover:bg-elevated"
-          >
+          <Button asChild variant="accent">
+            <a href={RESUME_PDF_PATH} download>
+              <Download className="size-4" aria-hidden />
+              Download PDF
+            </a>
+          </Button>
+          <Button type="button" variant="outline" onClick={handlePrint}>
             <Printer className="size-4" aria-hidden />
             Print
-          </button>
+          </Button>
           <Link
             href="/about"
-            className="text-sm text-muted underline-offset-4 hover:underline"
+            className="text-sm text-muted-foreground underline-offset-4 hover:underline"
           >
             Back to about
           </Link>
@@ -50,14 +45,14 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
           <h1 className="text-3xl font-semibold tracking-tight">
             {resumeData.name}
           </h1>
-          <p className="mt-1 text-lg text-muted print:text-black/70">
+          <p className="mt-1 text-lg text-muted-foreground print:text-black/70">
             {resumeData.headline}
           </p>
           <p className="mt-3 text-sm leading-relaxed">
             {resumeData.location} ·{" "}
             <a
               href={`mailto:${resumeData.email}`}
-              className="underline-offset-2 hover:underline print:text-black"
+              className="text-link-accent underline-offset-2 hover:underline print:text-black"
             >
               {resumeData.email}
             </a>
@@ -67,7 +62,7 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-accent underline-offset-2 hover:underline print:text-black"
+                  className="text-link-accent underline-offset-2 hover:underline print:text-black"
                   rel="noreferrer noopener"
                   target="_blank"
                 >

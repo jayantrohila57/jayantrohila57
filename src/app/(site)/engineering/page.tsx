@@ -44,7 +44,7 @@ export default function EngineeringPage() {
       </div>
       <Link
         href="/work"
-        className="mt-10 inline-block px-4 pb-10 font-mono text-sm text-[color:var(--accent-muted)] hover:underline"
+        className="mt-10 inline-block px-4 pb-10 font-mono text-sm text-link-accent hover:underline"
       >
         See evidence in projects →
       </Link>

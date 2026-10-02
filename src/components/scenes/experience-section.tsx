@@ -5,6 +5,7 @@ import {
   SectionFrame,
   SectionIntro,
   SectionLabel,
+  sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
 import { experience } from "@/data/portfolio";
 
@@ -19,14 +20,14 @@ export function ExperienceSection() {
   return (
     <SectionFrame id="experience" border>
       <div className="px-4 pt-2">
-        <SectionLabel index="07" label="Experience" />
+        <SectionLabel index="06" label="Experience" />
         <SectionIntro
           title="Roles and timelines."
           description="Public career facts — client deliverables not listed."
           action={
             <Link
               href="/about"
-              className="font-mono text-xs tracking-wide text-[color:var(--accent-muted)] hover:underline"
+              className={sectionActionLinkClass}
             >
               Full profile →
             </Link>

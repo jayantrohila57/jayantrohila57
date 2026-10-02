@@ -1,29 +1,31 @@
 import Link from "next/link";
+import { cn } from "@/lib/cn";
 import { CallToAction } from "@/components/cta";
 import { PortfolioContactPanel } from "@/components/contact-section";
 import {
   SectionFrame,
   SectionLabel,
+  sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
 import { profile } from "@/data/portfolio";
 
 export function AboutTeaserSection() {
   return (
     <SectionFrame id="about" border>
-      <SectionLabel index="08" label="About" className="px-4 pt-2" />
+      <SectionLabel index="07" label="About" className="px-4 pt-2" />
       <div className="grid gap-px border-t border-border bg-border md:grid-cols-2">
         <div className="bg-background p-6">
           <p className="font-mono text-[10px] text-muted-foreground uppercase">
             Profile
           </p>
           <h2 className="mt-3 text-2xl font-semibold">{profile.name}</h2>
-          <p className="mt-1 text-[color:var(--accent-muted)]">{profile.title}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{profile.title}</p>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             {profile.longBio}
           </p>
           <Link
             href="/about"
-            className="mt-6 inline-block font-mono text-xs text-[color:var(--accent-muted)] hover:underline"
+            className={cn("mt-6 inline-block", sectionActionLinkClass)}
           >
             Read more →
           </Link>
@@ -49,7 +51,7 @@ export function AboutTeaserSection() {
 export function ContactSection() {
   return (
     <SectionFrame id="contact" border spacing="tight">
-      <SectionLabel index="09" label="Contact" className="px-4" />
+      <SectionLabel index="08" label="Contact" className="px-4" />
       <PortfolioContactPanel className="mx-4" />
     </SectionFrame>
   );
