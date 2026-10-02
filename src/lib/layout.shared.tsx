@@ -1,26 +1,31 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { appName, gitConfig } from "./shared";
+import { moreNav, primaryNav } from "@/data/navigation";
+import { gitConfig } from "./shared";
+
+const docsNav = primaryNav
+  .filter((item) => item.href !== "/")
+  .map((item) => ({
+    text: item.label,
+    url: item.href,
+  }));
 
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
-      title: appName,
+      title: "Jayant Rohila",
       url: "/",
     },
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
     links: [
+      ...docsNav,
       {
-        text: "About",
-        url: "/about/overview",
-      },
-      {
-        text: "Projects",
-        url: "/work/projects",
-      },
-      {
-        text: "GitHub",
-        url: "https://github.com/jayantrohila57",
-        external: true,
+        type: "menu",
+        text: "More",
+        items: moreNav.map((item) => ({
+          text: item.label,
+          url: item.href,
+          external: item.external,
+        })),
       },
     ],
   };

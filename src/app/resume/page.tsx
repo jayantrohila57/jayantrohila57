@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
   return (
-    <main className="mx-auto w-full max-w-5xl px-6 py-12">
+    <main className="site-container py-12">
       <ResumeView />
     </main>
   );
