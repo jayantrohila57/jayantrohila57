@@ -105,7 +105,7 @@ export function CurrentFocusSection() {
   const { focus } = profile;
   return (
     <SectionFrame id="focus">
-      <SectionLabel index="05" label="Current focus" />
+      <SectionLabel index="04" label="Current focus" />
       <div className="grid gap-1 md:grid-cols-3">
         <BentoPanel>
           <p className="font-mono text-[10px] text-muted uppercase">Building</p>
