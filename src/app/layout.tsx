@@ -3,7 +3,7 @@ import { SmoothScroll } from "@/components/smooth-scroll";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { baseMetadata } from "@/config/metadata";
 import { baseViewport, siteConfig } from "@/config/site";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { IBM_Plex_Sans, JetBrains_Mono } from "next/font/google";
@@ -26,7 +26,8 @@ export const metadata = baseMetadata;
 export const viewport = baseViewport;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  const analyticsId = siteConfig.analytics.googleAnalyticsId;
+  const gaId = siteConfig.analytics.googleAnalyticsId;
+  const useGa = Boolean(gaId?.startsWith("G-"));
 
   return (
     <html
@@ -39,12 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <TooltipProvider>
           <SmoothScroll>{children}</SmoothScroll>
         </TooltipProvider>
-        {analyticsId ? (
-          <>
-            <GoogleTagManager gtmId={analyticsId} />
-            <GoogleAnalytics gaId={analyticsId} />
-          </>
-        ) : null}
+        {useGa && gaId ? <GoogleAnalytics gaId={gaId} /> : null}
         {siteConfig.analytics.vercelAnalytics ? (
           <>
             <Analytics />

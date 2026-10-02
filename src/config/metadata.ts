@@ -69,6 +69,7 @@ export const baseMetadata: Metadata = {
   other: {
     "msapplication-config": "/browserconfig.xml",
     "msapplication-TileColor": siteConfig.theme.background,
+    "theme-color": siteConfig.theme.background,
     "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "black-translucent",
@@ -77,9 +78,11 @@ export const baseMetadata: Metadata = {
     "msapplication-starturl": "/",
     "msapplication-TileImage": "/api/image?type=icon&size=150",
   },
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-  },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+      }
+    : undefined,
   category: "technology",
   classification: "portfolio",
   referrer: "origin-when-cross-origin",

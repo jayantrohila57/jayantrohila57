@@ -1,13 +1,12 @@
 import { ResumeView } from "@/components/resume-view";
-import { baseMetadata } from "@/config/metadata";
-import type { Metadata } from "next";
+import { generatePageMetadata } from "@/config/metadata";
 
-export const metadata: Metadata = {
-  ...baseMetadata,
-  title: "Resume — Jayant Rohila",
+export const metadata = generatePageMetadata({
+  title: "Resume",
   description:
-    "Printable resume for Jayant Rohila — Product Engineer at aiQmen, Noida.",
-};
+    "Printable resume for Jayant Rohila — Product Engineer (Consultant) · aiQmen, Noida.",
+  path: "/resume",
+});
 
 export default function ResumePage() {
   return (

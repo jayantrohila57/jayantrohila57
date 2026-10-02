@@ -2,7 +2,7 @@ import type { Viewport } from "next";
 
 export const siteConfig = {
   siteName: "Jayant Rohila",
-  siteTitle: "Jayant Rohila — Product Engineer",
+  siteTitle: "Jayant Rohila — Product Engineer (Consultant) · aiQmen",
   siteDescription:
     "Product engineer at aiQmen, Noida — modern web products, typed APIs, and open-source projects including e-commerce, Env Manager, and Taskflow.",
   siteUrl: "https://jayantrohila.com",
