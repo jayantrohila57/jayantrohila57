@@ -13,7 +13,7 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) for the docs home.
+Open [http://localhost:3000](http://localhost:3000) for the **landing page**; docs live at paths such as `/about/overview`.
 
 Other commands:
 
