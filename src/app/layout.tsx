@@ -1,6 +1,6 @@
 import { GoogleAnalyticsLazy } from "@/components/analytics/google-analytics-lazy";
 import { RootJsonLd } from "@/components/json-ld";
-import { DeferredSmoothScroll } from "@/components/deferred-smooth-scroll";
+import { LenisInit } from "@/components/lenis-init";
 import { baseMetadata } from "@/config/metadata";
 import { baseViewport, siteConfig } from "@/config/site";
 import { Analytics } from "@vercel/analytics/next";
@@ -46,8 +46,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col antialiased">
-        <DeferredSmoothScroll>{children}</DeferredSmoothScroll>
+        {children}
         <RootJsonLd />
+        <LenisInit />
         {gaId ? <GoogleAnalyticsLazy gaId={gaId} /> : null}
         {useVercelInsights ? (
           <>
