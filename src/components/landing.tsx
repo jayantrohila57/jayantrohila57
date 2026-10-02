@@ -35,7 +35,7 @@ const docSections: DocSection[] = [
         href: "/about/overview",
         title: "About",
         summary:
-          "Product engineer at aiQmen in Noida — what this site covers and my email for professional contact.",
+          "Who I am, what I build, stack highlights, and where to find my work and email.",
       },
       {
         href: "/about/bio",
@@ -99,7 +99,7 @@ const docSections: DocSection[] = [
       {
         href: "/work/case-studies",
         title: "Case studies",
-        summary: "Longer write-ups when available; community highlights linked today.",
+        summary: "Inkly CMS, Env Manager, and Taskflow — what I built and why.",
       },
       {
         href: "/work/skills",
@@ -251,12 +251,22 @@ export function LandingPage() {
               View projects
               <ArrowRight className="size-4" aria-hidden />
             </Link>
-            <Link
-              href="/career/timeline"
+            <a
+              href="https://www.linkedin.com/in/jayant-rohila/"
+              rel="noreferrer noopener"
+              target="_blank"
               className="inline-flex items-center gap-2 rounded-lg border border-fd-border bg-fd-card px-4 py-2 text-sm font-medium transition-colors hover:bg-fd-accent/30"
             >
-              Experience
-            </Link>
+              Resume
+            </a>
+            <a
+              href="https://github.com/jayantrohila57"
+              rel="noreferrer noopener"
+              target="_blank"
+              className="inline-flex items-center gap-2 rounded-lg border border-fd-border bg-fd-card px-4 py-2 text-sm font-medium transition-colors hover:bg-fd-accent/30"
+            >
+              GitHub
+            </a>
             <Link
               href="/about/overview"
               className="inline-flex items-center gap-2 rounded-lg border border-fd-border bg-fd-card px-4 py-2 text-sm font-medium transition-colors hover:bg-fd-accent/30"
