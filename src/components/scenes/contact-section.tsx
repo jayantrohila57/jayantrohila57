@@ -38,8 +38,8 @@ export function AboutTeaserSection() {
             <li>Open-source projects with live demos on GitHub</li>
           </ul>
           <p className="mt-6 font-mono text-[10px] text-muted">
-            Lucsum is an upcoming brand hub — not listed as employment on this
-            site.
+            Lucsum is an upcoming brand hub only — not employment. PeLocal, Limetray,
+            Servoedge, and similar names are not listed as roles on this site.
           </p>
         </BentoPanel>
       </div>
@@ -106,6 +106,15 @@ export function ContactPanel() {
               </a>
             </dd>
           </div>
+          {profile.openToOpportunities ? (
+            <div className="flex flex-wrap gap-x-4 border-t border-border-subtle pt-4">
+              <dt className="w-20 text-muted">status</dt>
+              <dd className="flex items-center gap-2">
+                <span className="size-1.5 rounded-full bg-accent" />
+                Open to opportunities
+              </dd>
+            </div>
+          ) : null}
         </dl>
         <div className="mt-8 flex flex-wrap gap-3">
           <a

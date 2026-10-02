@@ -16,9 +16,9 @@ export const metadata = generatePageMetadata({
 export default function ExperimentsPage() {
   return (
     <SectionFrame border={false} className="pt-12">
-      <SectionIntro
+        <SectionIntro
         title="Experiments"
-        description="Smaller public repos and UI libraries — supporting the flagship work."
+        description="Strong supporting repos from public source data — Inkly, libyui, image editor, Spotify stats, Patternlab."
       />
       <div className="grid gap-1 md:grid-cols-2">
         {experiments.map((exp, i) => (

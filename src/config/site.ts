@@ -10,13 +10,14 @@ export const siteConfig = {
   author: {
     name: "Jayant Rohila",
     role: "Product Engineer",
-    jobTitle: "Product Engineer · aiQmen",
-    employer: "aiQmen (AIQMEN DESIGNS AND TECHNOLOGIES PVT LTD)",
+    jobTitle: "Product Engineer (Consultant) · aiQmen",
+    employer: "aiQmen Designs & Technologies Pvt. Ltd.",
   },
 
   contact: {
     email: "jrohila55@gmail.com",
-    location: "Noida, Uttar Pradesh, India",
+    location: "Noida, India",
+    hireable: true,
   },
 
   social: {

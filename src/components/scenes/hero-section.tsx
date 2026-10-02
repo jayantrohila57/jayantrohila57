@@ -17,7 +17,7 @@ export function HeroSection() {
       <CrosshairMark className="top-24 left-[max(1rem,4vw)]" />
       <div className="site-container">
         <p className="font-mono text-[11px] tracking-[0.25em] text-muted uppercase">
-          Product Engineer · aiQmen
+          {profile.publicHeadline}
         </p>
         <h1 className="mt-6 max-w-4xl text-[clamp(2.75rem,10vw,5.5rem)] leading-[0.92] font-semibold tracking-tight">
           JAYANT
