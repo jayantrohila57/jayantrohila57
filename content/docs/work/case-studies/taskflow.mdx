@@ -1,0 +1,45 @@
+---
+title: Taskflow
+description: Multi-tenant task and project management platform with modular App Router architecture.
+---
+
+## Problem
+
+I needed a sandbox to practice **team-scale product shape**: organizations, roles, tasks, and projects — with **internationalized routes** and auth patterns closer to SaaS than a tutorial todo app.
+
+## What I built
+
+**Taskflow** — described in the README as a **multi-tenant task and project management platform** with organization management, RBAC, task/project workflows, collaboration features, **i18n** (including RTL called out), **PWA-related** configuration in docs, and dark/light UI.
+
+The repo documents a **modular layout**: `src/modules/` for `auth`, `organization`, `project`, `task`, `user`, and related areas; App Router segments for public, protected, handler, and panel routes under `[locale]`.
+
+## Stack
+
+From the project README:
+
+- **Next.js 15** (App Router), **TypeScript**
+- **Prisma 6.6**, **PostgreSQL**
+- **tRPC** + **TanStack Query**
+- **Radix UI** + **shadcn/ui**, **Tailwind CSS 4.1.3**
+- **next-intl**
+- Auth documented as **NextAuth.js v5** with **Better Auth** (per README wording)
+- Optional **Redis** caching; configurable file storage
+- **pnpm**, ESLint, Prettier, Husky, Jest (configured)
+
+## Architecture & highlights
+
+- **Multi-tenant architecture** with organization hierarchy and **role-based access control**  
+- **API surface** documented around tRPC routers for users, organizations, projects, and tasks  
+- **Database schema** split under `prisma/schema/` with entities for users, orgs, roles, projects, tasks, sessions  
+- **Internationalization** with multiple languages listed in README (English, Hindi, Japanese, Slovak, Urdu)  
+
+The README’s marketing phrases (e.g. “enterprise-grade”) describe intent; this portfolio sticks to **structure and features named in the repo**.
+
+## Links
+
+- **Repository:** [github.com/jayantrohila57/taskflow](https://github.com/jayantrohila57/taskflow)  
+- **Live demo:** [v1-taskflow.vercel.app](https://v1-taskflow.vercel.app/)
+
+## Result
+
+Public **source** and a **v1 Vercel deployment**. Active user counts, team usage, and revenue are **not published** here.

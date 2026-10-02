@@ -1,0 +1,41 @@
+---
+title: Env Manager
+description: Developer-first secrets and environment variable management across repos and environments.
+---
+
+## Problem
+
+Environment variables and third-party credentials multiply across **repos** and **environments** (dev, staging, production). Copying `.env` files between machines does not scale, and teams need a **single place** to manage configuration that can feed local development and deployment pipelines.
+
+## What I built
+
+**Env Manager** — a web app described in the README as a developer-first system to **securely manage** environment variables, secrets, and credentials, with support for **multi-environment** workflows and **CI/CD integration** as a stated goal.
+
+Public-facing pieces include a **live demo**, OG image on the deployment, and a quick-start path (`pnpm install`, configure env, `pnpm dev`).
+
+## Stack
+
+From the project README:
+
+- **Next.js 16**, **React 19**, **TypeScript**
+- **Tailwind CSS**, **shadcn/ui**
+- **Better Auth**
+- **Neon** with **Prisma**
+- **Vercel** deployment
+
+## Architecture & highlights
+
+- **Secure management** and **multi-environment** support called out as core features in README  
+- **Single source of truth** positioning — one UI for configuration that should align with how teams run apps locally and in CI/CD  
+- **Developer-first** UX emphasis rather than enterprise procurement language  
+
+Implementation details beyond the README (encryption model, sync mechanics) should be read from the repository; this page does not infer internals not documented publicly.
+
+## Links
+
+- **Repository:** [github.com/jayantrohila57/env-manager](https://github.com/jayantrohila57/env-manager)  
+- **Live demo:** [env-manager-web.vercel.app](https://env-manager-web.vercel.app)
+
+## Result
+
+Working **open-source repo** and **hosted demo**. Team adoption, number of projects connected, or production deployments are **not tracked** on this site.

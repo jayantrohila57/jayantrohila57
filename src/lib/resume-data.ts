@@ -92,9 +92,10 @@ export const resumeData = {
   ],
   projects: [
     {
-      name: "Inkly CMS",
-      href: "https://github.com/jayantrohila57/inkly-cms",
-      summary: "Self-hosted blogging CMS — Next.js, Prisma, tRPC, TipTap.",
+      name: "E-commerce",
+      href: "https://github.com/jayantrohila57/e-commerce",
+      summary:
+        "Storefront — Next.js, tRPC, Drizzle, Better Auth, Razorpay.",
     },
     {
       name: "Env Manager",
