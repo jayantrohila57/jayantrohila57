@@ -1,12 +1,4 @@
 {
-  "title": "Docs",
-  "pages": [
-    "index",
-    "about",
-    "career",
-    "work",
-    "presence",
-    "archive",
-    "normalize"
-  ]
+  "title": "Jayant Rohila",
+  "pages": ["about", "career", "work", "presence"]
 }

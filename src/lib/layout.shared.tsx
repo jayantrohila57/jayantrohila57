@@ -10,6 +10,14 @@ export function baseOptions(): BaseLayoutProps {
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
     links: [
       {
+        text: "About",
+        url: "/about/overview",
+      },
+      {
+        text: "Projects",
+        url: "/work/projects",
+      },
+      {
         text: "GitHub",
         url: "https://github.com/jayantrohila57",
         external: true,

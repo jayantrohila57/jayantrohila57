@@ -1,4 +1,12 @@
 {
-  "title": "Presence",
-  "pages": ["website", "linkedin", "github", "linktree", "domains-handles"]
+  "title": "Contact & links",
+  "pages": [
+    "website",
+    "linkedin",
+    "github",
+    "linktree",
+    "domains-handles",
+    "../archive/mentions",
+    "../archive/conflicts"
+  ]
 }

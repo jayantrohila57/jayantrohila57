@@ -11,9 +11,10 @@ import { notFound } from "next/navigation";
 import { getMDXComponents } from "@/components/mdx";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
+import { getAbsoluteUrl } from "@/config/site";
 import { getPageImageUrl, getPageMarkdownUrl, gitConfig } from "@/lib/shared";
 
-export default async function Page(props: PageProps<"/[[...slug]]">) {
+export default async function Page(props: PageProps<"/[...slug]">) {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
@@ -47,21 +48,36 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
 }
 
 export async function generateStaticParams() {
-  return source.generateParams();
+  return source.generateParams().filter((param) => param.slug.length > 0);
 }
 
 export async function generateMetadata(
-  props: PageProps<"/[[...slug]]">,
+  props: PageProps<"/[...slug]">,
 ): Promise<Metadata> {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
+  const path = `/${params.slug.join("/")}`;
+  const imageUrl = getPageImageUrl(page).url;
+
   return {
     title: page.data.title,
     description: page.data.description,
+    alternates: {
+      canonical: getAbsoluteUrl(path),
+    },
     openGraph: {
-      images: getPageImageUrl(page).url,
+      title: page.data.title,
+      description: page.data.description,
+      url: getAbsoluteUrl(path),
+      images: imageUrl,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.data.title,
+      description: page.data.description,
+      images: imageUrl,
     },
   };
 }
