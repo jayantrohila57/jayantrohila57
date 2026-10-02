@@ -57,4 +57,5 @@ Use free siblings above until Pro access or Jayant picks alternates.
 
 - `src/components/ui/button.tsx` keeps shadcn variants plus portfolio **`accent`** variant for existing pages.
 - `app-sidebar.tsx`: Efferd demo `collapsible="offExamples"` → **`icon`** for TypeScript compatibility.
-- Root layout: **`TooltipProvider`** (app-shell), **`SmoothScroll`** (Lenis), **`dark`** on `<html>`, SEO/PWA metadata unchanged.
+- Root layout: **`SmoothScroll`** (Lenis `lenis` package, site-wide). **`prefers-reduced-motion: reduce`** → Lenis not mounted (native scroll). Hash / anchor navigation with sticky-header offset; `[id] { scroll-margin-top }` for native fallback. ⌘K uses **`useLenisScrollLock`** while the dialog is open.
+- **`TooltipProvider`** (app-shell), **`dark`** on `<html>`, SEO/PWA metadata unchanged.

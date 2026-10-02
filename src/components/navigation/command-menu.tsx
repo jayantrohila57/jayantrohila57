@@ -9,10 +9,13 @@ import { mainNav } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { profile, projects } from "@/data/portfolio";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { useLenisScrollLock } from "@/components/smooth-scroll";
 
 export function CommandMenu() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
+
+  useLenisScrollLock(open);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
