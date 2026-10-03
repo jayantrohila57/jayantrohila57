@@ -1,33 +1,16 @@
-# Jayant Rohila — portfolio
+# Jayant Rohila
 
-Personal portfolio for [jayantrohila.com](https://jayantrohila.com): product engineering profile, flagship projects, and contact. Built with **Next.js App Router**, **TypeScript**, and **Tailwind CSS**.
+Product Engineer in Noida.
 
-## Local development
+[jayantrohila.com](https://jayantrohila.com) · [LinkedIn](https://www.linkedin.com/in/jayant-rohila/)
 
-Requirements: Node.js 22+, [pnpm](https://pnpm.io).
+## Work
 
-```bash
-pnpm install
-pnpm dev
-```
+- [LibyUI](https://github.com/jayantrohila57/libyui) — React component library. [Live](https://libyui.vercel.app)
+- [Pattern Lab](https://github.com/jayantrohila57/patternlab) — offline-first practice runner for programming patterns. [Live](https://patternlab.vercel.app)
+- [Taskflow](https://github.com/jayantrohila57/taskflow) — multi-tenant task and project management. [Live](https://v1-taskflow.vercel.app)
+- [Env Manager](https://github.com/jayantrohila57/env-manager) — environment variables across projects. [Live](https://env-manager-web.vercel.app)
+- [Storefront](https://github.com/jayantrohila57/e-commerce) — Next.js storefront with tRPC, Drizzle, and Razorpay. [Live](https://e-commerce-jayantrohila.vercel.app)
+- [Codethread Black](https://github.com/jayantrohila57/codethread-black) — dark VS Code theme. [Marketplace](https://marketplace.visualstudio.com/items?itemName=JayantRohila.codethread-black)
 
-Open [http://localhost:3000](http://localhost:3000).
-
-```bash
-pnpm build
-pnpm start
-pnpm lint
-```
-
-## Site structure
-
-- `/` — art-directed homepage (selected work, engineering, stack, experience, contact)
-- `/work`, `/work/[slug]` — project index and case-study-style detail pages
-- `/engineering`, `/experiments`, `/about`, `/contact`
-- `/resume` — printable resume + generated PDF at `/resume.pdf`
-
-Content is driven from `src/data/portfolio.ts` and `src/lib/resume-data.ts` (verified public facts). Google Analytics loads only when `NEXT_PUBLIC_GA_ID` is set.
-
-## Deploy
-
-Compatible with [Vercel](https://vercel.com). Production domain: `jayantrohila.com`.
+This repository is the source for [jayantrohila.com](https://jayantrohila.com).
