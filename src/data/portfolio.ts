@@ -353,8 +353,8 @@ export const projects: PortfolioProject[] = [
     eyebrow: "EXPERIMENT / UI",
     summary: "Browser-based image editing experiment with a hosted v1 demo.",
     description:
-      "Public repository and Vercel deployment — details in the repo README.",
-    status: "Open source · Live demo",
+      "Hosted v1 demo on Vercel — browser-based image editing experiment.",
+    status: "Live demo",
     year: "2024–2025",
     stack: ["Next.js", "TypeScript", "React"],
     categories: ["experiment", "frontend"],
@@ -362,7 +362,6 @@ export const projects: PortfolioProject[] = [
     visualType: "browser",
     links: {
       live: "https://v1-image-editor.vercel.app",
-      github: "https://github.com/jayantrohila57/image-editor",
     },
     sections: [
       {
@@ -500,11 +499,10 @@ export const experiments: Experiment[] = [
   {
     slug: "image-editor",
     title: "Image Editor",
-    summary: "In-browser editing UI — public v1 deployment.",
+    summary: "In-browser editing UI with a hosted v1 demo.",
     stack: ["Next.js", "React"],
     links: {
       live: "https://v1-image-editor.vercel.app",
-      github: "https://github.com/jayantrohila57/image-editor",
     },
     visualType: "browser",
   },
