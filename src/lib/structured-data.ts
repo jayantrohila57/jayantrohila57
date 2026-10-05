@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config/site";
+import { elsewhereLinks, siteConfig } from "@/config/site";
 
 function generateStructuredData(type: string, data: Record<string, unknown>) {
   return JSON.stringify({
@@ -19,13 +19,7 @@ export function personStructuredData() {
       addressLocality: "Noida",
       addressCountry: "IN",
     },
-    sameAs: [
-      siteConfig.social.github,
-      siteConfig.social.linkedin,
-      siteConfig.social.linktree,
-      siteConfig.social.twitter,
-      siteConfig.social.workGithub,
-    ].filter(Boolean),
+    sameAs: elsewhereLinks.map((link) => link.href),
     worksFor: {
       "@type": "Organization",
       name: siteConfig.author.employer,

@@ -1,3 +1,5 @@
+import { elsewhereLinks, siteConfig } from "@/config/site";
+
 export type NavItem = {
   label: string;
   href: string;
@@ -25,17 +27,12 @@ export const footerNavGroups: { title: string; items: NavItem[] }[] = [
   {
     title: "Elsewhere",
     items: [
-      {
-        label: "GitHub",
-        href: "https://github.com/jayantrohila57",
+      ...elsewhereLinks.map((link) => ({
+        label: link.label,
+        href: link.href,
         external: true,
-      },
-      {
-        label: "LinkedIn",
-        href: "https://www.linkedin.com/in/jayant-rohila/",
-        external: true,
-      },
-      { label: "Resume", href: "/resume" },
+      })),
+      { label: "Resume", href: siteConfig.resumePath },
     ],
   },
 ];

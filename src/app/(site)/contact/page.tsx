@@ -1,5 +1,6 @@
-import { CallToAction } from "@/components/cta";
 import { ContactSocialCards } from "@/components/contact";
+import { ContactElsewhereLinks } from "@/components/contact-elsewhere";
+import { CallToAction } from "@/components/cta";
 import { PortfolioContactPanel } from "@/components/contact-section";
 import {
   SectionFrame,
@@ -9,7 +10,8 @@ import { generatePageMetadata } from "@/config/metadata";
 
 export const metadata = generatePageMetadata({
   title: "Contact",
-  description: "Email, GitHub, and LinkedIn for Jayant Rohila.",
+  description:
+    "Email, GitHub, LinkedIn, and verified public profiles for Jayant Rohila.",
   path: "/contact",
 });
 
@@ -28,6 +30,9 @@ export default function ContactPage() {
         <PortfolioContactPanel className="mx-4 mt-0" />
         <div className="mt-8 border-t border-border pt-8">
           <ContactSocialCards />
+        </div>
+        <div className="mt-8 border-t border-border pt-8">
+          <ContactElsewhereLinks />
         </div>
       </SectionFrame>
       <SectionFrame border spacing="tight">

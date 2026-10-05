@@ -14,7 +14,7 @@ export type ResumeProject = {
 
 export const resumeData = {
   name: "Jayant Rohila",
-  headline: "Product Engineer (Consultant) @ aiQmen",
+  headline: "Product Engineer (Frontend) | Next.js · React.js · TypeScript",
   location: "Noida, India",
   email: "jrohila55@gmail.com",
   summary:

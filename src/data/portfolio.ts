@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config/site";
+import { publicHeadline, shortAbout, siteConfig } from "@/config/site";
 
 export type ProjectVisualType =
   | "dashboard"
@@ -70,27 +70,24 @@ export type EngineeringPrinciple = {
 export const profile = {
   name: siteConfig.author.name,
   title: siteConfig.author.jobTitle,
-  publicHeadline: "Product Engineer (Consultant) · aiQmen",
-  shortBio:
-    "I build modern web products, typed APIs, and developer-facing tools — with clear UX and maintainable architecture.",
-  longBio:
-    "Product Engineer (Consultant) at aiQmen Designs & Technologies in Noida since May 2026. Previously Associate Software Developer at Binmile Technologies (Mar 2024 – Apr 2026). Public open-source work includes e-commerce, Env Manager, and Taskflow with live Vercel demos.",
+  publicHeadline,
+  shortBio: shortAbout,
+  longBio: shortAbout,
   location: siteConfig.contact.location,
   openToOpportunities: siteConfig.contact.hireable,
-  metadataLine: "WEB · PRODUCT · TYPESCRIPT · NEXT.JS",
+  metadataLine: "NEXT.JS · REACT · TYPESCRIPT · TAILWIND",
   heroStrip: [
     "NEXT.JS",
-    "TYPESCRIPT",
     "REACT",
-    "tRPC",
-    "POSTGRESQL",
+    "TYPESCRIPT",
     "TAILWIND",
-    "TANSTACK QUERY",
+    "NODE.JS",
+    "REST APIs",
     "VERCEL",
   ],
   focus: {
-    building: "Product engineering @ aiQmen (onsite, Noida)",
-    active: "Web applications, typed APIs, product UI",
+    building: "Web products in React.js, Next.js, and TypeScript",
+    active: "Responsive UIs, REST APIs, design handoff to production",
     exploring: "Data-heavy interfaces and developer tooling",
   },
   social: {

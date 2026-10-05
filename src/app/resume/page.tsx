@@ -5,7 +5,7 @@ import { generatePageMetadata } from "@/config/metadata";
 export const metadata = generatePageMetadata({
   title: "Resume",
   description:
-    "Printable resume for Jayant Rohila — Product Engineer (Consultant) · aiQmen, Noida.",
+    "Printable resume for Jayant Rohila — Product Engineer (Frontend), Noida.",
   path: "/resume",
 });
 

@@ -1,16 +1,53 @@
 import type { Viewport } from "next";
 
+export const publicHeadline =
+  "Product Engineer (Frontend) | Next.js · React.js · TypeScript";
+
+export const shortAbout =
+  "Product Engineer with 2+ years building web products in React.js, Next.js, and TypeScript. I ship responsive UIs with Tailwind CSS, integrate Node.js / REST APIs, and own features from design handoff to production. Live work: jayantrohila.com · GitHub jayantrohila57. Based in Noida; open to in-office, hybrid, and remote across India.";
+
+export type ElsewhereLink = {
+  label: string;
+  href: string;
+};
+
+/** Verified public profile URLs for connect / elsewhere sections. */
+export const elsewhereLinks: ElsewhereLink[] = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/jayant-rohila/",
+  },
+  { label: "GitHub", href: "https://github.com/jayantrohila57" },
+  {
+    label: "HackerRank",
+    href: "https://www.hackerrank.com/profile/jayantrohila57",
+  },
+  {
+    label: "Upwork",
+    href: "https://www.upwork.com/freelancers/~01319719b0761ff361",
+  },
+  { label: "Freelancer", href: "https://www.freelancer.com/u/IAMSTRONG57" },
+  { label: "Malt", href: "https://www.malt.com/profile/jayantrohila" },
+  { label: "Arc.dev", href: "https://arc.dev/@jayantrohila57" },
+  {
+    label: "Truelancer",
+    href: "https://www.truelancer.com/freelancer/jayantrohila",
+  },
+  { label: "Contra", href: "https://contra.com/jayant_rohila_qrutb9cv" },
+  { label: "Fiverr", href: "https://www.fiverr.com/jayant_rohila" },
+  { label: "Linktree", href: "https://linktr.ee/JayantRohila" },
+];
+
 export const siteConfig = {
   siteName: "Jayant Rohila",
-  siteTitle: "Jayant Rohila — Product Engineer (Consultant) · aiQmen",
-  siteDescription:
-    "Product engineer at aiQmen, Noida — modern web products, typed APIs, and open-source projects including e-commerce, Env Manager, and Taskflow.",
+  siteTitle: `Jayant Rohila — ${publicHeadline}`,
+  siteDescription: shortAbout,
   siteUrl: "https://jayantrohila.com",
 
   author: {
     name: "Jayant Rohila",
-    role: "Product Engineer",
-    jobTitle: "Product Engineer (Consultant) · aiQmen",
+    role: "Product Engineer (Frontend)",
+    jobTitle: publicHeadline,
     employer: "aiQmen Designs & Technologies Pvt. Ltd.",
   },
 
@@ -24,21 +61,27 @@ export const siteConfig = {
     github: "https://github.com/jayantrohila57",
     linkedin: "https://www.linkedin.com/in/jayant-rohila/",
     linktree: "https://linktr.ee/JayantRohila",
-    twitter: "https://twitter.com/jayant_rohila",
-    workGithub: "https://github.com/jayantaiqmen",
+    hackerrank: "https://www.hackerrank.com/profile/jayantrohila57",
+    upwork: "https://www.upwork.com/freelancers/~01319719b0761ff361",
+    freelancer: "https://www.freelancer.com/u/IAMSTRONG57",
+    malt: "https://www.malt.com/profile/jayantrohila",
+    arc: "https://arc.dev/@jayantrohila57",
+    truelancer: "https://www.truelancer.com/freelancer/jayantrohila",
+    contra: "https://contra.com/jayant_rohila_qrutb9cv",
+    fiverr: "https://www.fiverr.com/jayant_rohila",
   },
 
   seo: {
     keywords: [
       "jayant rohila",
       "product engineer",
+      "frontend engineer",
       "software engineer",
       "next.js",
       "react",
       "typescript",
       "portfolio",
       "noida",
-      "aiqmen",
     ],
     locale: "en_US",
     robots: "index" as const,

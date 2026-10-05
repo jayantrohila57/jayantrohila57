@@ -37,8 +37,7 @@ export function ExperienceSection() {
       <BlogsList items={items} />
       <FullWidthDivider />
       <p className="px-4 py-4 font-mono text-[10px] text-muted-foreground">
-        Product Engineer (Consultant) · aiQmen · Binmile prior — Lucsum is not
-        employment.
+        aiQmen · Binmile prior — Lucsum is not employment.
       </p>
     </SectionFrame>
   );
