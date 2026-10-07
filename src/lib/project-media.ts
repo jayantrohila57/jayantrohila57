@@ -5,14 +5,6 @@ export function getProjectScreenshotPath(slug: string): string {
   return `/projects/${slug}.png`;
 }
 
-/** Homepage hero uses in-app UI when marketing landing shots exist. */
-export function getProjectHeroScreenshotPath(slug: string): string {
-  if (slug === "taskflow") {
-    return "/projects/taskflow-app.png";
-  }
-  return getProjectScreenshotPath(slug);
-}
-
 export function projectHasScreenshot(slug: string): boolean {
   return Boolean(
     [
