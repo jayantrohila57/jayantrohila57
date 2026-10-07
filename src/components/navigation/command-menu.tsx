@@ -5,11 +5,11 @@ import { ArrowUpRight, Copy, Mail } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { useLenisScrollLock } from "@/components/smooth-scroll";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { mainNav } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { profile, projects } from "@/data/portfolio";
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { useLenisScrollLock } from "@/components/smooth-scroll";
 
 export function CommandMenu() {
   const [open, setOpen] = useState(false);
@@ -45,10 +45,7 @@ export function CommandMenu() {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="overflow-hidden p-0">
           <DialogTitle>Command</DialogTitle>
-          <Command
-            className="bg-panel"
-            label="Portfolio command menu"
-          >
+          <Command className="bg-panel" label="Portfolio command menu">
             <Command.Input
               placeholder="Navigate or search projects…"
               className="w-full border-b border-border bg-transparent px-4 py-3 text-sm outline-none placeholder:text-muted"

@@ -1,10 +1,10 @@
-import type React from "react";
+import { ArrowRightIcon, Code2 } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import type React from "react";
 import { footerNavGroups } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
-import { ArrowRightIcon, Code2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -24,7 +24,9 @@ export function Footer() {
             <p className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
               {profile.name}
             </p>
-            <p className="mt-2 text-sm text-muted-foreground">{profile.title}</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {profile.title}
+            </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               {profile.shortBio}
             </p>

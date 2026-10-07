@@ -6,7 +6,7 @@ Ported from pre-rebuild production eras (#26–#29 Fumadocs portfolio shell and 
 
 | Surface | Location | Notes |
 | --- | --- | --- |
-| Metadata API | `src/config/metadata.ts` | `title` template, description, keywords, authors, `metadataBase`, per-page canonicals via `generatePageMetadata`, robots, verification (only if `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` set) |
+| Metadata API | `src/config/metadata.ts` | `title` template, description, keywords, authors, `metadataBase`, per-page canonicals via `generatePageMetadata`, robots, verification (only when `GOOGLE_SITE_VERIFICATION` or `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` is set and not a placeholder) |
 | Open Graph + Twitter | `baseMetadata` + page overrides | `summary_large_image`, locale, siteName, dynamic image URLs |
 | Dynamic images | `src/app/api/image/route.ts` | OG (1280×720), Twitter (750×1334), PWA icons; SoT headline + job title on social cards |
 | OG alias | `src/app/api/og/route.ts` | 308 → `/api/image?type=og` |
@@ -34,7 +34,7 @@ Ported from pre-rebuild production eras (#26–#29 Fumadocs portfolio shell and 
 ## Env vars
 
 - `NEXT_PUBLIC_GA_ID` — Google Analytics 4 (`G-…`) only when set
-- `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` — optional Search Console meta
+- `GOOGLE_SITE_VERIFICATION` or `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` — optional Search Console meta (placeholders are ignored)
 
 ## Playground
 

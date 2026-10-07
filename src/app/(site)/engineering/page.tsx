@@ -5,8 +5,8 @@ import {
   SectionFrame,
   SectionIntro,
 } from "@/components/primitives/section-frame";
-import { engineeringPrinciples } from "@/data/portfolio";
 import { generatePageMetadata } from "@/config/metadata";
+import { engineeringPrinciples } from "@/data/portfolio";
 
 export const metadata = generatePageMetadata({
   title: "Engineering",
@@ -27,7 +27,7 @@ export default function EngineeringPage() {
         <SectionIntro
           label="Engineering"
           title="How I build"
-          description="Deeper view of how I structure applications — grounded in public project repos."
+          description="How I structure applications — UI layers, typed APIs, and delivery patterns from shipped projects."
         />
       </div>
       <FeatureBento features={features} />
@@ -37,9 +37,13 @@ export default function EngineeringPage() {
       <div className="mx-4 mt-8 border border-border p-6 font-mono text-xs leading-relaxed text-muted-foreground">
         <p className="text-foreground">Frontend systems</p>
         <pre className="mt-3">{`App → Layout → Feature → Data query → UI state`}</pre>
-        <p className="mt-8 text-foreground">Data & API (where used in projects)</p>
+        <p className="mt-8 text-foreground">
+          Data & API (where used in projects)
+        </p>
         <pre className="mt-3">{`Client → tRPC / REST → Auth → PostgreSQL`}</pre>
-        <p className="mt-8 text-foreground">Infrastructure (documented in repos)</p>
+        <p className="mt-8 text-foreground">
+          Infrastructure (documented in repos)
+        </p>
         <pre className="mt-3">{`Git push → GitHub Actions → Build → Vercel deploy`}</pre>
       </div>
       <Link

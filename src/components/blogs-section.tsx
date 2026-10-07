@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { FullWidthDivider } from "@/components/full-width-divider";
+import { cn } from "@/lib/utils";
 
 export type BlogListItem = {
   title: string;

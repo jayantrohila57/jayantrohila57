@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FeatureBento } from "@/components/feature-section";
+import { WorkProjectJsonLd } from "@/components/json-ld-work";
 import { ProjectVisual } from "@/components/portfolio/project-scene";
 import { SectionFrame } from "@/components/primitives/section-frame";
 import { Button } from "@/components/ui/button";
@@ -36,6 +37,7 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <SectionFrame border={false} spacing="tight" className="pt-8">
+      <WorkProjectJsonLd project={project} />
       <div className="px-4">
         <p className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
           Project
@@ -43,7 +45,9 @@ export default async function ProjectPage({ params }: Props) {
         <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
           {project.title}
         </h1>
-        <p className="mt-4 max-w-2xl text-muted-foreground">{project.summary}</p>
+        <p className="mt-4 max-w-2xl text-muted-foreground">
+          {project.summary}
+        </p>
 
         <dl className="mt-8 grid gap-3 border-y border-border py-6 font-mono text-[11px] md:grid-cols-2">
           <div className="flex justify-between gap-4 border-b border-border pb-3 md:border-b-0">

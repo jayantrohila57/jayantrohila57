@@ -44,7 +44,7 @@ export const resumeData = {
       location: "Noida",
       bullets: [
         "Trainee from join; Associate Software Developer from 17 Jun 2024.",
-        "HR title used here; some profiles say Software Engineer / SDE.",
+        "Associate Software Developer from June 2024; trainee from March 2024.",
       ],
     },
     {
@@ -60,7 +60,7 @@ export const resumeData = {
       title: "Software Developer – Trainee",
       period: "Jul 2021 – Oct 2021",
       bullets: [
-        "ServiceNow administration and development; also described as ServiceNow Admin & Dev Intern on older resumes.",
+        "ServiceNow administration and development during a trainee software role.",
       ],
     },
   ] satisfies ResumeExperience[],
@@ -82,8 +82,7 @@ export const resumeData = {
       credential: "Responsive Web Design",
       institution: "freeCodeCamp",
       period: "Feb 2022",
-      href:
-        "https://www.freecodecamp.org/certification/jayant_rohila/responsive-web-design",
+      href: "https://www.freecodecamp.org/certification/jayant_rohila/responsive-web-design",
     },
   ],
   skills: [

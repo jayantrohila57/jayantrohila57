@@ -34,7 +34,7 @@ export const projects: Project[] = [
     flagship: true,
     repo: "https://github.com/jayantrohila57/e-commerce",
     demo: "https://e-commerce-jayantrohila.vercel.app",
-    caseStudyHref: "/work/case-studies/e-commerce",
+    caseStudyHref: "/work/e-commerce",
     companyIds: [],
     technologyIds: [
       "typescript",
@@ -65,7 +65,7 @@ await trpc.order.create({ /* aligned with Razorpay */ });`,
     flagship: true,
     repo: "https://github.com/jayantrohila57/env-manager",
     demo: "https://env-manager-web.vercel.app",
-    caseStudyHref: "/work/case-studies/env-manager",
+    caseStudyHref: "/work/env-manager",
     companyIds: [],
     technologyIds: [
       "typescript",
@@ -90,12 +90,13 @@ await trpc.order.create({ /* aligned with Razorpay */ });`,
   {
     slug: "taskflow",
     name: "Taskflow",
-    summary: "Multi-tenant task and project management platform with typed APIs.",
+    summary:
+      "Multi-tenant task and project management platform with typed APIs.",
     category: "flagship",
     flagship: true,
     repo: "https://github.com/jayantrohila57/taskflow",
     demo: "https://v1-taskflow.vercel.app/",
-    caseStudyHref: "/work/case-studies/taskflow",
+    caseStudyHref: "/work/taskflow",
     companyIds: [],
     technologyIds: [
       "typescript",
@@ -120,7 +121,8 @@ await trpc.order.create({ /* aligned with Razorpay */ });`,
   {
     slug: "inkly-cms",
     name: "Inkly CMS",
-    summary: "Self-hosted blogging CMS — secondary showcase on the projects list.",
+    summary:
+      "Self-hosted blogging CMS with rich-text editing and content workflows.",
     category: "product",
     repo: "https://github.com/jayantrohila57/inkly-cms",
     demo: "https://inkly-blog.vercel.app",
@@ -158,7 +160,11 @@ await trpc.order.create({ /* aligned with Razorpay */ });`,
     technologyIds: ["typescript", "nextjs", "react", "tailwind"],
     preview: {
       type: "terminal",
-      lines: ["$ pnpm build", "→ MDX content + App Router", "→ jayantrohila.com"],
+      lines: [
+        "$ pnpm build",
+        "→ MDX content + App Router",
+        "→ jayantrohila.com",
+      ],
     },
   },
 ];

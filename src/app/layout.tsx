@@ -1,11 +1,11 @@
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { IBM_Plex_Sans } from "next/font/google";
 import { GoogleAnalyticsLazy } from "@/components/analytics/google-analytics-lazy";
 import { RootJsonLd } from "@/components/json-ld";
 import { LenisGate } from "@/components/lenis-gate";
 import { baseMetadata } from "@/config/metadata";
 import { baseViewport, siteConfig } from "@/config/site";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { IBM_Plex_Sans } from "next/font/google";
 import "./global.css";
 
 const ibmPlex = IBM_Plex_Sans({

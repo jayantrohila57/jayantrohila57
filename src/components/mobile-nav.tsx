@@ -1,13 +1,13 @@
 "use client";
 
+import { MenuIcon, XIcon } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import React from "react";
 import { Portal, PortalBackdrop } from "@/components/portal";
+import { Button } from "@/components/ui/button";
 import { mainNav } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
-import { MenuIcon, XIcon } from "lucide-react";
-import React from "react";
+import { cn } from "@/lib/utils";
 
 type MobileNavProps = {
   commandSlot?: React.ReactNode;
@@ -77,7 +77,10 @@ export function MobileNav({ commandSlot }: MobileNavProps) {
                 </a>
               </Button>
               <Button asChild className="w-full" variant="accent">
-                <Link href={siteConfig.resumePath} onClick={() => setOpen(false)}>
+                <Link
+                  href={siteConfig.resumePath}
+                  onClick={() => setOpen(false)}
+                >
                   Resume
                 </Link>
               </Button>

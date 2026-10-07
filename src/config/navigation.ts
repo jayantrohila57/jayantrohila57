@@ -9,8 +9,8 @@ export type NavItem = {
 export const mainNav: NavItem[] = [
   { label: "Work", href: "/work" },
   { label: "Engineering", href: "/engineering" },
-  { label: "Experiments", href: "/experiments" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const footerNavGroups: { title: string; items: NavItem[] }[] = [

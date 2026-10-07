@@ -1,15 +1,15 @@
 "use client";
 
+import { Code2 } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { cn } from "@/lib/utils";
-import { useScroll } from "@/hooks/use-scroll";
-import { Button } from "@/components/ui/button";
 import { DesktopNav } from "@/components/desktop-nav";
 import { MobileNav } from "@/components/mobile-nav";
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
-import { Code2 } from "lucide-react";
+import { useScroll } from "@/hooks/use-scroll";
+import { cn } from "@/lib/utils";
 
 type HeaderProps = {
   commandSlot?: ReactNode;

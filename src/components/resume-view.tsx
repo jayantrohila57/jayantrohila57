@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { resumeData, RESUME_PDF_PATH } from "@/lib/resume-data";
 import { Download, Printer } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { RESUME_PDF_PATH, resumeData } from "@/lib/resume-data";
 
 type ResumeViewProps = {
   showActions?: boolean;

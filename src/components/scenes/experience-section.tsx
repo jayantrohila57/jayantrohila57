@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BlogsList, type BlogListItem } from "@/components/blogs-section";
+import { type BlogListItem, BlogsList } from "@/components/blogs-section";
 import { FullWidthDivider } from "@/components/full-width-divider";
 import {
   SectionFrame,
@@ -20,25 +20,18 @@ export function ExperienceSection() {
   return (
     <SectionFrame id="experience" border>
       <div className="px-4 pt-2">
-        <SectionLabel index="06" label="Experience" />
+        <SectionLabel index="03" label="Experience" />
         <SectionIntro
           title="Roles and timelines."
-          description="Public career facts — client deliverables not listed."
+          description="Product engineering roles in Noida and remote-friendly teams across India."
           action={
-            <Link
-              href="/about"
-              className={sectionActionLinkClass}
-            >
+            <Link href="/about" className={sectionActionLinkClass}>
               Full profile →
             </Link>
           }
         />
       </div>
       <BlogsList items={items} />
-      <FullWidthDivider />
-      <p className="px-4 py-4 font-mono text-[10px] text-muted-foreground">
-        aiQmen · Binmile prior — Lucsum is not employment.
-      </p>
     </SectionFrame>
   );
 }

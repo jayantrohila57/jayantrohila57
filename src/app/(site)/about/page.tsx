@@ -1,4 +1,4 @@
-import { BlogsList, type BlogListItem } from "@/components/blogs-section";
+import { type BlogListItem, BlogsList } from "@/components/blogs-section";
 import { PortfolioContactPanel } from "@/components/contact-section";
 import {
   SectionFrame,
@@ -10,7 +10,7 @@ import { resumeData } from "@/lib/resume-data";
 
 export const metadata = generatePageMetadata({
   title: "About",
-  description: profile.longBio,
+  description: profile.shortBio,
   path: "/about",
 });
 
@@ -26,14 +26,20 @@ export default function AboutPage() {
     <>
       <SectionFrame border={false} spacing="tight" className="pt-8">
         <div className="px-4">
-          <SectionIntro label="About" title={profile.name} description={profile.shortBio} />
+          <SectionIntro
+            label="About"
+            title={profile.name}
+            description={profile.shortBio}
+          />
         </div>
         <div className="grid gap-px border-t border-border bg-border lg:grid-cols-3">
           <div className="bg-background p-6 lg:col-span-2">
             <p className="font-mono text-[10px] text-muted-foreground uppercase">
               Profile
             </p>
-            <p className="mt-2 text-sm text-muted-foreground">{profile.title}</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {profile.title}
+            </p>
             <p className="mt-6 leading-relaxed text-muted-foreground">
               {profile.longBio}
             </p>
