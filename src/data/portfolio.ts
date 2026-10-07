@@ -38,6 +38,8 @@ export type PortfolioProject = {
   visualType: ProjectVisualType;
   links: { live?: string; github?: string };
   sections: ProjectSection[];
+  ogTitle?: string;
+  ogDescription?: string;
 };
 
 export type ExperienceEntry = {
@@ -204,6 +206,8 @@ export const projects: PortfolioProject[] = [
     slug: "env-manager",
     title: "Env Manager",
     eyebrow: "PROJECT / DEVELOPER TOOL",
+    ogDescription:
+      "Developer workspace for environment variables and secrets across dev, staging, and production.",
     summary:
       "Developer-first system to manage environment variables and secrets across repos and deployment targets.",
     description:
@@ -263,8 +267,11 @@ export const projects: PortfolioProject[] = [
     slug: "taskflow",
     title: "Taskflow",
     eyebrow: "PROJECT / SAAS SANDBOX",
+    ogTitle: "Taskflow — multi-tenant workspace",
+    ogDescription:
+      "Organizations, RBAC, tasks, and i18n in a Next.js + tRPC sandbox with a live demo.",
     summary:
-      "Multi-tenant task and project management platform with modular App Router architecture and i18n.",
+      "Multi-tenant workspace for teams — organizations, roles, tasks, and projects with internationalized routing.",
     description:
       "Organization management, RBAC, task and project workflows, collaboration features, internationalized routes, and PWA-related configuration documented in the repo.",
     status: "Open source · Live demo",
@@ -327,9 +334,10 @@ export const projects: PortfolioProject[] = [
     slug: "inkly-cms",
     title: "Inkly CMS",
     eyebrow: "EXPERIMENT / CMS",
-    summary: "Self-hosted blogging CMS with TipTap editor patterns.",
+    summary:
+      "Self-hosted publishing with rich-text editing, taxonomy, and role-aware content workflows.",
     description:
-      "Headless CMS-style blogging project with React Query and editor-focused UX.",
+      "Headless CMS-style blogging with TipTap editing patterns, React Query, and authenticated publishing flows.",
     status: "Open source · Demo",
     year: "2024–2025",
     stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
@@ -354,7 +362,10 @@ export const projects: PortfolioProject[] = [
     slug: "libyui",
     title: "libyui",
     eyebrow: "LIBRARY",
-    summary: "React component library built with TypeScript and Tailwind CSS.",
+    ogDescription:
+      "Reusable React UI primitives and a live component gallery — TypeScript and Tailwind.",
+    summary:
+      "Reusable React UI system for consistent buttons, forms, dialogs, tables, and layout primitives.",
     description:
       "Reusable UI primitives published as an open-source component library.",
     status: "Open source · Live demo",
@@ -379,9 +390,10 @@ export const projects: PortfolioProject[] = [
     slug: "image-editor",
     title: "Image Editor",
     eyebrow: "EXPERIMENT / UI",
-    summary: "Browser-based image editing experiment with a hosted v1 demo.",
+    summary:
+      "Browser-based image editor exploring canvas tools, transforms, and export on the web platform.",
     description:
-      "Hosted v1 demo on Vercel — browser-based image editing experiment.",
+      "Client-side image editing demo with tool panels and canvas preview — hosted on Vercel.",
     status: "Live demo",
     year: "2024–2025",
     stack: ["Next.js", "TypeScript", "React"],
@@ -466,7 +478,7 @@ export const experience: ExperienceEntry[] = [
     period: "18 May 2026 – Present",
     location: "Noida · onsite",
     summary:
-      "Product engineering for software engagements — web products with TypeScript, React, and Next.js-style stacks.",
+      "Building product interfaces and full-stack web features with TypeScript, React, and Next.js across software engagements.",
     highlights: [
       "Work GitHub: github.com/jayantaiqmen.",
       "Client-facing deliverables stay confidential; portfolio focuses on open-source work.",
@@ -480,7 +492,7 @@ export const experience: ExperienceEntry[] = [
     period: "18 Mar 2024 – 16 Apr 2026",
     location: "Noida",
     summary:
-      "Full-stack software delivery in a services environment. Trainee from join; Associate Software Developer from 17 Jun 2024.",
+      "Built and maintained production web features across React/Next.js interfaces, APIs, forms, and integration work in a services environment.",
     highlights: [
       "Associate Software Developer from June 2024; trainee from March 2024.",
       "Last working day 16 April 2026.",

@@ -6,7 +6,13 @@ export function SiteShell({ children }: { children: ReactNode }) {
   return (
     <>
       <SiteHeader />
-      <main className="min-w-0 flex-1 overflow-x-clip">{children}</main>
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="min-w-0 flex-1 overflow-x-clip"
+      >
+        {children}
+      </main>
       <SiteFooter />
     </>
   );

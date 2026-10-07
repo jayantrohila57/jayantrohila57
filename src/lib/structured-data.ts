@@ -1,5 +1,6 @@
 import { elsewhereLinks, getAbsoluteUrl, siteConfig } from "@/config/site";
 import type { PortfolioProject } from "@/data/portfolio";
+import { getProjectOgImage } from "@/lib/project-media";
 
 function generateStructuredData(type: string, data: Record<string, unknown>) {
   return JSON.stringify({
@@ -62,13 +63,12 @@ export function profilePageStructuredData() {
   });
 }
 
-const defaultOgImage = `${siteConfig.siteUrl}/api/image?type=og`;
-
 export function projectWebPageStructuredData(project: PortfolioProject) {
   const url = getAbsoluteUrl(`/work/${project.slug}`);
+  const imageUrl = getAbsoluteUrl(getProjectOgImage(project));
   return generateStructuredData("WebPage", {
     name: project.title,
-    description: project.summary,
+    description: project.ogDescription ?? project.summary,
     url,
     isPartOf: {
       "@type": "WebSite",
@@ -77,7 +77,7 @@ export function projectWebPageStructuredData(project: PortfolioProject) {
     },
     primaryImageOfPage: {
       "@type": "ImageObject",
-      url: defaultOgImage,
+      url: imageUrl,
     },
   });
 }

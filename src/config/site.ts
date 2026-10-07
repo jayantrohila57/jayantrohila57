@@ -14,7 +14,7 @@ export const specializationLine =
 
 /** Longer bio for page body, JSON-LD, and social image cards — not for HTML meta snippets. */
 export const longAbout =
-  "Product Engineer with 2+ years building web products in React.js, Next.js, and TypeScript. I ship responsive UIs with Tailwind CSS, integrate Node.js / REST APIs, and own features from design handoff to production. Live work: jayantrohila.com · GitHub jayantrohila57. Based in Noida; open to in-office, hybrid, and remote across India.";
+  "Product Engineer building web products in React, Next.js, and TypeScript — from responsive UIs and typed APIs through to production deploys. Open-source work includes Taskflow, Env Manager, and libyui with live demos. Based in Noida; open to in-office, hybrid, and remote roles across India.";
 
 /** ~150 chars for meta / OG / Twitter descriptions. */
 export const metaDescription =
