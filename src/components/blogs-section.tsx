@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import { FullWidthDivider } from "@/components/full-width-divider";
 import { cn } from "@/lib/utils";
@@ -8,6 +9,69 @@ export type BlogListItem = {
   description: string;
   href: string;
 };
+
+export type WorkListItem = {
+  index: number;
+  title: string;
+  description: string;
+  meta: string;
+  href: string;
+};
+
+export function WorkListRow({
+  index,
+  title,
+  description,
+  meta,
+  href,
+  className,
+}: WorkListItem & { className?: string }) {
+  return (
+    <Link
+      href={href}
+      className={cn(
+        "group flex min-h-20 w-full min-w-0 max-w-full items-start gap-4 p-4 transition-colors hover:bg-secondary/50 md:items-center md:gap-6 md:p-6",
+        className,
+      )}
+    >
+      <span
+        className="shrink-0 font-mono text-xs tracking-widest text-muted-foreground tabular-nums"
+        aria-hidden
+      >
+        {String(index).padStart(2, "0")}
+      </span>
+      <div className="min-w-0 flex-1 space-y-1">
+        <h3 className="font-medium text-base text-foreground md:text-xl group-hover:text-link-accent">
+          {title}
+        </h3>
+        <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+          {description}
+        </p>
+        <p className="font-mono text-[10px] tracking-wide text-muted-foreground uppercase md:text-[11px]">
+          {meta}
+        </p>
+      </div>
+      <ArrowRightIcon
+        className="mt-1 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-foreground md:mt-0"
+        aria-hidden
+      />
+    </Link>
+  );
+}
+
+export function WorkList({ items }: { items: WorkListItem[] }) {
+  return (
+    <div className="relative min-w-0 max-w-full overflow-hidden">
+      <FullWidthDivider />
+      <div className="min-w-0 divide-y divide-border">
+        {items.map((item) => (
+          <WorkListRow key={item.href + item.title} {...item} />
+        ))}
+      </div>
+      <FullWidthDivider />
+    </div>
+  );
+}
 
 export function BlogCard({
   title,

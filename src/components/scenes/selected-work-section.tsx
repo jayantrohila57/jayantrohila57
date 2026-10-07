@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { FullWidthDivider } from "@/components/full-width-divider";
-import { ProjectScene } from "@/components/portfolio/project-scene";
+import { WorkList, type WorkListItem } from "@/components/blogs-section";
 import {
   SectionFrame,
   SectionIntro,
@@ -11,6 +10,13 @@ import { getFeaturedProjects } from "@/data/portfolio";
 
 export function SelectedWorkSection() {
   const featured = getFeaturedProjects();
+  const items: WorkListItem[] = featured.map((project, i) => ({
+    index: i + 1,
+    title: project.title,
+    description: project.summary,
+    meta: project.stack.slice(0, 4).join(" · "),
+    href: `/work/${project.slug}`,
+  }));
 
   return (
     <SectionFrame id="work" border>
@@ -18,7 +24,7 @@ export function SelectedWorkSection() {
         <SectionLabel index="01" label="Selected work" />
         <SectionIntro
           title="Projects where I design, build, and ship software."
-          description="Taskflow, Env Manager, and libyui — repositories and live demos."
+          description="Flagship repositories with live demos where available."
           action={
             <Link href="/work" className={sectionActionLinkClass}>
               View all →
@@ -26,18 +32,7 @@ export function SelectedWorkSection() {
           }
         />
       </div>
-      <FullWidthDivider />
-      <div className="grid gap-px bg-border">
-        {featured.map((project, i) => (
-          <ProjectScene
-            key={project.slug}
-            project={project}
-            index={i + 1}
-            reverse={i % 2 === 1}
-          />
-        ))}
-      </div>
-      <FullWidthDivider />
+      <WorkList items={items} />
     </SectionFrame>
   );
 }

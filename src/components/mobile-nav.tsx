@@ -77,11 +77,8 @@ export function MobileNav({ commandSlot }: MobileNavProps) {
                 </a>
               </Button>
               <Button asChild className="w-full" variant="accent">
-                <Link
-                  href={siteConfig.resumePath}
-                  onClick={() => setOpen(false)}
-                >
-                  Resume
+                <Link href="/contact" onClick={() => setOpen(false)}>
+                  Contact
                 </Link>
               </Button>
             </div>

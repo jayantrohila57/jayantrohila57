@@ -4,6 +4,7 @@ import { HeaderActions } from "@/components/layout/header-actions";
 import { HeaderShell } from "@/components/layout/header-shell";
 import { profile } from "@/data/portfolio";
 
+/** Efferd `header-1` — identity + compact primary nav. */
 export function SiteHeader() {
   return (
     <>
@@ -17,8 +18,8 @@ export function SiteHeader() {
             prefetch={false}
             className="rounded-lg px-2 py-2 hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:hover:bg-muted/30"
           >
-            <span className="font-mono text-xs tracking-[0.2em] uppercase">
-              {profile.name.split(" ")[0]}
+            <span className="font-mono text-xs tracking-[0.15em] uppercase">
+              {profile.name}
             </span>
           </Link>
           <DesktopNav />

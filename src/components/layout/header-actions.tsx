@@ -38,7 +38,7 @@ export function HeaderActions() {
         </Button>
         {commandSlot}
         <Button asChild size="sm" variant="accent">
-          <Link href={siteConfig.resumePath}>Resume</Link>
+          <Link href="/contact">Contact</Link>
         </Button>
       </div>
       <MobileNav commandSlot={commandSlot} />

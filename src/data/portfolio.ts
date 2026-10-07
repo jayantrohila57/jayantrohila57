@@ -688,30 +688,30 @@ export const stackGroups: StackGroup[] = [
 export const engineeringPrinciples: EngineeringPrinciple[] = [
   {
     id: "product-ui",
-    title: "Product-first UI",
+    title: "Product UI",
     description:
-      "Interfaces shaped for real tasks — tables, forms, auth flows, and responsive shells backed by typed data.",
+      "Tables, forms, filters, validation, states, and responsive workflows shaped for real product tasks.",
     visual: "data-table",
   },
   {
     id: "type-safe",
     title: "Type-safe architecture",
     description:
-      "End-to-end typing from UI through tRPC procedures to database layers where projects use that stack.",
+      "Strong contracts from UI through APIs to the data layer — tRPC and typed procedures where projects use that stack.",
     visual: "type-flow",
   },
   {
     id: "systems",
     title: "Reusable systems",
     description:
-      "Shared UI primitives, consistent tokens, and modular App Router structure — especially in Taskflow and libyui.",
+      "Shared UI primitives, tokens, and modular application structure — especially in Taskflow and libyui.",
     visual: "ui-stack",
   },
   {
     id: "automation",
     title: "Quality & delivery",
     description:
-      "Biome, Vitest, and CI-friendly scripts in repos; deploy targets documented for Vercel.",
+      "Testing, linting, CI, and deployment workflows documented in repos (Biome, Vitest, GitHub Actions, Vercel).",
     visual: "ci-pipeline",
   },
 ];

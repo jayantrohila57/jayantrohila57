@@ -12,9 +12,10 @@ type CallToActionProps = {
   secondaryLabel?: string;
 };
 
+/** Efferd `cta-3` — final homepage action band. */
 export function CallToAction({
-  title = "Have a product or system worth shipping?",
-  description = "Product engineering and typed full-stack delivery — reach out with context from your repo or roadmap.",
+  title = "Have something worth building?",
+  description = "I work on product interfaces, frontend architecture, and full-stack web applications.",
   primaryHref = "/contact",
   primaryLabel = "Get in touch",
   secondaryHref = "/work",

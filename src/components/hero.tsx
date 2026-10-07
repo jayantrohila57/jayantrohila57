@@ -1,12 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { EfferdRail } from "@/components/efferd-rail";
-import {
-  InterfaceWindow,
-  TerminalWindow,
-} from "@/components/primitives/interface-window";
 import { buttonVariants } from "@/components/ui/button";
-import { heroHeadline, heroStatusLine, siteConfig } from "@/config/site";
+import { heroHeadline, siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
+import { getProjectScreenshotPath } from "@/lib/project-media";
 import { cn } from "@/lib/utils";
 
 function ArrowRightGlyph({ className }: { className?: string }) {
@@ -30,116 +28,90 @@ function ArrowRightGlyph({ className }: { className?: string }) {
   );
 }
 
+const heroScreenshot = getProjectScreenshotPath("taskflow");
+
+/** Homepage hero — Efferd `hero-3` layout with portfolio identity and real product screenshot. */
 export function PortfolioHero() {
   return (
     <section
       className={cn(
-        "relative overflow-hidden border-b border-border pt-10 pb-4 md:min-h-0 md:pt-14 md:pb-8",
-        "min-h-[calc(100svh-3.5rem)]",
+        "relative overflow-hidden border-b border-border",
+        "min-h-[calc(100svh-3.5rem)] pt-10 pb-0 md:pt-14",
       )}
     >
-      <EfferdRail>
-        <div className="relative z-10 flex max-w-2xl flex-col gap-5 px-4 pt-4 pb-8">
-          <p className="font-mono text-[11px] tracking-wide text-muted-foreground uppercase">
-            {profile.name}
-          </p>
-          <h1
-            className={cn(
-              "text-balance font-semibold text-4xl leading-[1.05] tracking-tight text-foreground md:text-5xl lg:text-[3.25rem]",
-            )}
-          >
-            {heroHeadline}
-          </h1>
+      <EfferdRail padding={false}>
+        <div className="grid gap-px border-x border-border bg-border lg:grid-cols-2">
+          <div className="flex flex-col justify-center gap-5 bg-background px-4 py-10 md:px-8 md:py-14">
+            <p className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
+              Product engineer
+            </p>
+            <div className="space-y-3">
+              <h1
+                className={cn(
+                  "text-balance font-semibold text-4xl leading-[1.05] tracking-tight text-foreground md:text-5xl lg:text-[3.25rem]",
+                )}
+              >
+                {profile.name}
+              </h1>
+              <p className="text-balance text-lg text-muted-foreground md:text-xl">
+                {heroHeadline}
+              </p>
+            </div>
 
-          <p className="text-sm text-muted-foreground md:text-base">
-            {heroStatusLine}
-          </p>
+            <p className="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              I work across product UI, frontend architecture, typed APIs, and
+              data-heavy workflows — primarily with TypeScript, React, and
+              Next.js.
+            </p>
+            <p className="font-mono text-[11px] tracking-wide text-muted-foreground">
+              Next.js · React · TypeScript
+            </p>
 
-          <p className="text-muted-foreground text-sm leading-relaxed md:text-lg">
-            {profile.publicHeadline}
-          </p>
-          <p className="font-mono text-[11px] tracking-wide text-muted-foreground">
-            {profile.metadataLine}
-          </p>
-
-          <div className="flex w-fit flex-wrap items-center gap-3 pt-2">
-            <Link
-              href="/work"
-              prefetch={false}
-              className={cn(buttonVariants({ variant: "accent" }))}
-            >
-              View work
-              <ArrowRightGlyph className="size-4" />
-            </Link>
-            <Link
-              href="/contact"
-              prefetch={false}
-              className={cn(buttonVariants({ variant: "outline" }))}
-            >
-              Contact
-            </Link>
-            <Link
-              href={siteConfig.resumePath}
-              prefetch={false}
-              className={cn(buttonVariants({ variant: "outline" }))}
-            >
-              Resume
-            </Link>
+            <div className="flex w-fit flex-wrap items-center gap-3 pt-1">
+              <Link
+                href="/work"
+                prefetch={false}
+                className={cn(buttonVariants({ variant: "accent" }))}
+              >
+                View work
+                <ArrowRightGlyph className="size-4" />
+              </Link>
+              <Link
+                href={siteConfig.resumePath}
+                prefetch={false}
+                className={cn(buttonVariants({ variant: "outline" }))}
+              >
+                Resume
+              </Link>
+              <Link
+                href="/contact"
+                prefetch={false}
+                className={cn(
+                  buttonVariants({ variant: "ghost" }),
+                  "text-muted-foreground",
+                )}
+              >
+                Contact
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <div className="hidden border-t border-border bg-surface/40 p-2 md:block md:p-3">
-          <div className="grid gap-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_minmax(0,1fr)]">
-            <InterfaceWindow title="apps/" className="h-full">
-              <div className="space-y-1 text-muted-foreground">
-                <div>/apps</div>
-                <div className="pl-2">web</div>
-                <div className="pl-2">dashboard</div>
-                <div>/packages</div>
-                <div className="pl-2">ui</div>
-                <div className="pl-2">config</div>
-              </div>
-            </InterfaceWindow>
-            <InterfaceWindow title="page.tsx" className="h-full">
-              <pre className="overflow-x-auto text-[10px] leading-relaxed text-muted-foreground">
-                {`export default function Home() {
-  return (
-    <ProductShell>
-      <DataTable rows={orders} />
-    </ProductShell>
-  );
-}`}
-              </pre>
-            </InterfaceWindow>
-            <TerminalWindow
-              lines={[
-                "$ git status",
-                "● main",
-                "2 files changed",
-                "$ pnpm dev",
-                "ready — local workspace (illustration)",
-              ]}
-            />
+          <div className="relative min-h-[220px] bg-surface/40 p-3 md:min-h-[320px] md:p-4 lg:min-h-full">
+            <div className="relative h-full overflow-hidden border border-border bg-background">
+              <Image
+                src={heroScreenshot}
+                alt="Taskflow — multi-tenant task and project management"
+                width={1280}
+                height={720}
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="h-full w-full object-cover object-top"
+              />
+            </div>
+            <p className="mt-2 px-1 font-mono text-[10px] text-muted-foreground">
+              Taskflow — flagship project screenshot
+            </p>
           </div>
-          <p className="border-t border-border px-3 py-2 font-mono text-[10px] text-muted-foreground">
-            Workspace composition — representative layout, not a live terminal.
-          </p>
-        </div>
-
-        <div className="flex w-full min-w-0 max-w-full flex-wrap gap-x-4 gap-y-2 border-t border-border px-4 py-4 font-mono text-xs tracking-wider text-muted-foreground">
-          {profile.heroStrip.map((tech, i) => (
-            <span
-              key={tech}
-              className="inline-flex max-w-full shrink-0 items-center gap-4"
-            >
-              {i > 0 ? (
-                <span aria-hidden className="hidden text-border md:inline">
-                  /
-                </span>
-              ) : null}
-              <span className="break-words">{tech}</span>
-            </span>
-          ))}
         </div>
       </EfferdRail>
     </section>

@@ -14,13 +14,21 @@ function PrincipleVisual({ type }: { type: string }) {
 ────────────────────────
 Row select · Bulk actions
 Form validation · Toasts`,
-    "type-flow": `UI → Query → tRPC → DB
-End-to-end typed procedures`,
-    "ui-stack": `Button · Input · Table
+    "type-flow": `React
+ ↓
+TanStack Query / tRPC
+ ↓
+Server procedures
+ ↓
+Prisma / Drizzle
+ ↓
+PostgreSQL`,
+    "ui-stack": `Button · Input · Select · Dialog
+Table · Form · Sheet · Toast
         ↓
-Shared UI system (shadcn / Tailwind)`,
-    "ci-pipeline": `Commit → CI → Build → Deploy
-                              ● live`,
+libyui · shared patterns`,
+    "ci-pipeline": `Biome · Vitest
+GitHub Actions → Build → Deploy`,
   };
   return (
     <pre className="mt-4 overflow-x-auto font-mono text-[10px] leading-relaxed text-muted-foreground">
@@ -29,6 +37,7 @@ Shared UI system (shadcn / Tailwind)`,
   );
 }
 
+/** Efferd `features-6` bento with evidence-style visuals. */
 export function EngineeringSection() {
   const features = engineeringPrinciples.map((item) => ({
     title: item.title,
@@ -40,8 +49,8 @@ export function EngineeringSection() {
       <div className="px-4 pt-2">
         <SectionLabel index="02" label="Engineering" />
         <SectionIntro
-          title="How I design and build software."
-          description="Product-first delivery with typed APIs, reusable UI, and repo-documented quality tooling."
+          title="How I build software."
+          description="Where UX, architecture, and maintainability meet — backed by real project patterns."
           action={
             <Link href="/engineering" className={sectionActionLinkClass}>
               Deep dive →
