@@ -1,7 +1,13 @@
 export type Technology = {
   id: string;
   label: string;
-  category: "language" | "frontend" | "backend" | "data" | "platform" | "quality";
+  category:
+    | "language"
+    | "frontend"
+    | "backend"
+    | "data"
+    | "platform"
+    | "quality";
   projectSlugs: string[];
 };
 
@@ -16,7 +22,13 @@ export const technologies: Technology[] = [
     id: "nextjs",
     label: "Next.js",
     category: "frontend",
-    projectSlugs: ["e-commerce", "env-manager", "taskflow", "inkly-cms", "jayantrohila57"],
+    projectSlugs: [
+      "e-commerce",
+      "env-manager",
+      "taskflow",
+      "inkly-cms",
+      "jayantrohila57",
+    ],
   },
   {
     id: "react",

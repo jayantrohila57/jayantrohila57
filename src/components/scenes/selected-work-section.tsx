@@ -18,12 +18,9 @@ export function SelectedWorkSection() {
         <SectionLabel index="01" label="Selected work" />
         <SectionIntro
           title="Projects where I design, build, and ship software."
-          description="Flagship open-source work with public repositories and live demos."
+          description="Taskflow, Env Manager, and libyui — repositories and live demos."
           action={
-            <Link
-              href="/work"
-              className={sectionActionLinkClass}
-            >
+            <Link href="/work" className={sectionActionLinkClass}>
               View all →
             </Link>
           }

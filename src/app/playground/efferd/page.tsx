@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { AppShell } from "@/components/app-shell";
 import { BlogsSection } from "@/components/blogs-section";
-import { CallToAction } from "@/components/cta";
 import { Contact } from "@/components/contact";
 import { ContactSection } from "@/components/contact-section";
+import { CallToAction } from "@/components/cta";
 import { DecorIcon } from "@/components/decor-icon";
 import { NotFoundPage } from "@/components/efferd-not-found";
 import { FeatureSection } from "@/components/feature-section";
@@ -11,13 +11,12 @@ import { Footer } from "@/components/footer";
 import { FullWidthDivider } from "@/components/full-width-divider";
 import { GridFiller } from "@/components/grid-filler";
 import { Header } from "@/components/header";
-import { EfferdHeroDemo } from "@/components/hero";
+import { EfferdHeroDemo, PortfolioHero } from "@/components/hero";
 import { Integrations } from "@/components/integrations";
 import { LogoCloudDemo } from "@/components/logo-cloud";
 import { OutlineText } from "@/components/outline-text";
-import { PortfolioHero } from "@/components/hero";
-import { profile } from "@/data/portfolio";
 import { generatePageMetadata } from "@/config/metadata";
+import { profile } from "@/data/portfolio";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Efferd block playground",

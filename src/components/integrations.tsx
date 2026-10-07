@@ -1,7 +1,7 @@
 import type React from "react";
-import { cn } from "@/lib/utils";
 import { DecorIcon } from "@/components/decor-icon";
 import { stackGroups } from "@/data/portfolio";
+import { cn } from "@/lib/utils";
 
 export type IntegrationItem = {
   name: string;
@@ -58,7 +58,9 @@ function IntegrationCard({
         {integration.name}
       </span>
       <div className="space-y-1">
-        <h3 className="font-semibold text-sm md:text-base">{integration.name}</h3>
+        <h3 className="font-semibold text-sm md:text-base">
+          {integration.name}
+        </h3>
         <p className="text-muted-foreground text-xs md:text-sm">
           {integration.description}
         </p>
@@ -86,9 +88,7 @@ export function PortfolioStackIntegrations({
 }: {
   nested?: boolean;
 } = {}) {
-  return (
-    <IntegrationsGrid items={buildStackIntegrations()} nested={nested} />
-  );
+  return <IntegrationsGrid items={buildStackIntegrations()} nested={nested} />;
 }
 
 const demoData: IntegrationItem[] = [

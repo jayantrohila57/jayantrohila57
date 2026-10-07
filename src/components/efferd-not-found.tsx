@@ -1,4 +1,6 @@
+import { CompassIcon, HomeIcon } from "lucide-react";
 import Link from "next/link";
+import { FullWidthDivider } from "@/components/full-width-divider";
 import { Button } from "@/components/ui/button";
 import {
   Empty,
@@ -7,8 +9,6 @@ import {
   EmptyHeader,
   EmptyTitle,
 } from "@/components/ui/empty";
-import { FullWidthDivider } from "@/components/full-width-divider";
-import { CompassIcon, HomeIcon } from "lucide-react";
 
 export function NotFoundPage() {
   return (
@@ -18,7 +18,9 @@ export function NotFoundPage() {
           <FullWidthDivider />
           <Empty>
             <EmptyHeader>
-              <EmptyTitle className="font-black font-mono text-8xl">404</EmptyTitle>
+              <EmptyTitle className="font-black font-mono text-8xl">
+                404
+              </EmptyTitle>
               <EmptyDescription className="text-nowrap">
                 The page you&apos;re looking for might have been <br />
                 moved or doesn&apos;t exist.

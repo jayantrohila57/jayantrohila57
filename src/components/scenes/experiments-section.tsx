@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BlogsList, type BlogListItem } from "@/components/blogs-section";
+import { type BlogListItem, BlogsList } from "@/components/blogs-section";
 import {
   SectionFrame,
   SectionLabel,
@@ -21,15 +21,12 @@ export function ExperimentsSection() {
       <BlogsList
         intro={{
           title: "Lab shelf — smaller tools and libraries.",
-          description: "Secondary repos from public source data.",
+          description: "Smaller tools, libraries, and UI experiments.",
         }}
         items={items}
       />
       <div className="px-4 pb-4">
-        <Link
-          href="/experiments"
-          className={sectionActionLinkClass}
-        >
+        <Link href="/experiments" className={sectionActionLinkClass}>
           Open lab →
         </Link>
       </div>

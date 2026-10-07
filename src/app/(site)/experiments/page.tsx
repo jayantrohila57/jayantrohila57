@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { BlogsList, type BlogListItem } from "@/components/blogs-section";
+import { type BlogListItem, BlogsList } from "@/components/blogs-section";
 import {
   SectionFrame,
   SectionIntro,
 } from "@/components/primitives/section-frame";
-import { experiments } from "@/data/portfolio";
 import { generatePageMetadata } from "@/config/metadata";
+import { experiments } from "@/data/portfolio";
 
 export const metadata = generatePageMetadata({
   title: "Experiments",
@@ -27,7 +27,7 @@ export default function ExperimentsPage() {
         <SectionIntro
           label="Experiments"
           title="Lab shelf"
-          description="Strong supporting repos from public source data — Inkly, libyui, image editor, Spotify stats, Patternlab."
+          description="Inkly CMS, libyui, image editor, Spotify stats, Patternlab, and other side projects."
         />
       </div>
       <BlogsList items={items} />

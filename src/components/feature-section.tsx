@@ -1,6 +1,3 @@
-import { cn } from "@/lib/utils";
-import type React from "react";
-import { FullWidthDivider } from "@/components/full-width-divider";
 import {
   ActivityIcon,
   GlobeIcon,
@@ -8,6 +5,9 @@ import {
   ShieldCheckIcon,
   ZapIcon,
 } from "lucide-react";
+import type React from "react";
+import { FullWidthDivider } from "@/components/full-width-divider";
+import { cn } from "@/lib/utils";
 
 export type FeatureItem = {
   title: string;
@@ -32,12 +32,7 @@ export function FeatureBento({ features }: { features: FeatureItem[] }) {
 
   return (
     <div className="relative w-full">
-      <div
-        className={cn(
-          "relative grid grid-cols-1 gap-px bg-border",
-          cols,
-        )}
-      >
+      <div className={cn("relative grid grid-cols-1 gap-px bg-border", cols)}>
         <FullWidthDivider position="top" />
         {features.map((feature, i) => (
           <FeatureCard
@@ -92,7 +87,8 @@ export function FeatureCard({
 const demoFeatures: FeatureItem[] = [
   {
     title: "Pattern preview",
-    description: "features-6 bento grid — live site uses engineering principles.",
+    description:
+      "features-6 bento grid — live site uses engineering principles.",
   },
   {
     title: "Typed boundaries",

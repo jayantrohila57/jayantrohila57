@@ -8,10 +8,7 @@ const ANCHOR_OFFSET = 88;
 type LenisInstance = {
   destroy: () => void;
   raf: (time: number) => void;
-  scrollTo: (
-    target: HTMLElement,
-    options?: { offset?: number },
-  ) => void;
+  scrollTo: (target: HTMLElement, options?: { offset?: number }) => void;
 };
 
 export function LenisInit() {

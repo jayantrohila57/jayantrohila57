@@ -43,10 +43,7 @@ export function EngineeringSection() {
           title="How I design and build software."
           description="Product-first delivery with typed APIs, reusable UI, and repo-documented quality tooling."
           action={
-            <Link
-              href="/engineering"
-              className={sectionActionLinkClass}
-            >
+            <Link href="/engineering" className={sectionActionLinkClass}>
               Deep dive →
             </Link>
           }

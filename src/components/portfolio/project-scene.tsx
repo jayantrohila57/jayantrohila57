@@ -1,81 +1,7 @@
 import Link from "next/link";
+import { ProjectPreviewBySlug } from "@/components/portfolio/project-previews";
 import type { PortfolioProject } from "@/data/portfolio";
-import {
-  BrowserWindow,
-  StatusBadge,
-} from "@/components/primitives/interface-window";
 import { cn } from "@/lib/cn";
-
-function EcommercePreview() {
-  return (
-    <BrowserWindow url="store.demo / orders">
-      <div className="space-y-2">
-        <div className="flex items-center justify-between border-b border-border pb-2">
-          <span className="text-foreground">Transactions</span>
-          <StatusBadge label="demo" status="demo" />
-        </div>
-        <div className="grid grid-cols-3 gap-2 text-xs text-muted-foreground">
-          <span>Date</span>
-          <span>Status</span>
-          <span className="text-right">Amount</span>
-        </div>
-        {[
-          ["02 Oct", "Settled", "₹12,400"],
-          ["01 Oct", "Pending", "₹8,200"],
-          ["30 Sep", "Settled", "₹18,900"],
-        ].map(([d, s, a]) => (
-          <div
-            key={d}
-            className="grid grid-cols-3 gap-2 border-t border-border py-1 text-xs"
-          >
-            <span className="text-muted-foreground">{d}</span>
-            <span>{s}</span>
-            <span className="text-right">{a}</span>
-          </div>
-        ))}
-        <p className="pt-1 text-xs text-muted-foreground">
-          EXAMPLE · not live business data
-        </p>
-      </div>
-    </BrowserWindow>
-  );
-}
-
-function EnvManagerPreview() {
-  return (
-    <BrowserWindow url="env-manager / production">
-      <div className="space-y-2">
-        {["DATABASE_URL", "BETTER_AUTH_SECRET", "RAZORPAY_KEY_ID"].map(
-          (key) => (
-            <div
-              key={key}
-              className="flex items-center justify-between gap-2 border border-border px-2 py-1"
-            >
-              <span className="truncate text-muted-foreground">{key}</span>
-              <span className="text-brand">••••••</span>
-            </div>
-          ),
-        )}
-        <p className="text-xs text-muted-foreground">Secrets UI — illustrative</p>
-      </div>
-    </BrowserWindow>
-  );
-}
-
-function TaskflowPreview() {
-  return (
-    <div className="font-mono text-xs leading-relaxed text-muted-foreground">
-      <div className="mb-2 text-foreground">Architecture (from repo)</div>
-      <pre>{`Next.js UI
-    ↓
- tRPC + Query
-    ↓
- Prisma → PostgreSQL
-    ↓
- Organizations / RBAC`}</pre>
-    </div>
-  );
-}
 
 export function ProjectVisual({
   project,
@@ -84,20 +10,9 @@ export function ProjectVisual({
   project: PortfolioProject;
   className?: string;
 }) {
-  const map = {
-    dashboard: <EcommercePreview />,
-    terminal: <EnvManagerPreview />,
-    architecture: <TaskflowPreview />,
-    data: <EcommercePreview />,
-    ai: <TaskflowPreview />,
-    browser: <EnvManagerPreview />,
-    editor: <EnvManagerPreview />,
-    custom: <TaskflowPreview />,
-  };
-
   return (
     <div className={cn("relative", className)} aria-hidden>
-      {map[project.visualType]}
+      <ProjectPreviewBySlug project={project} />
     </div>
   );
 }
@@ -144,6 +59,9 @@ export function ProjectScene({
               </dd>
             </div>
           </dl>
+          <p className="mt-4 font-mono text-[10px] text-link-accent uppercase">
+            View project →
+          </p>
         </div>
         <div className="p-4 md:p-6">
           <ProjectVisual project={project} />

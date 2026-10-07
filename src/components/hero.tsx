@@ -1,13 +1,14 @@
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
 import { EfferdRail } from "@/components/efferd-rail";
 import {
   InterfaceWindow,
   TerminalWindow,
 } from "@/components/primitives/interface-window";
-import { siteConfig } from "@/config/site";
+import { buttonVariants } from "@/components/ui/button";
+import { heroHeadline, heroStatusLine, siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
+import { cn } from "@/lib/utils";
+
 function ArrowRightGlyph({ className }: { className?: string }) {
   return (
     <svg
@@ -39,38 +40,23 @@ export function PortfolioHero() {
     >
       <EfferdRail>
         <div className="relative z-10 flex max-w-2xl flex-col gap-5 px-4 pt-4 pb-8">
+          <p className="font-mono text-[11px] tracking-wide text-muted-foreground uppercase">
+            {profile.name}
+          </p>
           <h1
             className={cn(
-              "text-balance font-semibold text-5xl leading-[0.95] tracking-tight text-foreground md:text-6xl",
+              "text-balance font-semibold text-4xl leading-[1.05] tracking-tight text-foreground md:text-5xl lg:text-[3.25rem]",
             )}
           >
-            {profile.name.split(" ").join(" ")}
+            {heroHeadline}
           </h1>
 
-          <Link
-            href="/about"
-            prefetch={false}
-            className={cn(
-              "group flex w-fit items-center gap-3 rounded-sm border bg-card p-1 shadow-xs",
-            )}
-          >
-            <div className="rounded-xs border bg-card px-1.5 py-0.5 shadow-sm">
-              <p className="font-mono text-xs">NOW</p>
-            </div>
-            <span className="text-xs text-muted-foreground">
-              {profile.publicHeadline}
-            </span>
-            <span className="block h-5 border-l" />
-            <ArrowRightGlyph
-              className="size-3 pr-1 duration-150 ease-out group-hover:translate-x-0.5"
-            />
-          </Link>
-
-          <p className="text-muted-foreground text-sm leading-relaxed md:hidden">
-            {profile.publicHeadline}
+          <p className="text-sm text-muted-foreground md:text-base">
+            {heroStatusLine}
           </p>
-          <p className="hidden text-muted-foreground text-sm leading-relaxed md:block md:text-lg">
-            {profile.shortBio}
+
+          <p className="text-muted-foreground text-sm leading-relaxed md:text-lg">
+            {profile.publicHeadline}
           </p>
           <p className="font-mono text-[11px] tracking-wide text-muted-foreground">
             {profile.metadataLine}
@@ -142,7 +128,10 @@ export function PortfolioHero() {
 
         <div className="flex w-full min-w-0 max-w-full flex-wrap gap-x-4 gap-y-2 border-t border-border px-4 py-4 font-mono text-xs tracking-wider text-muted-foreground">
           {profile.heroStrip.map((tech, i) => (
-            <span key={tech} className="inline-flex max-w-full shrink-0 items-center gap-4">
+            <span
+              key={tech}
+              className="inline-flex max-w-full shrink-0 items-center gap-4"
+            >
               {i > 0 ? (
                 <span aria-hidden className="hidden text-border md:inline">
                   /

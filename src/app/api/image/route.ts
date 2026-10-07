@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
-import { siteConfig } from "@/config/site";
 import { createElement } from "react";
+import { siteConfig } from "@/config/site";
 
 /**
  * Dynamic OG, Twitter, PWA icons (ported from pre-Fumadocs portfolio eras).
@@ -16,8 +16,6 @@ export async function GET(request: Request) {
 
   const bg = siteConfig.theme.background;
   const fg = siteConfig.theme.foreground;
-  const accent = siteConfig.theme.accent;
-
   let w = 512;
   let h = 512;
 
@@ -25,16 +23,16 @@ export async function GET(request: Request) {
     case "icon":
     case "apple":
       w = h = size || 512;
-      return new ImageResponse(
-        iconMarkup("JR", w, bg, fg, 0.45),
-        { width: w, height: h },
-      );
+      return new ImageResponse(iconMarkup("JR", w, bg, fg, 0.45), {
+        width: w,
+        height: h,
+      });
     case "maskable":
       w = h = size || 512;
-      return new ImageResponse(
-        iconMarkup("JR", w, bg, fg, 0.35),
-        { width: w, height: h },
-      );
+      return new ImageResponse(iconMarkup("JR", w, bg, fg, 0.35), {
+        width: w,
+        height: h,
+      });
     case "og":
       w = 1280;
       h = 720;
@@ -52,10 +50,10 @@ export async function GET(request: Request) {
       return new ImageResponse(socialCardMarkup("og"), { width: w, height: h });
     default:
       w = h = size || 512;
-      return new ImageResponse(
-        iconMarkup("JR", w, bg, fg, 0.45),
-        { width: w, height: h },
-      );
+      return new ImageResponse(iconMarkup("JR", w, bg, fg, 0.45), {
+        width: w,
+        height: h,
+      });
   }
 }
 
@@ -168,7 +166,7 @@ function socialCardMarkup(variant: "og" | "twitter") {
           color: muted,
         },
       },
-      siteConfig.siteDescription,
+      siteConfig.longDescription,
     ),
   );
 }

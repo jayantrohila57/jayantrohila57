@@ -12,10 +12,15 @@ export type ArchitectureSpec = {
 export const architectureByProject: Record<string, ArchitectureSpec> = {
   "e-commerce": {
     title: "Checkout & payments flow",
-    sourceNote: "From e-commerce repo docs (tRPC order procedures, Razorpay webhook).",
+    sourceNote:
+      "From e-commerce repo docs (tRPC order procedures, Razorpay webhook).",
     nodes: [
       { id: "ui", label: "Storefront UI", sub: "Next.js App Router" },
-      { id: "api", label: "tRPC API", sub: "order.previewCheckoutTotals · order.create" },
+      {
+        id: "api",
+        label: "tRPC API",
+        sub: "order.previewCheckoutTotals · order.create",
+      },
       { id: "db", label: "PostgreSQL", sub: "Drizzle ORM · Neon" },
       { id: "auth", label: "Better Auth", sub: "sessions" },
       { id: "pay", label: "Razorpay", sub: "HMAC webhook" },
@@ -47,9 +52,21 @@ export const architectureByProject: Record<string, ArchitectureSpec> = {
     title: "Modular App Router layout",
     sourceNote: "From Taskflow README (modules/, tRPC, Prisma schema split).",
     nodes: [
-      { id: "routes", label: "[locale] routes", sub: "public · protected · panel" },
-      { id: "modules", label: "src/modules", sub: "auth · org · task · project" },
-      { id: "trpc", label: "tRPC routers", sub: "users · orgs · projects · tasks" },
+      {
+        id: "routes",
+        label: "[locale] routes",
+        sub: "public · protected · panel",
+      },
+      {
+        id: "modules",
+        label: "src/modules",
+        sub: "auth · org · task · project",
+      },
+      {
+        id: "trpc",
+        label: "tRPC routers",
+        sub: "users · orgs · projects · tasks",
+      },
       { id: "prisma", label: "prisma/schema", sub: "PostgreSQL" },
     ],
     edges: [

@@ -1,5 +1,5 @@
-import { siteConfig } from "@/config/site";
 import { redirect } from "next/navigation";
+import { siteConfig } from "@/config/site";
 
 export const alt = `${siteConfig.siteName} — ${siteConfig.siteDescription}`;
 export const size = { width: 1280, height: 720 };

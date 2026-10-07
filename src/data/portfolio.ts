@@ -1,4 +1,11 @@
-import { publicHeadline, shortAbout, siteConfig } from "@/config/site";
+import {
+  heroHeadline,
+  longAbout,
+  metaDescription,
+  publicHeadline,
+  siteConfig,
+  specializationLine,
+} from "@/config/site";
 
 export type ProjectVisualType =
   | "dashboard"
@@ -67,12 +74,34 @@ export type EngineeringPrinciple = {
   visual: "ui-stack" | "type-flow" | "ci-pipeline" | "data-table";
 };
 
+export const workPageTierLabels = [
+  { key: "flagship", title: "Flagship projects" },
+  { key: "supporting", title: "Strong supporting work" },
+  { key: "experiments", title: "Experiments" },
+] as const;
+
+export const workPageOrder: {
+  slug: string;
+  tier: (typeof workPageTierLabels)[number]["key"];
+}[] = [
+  { slug: "taskflow", tier: "flagship" },
+  { slug: "env-manager", tier: "flagship" },
+  { slug: "libyui", tier: "flagship" },
+  { slug: "e-commerce", tier: "supporting" },
+  { slug: "stats-on-spotify", tier: "supporting" },
+  { slug: "inkly-cms", tier: "experiments" },
+  { slug: "image-editor", tier: "experiments" },
+  { slug: "patternlab", tier: "experiments" },
+];
+
 export const profile = {
   name: siteConfig.author.name,
-  title: siteConfig.author.jobTitle,
+  title: siteConfig.author.role,
+  tagline: heroHeadline,
+  specialization: specializationLine,
   publicHeadline,
-  shortBio: shortAbout,
-  longBio: shortAbout,
+  shortBio: metaDescription,
+  longBio: longAbout,
   location: siteConfig.contact.location,
   openToOpportunities: siteConfig.contact.hireable,
   metadataLine: "NEXT.JS · REACT · TYPESCRIPT · TAILWIND",
@@ -103,7 +132,7 @@ export const projects: PortfolioProject[] = [
     title: "E-commerce",
     eyebrow: "PROJECT / PRODUCT",
     summary:
-      "Production-shaped storefront with auth, server-authoritative Razorpay checkout, and staff-facing studio routes.",
+      "Full-stack commerce platform with authenticated customer flows, staff operations, and server-authoritative Razorpay checkout.",
     description:
       "A Next.js storefront with App Router routes, authenticated customer flows, staff Studio (restricted to staff/admin per repo docs), and Razorpay checkout with webhook verification.",
     status: "Open source · Live demo",
@@ -120,7 +149,7 @@ export const projects: PortfolioProject[] = [
       "Tailwind CSS",
     ],
     categories: ["product", "frontend", "backend"],
-    featured: true,
+    featured: false,
     visualType: "dashboard",
     links: {
       live: "https://e-commerce-jayantrohila.vercel.app",
@@ -131,7 +160,7 @@ export const projects: PortfolioProject[] = [
         id: "overview",
         title: "Overview",
         body: [
-          "Production-oriented e-commerce codebase with real auth, database-backed catalog and orders, and payment integration where totals and provider charges stay aligned.",
+          "Personal project built with production-minded architecture: real auth, database-backed catalog and orders, and payment flows where totals stay aligned with provider charges.",
         ],
       },
       {
@@ -152,21 +181,21 @@ export const projects: PortfolioProject[] = [
         id: "architecture",
         title: "Architecture",
         body: [
-          "App Router UI → tRPC procedures → Drizzle on PostgreSQL (Neon). Better Auth for sessions. Razorpay webhooks with HMAC verification. Optional Resend, Sentry, and blob storage per README.",
+          "App Router UI → tRPC procedures → Drizzle on PostgreSQL (Neon). Better Auth for sessions. Razorpay webhooks with HMAC verification. Optional Resend, Sentry, and blob storage.",
         ],
       },
       {
         id: "stack",
         title: "Stack",
         body: [
-          "Next.js App Router, TypeScript, tRPC, Drizzle ORM, PostgreSQL, Better Auth, Razorpay, Vitest, Biome — from project README and docs.",
+          "Next.js App Router, TypeScript, tRPC, Drizzle ORM, PostgreSQL, Better Auth, Razorpay, Vitest, and Biome.",
         ],
       },
       {
         id: "outcome",
         title: "Outcome",
         body: [
-          "Public repository and deployed demo on Vercel. Sales volume, traffic, and production launch status are not published here.",
+          "Demonstrates server-authoritative checkout, authenticated customer flows, staff operations, and payment webhook verification in one codebase — open source with a live demo.",
         ],
       },
     ],
@@ -204,7 +233,7 @@ export const projects: PortfolioProject[] = [
         id: "overview",
         title: "Overview",
         body: [
-          "Single place to manage configuration that should align with how teams run apps locally and in CI/CD — described in the README as a single source of truth.",
+          "Developer-first workspace for environment variables and secrets across dev, staging, and production targets.",
         ],
       },
       {
@@ -218,14 +247,14 @@ export const projects: PortfolioProject[] = [
         id: "stack",
         title: "Stack",
         body: [
-          "Next.js 16, React 19, TypeScript, Tailwind CSS, shadcn/ui, Better Auth, Neon with Prisma, deployed on Vercel — from README.",
+          "Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, Better Auth, Neon, Prisma, deployed on Vercel.",
         ],
       },
       {
         id: "outcome",
         title: "Outcome",
         body: [
-          "Working open-source repo and hosted demo. Team adoption and connected project counts are not tracked on this site.",
+          "Shows secure secret handling, multi-environment tabs, and a UI aimed at day-to-day configuration workflows — open source with a hosted demo.",
         ],
       },
     ],
@@ -284,15 +313,13 @@ export const projects: PortfolioProject[] = [
         id: "stack",
         title: "Stack",
         body: [
-          "Next.js App Router, TypeScript, Prisma, PostgreSQL, tRPC, TanStack Query, Radix UI, shadcn/ui, Tailwind CSS 4, next-intl — from README.",
+          "Next.js App Router, TypeScript, Prisma, PostgreSQL, tRPC, TanStack Query, Radix UI, shadcn/ui, Tailwind CSS, and next-intl.",
         ],
       },
       {
         id: "outcome",
         title: "Outcome",
-        body: [
-          "Public source and v1 Vercel deployment. Active user counts and revenue are not published here.",
-        ],
+        body: ["Open-source repository with a hosted demo on Vercel."],
       },
     ],
   },
@@ -301,7 +328,8 @@ export const projects: PortfolioProject[] = [
     title: "Inkly CMS",
     eyebrow: "EXPERIMENT / CMS",
     summary: "Self-hosted blogging CMS with TipTap editor patterns.",
-    description: "Headless CMS-style blogging project with React Query and editor-focused UX.",
+    description:
+      "Headless CMS-style blogging project with React Query and editor-focused UX.",
     status: "Open source · Demo",
     year: "2024–2025",
     stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
@@ -316,7 +344,9 @@ export const projects: PortfolioProject[] = [
       {
         id: "overview",
         title: "Overview",
-        body: ["Secondary showcase — CMS and content editing patterns."],
+        body: [
+          "Self-hosted publishing with rich-text editing, taxonomy, media, and role-aware content workflows.",
+        ],
       },
     ],
   },
@@ -325,12 +355,13 @@ export const projects: PortfolioProject[] = [
     title: "libyui",
     eyebrow: "LIBRARY",
     summary: "React component library built with TypeScript and Tailwind CSS.",
-    description: "Reusable UI primitives published as an open-source component library.",
+    description:
+      "Reusable UI primitives published as an open-source component library.",
     status: "Open source · Live demo",
     year: "2024–2025",
     stack: ["React", "TypeScript", "Tailwind CSS"],
     categories: ["experiment", "frontend"],
-    featured: false,
+    featured: true,
     visualType: "custom",
     links: {
       live: "https://libyui.vercel.app/",
@@ -364,7 +395,9 @@ export const projects: PortfolioProject[] = [
       {
         id: "overview",
         title: "Overview",
-        body: ["Supporting showcase from the public deploy map in career source data."],
+        body: [
+          "Browser-based image editing experiment with a hosted preview on Vercel.",
+        ],
       },
     ],
   },
@@ -373,7 +406,8 @@ export const projects: PortfolioProject[] = [
     title: "Stats On Spotify",
     eyebrow: "EXPERIMENT / DATA",
     summary: "Spotify stats visualization side project with a public demo.",
-    description: "Hosted on Vercel; scope and stack documented in the GitHub repository.",
+    description:
+      "Hosted on Vercel; scope and stack documented in the GitHub repository.",
     status: "Open source · Live demo",
     year: "2023–2025",
     stack: ["Next.js", "TypeScript", "React"],
@@ -388,7 +422,9 @@ export const projects: PortfolioProject[] = [
       {
         id: "overview",
         title: "Overview",
-        body: ["Listed as strong supporting work in public career source data."],
+        body: [
+          "Spotify listening stats visualization with a public demo and repository.",
+        ],
       },
     ],
   },
@@ -396,8 +432,10 @@ export const projects: PortfolioProject[] = [
     slug: "patternlab",
     title: "Patternlab",
     eyebrow: "EXPERIMENT / UI",
-    summary: "UI patterns lab with a live Vercel preview.",
-    description: "Public repo and deployment — see repository for implementation notes.",
+    summary:
+      "Interactive platform for practicing programming patterns with runnable examples and tests.",
+    description:
+      "Pattern challenges with a code runner and test feedback — explore solutions in the browser.",
     status: "Open source · Live demo",
     year: "2024–2025",
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -412,7 +450,9 @@ export const projects: PortfolioProject[] = [
       {
         id: "overview",
         title: "Overview",
-        body: ["Pattern and layout experiments published with a public demo URL."],
+        body: [
+          "Focused on learning patterns through small exercises, live execution, and verifiable outputs.",
+        ],
       },
     ],
   },
@@ -428,8 +468,8 @@ export const experience: ExperienceEntry[] = [
     summary:
       "Product engineering for software engagements — web products with TypeScript, React, and Next.js-style stacks.",
     highlights: [
-      "Work GitHub: github.com/jayantaiqmen (created May 2026).",
-      "Employer deliverables and client names are not listed on this public site.",
+      "Work GitHub: github.com/jayantaiqmen.",
+      "Client-facing deliverables stay confidential; portfolio focuses on open-source work.",
     ],
     technologies: ["TypeScript", "React", "Next.js"],
   },
@@ -442,8 +482,8 @@ export const experience: ExperienceEntry[] = [
     summary:
       "Full-stack software delivery in a services environment. Trainee from join; Associate Software Developer from 17 Jun 2024.",
     highlights: [
-      "HR title used here; some public profiles say Software Engineer / SDE.",
-      "Last working day 16 Apr 2026 per public career records.",
+      "Associate Software Developer from June 2024; trainee from March 2024.",
+      "Last working day 16 April 2026.",
     ],
     technologies: ["TypeScript", "Next.js", "React"],
   },
@@ -462,10 +502,8 @@ export const experience: ExperienceEntry[] = [
     role: "Software Developer – Trainee",
     period: "Jul 2021 – Oct 2021",
     summary:
-      "Trainee software role including ServiceNow administration and development (also listed as ServiceNow Admin & Dev Intern on older resumes).",
-    highlights: [
-      "Public sources disagree on exact start month (Jul vs Aug 2021); Jul–Oct 2021 preferred here.",
-    ],
+      "Trainee software role focused on ServiceNow administration and development.",
+    highlights: ["Jul–Oct 2021 · ServiceNow platform work."],
     technologies: ["ServiceNow"],
   },
 ];
@@ -598,7 +636,10 @@ export const stackGroups: StackGroup[] = [
     label: "Data / API",
     items: [
       { name: "tRPC", projectSlugs: ["e-commerce", "taskflow"] },
-      { name: "Prisma", projectSlugs: ["env-manager", "taskflow", "inkly-cms"] },
+      {
+        name: "Prisma",
+        projectSlugs: ["env-manager", "taskflow", "inkly-cms"],
+      },
       { name: "Drizzle ORM", projectSlugs: ["e-commerce"] },
       {
         name: "PostgreSQL / Neon",
@@ -664,7 +705,24 @@ export const engineeringPrinciples: EngineeringPrinciple[] = [
 ];
 
 export function getFeaturedProjects() {
-  return projects.filter((p) => p.featured);
+  const order = workPageOrder
+    .filter((entry) => entry.tier === "flagship")
+    .map((entry) => entry.slug);
+  const featured = projects.filter((p) => p.featured);
+  return [...featured].sort(
+    (a, b) => order.indexOf(a.slug) - order.indexOf(b.slug),
+  );
+}
+
+export function getWorkPageProjectsByTier() {
+  const bySlug = new Map(projects.map((project) => [project.slug, project]));
+  return workPageTierLabels.map((tier) => ({
+    ...tier,
+    projects: workPageOrder
+      .filter((entry) => entry.tier === tier.key)
+      .map((entry) => bySlug.get(entry.slug))
+      .filter((project): project is PortfolioProject => Boolean(project)),
+  }));
 }
 
 export function getProject(slug: string) {

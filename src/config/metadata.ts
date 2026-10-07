@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { getGoogleSiteVerification } from "@/lib/google-site-verification";
+import { toMetaDescription } from "@/lib/meta-description";
 import { getAbsoluteUrl, siteConfig } from "./site";
 
 const ogImageUrl = `${siteConfig.siteUrl}/api/image?type=og`;
 const twitterImageUrl = `${siteConfig.siteUrl}/api/image?type=twitter`;
+const googleSiteVerification = getGoogleSiteVerification();
 
 export const baseMetadata: Metadata = {
   title: {
@@ -78,9 +81,9 @@ export const baseMetadata: Metadata = {
     "msapplication-starturl": "/",
     "msapplication-TileImage": "/api/image?type=icon&size=150",
   },
-  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+  verification: googleSiteVerification
     ? {
-        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        google: googleSiteVerification,
       }
     : undefined,
   category: "technology",
@@ -107,7 +110,9 @@ export function generatePageMetadata(options: {
 
   const url = getAbsoluteUrl(path);
   const pageTitle = title || siteConfig.siteTitle;
-  const pageDescription = description || siteConfig.siteDescription;
+  const pageDescription = toMetaDescription(
+    description || siteConfig.siteDescription,
+  );
   const pageKeywords = [...siteConfig.seo.keywords, ...keywords];
 
   return {

@@ -1,14 +1,16 @@
 "use client";
 
+import { Code2 } from "lucide-react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
-import { Code2 } from "lucide-react";
 
 const CommandMenu = dynamic(
   () =>
-    import("@/components/navigation/command-menu").then((mod) => mod.CommandMenu),
+    import("@/components/navigation/command-menu").then(
+      (mod) => mod.CommandMenu,
+    ),
   { ssr: false },
 );
 

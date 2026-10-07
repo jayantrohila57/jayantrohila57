@@ -1,4 +1,4 @@
-import { toolboxHighlightIds, technologies } from "@/data/technologies";
+import { technologies, toolboxHighlightIds } from "@/data/technologies";
 
 export function LogoCloud() {
   const labels = technologies
@@ -22,9 +22,18 @@ export function LogoCloud() {
 /** Demo wordmarks for playground only. */
 export function LogoCloudDemo() {
   const logos = [
-    { alt: "Vercel", src: "https://storage.efferd.com/logo/vercel-wordmark.svg" },
-    { alt: "Supabase", src: "https://storage.efferd.com/logo/supabase-wordmark.svg" },
-    { alt: "GitHub", src: "https://storage.efferd.com/logo/github-wordmark.svg" },
+    {
+      alt: "Vercel",
+      src: "https://storage.efferd.com/logo/vercel-wordmark.svg",
+    },
+    {
+      alt: "Supabase",
+      src: "https://storage.efferd.com/logo/supabase-wordmark.svg",
+    },
+    {
+      alt: "GitHub",
+      src: "https://storage.efferd.com/logo/github-wordmark.svg",
+    },
   ];
   return (
     <div className="relative flex flex-wrap items-center justify-center gap-x-10 gap-y-8 py-6">

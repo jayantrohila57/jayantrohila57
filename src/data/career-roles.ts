@@ -16,7 +16,7 @@ export const roleProgressionByCompany: Record<string, RoleStep[]> = {
       title: "Associate Software Developer",
       from: "17 Jun 2024",
       to: "16 Apr 2026",
-      note: "HR title used on this site; some profiles say Software Engineer / SDE.",
+      note: "Associate Software Developer from June 2024.",
     },
   ],
 };
@@ -30,7 +30,10 @@ export const companyFacts: Record<string, CompanyFacts> = {
   aiqmen: {
     facts: [
       { label: "Entity", value: "AIQMEN DESIGNS AND TECHNOLOGIES PVT LTD" },
-      { label: "Title", value: "Product Engineer / Consultant–Product Engineer" },
+      {
+        label: "Title",
+        value: "Product Engineer / Consultant–Product Engineer",
+      },
       { label: "Joined", value: "18 May 2026" },
       { label: "Status", value: "Present" },
       { label: "Location", value: "Noida" },
@@ -46,9 +49,7 @@ export const companyFacts: Record<string, CompanyFacts> = {
       { label: "Start", value: "18 March 2024" },
       { label: "Last working day", value: "16 April 2026" },
     ],
-    external: [
-      { label: "Profile notes (titles)", href: "/archive/conflicts" },
-    ],
+    external: [{ label: "Profile notes (titles)", href: "/archive/conflicts" }],
   },
   teevro: {
     facts: [

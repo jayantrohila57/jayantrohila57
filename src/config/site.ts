@@ -3,8 +3,25 @@ import type { Viewport } from "next";
 export const publicHeadline =
   "Product Engineer (Frontend) | Next.js · React.js · TypeScript";
 
-export const shortAbout =
+export const heroHeadline =
+  "Product Engineer building complex web applications that feel simple.";
+
+export const heroStatusLine =
+  "Currently building product software at aiQmen · Noida, India";
+
+export const specializationLine =
+  "Complex web applications, frontend architecture, and data-heavy UX.";
+
+/** Longer bio for page body, JSON-LD, and social image cards — not for HTML meta snippets. */
+export const longAbout =
   "Product Engineer with 2+ years building web products in React.js, Next.js, and TypeScript. I ship responsive UIs with Tailwind CSS, integrate Node.js / REST APIs, and own features from design handoff to production. Live work: jayantrohila.com · GitHub jayantrohila57. Based in Noida; open to in-office, hybrid, and remote across India.";
+
+/** ~150 chars for meta / OG / Twitter descriptions. */
+export const metaDescription =
+  "Product Engineer (Frontend) at aiQmen, Noida. Next.js, React, TypeScript—portfolio, open-source repos, and production web apps.";
+
+/** @deprecated Use `longAbout` or `metaDescription` explicitly. */
+export const shortAbout = longAbout;
 
 export type ElsewhereLink = {
   label: string;
@@ -41,7 +58,8 @@ export const elsewhereLinks: ElsewhereLink[] = [
 export const siteConfig = {
   siteName: "Jayant Rohila",
   siteTitle: `Jayant Rohila — ${publicHeadline}`,
-  siteDescription: shortAbout,
+  siteDescription: metaDescription,
+  longDescription: longAbout,
   siteUrl: "https://jayantrohila.com",
 
   author: {

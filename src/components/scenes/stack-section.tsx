@@ -1,6 +1,6 @@
 import { FullWidthDivider } from "@/components/full-width-divider";
-import { LogoCloud } from "@/components/logo-cloud";
 import { PortfolioStackIntegrations } from "@/components/integrations";
+import { LogoCloud } from "@/components/logo-cloud";
 import {
   SectionFrame,
   SectionIntro,
@@ -14,7 +14,7 @@ export function StackSection() {
         <SectionLabel index="03" label="Stack" />
         <SectionIntro
           title="Technologies tied to real projects."
-          description="Only tools with evidence in public repositories."
+          description="Technologies used across shipped projects and open-source repos."
         />
       </div>
       <FullWidthDivider />

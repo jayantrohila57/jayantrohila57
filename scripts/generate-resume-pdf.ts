@@ -1,6 +1,6 @@
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import { resumeData } from "../src/lib/resume-data";
 
 const PAGE_WIDTH = 612;
@@ -105,8 +105,7 @@ async function main() {
 
   drawLine("EDUCATION", 10, true);
   for (const item of resumeData.education) {
-    const cert =
-      "href" in item && item.href ? ` — ${item.href}` : "";
+    const cert = "href" in item && item.href ? ` — ${item.href}` : "";
     drawLine(
       `${item.credential}, ${item.institution} (${item.period})${cert}`,
       9,

@@ -1,13 +1,13 @@
 "use client";
 
+import { Code2, Link2, Mail } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { DecorIcon } from "@/components/decor-icon";
+import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
-import { Code2, Link2, Mail } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const channels = [
   {
@@ -97,7 +97,7 @@ export function PortfolioContactPanel({ className }: { className?: string }) {
         {profile.openToOpportunities ? (
           <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
             <span className="size-1.5 rounded-full bg-brand" />
-            Open to opportunities
+            Open to product engineering roles
           </p>
         ) : null}
       </div>

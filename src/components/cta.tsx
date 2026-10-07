@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { DecorIcon } from "@/components/decor-icon";
 import { ArrowRightIcon } from "lucide-react";
+import Link from "next/link";
+import { DecorIcon } from "@/components/decor-icon";
+import { Button } from "@/components/ui/button";
 
 type CallToActionProps = {
   title?: string;

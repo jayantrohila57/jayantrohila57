@@ -1,7 +1,7 @@
 import { ContactSocialCards } from "@/components/contact";
 import { ContactElsewhereLinks } from "@/components/contact-elsewhere";
-import { CallToAction } from "@/components/cta";
 import { PortfolioContactPanel } from "@/components/contact-section";
+import { CallToAction } from "@/components/cta";
 import {
   SectionFrame,
   SectionIntro,
