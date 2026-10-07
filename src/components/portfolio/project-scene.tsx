@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ProjectPreviewBySlug } from "@/components/portfolio/project-previews";
+import { ProjectMedia } from "@/components/portfolio/project-media";
 import type { PortfolioProject } from "@/data/portfolio";
 import { cn } from "@/lib/cn";
 
@@ -12,10 +12,12 @@ export function ProjectVisual({
 }) {
   return (
     <div className={cn("relative", className)} aria-hidden>
-      <ProjectPreviewBySlug project={project} />
+      <ProjectMedia project={project} />
     </div>
   );
 }
+
+export { ProjectMedia };
 
 export function ProjectScene({
   project,

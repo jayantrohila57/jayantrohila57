@@ -228,4 +228,29 @@ body {
   .text-link-accent:hover {
     color: var(--color-brand-muted);
   }
+
+  .skip-link {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    z-index: 100;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--background);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transform: translateY(-200%);
+    transition: transform 0.15s ease;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+  }
+
+  .page-intro {
+    max-width: 48rem;
+  }
 }

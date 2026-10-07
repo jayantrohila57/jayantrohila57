@@ -32,7 +32,13 @@ const channels = [
   },
 ];
 
-export function PortfolioContactPanel({ className }: { className?: string }) {
+export function PortfolioContactPanel({
+  className,
+  showIntro = true,
+}: {
+  className?: string;
+  showIntro?: boolean;
+}) {
   const [copied, setCopied] = useState(false);
 
   async function copyEmail() {
@@ -49,13 +55,15 @@ export function PortfolioContactPanel({ className }: { className?: string }) {
       )}
     >
       <div className="border-b px-6 py-8">
-        <div className="mb-6 flex flex-col gap-2">
-          <h2 className="font-semibold text-xl md:text-2xl">Get in touch</h2>
-          <p className="text-muted-foreground text-sm">
-            Product engineering conversations and open-source questions — no
-            phone or form spam.
-          </p>
-        </div>
+        {showIntro ? (
+          <div className="mb-6 flex flex-col gap-2">
+            <h2 className="font-semibold text-xl md:text-2xl">Get in touch</h2>
+            <p className="text-muted-foreground text-sm">
+              For hiring, product engineering, collaborations, and open-source
+              discussions.
+            </p>
+          </div>
+        ) : null}
         <div className="grid gap-2 md:grid-cols-1">
           {channels.map((item) => (
             <div className="flex items-center gap-4 p-2" key={item.title}>

@@ -33,7 +33,7 @@ export const resumeData = {
       period: "18 May 2026 – Present",
       location: "Noida",
       bullets: [
-        "Product engineering for software engagements — TypeScript, React, Next.js-style stacks.",
+        "Building product interfaces and full-stack web features with TypeScript, React, and Next.js.",
         "Client names and employer deliverables are not listed on this public resume.",
       ],
     },
