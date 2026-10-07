@@ -10,6 +10,7 @@ import {
   EmptyTitle,
 } from "@/components/ui/empty";
 
+/** Efferd `not-found-1` — simple recovery screen. */
 export function NotFoundPage() {
   return (
     <div className="flex w-full items-center justify-center overflow-hidden py-16">
@@ -21,17 +22,14 @@ export function NotFoundPage() {
               <EmptyTitle className="font-black font-mono text-8xl">
                 404
               </EmptyTitle>
-              <EmptyDescription className="text-nowrap">
-                The page you&apos;re looking for might have been <br />
-                moved or doesn&apos;t exist.
-              </EmptyDescription>
+              <EmptyDescription>This page doesn&apos;t exist.</EmptyDescription>
             </EmptyHeader>
             <EmptyContent>
               <div className="flex gap-2">
                 <Button asChild>
                   <Link href="/">
                     <HomeIcon data-icon="inline-start" />
-                    Go home
+                    Back home
                   </Link>
                 </Button>
                 <Button asChild variant="outline">

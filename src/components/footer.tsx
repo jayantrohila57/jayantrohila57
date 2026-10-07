@@ -1,131 +1,83 @@
-import { ArrowRightIcon, Code2 } from "lucide-react";
 import Link from "next/link";
-import type React from "react";
-import { footerNavGroups } from "@/config/navigation";
-import { metaDescription, siteConfig } from "@/config/site";
+import { mainNav } from "@/config/navigation";
+import { siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
-import { cn } from "@/lib/utils";
 
+const connectLinks = [
+  { label: "GitHub", href: siteConfig.social.github, external: true },
+  { label: "LinkedIn", href: siteConfig.social.linkedin, external: true },
+  {
+    label: "Email",
+    href: `mailto:${siteConfig.contact.email}`,
+    external: true,
+  },
+];
+
+/** Efferd `footer-4` — compact identity and navigation endpoint. */
 export function Footer() {
   const year = new Date().getFullYear();
-  const explore = footerNavGroups.find((g) => g.title === "Explore");
-  const connect = footerNavGroups.find((g) => g.title === "Connect");
 
   return (
     <footer className="border-t border-border">
-      <div className="relative mx-auto max-w-5xl px-4">
-        <div className="relative grid grid-cols-1 border-x border-border md:grid-cols-3 md:divide-x">
-          <div className="p-4 md:p-5">
-            <p className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
+      <div className="relative mx-auto max-w-5xl border-x border-border px-4">
+        <div className="grid gap-8 py-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:gap-12">
+          <div className="space-y-3">
+            <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
               {profile.name}
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              {metaDescription}
+            <p className="text-sm font-medium text-foreground">
+              {profile.title}
+            </p>
+            <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+              Building complex web products with thoughtful UX and scalable
+              frontend architecture.
             </p>
           </div>
-          {explore ? (
-            <LinksGroup
-              links={explore.items.map((item) => ({
-                title: item.label,
-                href: item.href,
-                external: item.external,
-              }))}
-              title={explore.title}
-            />
-          ) : null}
-          <div>
-            <SocialCard
-              className="border-t-0 md:border-t"
-              href={siteConfig.social.github}
-              icon={<Code2 className="size-3.5" />}
-              title="GitHub"
-            />
-            {connect ? (
-              <LinksGroup
-                links={connect.items
-                  .filter((item) => item.label !== "GitHub")
-                  .map((item) => ({
-                    title: item.label,
-                    href: item.href,
-                    external: item.external,
-                  }))}
-                title={connect.title}
-              />
-            ) : null}
+          <div className="grid gap-8 sm:grid-cols-2">
+            <div>
+              <h3 className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+                Explore
+              </h3>
+              <ul className="mt-3 space-y-2">
+                {mainNav.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-muted-foreground hover:text-foreground"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+                Connect
+              </h3>
+              <ul className="mt-3 space-y-2">
+                {connectLinks.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground"
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center gap-1 border-t border-border p-4 text-center">
+      <div className="border-t border-border py-4 text-center">
         <p className="text-muted-foreground text-xs">
-          © {year} {siteConfig.author.name} · {profile.location}
+          © {year} {siteConfig.author.name}
         </p>
       </div>
     </footer>
-  );
-}
-
-type LinksGroupProps = {
-  title: string;
-  links: { title: string; href: string; external?: boolean }[];
-};
-
-function LinksGroup({ title, links }: LinksGroupProps) {
-  return (
-    <div className="p-3 md:p-4">
-      <h3 className="mt-2 mb-3 font-light text-[10px] text-muted-foreground uppercase tracking-wider">
-        {title}
-      </h3>
-      <ul className="space-y-1.5">
-        {links.map((link) => (
-          <li key={link.title + link.href}>
-            {link.external ? (
-              <a
-                className="text-muted-foreground text-sm hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {link.title}
-              </a>
-            ) : (
-              <Link
-                className="text-muted-foreground text-sm hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                href={link.href}
-              >
-                {link.title}
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function SocialCard({
-  title,
-  href,
-  className,
-  icon,
-}: React.ComponentProps<"a"> & {
-  title: string;
-  icon?: React.ReactNode;
-}) {
-  return (
-    <a
-      className={cn(
-        "flex items-center justify-between border-y border-border p-3 text-sm hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:hover:bg-muted/50 md:p-4",
-        className,
-      )}
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span className="flex items-center gap-2 font-medium [&>svg]:shrink-0">
-        {icon}
-        {title}
-      </span>
-      <ArrowRightIcon className="size-4" aria-hidden />
-    </a>
   );
 }

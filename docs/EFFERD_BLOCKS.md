@@ -12,7 +12,7 @@ Style: **new-york**. Install: `pnpm dlx shadcn@latest add @efferd/<id> --overwri
 
 Preview installed blocks (placeholder copy): **`/playground/efferd`**
 
-Homepage and site routes are **not** rewired yet — wait for Jayant’s section replacement list.
+Homepage uses the Efferd block map from `docs/SITE_EFFERD_SECTION_MAP.md` (hero-3, blogs-1 work/experience, features-6/3, logo-cloud stack, blogs-2 experiments, contact-5, cta-3, footer-4, header-1, not-found-1).
 
 ## Installed (free / CLI OK)
 

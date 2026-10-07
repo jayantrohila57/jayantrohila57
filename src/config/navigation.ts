@@ -6,11 +6,12 @@ export type NavItem = {
   external?: boolean;
 };
 
+/** Primary header navigation — 3–5 links per Efferd header-1 guidance. */
 export const mainNav: NavItem[] = [
   { label: "Work", href: "/work" },
   { label: "Engineering", href: "/engineering" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Resume", href: siteConfig.resumePath },
 ];
 
 const footerElsewhere: NavItem[] = [
@@ -24,8 +25,8 @@ const footerElsewhere: NavItem[] = [
     href: "https://github.com/jayantrohila57",
     external: true,
   },
-  { label: "Resume", href: siteConfig.resumePath },
   { label: "Experiments", href: "/experiments" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const footerNavGroups: { title: string; items: NavItem[] }[] = [
@@ -43,3 +44,5 @@ export const footerNavGroups: { title: string; items: NavItem[] }[] = [
     items: footerElsewhere,
   },
 ];
+
+export { elsewhereLinks };

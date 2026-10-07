@@ -18,14 +18,14 @@ const channels = [
   },
   {
     title: "GitHub",
-    value: "jayantrohila57",
+    value: "github.com/jayantrohila57",
     icon: <Code2 />,
     href: profile.social.github,
     external: true,
   },
   {
     title: "LinkedIn",
-    value: "jayant-rohila",
+    value: "linkedin.com/in/jayant-rohila",
     icon: <Link2 />,
     href: profile.social.linkedin,
     external: true,
@@ -35,9 +35,11 @@ const channels = [
 export function PortfolioContactPanel({
   className,
   showIntro = true,
+  layout = "stacked",
 }: {
   className?: string;
   showIntro?: boolean;
+  layout?: "stacked" | "split";
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -47,69 +49,72 @@ export function PortfolioContactPanel({
     setTimeout(() => setCopied(false), 2000);
   }
 
-  return (
-    <div
-      className={cn(
-        "relative mx-auto w-full max-w-lg overflow-hidden border border-border",
-        className,
-      )}
-    >
-      <div className="border-b px-6 py-8">
-        {showIntro ? (
-          <div className="mb-6 flex flex-col gap-2">
-            <h2 className="font-semibold text-xl md:text-2xl">Get in touch</h2>
-            <p className="text-muted-foreground text-sm">
-              For hiring, product engineering, collaborations, and open-source
-              discussions.
-            </p>
+  const intro = showIntro ? (
+    <div className="flex flex-col gap-2">
+      <h2 className="font-semibold text-xl md:text-2xl">
+        Let&apos;s work together
+      </h2>
+      <p className="text-muted-foreground text-sm leading-relaxed">
+        Available for product engineering conversations, frontend architecture,
+        and open-source collaboration.
+      </p>
+    </div>
+  ) : null;
+
+  const channelList = (
+    <div className="grid gap-4">
+      <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+        Contact
+      </p>
+      {channels.map((item) => (
+        <div className="flex items-start gap-4" key={item.title}>
+          <div className="[&_svg]:size-5 [&_svg]:text-muted-foreground">
+            {item.icon}
           </div>
-        ) : null}
-        <div className="grid gap-2 md:grid-cols-1">
-          {channels.map((item) => (
-            <div className="flex items-center gap-4 p-2" key={item.title}>
-              <div className="[&_svg]:size-5 [&_svg]:text-muted-foreground">
-                {item.icon}
+          <div className="flex min-w-0 flex-col gap-y-0.5">
+            <h3 className="text-sm font-medium">{item.title}</h3>
+            {item.external ? (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="break-all text-muted-foreground text-xs hover:text-foreground"
+              >
+                {item.value}
+              </a>
+            ) : (
+              <div className="flex flex-wrap items-center gap-2">
+                <a
+                  href={item.href}
+                  className="break-all text-muted-foreground text-xs hover:text-foreground"
+                >
+                  {item.value}
+                </a>
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  className="text-[10px] text-muted-foreground hover:text-foreground"
+                >
+                  {copied ? "Copied" : "Copy email"}
+                </button>
               </div>
-              <div className="flex flex-col gap-y-0.5">
-                <h3 className="text-sm">{item.title}</h3>
-                {item.external ? (
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground text-xs hover:text-foreground"
-                  >
-                    {item.value}
-                  </a>
-                ) : (
-                  <div className="flex items-center gap-2">
-                    <a
-                      href={item.href}
-                      className="text-muted-foreground text-xs hover:text-foreground"
-                    >
-                      {item.value}
-                    </a>
-                    <button
-                      type="button"
-                      onClick={copyEmail}
-                      className="text-[10px] text-muted-foreground hover:text-foreground"
-                    >
-                      {copied ? "Copied" : "Copy"}
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
+            )}
+          </div>
         </div>
-        {profile.openToOpportunities ? (
-          <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-            <span className="size-1.5 rounded-full bg-brand" />
-            Open to product engineering roles
-          </p>
-        ) : null}
-      </div>
-      <div className="flex flex-wrap gap-3 px-6 py-6">
+      ))}
+    </div>
+  );
+
+  const actions = (
+    <div className="flex flex-col gap-4">
+      <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+        Message
+      </p>
+      <p className="text-sm leading-relaxed text-muted-foreground">
+        Email works best for thoughtful product and engineering conversations.
+        Include context from your repo, roadmap, or team when you reach out.
+      </p>
+      <div className="flex flex-wrap gap-3">
         <Button asChild variant="accent">
           <a href={`mailto:${profile.social.email}`}>Send email</a>
         </Button>
@@ -117,6 +122,40 @@ export function PortfolioContactPanel({
           <Link href={siteConfig.resumePath}>View resume</Link>
         </Button>
       </div>
+      {profile.openToOpportunities ? (
+        <p className="flex items-center gap-2 text-sm text-muted-foreground">
+          <span className="size-1.5 rounded-full bg-brand" />
+          Open to product engineering roles · {profile.location}
+        </p>
+      ) : null}
+    </div>
+  );
+
+  return (
+    <div
+      className={cn(
+        "relative w-full overflow-hidden border border-border",
+        layout === "stacked" && "mx-auto max-w-lg",
+        className,
+      )}
+    >
+      {layout === "split" ? (
+        <div className="grid gap-px bg-border md:grid-cols-2">
+          <div className="space-y-6 bg-background p-6 md:p-8">
+            {intro}
+            {channelList}
+          </div>
+          <div className="bg-background p-6 md:p-8">{actions}</div>
+        </div>
+      ) : (
+        <>
+          <div className="space-y-6 border-b px-6 py-8">
+            {intro}
+            {channelList}
+          </div>
+          <div className="px-6 py-6">{actions}</div>
+        </>
+      )}
       <DecorIcon position="top-left" />
       <DecorIcon position="top-right" />
       <DecorIcon position="bottom-left" />
