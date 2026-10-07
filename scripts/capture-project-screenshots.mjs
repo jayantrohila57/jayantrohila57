@@ -17,13 +17,13 @@ const targets = [
 ];
 
 const browser = await chromium.launch({ headless: true });
-const context = await browser.newContext({
+const defaultContext = await browser.newContext({
   viewport: { width: 1280, height: 720 },
   deviceScaleFactor: 1,
 });
 
 for (const { slug, url } of targets) {
-  const page = await context.newPage();
+  const page = await defaultContext.newPage();
   try {
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 45_000 });
     await page.waitForTimeout(2500);
@@ -37,5 +37,41 @@ for (const { slug, url } of targets) {
   }
 }
 
-await context.close();
+await defaultContext.close();
+
+const taskflowAppContext = await browser.newContext({
+  viewport: { width: 1440, height: 900 },
+  deviceScaleFactor: 2,
+  colorScheme: "dark",
+});
+const taskflowPage = await taskflowAppContext.newPage();
+try {
+  await taskflowPage.goto("https://v1-taskflow.vercel.app/en-US/auth/sign-in", {
+    waitUntil: "networkidle",
+    timeout: 60_000,
+  });
+  await taskflowPage.waitForTimeout(2000);
+  await taskflowPage.evaluate(() => {
+    const nav = document.querySelector("header");
+    if (nav) nav.style.display = "none";
+  });
+  const main = taskflowPage.locator("main").first();
+  const appPath = join(outDir, "taskflow-app.png");
+  if (await main.count()) {
+    await main.screenshot({ path: appPath });
+  } else {
+    await taskflowPage.screenshot({ path: appPath });
+  }
+  console.log("ok", "taskflow-app");
+} catch (error) {
+  console.warn(
+    "skip",
+    "taskflow-app",
+    error instanceof Error ? error.message : error,
+  );
+} finally {
+  await taskflowPage.close();
+}
+await taskflowAppContext.close();
+
 await browser.close();

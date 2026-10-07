@@ -4,7 +4,7 @@ import { EfferdRail } from "@/components/efferd-rail";
 import { buttonVariants } from "@/components/ui/button";
 import { heroHeadline, siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
-import { getProjectScreenshotPath } from "@/lib/project-media";
+import { getProjectHeroScreenshotPath } from "@/lib/project-media";
 import { cn } from "@/lib/utils";
 
 function ArrowRightGlyph({ className }: { className?: string }) {
@@ -28,27 +28,29 @@ function ArrowRightGlyph({ className }: { className?: string }) {
   );
 }
 
-const heroScreenshot = getProjectScreenshotPath("taskflow");
+const heroProjectSlug = "taskflow";
+const heroScreenshot = getProjectHeroScreenshotPath(heroProjectSlug);
 
 /** Homepage hero — Efferd `hero-3` layout with portfolio identity and real product screenshot. */
 export function PortfolioHero() {
   return (
-    <section
-      className={cn(
-        "relative overflow-hidden border-b border-border",
-        "min-h-[calc(100svh-3.5rem)] pt-10 pb-0 md:pt-14",
-      )}
-    >
+    <section className="relative overflow-hidden border-b border-border">
       <EfferdRail padding={false}>
-        <div className="grid gap-px border-x border-border bg-border lg:grid-cols-2">
-          <div className="flex flex-col justify-center gap-5 bg-background px-4 py-10 md:px-8 md:py-14">
+        <div className="grid gap-px border-x border-border bg-border lg:grid-cols-2 lg:items-stretch">
+          <div
+            className={cn(
+              "flex flex-col justify-center gap-4 bg-background px-5 py-10 sm:px-6",
+              "md:gap-5 md:px-8 md:py-14 lg:py-16",
+            )}
+          >
             <p className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
               Product engineer
             </p>
-            <div className="space-y-3">
+            <div className="space-y-2.5 md:space-y-3">
               <h1
                 className={cn(
-                  "text-balance font-semibold text-4xl leading-[1.05] tracking-tight text-foreground md:text-5xl lg:text-[3.25rem]",
+                  "text-balance font-semibold text-4xl leading-[1.05] tracking-tight text-foreground",
+                  "md:text-5xl lg:text-[3.25rem]",
                 )}
               >
                 {profile.name}
@@ -67,7 +69,7 @@ export function PortfolioHero() {
               Next.js · React · TypeScript
             </p>
 
-            <div className="flex w-fit flex-wrap items-center gap-3 pt-1">
+            <div className="flex w-fit flex-wrap items-center gap-3 pt-0.5">
               <Link
                 href="/work"
                 prefetch={false}
@@ -96,21 +98,42 @@ export function PortfolioHero() {
             </div>
           </div>
 
-          <div className="relative min-h-[220px] bg-surface/40 p-3 md:min-h-[320px] md:p-4 lg:min-h-full">
-            <div className="relative h-full overflow-hidden border border-border bg-background">
-              <Image
-                src={heroScreenshot}
-                alt="Taskflow — multi-tenant task and project management"
-                width={1280}
-                height={720}
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="h-full w-full object-cover object-top"
-              />
+          <div className="relative flex min-h-0 flex-col bg-[#050505] lg:min-h-[min(32rem,70vh)]">
+            <div className="relative flex min-h-[220px] flex-1 flex-col sm:min-h-[280px]">
+              <div className="relative min-h-[220px] flex-1 overflow-hidden sm:min-h-[280px]">
+                <Image
+                  src={heroScreenshot}
+                  alt="Taskflow — authentication and workspace UI"
+                  width={1440}
+                  height={900}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="h-full min-h-[220px] w-full object-cover object-left sm:min-h-[280px]"
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent lg:bg-gradient-to-l lg:from-background/40 lg:via-transparent lg:to-transparent"
+                  aria-hidden
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-border/50"
+                  aria-hidden
+                />
+              </div>
+              <div
+                className="flex flex-wrap items-center justify-between gap-2 border-t border-border bg-background px-4 py-2.5"
+              >
+                <p className="font-mono text-[10px] tracking-wide text-muted-foreground uppercase">
+                  Taskflow — in-app sign-in & workspace
+                </p>
+                <Link
+                  href="/work/taskflow"
+                  prefetch={false}
+                  className="font-mono text-[10px] text-brand hover:underline"
+                >
+                  Case study →
+                </Link>
+              </div>
             </div>
-            <p className="mt-2 px-1 font-mono text-[10px] text-muted-foreground">
-              Taskflow — flagship project screenshot
-            </p>
           </div>
         </div>
       </EfferdRail>
