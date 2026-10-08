@@ -2,6 +2,9 @@ import type { ReactNode } from "react";
 import { EfferdRail } from "@/components/efferd-rail";
 import { cn } from "@/lib/cn";
 
+/** Shared vertical padding for homepage bands (identical top/bottom). */
+export const SECTION_BAND_PADDING_CLASS = "py-10 md:py-12";
+
 type SectionFrameProps = {
   id?: string;
   children: ReactNode;
@@ -26,8 +29,8 @@ export function SectionFrame({
     spacing === "none"
       ? "py-0"
       : spacing === "tight"
-        ? "py-8 md:py-10"
-        : "py-12 md:py-16";
+        ? SECTION_BAND_PADDING_CLASS
+        : SECTION_BAND_PADDING_CLASS;
 
   return (
     <section

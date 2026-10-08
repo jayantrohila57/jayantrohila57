@@ -11,7 +11,7 @@ export function StackSection() {
   return (
     <SectionFrame id="stack" border>
       <div className="pt-2">
-        <SectionLabel index="03" label="Stack" />
+        <SectionLabel index="04" label="Stack" />
         <SectionIntro
           title="Tools I use."
           description="Primary technologies tied to shipped projects — not an exhaustive resume keyword list."
@@ -37,7 +37,6 @@ export function StackSection() {
           </div>
         ))}
       </PageBleed>
-      <PageRule />
     </SectionFrame>
   );
 }

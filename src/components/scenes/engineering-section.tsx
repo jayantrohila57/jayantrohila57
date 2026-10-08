@@ -18,7 +18,7 @@ export function EngineeringSection() {
   return (
     <SectionFrame id="engineering" border>
       <div className="pt-2">
-        <SectionLabel index="02" label="Engineering" />
+        <SectionLabel index="03" label="Engineering" />
         <SectionIntro
           title="How I build software."
           description="Where UX, architecture, and maintainability meet — backed by real project patterns."

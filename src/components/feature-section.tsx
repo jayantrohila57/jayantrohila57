@@ -6,7 +6,7 @@ import {
   ZapIcon,
 } from "lucide-react";
 import type React from "react";
-import { PageBleed } from "@/components/primitives/page-column";
+import { PageBleedGrid } from "@/components/primitives/page-column";
 import { cn } from "@/lib/utils";
 
 export type FeatureItem = {
@@ -31,24 +31,17 @@ export function FeatureBento({ features }: { features: FeatureItem[] }) {
         : "md:grid-cols-2 lg:grid-cols-3";
 
   return (
-    <PageBleed className="relative w-full">
-      <div
-        className={cn(
-          "relative grid grid-cols-1 gap-px border-t border-border bg-border",
-          cols,
-        )}
-      >
-        {features.map((feature, i) => (
-          <FeatureCard
-            feature={{
-              ...feature,
-              icon: feature.icon ?? defaultIcons[i % defaultIcons.length],
-            }}
-            key={feature.title}
-          />
-        ))}
-      </div>
-    </PageBleed>
+    <PageBleedGrid className={cn("grid-cols-1", cols)}>
+      {features.map((feature, i) => (
+        <FeatureCard
+          feature={{
+            ...feature,
+            icon: feature.icon ?? defaultIcons[i % defaultIcons.length],
+          }}
+          key={feature.title}
+        />
+      ))}
+    </PageBleedGrid>
   );
 }
 
@@ -63,21 +56,21 @@ export function FeatureCard({
   return (
     <div
       className={cn(
-        "relative flex flex-col justify-between overflow-hidden bg-background p-4 md:p-6",
+        "flex h-full min-h-[10.5rem] flex-col bg-background p-4 md:min-h-[11.5rem] md:p-6",
         className,
       )}
       {...props}
     >
       <div
         className={cn(
-          "relative z-10 flex items-center pt-2 pb-4",
+          "mb-4 flex h-8 shrink-0 items-center",
           "[&_svg]:size-5 [&_svg]:text-primary",
         )}
       >
         {feature.icon ?? <LayersIcon />}
       </div>
-      <div className="relative z-10 space-y-2">
-        <h3 className="font-medium text-foreground text-lg">{feature.title}</h3>
+      <div className="space-y-2">
+        <h3 className="font-medium text-lg text-foreground">{feature.title}</h3>
         <p className="text-muted-foreground text-xs leading-relaxed md:text-sm">
           {feature.description}
         </p>

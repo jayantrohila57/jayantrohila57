@@ -1,6 +1,5 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
-import { DecorIcon } from "@/components/decor-icon";
 import { Button } from "@/components/ui/button";
 
 type CallToActionProps = {
@@ -12,7 +11,7 @@ type CallToActionProps = {
   secondaryLabel?: string;
 };
 
-/** Efferd `cta-3` — final homepage action band (full column width). */
+/** Final homepage CTA — rail-to-rail width; borders come from section rules only. */
 export function CallToAction({
   title = "Have something worth building?",
   description = "I work on product interfaces, frontend architecture, and full-stack web applications.",
@@ -23,13 +22,8 @@ export function CallToAction({
 }: CallToActionProps) {
   return (
     <div
-      className="relative flex w-full flex-col justify-between gap-y-4 overflow-hidden border-y border-border px-4 py-10 md:px-6 dark:bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)]"
+      className="flex w-full flex-col justify-between gap-y-4 bg-background px-4 py-10 md:px-6 md:py-12"
     >
-      <DecorIcon className="size-4" position="top-left" />
-      <DecorIcon className="size-4" position="top-right" />
-      <DecorIcon className="size-4" position="bottom-left" />
-      <DecorIcon className="size-4" position="bottom-right" />
-
       <p className="text-center font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
         Collaborate
       </p>

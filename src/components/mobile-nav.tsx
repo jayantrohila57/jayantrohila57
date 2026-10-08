@@ -3,22 +3,30 @@
 import { MenuIcon, XIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { headerIconButtonClass } from "@/components/layout/header-icon-button";
 import { Portal, PortalBackdrop } from "@/components/portal";
 import { Button } from "@/components/ui/button";
 import { mainNav } from "@/config/navigation";
-import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 type MobileNavProps = {
+  githubSlot?: React.ReactNode;
+  contactSlot?: React.ReactNode;
   commandSlot?: React.ReactNode;
 };
 
-export function MobileNav({ commandSlot }: MobileNavProps) {
+export function MobileNav({
+  githubSlot,
+  contactSlot,
+  commandSlot,
+}: MobileNavProps) {
   const [open, setOpen] = React.useState(false);
 
   return (
     <div className="flex items-center gap-2 md:hidden">
+      {githubSlot}
       {commandSlot}
+      {contactSlot}
       <Button
         aria-controls="mobile-menu"
         aria-expanded={open}
@@ -26,6 +34,7 @@ export function MobileNav({ commandSlot }: MobileNavProps) {
         onClick={() => setOpen(!open)}
         size="icon"
         variant="outline"
+        className={cn(headerIconButtonClass, "relative")}
       >
         <div
           className={cn(
@@ -33,7 +42,7 @@ export function MobileNav({ commandSlot }: MobileNavProps) {
             open ? "scale-100 opacity-100" : "scale-0 opacity-0",
           )}
         >
-          <XIcon />
+          <XIcon aria-hidden />
         </div>
         <div
           className={cn(
@@ -41,7 +50,7 @@ export function MobileNav({ commandSlot }: MobileNavProps) {
             open ? "scale-0 opacity-0" : "scale-100 opacity-100",
           )}
         >
-          <MenuIcon />
+          <MenuIcon aria-hidden />
         </div>
       </Button>
       {open && (
@@ -53,6 +62,7 @@ export function MobileNav({ commandSlot }: MobileNavProps) {
               "data-[slot=open]:zoom-in-97 ease-out data-[slot=open]:animate-in",
             )}
             data-slot={open ? "open" : "closed"}
+            id="mobile-menu"
           >
             <div className="flex w-full flex-col gap-y-1">
               {mainNav.map((link) => (
@@ -65,22 +75,6 @@ export function MobileNav({ commandSlot }: MobileNavProps) {
                   {link.label}
                 </Link>
               ))}
-            </div>
-            <div className="mt-5 flex flex-col gap-2">
-              <Button asChild className="w-full" variant="outline">
-                <a
-                  href={siteConfig.social.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </Button>
-              <Button asChild className="w-full" variant="accent">
-                <Link href="/contact" onClick={() => setOpen(false)}>
-                  Contact
-                </Link>
-              </Button>
             </div>
           </div>
         </Portal>

@@ -9,8 +9,12 @@ export const PAGE_COLUMN_BORDER_CLASS = "border-x border-border";
 
 export const PAGE_GUTTER_CLASS = "px-4 md:px-6";
 
-/** Negate gutter padding so rules and grids span column border to border. */
-export const PAGE_BLEED_CLASS = "-mx-4 md:-mx-6";
+/**
+ * Negate gutter padding so rules and grids span column border to border.
+ * Explicit width calc avoids subpixel gaps at the right rail (esp. with overflow-x-clip).
+ */
+export const PAGE_BLEED_CLASS =
+  "relative -mx-4 w-[calc(100%+2rem)] max-w-none md:-mx-6 md:w-[calc(100%+3rem)]";
 
 export function pageColumnClassName(className?: string) {
   return cn(
@@ -40,7 +44,7 @@ export function PageColumn({
       className={cn(
         PAGE_MAX_WIDTH_CLASS,
         bordered && PAGE_COLUMN_BORDER_CLASS,
-        "min-w-0",
+        "min-w-0 overflow-visible",
         className,
       )}
     >
@@ -67,7 +71,7 @@ export function PageBleed({
   className?: string;
 }) {
   return (
-    <div className={cn(PAGE_BLEED_CLASS, "min-w-0 w-auto", className)}>
+    <div className={cn(PAGE_BLEED_CLASS, "box-border", className)}>
       {children}
     </div>
   );
@@ -78,9 +82,29 @@ export function PageRule({ className }: { className?: string }) {
   return (
     <PageBleed>
       <div
-        className={cn("h-px w-full shrink-0 bg-border", className)}
+        className={cn("box-border h-px w-full shrink-0 bg-border", className)}
         aria-hidden
       />
+    </PageBleed>
+  );
+}
+
+/** Bento/grid band with rail-to-rail top edge and gap-px cell dividers. */
+export function PageBleedGrid({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <PageBleed
+      className={cn(
+        "grid auto-rows-fr grid-cols-1 gap-px border-t border-border bg-border",
+        className,
+      )}
+    >
+      {children}
     </PageBleed>
   );
 }

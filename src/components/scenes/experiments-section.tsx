@@ -6,7 +6,8 @@ import {
   SectionLabel,
   sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
-import { PageBleed } from "@/components/primitives/page-column";
+import { PageBleedGrid } from "@/components/primitives/page-column";
+import { projectHasScreenshot } from "@/lib/project-media";
 import type { Experiment, PortfolioProject } from "@/data/portfolio";
 import { experiments, projects } from "@/data/portfolio";
 
@@ -39,10 +40,16 @@ function ExperimentCard({ exp }: { exp: Experiment }) {
       href={href}
       className="group flex flex-col overflow-hidden bg-background transition-colors hover:bg-card"
     >
-      <div className="p-3 pb-0">
-        <ProjectMedia project={project} className="aspect-video w-full" />
-      </div>
-      <div className="flex flex-1 flex-col gap-2 p-4">
+      {projectHasScreenshot(exp.slug) ? (
+        <div className="border-b border-border">
+          <ProjectMedia
+            project={project}
+            className="aspect-video w-full border-0"
+            priority={false}
+          />
+        </div>
+      ) : null}
+      <div className="flex flex-1 flex-col gap-2 p-4 md:p-5">
         <h3 className="font-medium text-lg group-hover:text-link-accent">
           {exp.title}
         </h3>
@@ -66,7 +73,7 @@ export function ExperimentsSection() {
   return (
     <SectionFrame id="experiments" border>
       <div className="pt-2">
-        <SectionLabel index="05" label="Lab" />
+        <SectionLabel index="06" label="Lab" />
         <SectionIntro
           title="Experiments and smaller public repos."
           description="Side projects and UI explorations — flagship case studies are in Selected work above."
@@ -77,11 +84,11 @@ export function ExperimentsSection() {
           }
         />
       </div>
-      <PageBleed className="grid gap-px border-t border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+      <PageBleedGrid className="grid-cols-1 sm:grid-cols-2">
         {items.map((exp) => (
           <ExperimentCard key={exp.slug} exp={exp} />
         ))}
-      </PageBleed>
+      </PageBleedGrid>
     </SectionFrame>
   );
 }

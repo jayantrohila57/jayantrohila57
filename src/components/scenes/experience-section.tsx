@@ -68,7 +68,7 @@ export function ExperienceSection() {
   return (
     <SectionFrame id="experience" border>
       <div className="pt-2">
-        <SectionLabel index="06" label="Experience" />
+        <SectionLabel index="02" label="Experience" />
         <SectionIntro
           title="Production software before side projects."
           description="~2 years shipping client-facing web features at Binmile; now Product Engineer at aiQmen."

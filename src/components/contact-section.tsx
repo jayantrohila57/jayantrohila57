@@ -36,10 +36,13 @@ export function PortfolioContactPanel({
   className,
   showIntro = true,
   layout = "stacked",
+  flush = false,
 }: {
   className?: string;
   showIntro?: boolean;
   layout?: "stacked" | "split";
+  /** Flush to page column rails — no inset card border (homepage). */
+  flush?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -134,18 +137,21 @@ export function PortfolioContactPanel({
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden border border-border",
-        layout === "stacked" && "mx-auto max-w-lg",
+        "relative w-full",
+        !flush && layout === "stacked" && "mx-auto max-w-lg border border-border",
+        !flush && layout === "split" && "border border-border",
         className,
       )}
     >
       {layout === "split" ? (
-        <div className="grid gap-px bg-border md:grid-cols-2">
-          <div className="space-y-6 bg-background p-6 md:p-8">
+        <div className="grid h-full min-h-full gap-px bg-border md:grid-cols-2">
+          <div className="flex min-h-full flex-col space-y-6 bg-background p-6 md:p-8">
             {intro}
             {channelList}
           </div>
-          <div className="bg-background p-6 md:p-8">{actions}</div>
+          <div className="flex min-h-full flex-col bg-background p-6 md:p-8">
+            {actions}
+          </div>
         </div>
       ) : (
         <>
@@ -156,10 +162,14 @@ export function PortfolioContactPanel({
           <div className="px-6 py-6">{actions}</div>
         </>
       )}
-      <DecorIcon position="top-left" />
-      <DecorIcon position="top-right" />
-      <DecorIcon position="bottom-left" />
-      <DecorIcon position="bottom-right" />
+      {!flush ? (
+        <>
+          <DecorIcon position="top-left" />
+          <DecorIcon position="top-right" />
+          <DecorIcon position="bottom-left" />
+          <DecorIcon position="bottom-right" />
+        </>
+      ) : null}
     </div>
   );
 }

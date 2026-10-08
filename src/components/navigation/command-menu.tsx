@@ -1,10 +1,11 @@
 "use client";
 
 import { Command } from "cmdk";
-import { ArrowUpRight, Copy, Mail } from "lucide-react";
+import { ArrowUpRight, Copy, Mail, Search } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { HeaderIconButton } from "@/components/layout/header-icon-button";
 import { useLenisScrollLock } from "@/components/smooth-scroll";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { mainNav } from "@/config/navigation";
@@ -35,13 +36,13 @@ export function CommandMenu() {
 
   return (
     <>
-      <button
-        type="button"
+      <HeaderIconButton
+        label="Search"
+        title="Search (⌘K)"
         onClick={() => setOpen(true)}
-        className="hidden items-center gap-2 rounded-[var(--radius-sm)] border border-border px-2 py-1 font-mono text-[11px] text-muted transition-colors hover:text-foreground md:inline-flex"
       >
-        <span>⌘K</span>
-      </button>
+        <Search className="size-4" aria-hidden />
+      </HeaderIconButton>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="overflow-hidden p-0">
           <DialogTitle>Command</DialogTitle>

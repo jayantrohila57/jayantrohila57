@@ -4,7 +4,7 @@ import {
   SectionIntro,
   SectionLabel,
 } from "@/components/primitives/section-frame";
-import { PageBleed } from "@/components/primitives/page-column";
+import { PageBleedGrid } from "@/components/primitives/page-column";
 import { siteConfig } from "@/config/site";
 
 const focusItems = [
@@ -29,17 +29,17 @@ export function CurrentFocusSection() {
   return (
     <SectionFrame id="focus" border>
       <div className="pt-2">
-        <SectionLabel index="04" label="Current focus" />
+        <SectionLabel index="05" label="Current focus" />
         <SectionIntro
           title="What I am working on now."
           description={`${siteConfig.author.role} · ${siteConfig.contact.location}`}
         />
       </div>
-      <PageBleed className="relative grid grid-cols-1 gap-px border-t border-border bg-border md:grid-cols-3">
+      <PageBleedGrid className="grid-cols-1 md:grid-cols-3">
         {focusItems.map((item) => (
           <FeatureCard feature={item} key={item.title} />
         ))}
-      </PageBleed>
+      </PageBleedGrid>
     </SectionFrame>
   );
 }

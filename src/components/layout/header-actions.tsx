@@ -1,9 +1,10 @@
 "use client";
 
-import { Code2 } from "lucide-react";
+import { Mail } from "lucide-react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { GithubIcon } from "@/components/icons/github-icon";
+import { HeaderIconButton } from "@/components/layout/header-icon-button";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { siteConfig } from "@/config/site";
 
 const CommandMenu = dynamic(
@@ -19,29 +20,40 @@ const MobileNav = dynamic(
   { ssr: false },
 );
 
-export function HeaderActions() {
-  const commandSlot = <CommandMenu />;
-
+function HeaderGitHubButton() {
   return (
-    <>
+    <HeaderIconButton
+      label="GitHub"
+      title="GitHub profile"
+      href={siteConfig.social.github}
+      external
+    >
+      <GithubIcon className="size-4" aria-hidden />
+    </HeaderIconButton>
+  );
+}
+
+function HeaderContactButton() {
+  return (
+    <HeaderIconButton label="Contact" title="Contact page" href="/contact">
+      <Mail className="size-4" aria-hidden />
+    </HeaderIconButton>
+  );
+}
+
+export function HeaderActions() {
+  return (
+    <TooltipProvider delayDuration={200}>
       <div className="hidden items-center gap-2 md:flex">
-        <Button asChild variant="outline" size="sm">
-          <a
-            href={siteConfig.social.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="gap-2"
-          >
-            <Code2 className="size-3.5" />
-            GitHub
-          </a>
-        </Button>
-        {commandSlot}
-        <Button asChild size="sm" variant="accent">
-          <Link href="/contact">Contact</Link>
-        </Button>
+        <HeaderGitHubButton />
+        <CommandMenu />
+        <HeaderContactButton />
       </div>
-      <MobileNav commandSlot={commandSlot} />
-    </>
+      <MobileNav
+        githubSlot={<HeaderGitHubButton />}
+        contactSlot={<HeaderContactButton />}
+        commandSlot={<CommandMenu />}
+      />
+    </TooltipProvider>
   );
 }
