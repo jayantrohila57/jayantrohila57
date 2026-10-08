@@ -4,11 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Fragment, useMemo } from "react";
-import { headerIconButtonClass } from "@/components/layout/header-icon-button";
-import {
-  PageGutter,
-  PageRule,
-} from "@/components/primitives/page-column";
+import { PageGutter, PageRule } from "@/components/primitives/page-column";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -17,12 +13,12 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button";
 import {
   breadcrumbListStructuredData,
   getBackHref,
   getBreadcrumbs,
 } from "@/lib/breadcrumbs";
+import { cn } from "@/lib/utils";
 
 function isSameOriginReferrer(): boolean {
   if (!document.referrer) return false;
@@ -32,6 +28,13 @@ function isSameOriginReferrer(): boolean {
     return false;
   }
 }
+
+const backButtonClass = cn(
+  "inline-flex size-7 shrink-0 items-center justify-center rounded-md",
+  "text-muted-foreground transition-colors",
+  "hover:bg-muted/50 hover:text-foreground",
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+);
 
 export function PageChrome() {
   const pathname = usePathname();
@@ -58,20 +61,22 @@ export function PageChrome() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd }}
       />
-      <PageGutter className="flex flex-row items-center gap-2 py-3">
-        <Button
+      <PageGutter className="flex min-h-9 flex-row items-center gap-0 py-2">
+        <button
           type="button"
-          variant="outline"
-          size="icon"
-          className={headerIconButtonClass}
+          className={backButtonClass}
           onClick={handleBack}
           aria-label="Go back"
           title="Go back"
         >
-          <ArrowLeft className="size-4" aria-hidden />
-        </Button>
+          <ArrowLeft className="size-3.5" strokeWidth={2} aria-hidden />
+        </button>
+        <span
+          className="mx-2 h-3.5 w-px shrink-0 bg-border"
+          aria-hidden
+        />
         <Breadcrumb className="min-w-0 flex-1">
-          <BreadcrumbList>
+          <BreadcrumbList className="text-sm leading-none">
             {crumbs.map((crumb, index) => {
               const isLast = index === crumbs.length - 1;
               return (
