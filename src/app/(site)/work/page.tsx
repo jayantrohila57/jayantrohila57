@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { FullWidthDivider } from "@/components/full-width-divider";
 import { ProjectScene } from "@/components/portfolio/project-scene";
+import { PageBleed } from "@/components/primitives/page-column";
 import {
   inlineBodyLinkClass,
   SectionFrame,
@@ -22,17 +22,17 @@ export default function WorkPage() {
 
   return (
     <SectionFrame border={false} spacing="tight" className="pt-8">
-      <div className="px-4">
+      <div>
         <SectionIntro
           label="Work"
           title="Selected projects"
           description="Curated open-source work with repositories and live demos where available."
         />
       </div>
-      <FullWidthDivider />
       {tiers.map((tier) => (
         <div key={tier.key}>
-          <div className="border-b border-border px-4 py-6">
+          <PageBleed className="border-t border-border">
+          <div className="border-b border-border px-4 py-6 md:px-6">
             <h2 className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
               {tier.title}
             </h2>
@@ -49,10 +49,10 @@ export default function WorkPage() {
               );
             })}
           </div>
+          </PageBleed>
         </div>
       ))}
-      <FullWidthDivider />
-      <p className="px-4 py-8 text-sm text-muted-foreground">
+      <p className="py-8 text-sm text-muted-foreground">
         Private client repositories are not listed here.{" "}
         <Link href="/contact" className={inlineBodyLinkClass}>
           Contact

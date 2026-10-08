@@ -6,6 +6,7 @@ import {
   SectionLabel,
   sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
+import { PageBleed } from "@/components/primitives/page-column";
 import type { Experiment, PortfolioProject } from "@/data/portfolio";
 import { experiments, projects } from "@/data/portfolio";
 
@@ -36,7 +37,7 @@ function ExperimentCard({ exp }: { exp: Experiment }) {
   return (
     <Link
       href={href}
-      className="group flex flex-col overflow-hidden border border-border bg-background transition-colors hover:bg-card"
+      className="group flex flex-col overflow-hidden bg-background transition-colors hover:bg-card"
     >
       <div className="p-3 pb-0">
         <ProjectMedia project={project} className="aspect-video w-full" />
@@ -64,7 +65,7 @@ export function ExperimentsSection() {
 
   return (
     <SectionFrame id="experiments" border>
-      <div className="px-4 pt-2">
+      <div className="pt-2">
         <SectionLabel index="05" label="Lab" />
         <SectionIntro
           title="Experiments and smaller public repos."
@@ -76,11 +77,11 @@ export function ExperimentsSection() {
           }
         />
       </div>
-      <div className="grid gap-px border-t border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+      <PageBleed className="grid gap-px border-t border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
         {items.map((exp) => (
           <ExperimentCard key={exp.slug} exp={exp} />
         ))}
-      </div>
+      </PageBleed>
     </SectionFrame>
   );
 }

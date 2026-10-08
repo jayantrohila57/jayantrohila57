@@ -5,6 +5,7 @@ import {
   SectionLabel,
   sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
+import { PageBleed } from "@/components/primitives/page-column";
 import { experience } from "@/data/portfolio";
 
 function ExperienceCard({
@@ -66,7 +67,7 @@ export function ExperienceSection() {
 
   return (
     <SectionFrame id="experience" border>
-      <div className="px-4 pt-2">
+      <div className="pt-2">
         <SectionLabel index="06" label="Experience" />
         <SectionIntro
           title="Production software before side projects."
@@ -78,16 +79,16 @@ export function ExperienceSection() {
           }
         />
       </div>
-      <div className="grid gap-px border-t border-border bg-border lg:grid-cols-2">
+      <PageBleed className="grid gap-px border-t border-border bg-border lg:grid-cols-2">
         {primary ? <ExperienceCard item={primary} featured /> : null}
         {secondary ? <ExperienceCard item={secondary} featured /> : null}
-      </div>
+      </PageBleed>
       {rest.length > 0 ? (
-        <div className="divide-y divide-border border-t border-border">
+        <PageBleed className="divide-y divide-border border-t border-border">
           {rest.map((item) => (
             <ExperienceCard key={item.id} item={item} />
           ))}
-        </div>
+        </PageBleed>
       ) : null}
     </SectionFrame>
   );

@@ -34,13 +34,12 @@ function ArrowRightGlyph({ className }: { className?: string }) {
 /** Homepage hero — Efferd `hero-3` copy hierarchy, text-only editorial panel. */
 export function PortfolioHero() {
   return (
-    <section className="relative overflow-hidden border-b border-border">
-      <EfferdRail padding={false}>
-        <div className="border-x border-border bg-background">
+    <section className="relative w-full overflow-hidden">
+      <EfferdRail>
           <div
             className={cn(
-              "mx-auto flex max-w-3xl flex-col gap-4 px-5 py-12 sm:px-6",
-              "md:gap-5 md:px-8 md:py-16 lg:py-20",
+              "mx-auto flex max-w-3xl flex-col gap-4 py-12",
+              "md:gap-5 md:py-16 lg:py-20",
             )}
           >
             <p className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
@@ -98,7 +97,6 @@ export function PortfolioHero() {
               </Link>
             </div>
           </div>
-        </div>
       </EfferdRail>
     </section>
   );

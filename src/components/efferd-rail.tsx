@@ -1,34 +1,22 @@
 import type { ReactNode } from "react";
+import { PAGE_GUTTER_CLASS } from "@/components/primitives/page-column";
 import { cn } from "@/lib/utils";
 
-/** Shared max-width + side borders — matches header/footer (`max-w-5xl`). */
+/** Inner gutter padding — side borders live on `PageColumn`, not here. */
 export function EfferdRail({
   children,
   className,
-  bordered = true,
   padding = true,
 }: {
   children: ReactNode;
   className?: string;
+  /** @deprecated Borders are on PageColumn only; ignored. */
   bordered?: boolean;
   padding?: boolean;
 }) {
   return (
-    <div
-      className={cn(
-        "relative mx-auto w-full max-w-5xl",
-        padding && "px-4",
-        className,
-      )}
-    >
-      <div
-        className={cn(
-          bordered && "overflow-x-clip border-x border-border",
-          !bordered && "min-w-0 overflow-x-clip",
-        )}
-      >
-        {children}
-      </div>
+    <div className={cn(padding && PAGE_GUTTER_CLASS, "min-w-0", className)}>
+      {children}
     </div>
   );
 }

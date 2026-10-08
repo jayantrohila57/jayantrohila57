@@ -1,6 +1,11 @@
 "use client";
 
 import type { ReactNode } from "react";
+import {
+  PAGE_COLUMN_BORDER_CLASS,
+  PAGE_GUTTER_CLASS,
+  PAGE_MAX_WIDTH_CLASS,
+} from "@/components/primitives/page-column";
 import { useScroll } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 
@@ -23,7 +28,12 @@ export function HeaderShell({ children, actions }: HeaderShellProps) {
       )}
     >
       <nav
-        className="mx-auto flex h-14 w-full max-w-5xl items-center justify-between px-4"
+        className={cn(
+          PAGE_MAX_WIDTH_CLASS,
+          PAGE_COLUMN_BORDER_CLASS,
+          PAGE_GUTTER_CLASS,
+          "flex h-14 w-full items-center justify-between",
+        )}
         aria-label="Site"
       >
         {children}

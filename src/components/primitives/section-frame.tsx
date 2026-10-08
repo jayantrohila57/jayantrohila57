@@ -33,13 +33,16 @@ export function SectionFrame({
     <section
       id={id}
       className={cn(
-        "relative",
-        spacingClass,
+        "relative w-full",
         border && "border-t border-border",
         className,
       )}
     >
-      {rail ? <EfferdRail>{children}</EfferdRail> : children}
+      {rail ? (
+        <EfferdRail className={spacingClass}>{children}</EfferdRail>
+      ) : (
+        <div className={spacingClass}>{children}</div>
+      )}
     </section>
   );
 }
@@ -116,9 +119,7 @@ export function SectionIntro({
 export function SectionBandDivider() {
   return (
     <div className="border-t border-border py-2">
-      <EfferdRail bordered={false} className="px-0">
-        <div className="h-px w-full bg-border" aria-hidden />
-      </EfferdRail>
+      <div className="h-px w-full bg-border" aria-hidden />
     </div>
   );
 }

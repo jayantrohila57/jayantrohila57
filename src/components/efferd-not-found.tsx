@@ -14,7 +14,7 @@ import {
 export function NotFoundPage() {
   return (
     <div className="flex w-full items-center justify-center overflow-hidden py-16">
-      <div className="flex min-h-[50vh] items-center border-x border-border">
+      <div className="flex min-h-[50vh] w-full items-center">
         <div>
           <FullWidthDivider />
           <Empty>

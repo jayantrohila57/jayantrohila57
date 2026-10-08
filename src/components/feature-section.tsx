@@ -6,7 +6,7 @@ import {
   ZapIcon,
 } from "lucide-react";
 import type React from "react";
-import { FullWidthDivider } from "@/components/full-width-divider";
+import { PageBleed } from "@/components/primitives/page-column";
 import { cn } from "@/lib/utils";
 
 export type FeatureItem = {
@@ -31,9 +31,13 @@ export function FeatureBento({ features }: { features: FeatureItem[] }) {
         : "md:grid-cols-2 lg:grid-cols-3";
 
   return (
-    <div className="relative w-full">
-      <div className={cn("relative grid grid-cols-1 gap-px bg-border", cols)}>
-        <FullWidthDivider position="top" />
+    <PageBleed className="relative w-full">
+      <div
+        className={cn(
+          "relative grid grid-cols-1 gap-px border-t border-border bg-border",
+          cols,
+        )}
+      >
         {features.map((feature, i) => (
           <FeatureCard
             feature={{
@@ -43,9 +47,8 @@ export function FeatureBento({ features }: { features: FeatureItem[] }) {
             key={feature.title}
           />
         ))}
-        <FullWidthDivider position="bottom" />
       </div>
-    </div>
+    </PageBleed>
   );
 }
 

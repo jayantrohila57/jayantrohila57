@@ -7,14 +7,15 @@ import {
   sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
 import { profile } from "@/data/portfolio";
+import { PageBleed } from "@/components/primitives/page-column";
 import { cn } from "@/lib/cn";
 
 /** Contact-5 inspired about teaser — person bridge without a form. */
 export function AboutTeaserSection() {
   return (
     <SectionFrame id="about" border>
-      <SectionLabel index="07" label="About" className="px-4 pt-2" />
-      <div className="grid gap-px border-t border-border bg-border md:grid-cols-2">
+      <SectionLabel index="07" label="About" className="pt-2" />
+      <PageBleed className="grid gap-px border-t border-border bg-border md:grid-cols-2">
         <div className="bg-background p-6 md:p-8">
           <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
             I build modern web products with a strong focus on frontend systems,
@@ -37,7 +38,7 @@ export function AboutTeaserSection() {
             About me →
           </Link>
         </div>
-      </div>
+      </PageBleed>
     </SectionFrame>
   );
 }
@@ -45,16 +46,18 @@ export function AboutTeaserSection() {
 export function ContactSection() {
   return (
     <SectionFrame id="contact" border spacing="tight">
-      <SectionLabel index="08" label="Contact" className="px-4" />
-      <PortfolioContactPanel className="mx-4 max-w-none" layout="split" />
+      <SectionLabel index="08" label="Contact" />
+      <PortfolioContactPanel className="max-w-none" layout="split" />
     </SectionFrame>
   );
 }
 
 export function FinalCtaSection() {
   return (
-    <SectionFrame border spacing="tight">
-      <CallToAction />
+    <SectionFrame border spacing="tight" rail={false}>
+      <PageBleed>
+        <CallToAction />
+      </PageBleed>
     </SectionFrame>
   );
 }

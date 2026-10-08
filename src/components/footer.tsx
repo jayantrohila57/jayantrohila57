@@ -1,7 +1,13 @@
 import Link from "next/link";
+import {
+  PAGE_COLUMN_BORDER_CLASS,
+  PAGE_GUTTER_CLASS,
+  PAGE_MAX_WIDTH_CLASS,
+} from "@/components/primitives/page-column";
 import { mainNav } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
+import { cn } from "@/lib/utils";
 
 const connectLinks = [
   { label: "GitHub", href: siteConfig.social.github, external: true },
@@ -19,7 +25,14 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border">
-      <div className="relative mx-auto max-w-5xl border-x border-border px-4">
+      <div
+        className={cn(
+          PAGE_MAX_WIDTH_CLASS,
+          PAGE_COLUMN_BORDER_CLASS,
+          PAGE_GUTTER_CLASS,
+          "relative",
+        )}
+      >
         <div className="grid gap-8 py-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:gap-12">
           <div className="space-y-3">
             <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">

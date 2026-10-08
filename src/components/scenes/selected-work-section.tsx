@@ -6,6 +6,7 @@ import {
   SectionLabel,
   sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
+import { PageBleed } from "@/components/primitives/page-column";
 import { getFeaturedProjects } from "@/data/portfolio";
 
 export function SelectedWorkSection() {
@@ -13,7 +14,7 @@ export function SelectedWorkSection() {
 
   return (
     <SectionFrame id="work" border>
-      <div className="px-4 pt-2">
+      <div className="pt-2">
         <SectionLabel index="01" label="Selected work" />
         <SectionIntro
           title="Case studies from real products."
@@ -25,7 +26,7 @@ export function SelectedWorkSection() {
           }
         />
       </div>
-      <div className="divide-y divide-border border-t border-border">
+      <PageBleed className="divide-y divide-border border-t border-border">
         {featured.map((project, i) => (
           <ProjectScene
             key={project.slug}
@@ -34,7 +35,7 @@ export function SelectedWorkSection() {
             reverse={i % 2 === 1}
           />
         ))}
-      </div>
+      </PageBleed>
     </SectionFrame>
   );
 }

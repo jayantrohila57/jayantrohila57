@@ -1,10 +1,10 @@
 import { FeatureCard } from "@/components/feature-section";
-import { FullWidthDivider } from "@/components/full-width-divider";
 import {
   SectionFrame,
   SectionIntro,
   SectionLabel,
 } from "@/components/primitives/section-frame";
+import { PageBleed } from "@/components/primitives/page-column";
 import { siteConfig } from "@/config/site";
 
 const focusItems = [
@@ -28,20 +28,18 @@ const focusItems = [
 export function CurrentFocusSection() {
   return (
     <SectionFrame id="focus" border>
-      <div className="px-4 pt-2">
+      <div className="pt-2">
         <SectionLabel index="04" label="Current focus" />
         <SectionIntro
           title="What I am working on now."
           description={`${siteConfig.author.role} · ${siteConfig.contact.location}`}
         />
       </div>
-      <div className="relative grid grid-cols-1 gap-px bg-border md:grid-cols-3">
-        <FullWidthDivider position="top" />
+      <PageBleed className="relative grid grid-cols-1 gap-px border-t border-border bg-border md:grid-cols-3">
         {focusItems.map((item) => (
           <FeatureCard feature={item} key={item.title} />
         ))}
-        <FullWidthDivider position="bottom" />
-      </div>
+      </PageBleed>
     </SectionFrame>
   );
 }

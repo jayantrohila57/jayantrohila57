@@ -17,7 +17,7 @@ export function EngineeringSection() {
 
   return (
     <SectionFrame id="engineering" border>
-      <div className="px-4 pt-2">
+      <div className="pt-2">
         <SectionLabel index="02" label="Engineering" />
         <SectionIntro
           title="How I build software."

@@ -1,10 +1,10 @@
 import { FeatureCard } from "@/components/feature-section";
-import { FullWidthDivider } from "@/components/full-width-divider";
 import {
   SectionFrame,
   SectionIntro,
   SectionLabel,
 } from "@/components/primitives/section-frame";
+import { PageBleed } from "@/components/primitives/page-column";
 import { siteConfig } from "@/config/site";
 
 const specialties = [
@@ -28,20 +28,18 @@ const specialties = [
 export function SpecializationSection() {
   return (
     <SectionFrame id="specialization" border>
-      <div className="px-4 pt-2">
+      <div className="pt-2">
         <SectionLabel index="02" label="What I build" />
         <SectionIntro
           title="Product engineering for complex web applications."
           description={`${siteConfig.author.role} at ${siteConfig.author.employer.replace(" Pvt. Ltd.", "")} · ${siteConfig.contact.location}`}
         />
       </div>
-      <div className="relative grid grid-cols-1 gap-px bg-border md:grid-cols-3">
-        <FullWidthDivider position="top" />
+      <PageBleed className="relative grid grid-cols-1 gap-px border-t border-border bg-border md:grid-cols-3">
         {specialties.map((item) => (
           <FeatureCard feature={item} key={item.title} />
         ))}
-        <FullWidthDivider position="bottom" />
-      </div>
+      </PageBleed>
     </SectionFrame>
   );
 }

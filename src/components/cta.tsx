@@ -12,7 +12,7 @@ type CallToActionProps = {
   secondaryLabel?: string;
 };
 
-/** Efferd `cta-3` — final homepage action band. */
+/** Efferd `cta-3` — final homepage action band (full column width). */
 export function CallToAction({
   title = "Have something worth building?",
   description = "I work on product interfaces, frontend architecture, and full-stack web applications.",
@@ -22,14 +22,13 @@ export function CallToAction({
   secondaryLabel = "View work",
 }: CallToActionProps) {
   return (
-    <div className="relative mx-auto flex w-full max-w-3xl flex-col justify-between gap-y-4 overflow-hidden border-y border-border px-4 py-10 dark:bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)]">
+    <div
+      className="relative flex w-full flex-col justify-between gap-y-4 overflow-hidden border-y border-border px-4 py-10 md:px-6 dark:bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)]"
+    >
       <DecorIcon className="size-4" position="top-left" />
       <DecorIcon className="size-4" position="top-right" />
       <DecorIcon className="size-4" position="bottom-left" />
       <DecorIcon className="size-4" position="bottom-right" />
-
-      <div className="pointer-events-none absolute -inset-y-6 -left-px w-px border-l border-border" />
-      <div className="pointer-events-none absolute -inset-y-6 -right-px w-px border-r border-border" />
 
       <p className="text-center font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
         Collaborate

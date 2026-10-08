@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
-import { FullWidthDivider } from "@/components/full-width-divider";
+import { PageBleed } from "@/components/primitives/page-column";
 import { cn } from "@/lib/utils";
 
 export type BlogListItem = {
@@ -61,15 +61,13 @@ export function WorkListRow({
 
 export function WorkList({ items }: { items: WorkListItem[] }) {
   return (
-    <div className="relative min-w-0 max-w-full overflow-hidden">
-      <FullWidthDivider />
+    <PageBleed className="relative min-w-0 max-w-full overflow-hidden border-y border-border">
       <div className="min-w-0 divide-y divide-border">
         {items.map((item) => (
           <WorkListRow key={item.href + item.title} {...item} />
         ))}
       </div>
-      <FullWidthDivider />
-    </div>
+    </PageBleed>
   );
 }
 
@@ -130,15 +128,13 @@ export function BlogsList({
           ) : null}
         </div>
       ) : null}
-      <div className="relative min-w-0 max-w-full overflow-hidden">
-        <FullWidthDivider />
+      <PageBleed className="relative min-w-0 max-w-full overflow-hidden border-y border-border">
         <div className="min-w-0 divide-y divide-border">
           {items.map((blog) => (
             <BlogCard {...blog} key={blog.href + blog.title} href={blog.href} />
           ))}
         </div>
-        <FullWidthDivider />
-      </div>
+      </PageBleed>
     </div>
   );
 }
