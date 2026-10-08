@@ -23,21 +23,25 @@ export default function ExperimentsPage() {
   }));
 
   return (
-    <SectionFrame border={false} spacing="tight" className="pt-8">
-      <div className="px-4">
+    <>
+      <SectionFrame border={false} spacing="tight">
         <SectionIntro
           label="Experiments"
           title="Lab shelf"
           description="Inkly CMS, libyui, image editor, Spotify stats, Patternlab, and other side projects."
         />
-      </div>
-      <BlogsList items={items} />
-      <Link
-        href="/"
-        className="mt-8 inline-block px-4 pb-10 font-mono text-sm text-link-accent hover:underline"
-      >
-        ← Home
-      </Link>
-    </SectionFrame>
+      </SectionFrame>
+      <SectionFrame border spacing="none" bleedContent>
+        <BlogsList items={items} />
+      </SectionFrame>
+      <SectionFrame border={false} spacing="tight">
+        <Link
+          href="/"
+          className="inline-block font-mono text-sm text-link-accent hover:underline"
+        >
+          ← Home
+        </Link>
+      </SectionFrame>
+    </>
   );
 }

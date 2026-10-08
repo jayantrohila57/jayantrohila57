@@ -6,6 +6,10 @@ import { usePathname, useRouter } from "next/navigation";
 import { Fragment, useMemo } from "react";
 import { headerIconButtonClass } from "@/components/layout/header-icon-button";
 import {
+  PageGutter,
+  PageRule,
+} from "@/components/primitives/page-column";
+import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -19,7 +23,6 @@ import {
   getBackHref,
   getBreadcrumbs,
 } from "@/lib/breadcrumbs";
-import { cn } from "@/lib/utils";
 
 function isSameOriginReferrer(): boolean {
   if (!document.referrer) return false;
@@ -30,7 +33,7 @@ function isSameOriginReferrer(): boolean {
   }
 }
 
-export function PageChrome({ className }: { className?: string }) {
+export function PageChrome() {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -50,48 +53,46 @@ export function PageChrome({ className }: { className?: string }) {
   };
 
   return (
-    <div
-      className={cn(
-        "flex flex-row items-center gap-2 border-b border-border px-4 py-3 md:px-6",
-        className,
-      )}
-    >
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd }}
       />
-      <Button
-        type="button"
-        variant="outline"
-        size="icon"
-        className={headerIconButtonClass}
-        onClick={handleBack}
-        aria-label="Go back"
-        title="Go back"
-      >
-        <ArrowLeft className="size-4" aria-hidden />
-      </Button>
-      <Breadcrumb className="min-w-0 flex-1">
-        <BreadcrumbList>
-          {crumbs.map((crumb, index) => {
-            const isLast = index === crumbs.length - 1;
-            return (
-              <Fragment key={`${crumb.label}-${index}`}>
-                {index > 0 ? <BreadcrumbSeparator /> : null}
-                <BreadcrumbItem>
-                  {isLast ? (
-                    <BreadcrumbPage>{crumb.label}</BreadcrumbPage>
-                  ) : (
-                    <BreadcrumbLink asChild>
-                      <Link href={crumb.href ?? "/"}>{crumb.label}</Link>
-                    </BreadcrumbLink>
-                  )}
-                </BreadcrumbItem>
-              </Fragment>
-            );
-          })}
-        </BreadcrumbList>
-      </Breadcrumb>
-    </div>
+      <PageGutter className="flex flex-row items-center gap-2 py-3">
+        <Button
+          type="button"
+          variant="outline"
+          size="icon"
+          className={headerIconButtonClass}
+          onClick={handleBack}
+          aria-label="Go back"
+          title="Go back"
+        >
+          <ArrowLeft className="size-4" aria-hidden />
+        </Button>
+        <Breadcrumb className="min-w-0 flex-1">
+          <BreadcrumbList>
+            {crumbs.map((crumb, index) => {
+              const isLast = index === crumbs.length - 1;
+              return (
+                <Fragment key={`${crumb.label}-${index}`}>
+                  {index > 0 ? <BreadcrumbSeparator /> : null}
+                  <BreadcrumbItem>
+                    {isLast ? (
+                      <BreadcrumbPage>{crumb.label}</BreadcrumbPage>
+                    ) : (
+                      <BreadcrumbLink asChild>
+                        <Link href={crumb.href ?? "/"}>{crumb.label}</Link>
+                      </BreadcrumbLink>
+                    )}
+                  </BreadcrumbItem>
+                </Fragment>
+              );
+            })}
+          </BreadcrumbList>
+        </Breadcrumb>
+      </PageGutter>
+      <PageRule />
+    </>
   );
 }

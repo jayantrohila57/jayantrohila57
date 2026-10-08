@@ -2,6 +2,10 @@ import { type BlogListItem, BlogsList } from "@/components/blogs-section";
 import { PortfolioContactPanel } from "@/components/contact-section";
 import { RootJsonLd } from "@/components/json-ld";
 import {
+  PAGE_GUTTER_CLASS,
+  PageBleed,
+} from "@/components/primitives/page-column";
+import {
   SectionFrame,
   SectionIntro,
 } from "@/components/primitives/section-frame";
@@ -10,6 +14,7 @@ import { staticPageSeo } from "@/config/page-seo";
 import { specializationLine } from "@/config/site";
 import { experience, profile } from "@/data/portfolio";
 import { resumeData } from "@/lib/resume-data";
+import { cn } from "@/lib/utils";
 
 export const metadata = generatePageMetadata({
   title: staticPageSeo.about.title,
@@ -38,16 +43,14 @@ export default function AboutPage() {
   return (
     <>
       <RootJsonLd />
-      <SectionFrame border={false} spacing="tight" className="pt-8">
-        <div className="px-4">
-          <SectionIntro
-            label="About"
-            title={profile.name}
-            description={specializationLine}
-          />
-        </div>
-        <div className="grid gap-px border-t border-border bg-border lg:grid-cols-3">
-          <div className="bg-background p-6 lg:col-span-2">
+      <SectionFrame border={false} spacing="tight">
+        <SectionIntro
+          label="About"
+          title={profile.name}
+          description={specializationLine}
+        />
+        <PageBleed className="grid gap-px border-t border-border bg-border lg:grid-cols-3">
+          <div className="bg-background p-6 md:px-6 lg:col-span-2">
             <p className="leading-relaxed text-muted-foreground">
               {profile.longBio}
             </p>
@@ -55,7 +58,7 @@ export default function AboutPage() {
               {profile.title} · {profile.location}
             </p>
           </div>
-          <div className="bg-background p-6">
+          <div className="bg-background p-6 md:px-6">
             <p className="font-mono text-[10px] text-muted-foreground uppercase">
               Strengths
             </p>
@@ -65,32 +68,39 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
-        </div>
+        </PageBleed>
       </SectionFrame>
-      <SectionFrame id="experience" border>
-        <div className="px-4 pt-2">
+      <SectionFrame id="experience" border spacing="none" bleedContent>
+        <div className={cn(PAGE_GUTTER_CLASS, "pt-8 pb-4 md:pt-10")}>
           <SectionIntro title="Experience" />
         </div>
         <BlogsList items={timeline} />
       </SectionFrame>
-      <SectionFrame border>
-        <div className="px-4 pt-2">
+      <SectionFrame border spacing="none" bleedContent>
+        <div className={cn(PAGE_GUTTER_CLASS, "pt-8 pb-4 md:pt-10")}>
           <SectionIntro title="Education" />
         </div>
-        <ul className="divide-y divide-border px-4 pb-6">
-          {resumeData.education.map((ed) => (
-            <li key={ed.credential} className="py-4 text-sm">
-              <p className="font-medium">{ed.credential}</p>
-              <p className="text-muted-foreground">{ed.institution}</p>
-              <p className="font-mono text-xs text-muted-foreground">
-                {ed.period}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <PageBleed className="border-y border-border">
+          <ul className="divide-y divide-border">
+            {resumeData.education.map((ed) => (
+              <li
+                key={ed.credential}
+                className={cn(PAGE_GUTTER_CLASS, "py-4 text-sm")}
+              >
+                <p className="font-medium">{ed.credential}</p>
+                <p className="text-muted-foreground">{ed.institution}</p>
+                <p className="font-mono text-xs text-muted-foreground">
+                  {ed.period}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </PageBleed>
       </SectionFrame>
-      <SectionFrame border spacing="tight">
-        <PortfolioContactPanel className="mx-4" showIntro={false} />
+      <SectionFrame border spacing="none" bleedContent>
+        <PageBleed className="border-t border-border">
+          <PortfolioContactPanel layout="split" flush showIntro={false} />
+        </PageBleed>
       </SectionFrame>
     </>
   );

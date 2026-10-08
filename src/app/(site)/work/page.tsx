@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { ProjectScene } from "@/components/portfolio/project-scene";
-import { PageBleed } from "@/components/primitives/page-column";
+import {
+  PAGE_GUTTER_CLASS,
+  PageBleed,
+} from "@/components/primitives/page-column";
 import {
   inlineBodyLinkClass,
   SectionFrame,
@@ -9,6 +12,7 @@ import {
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
 import { getWorkPageProjectsByTier } from "@/data/portfolio";
+import { cn } from "@/lib/utils";
 
 export const metadata = generatePageMetadata({
   title: staticPageSeo.work.title,
@@ -21,18 +25,21 @@ export default function WorkPage() {
   let sceneIndex = 0;
 
   return (
-    <SectionFrame border={false} spacing="tight" className="pt-8">
-      <div>
-        <SectionIntro
+    <SectionFrame border={false} spacing="tight">
+      <SectionIntro
           label="Work"
           title="Selected projects"
           description="Curated open-source work with repositories and live demos where available."
         />
-      </div>
       {tiers.map((tier) => (
-        <div key={tier.key}>
+        <div key={tier.key} className="mt-8">
           <PageBleed className="border-t border-border">
-          <div className="border-b border-border px-4 py-6 md:px-6">
+          <div
+            className={cn(
+              PAGE_GUTTER_CLASS,
+              "border-b border-border py-6",
+            )}
+          >
             <h2 className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
               {tier.title}
             </h2>
@@ -52,7 +59,7 @@ export default function WorkPage() {
           </PageBleed>
         </div>
       ))}
-      <p className="py-8 text-sm text-muted-foreground">
+      <p className="pt-8 text-sm text-muted-foreground">
         Private client repositories are not listed here.{" "}
         <Link href="/contact" className={inlineBodyLinkClass}>
           Contact

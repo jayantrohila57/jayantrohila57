@@ -6,6 +6,10 @@ import {
   ProjectCaseStudySections,
 } from "@/components/portfolio/project-case-study";
 import { ProjectMedia } from "@/components/portfolio/project-media";
+import {
+  PAGE_GUTTER_CLASS,
+  PageBleed,
+} from "@/components/primitives/page-column";
 import { SectionFrame } from "@/components/primitives/section-frame";
 import { Button } from "@/components/ui/button";
 import { generatePageMetadata } from "@/config/metadata";
@@ -14,6 +18,7 @@ import { getAbsoluteUrl } from "@/config/site";
 import { getProject, projects } from "@/data/portfolio";
 import { getProjectCaseStudy } from "@/data/project-case-studies";
 import { getProjectOgImage } from "@/lib/project-media";
+import { cn } from "@/lib/utils";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -38,6 +43,25 @@ export async function generateMetadata({ params }: Props) {
   });
 }
 
+function MetaCell({
+  label,
+  value,
+  className,
+}: {
+  label: string;
+  value: string;
+  className?: string;
+}) {
+  return (
+    <div className={cn("bg-background px-4 py-4 md:px-6 md:py-5", className)}>
+      <p className="font-mono text-[10px] text-muted-foreground uppercase">
+        {label}
+      </p>
+      <p className="mt-1 text-sm leading-relaxed text-foreground">{value}</p>
+    </div>
+  );
+}
+
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
   const project = getProject(slug);
@@ -45,10 +69,17 @@ export default async function ProjectPage({ params }: Props) {
 
   const caseStudy = getProjectCaseStudy(project);
 
+  const metaRows: { label: string; value: string }[] = [
+    ...(project.role ? [{ label: "Role", value: project.role }] : []),
+    { label: "Status", value: project.status },
+    { label: "Year", value: project.year },
+    { label: "Stack", value: project.stack.join(" · ") },
+  ];
+
   return (
-    <SectionFrame border={false} spacing="tight" className="pt-8">
+    <SectionFrame border={false} spacing="tight">
       <WorkProjectJsonLd project={project} />
-      <div className="page-intro px-4">
+      <div className="page-intro">
         <p className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
           {project.eyebrow}
         </p>
@@ -58,34 +89,19 @@ export default async function ProjectPage({ params }: Props) {
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
           {project.description || project.summary}
         </p>
-
-        <dl className="mt-8 grid gap-3 border-y border-border py-6 font-mono text-[11px] md:grid-cols-2">
-          {project.role ? (
-            <div className="flex justify-between gap-4 border-b border-border pb-3 md:border-b-0">
-              <dt className="text-muted-foreground uppercase">Role</dt>
-              <dd className="text-right normal-case">{project.role}</dd>
-            </div>
-          ) : null}
-          <div className="flex justify-between gap-4 border-b border-border pb-3 md:border-b-0">
-            <dt className="text-muted-foreground uppercase">Status</dt>
-            <dd className="normal-case">{project.status}</dd>
-          </div>
-          <div className="flex justify-between gap-4 border-b border-border pb-3 md:border-b-0">
-            <dt className="text-muted-foreground uppercase">Year</dt>
-            <dd>{project.year}</dd>
-          </div>
-          <div className="flex justify-between gap-4 md:col-span-2">
-            <dt className="text-muted-foreground uppercase">Stack</dt>
-            <dd className="text-right normal-case">
-              {project.stack.join(" · ")}
-            </dd>
-          </div>
-        </dl>
       </div>
 
-      <div className="group mx-4 my-8 p-2 md:p-4">
-        <ProjectMedia project={project} priority />
-      </div>
+      <PageBleed className="mt-8 grid gap-px border-y border-border bg-border md:grid-cols-2">
+        {metaRows.map((row) => (
+          <MetaCell key={row.label} label={row.label} value={row.value} />
+        ))}
+      </PageBleed>
+
+      <PageBleed className="group mt-8 border-y border-border">
+        <div className={cn(PAGE_GUTTER_CLASS, "py-4 md:py-6")}>
+          <ProjectMedia project={project} priority />
+        </div>
+      </PageBleed>
 
       {caseStudy ? (
         <>
@@ -93,7 +109,7 @@ export default async function ProjectPage({ params }: Props) {
           <ProjectCaseStudySections study={caseStudy} />
         </>
       ) : (
-        <div className="space-y-10 px-4 pb-8">
+        <div className="space-y-10 pb-8">
           {project.sections.map((section, i) => (
             <section key={section.id}>
               <h2 className="font-mono text-[11px] text-muted-foreground uppercase tracking-[0.18em]">
@@ -109,33 +125,40 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       )}
 
-      <div className="mt-8 flex flex-wrap gap-3 border-t border-border px-4 pt-8">
-        {project.links.live ? (
-          <Button asChild variant="accent">
-            <a
-              href={project.links.live}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Live demo
-            </a>
+      <PageBleed className="mt-8 border-t border-border">
+        <div
+          className={cn(
+            PAGE_GUTTER_CLASS,
+            "flex flex-wrap gap-3 py-8",
+          )}
+        >
+          {project.links.live ? (
+            <Button asChild variant="accent">
+              <a
+                href={project.links.live}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Live demo
+              </a>
+            </Button>
+          ) : null}
+          {project.links.github ? (
+            <Button asChild variant="outline">
+              <a
+                href={project.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </Button>
+          ) : null}
+          <Button asChild variant="ghost">
+            <Link href="/work">All work</Link>
           </Button>
-        ) : null}
-        {project.links.github ? (
-          <Button asChild variant="outline">
-            <a
-              href={project.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-          </Button>
-        ) : null}
-        <Button asChild variant="ghost">
-          <Link href="/work">All work</Link>
-        </Button>
-      </div>
+        </div>
+      </PageBleed>
     </SectionFrame>
   );
 }

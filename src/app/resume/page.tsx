@@ -15,15 +15,13 @@ export const metadata = generatePageMetadata({
 
 export default function ResumePage() {
   return (
-    <SectionFrame border={false} spacing="tight" className="pb-10">
-      <div className="px-4 md:px-6">
-        <SectionIntro
-          label="Resume"
-          title="Jayant Rohila"
-          description="Product engineer focused on React, Next.js, and typed full-stack delivery — PDF export matches this on-page version."
-        />
-      </div>
-      <PageBleed className="mt-6 border-t border-border">
+    <SectionFrame border={false} spacing="tight">
+      <SectionIntro
+        label="Resume"
+        title="Jayant Rohila"
+        description="Product engineer focused on React, Next.js, and typed full-stack delivery — PDF export matches this on-page version."
+      />
+      <PageBleed className="border-y border-border">
         <div className="px-4 py-8 md:px-6 md:py-10">
           <ResumeView />
         </div>

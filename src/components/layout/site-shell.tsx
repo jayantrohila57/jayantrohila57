@@ -6,22 +6,23 @@ import { ScrollRestoration } from "@/components/navigation/scroll-restoration";
 import { ScrollToTopButton } from "@/components/navigation/scroll-to-top-button";
 import { PageColumn } from "@/components/primitives/page-column";
 
+/** One rail column for header, main, and footer (continuous side borders). */
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
     <>
       <ScrollRestoration />
-      <SiteHeader />
-      <main
-        id="main-content"
-        tabIndex={-1}
-        className="min-w-0 flex-1 overflow-x-clip"
-      >
-        <PageColumn className="flex flex-col">
+      <PageColumn className="flex min-h-dvh flex-1 flex-col">
+        <SiteHeader />
+        <main
+          id="main-content"
+          tabIndex={-1}
+          className="flex min-w-0 flex-1 flex-col overflow-x-clip"
+        >
           <PageChrome />
           {children}
-        </PageColumn>
-      </main>
-      <SiteFooter />
+        </main>
+        <SiteFooter />
+      </PageColumn>
       <ScrollToTopButton />
     </>
   );

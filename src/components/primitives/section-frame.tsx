@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { EfferdRail } from "@/components/efferd-rail";
+import { PageGutter, PageRule } from "@/components/primitives/page-column";
 import { cn } from "@/lib/cn";
 
 /** Shared vertical padding for homepage bands (identical top/bottom). */
@@ -9,12 +9,12 @@ type SectionFrameProps = {
   id?: string;
   children: ReactNode;
   className?: string;
-  /** Top border between major bands (default on). */
+  /** Rail-to-rail top rule (default on). */
   border?: boolean;
-  /** Side rails aligned to header/footer (default on). */
-  rail?: boolean;
-  /** Vertical rhythm — default matches all live pages. */
+  /** Vertical rhythm inside the gutter. */
   spacing?: "default" | "tight" | "none";
+  /** Omit horizontal gutter (child uses PageBleed only). */
+  bleedContent?: boolean;
 };
 
 export function SectionFrame({
@@ -22,29 +22,23 @@ export function SectionFrame({
   children,
   className,
   border = true,
-  rail = true,
   spacing = "default",
+  bleedContent = false,
 }: SectionFrameProps) {
   const spacingClass =
     spacing === "none"
-      ? "py-0"
+      ? ""
       : spacing === "tight"
-        ? SECTION_BAND_PADDING_CLASS
+        ? "pt-8 pb-8 md:pt-10 md:pb-10"
         : SECTION_BAND_PADDING_CLASS;
 
   return (
-    <section
-      id={id}
-      className={cn(
-        "relative w-full",
-        border && "border-t border-border",
-        className,
-      )}
-    >
-      {rail ? (
-        <EfferdRail className={spacingClass}>{children}</EfferdRail>
+    <section id={id} className={cn("relative w-full", className)}>
+      {border ? <PageRule /> : null}
+      {bleedContent ? (
+        children
       ) : (
-        <div className={spacingClass}>{children}</div>
+        <PageGutter className={cn("min-w-0", spacingClass)}>{children}</PageGutter>
       )}
     </section>
   );
@@ -71,11 +65,9 @@ export function SectionLabel({
   );
 }
 
-/** Mono action links in section headers (visible green on dark). */
 export const sectionActionLinkClass =
   "font-mono text-xs tracking-wide text-link-accent hover:underline";
 
-/** Inline links inside muted body copy (WCAG link-in-text-block). */
 export const inlineBodyLinkClass =
   "font-medium text-foreground underline decoration-brand underline-offset-2 hover:text-link-accent";
 
@@ -120,11 +112,7 @@ export function SectionIntro({
 }
 
 export function SectionBandDivider() {
-  return (
-    <div className="border-t border-border py-2">
-      <div className="h-px w-full bg-border" aria-hidden />
-    </div>
-  );
+  return <PageRule />;
 }
 
 /** @deprecated Prefer FeatureCard / grid gap-px inside SectionFrame. */
