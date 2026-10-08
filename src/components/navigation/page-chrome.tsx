@@ -4,6 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Fragment, useMemo } from "react";
+import { headerIconButtonClass } from "@/components/layout/header-icon-button";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -51,7 +52,7 @@ export function PageChrome({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex flex-col gap-3 border-b border-border px-4 py-3 sm:flex-row sm:items-center sm:gap-4 md:px-6",
+        "flex flex-row items-center gap-2 border-b border-border px-4 py-3 md:px-6",
         className,
       )}
     >
@@ -62,13 +63,13 @@ export function PageChrome({ className }: { className?: string }) {
       <Button
         type="button"
         variant="outline"
-        size="sm"
-        className="h-9 shrink-0 gap-1.5 px-3 shadow-xs"
+        size="icon"
+        className={headerIconButtonClass}
         onClick={handleBack}
-        aria-label={`Back to ${crumbs.length >= 2 ? crumbs[crumbs.length - 2].label : "home"}`}
+        aria-label="Go back"
+        title="Go back"
       >
         <ArrowLeft className="size-4" aria-hidden />
-        Back
       </Button>
       <Breadcrumb className="min-w-0 flex-1">
         <BreadcrumbList>
