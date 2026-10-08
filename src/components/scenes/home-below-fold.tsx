@@ -13,7 +13,7 @@ import { StackSection } from "@/components/scenes/stack-section";
 /** Homepage IA (Efferd block map): work → engineering → stack → focus → experiments → experience → about → contact → CTA. */
 export function HomeBelowFold() {
   return (
-    <div className="[contain-intrinsic-size:auto_1200px] [content-visibility:auto]">
+    <div>
       <SelectedWorkSection />
       <ExperienceSection />
       <EngineeringSection />
