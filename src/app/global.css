@@ -253,4 +253,35 @@ body {
   .page-intro {
     max-width: 48rem;
   }
+
+  /**
+   * Content screenshots / preview media — grayscale on hover-capable pointers only.
+   * Parent cards use `group` + `focus-visible` so keyboard users get color too.
+   */
+  .content-image {
+    transition: filter 300ms ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .content-image {
+      transition: none;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .content-image {
+      filter: grayscale(1);
+    }
+
+    .content-image:hover,
+    .group:hover .content-image,
+    .group:focus-within .content-image,
+    .group:focus-visible .content-image {
+      filter: grayscale(0);
+    }
+  }
+
+  .lenis-prevent {
+    overscroll-behavior: contain;
+  }
 }

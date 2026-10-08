@@ -3,9 +3,12 @@
 import {
   ANCHOR_SCROLL_OFFSET,
   registerLenis,
+  notifyScrollPosition,
   scrollToHash,
+  scrollToTop,
   type LenisController,
 } from "@/lib/lenis-controller";
+import { shouldLenisPreventScroll } from "@/lib/lenis-prevent";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
@@ -59,10 +62,16 @@ export function LenisInit() {
           syncTouch: false,
           autoResize: true,
           respectReducedMotion: true,
+          prevent: (node) =>
+            node instanceof HTMLElement && shouldLenisPreventScroll(node),
         }) as LenisController;
 
         lenisRef.current = lenis;
         registerLenis(lenis);
+
+        lenis.on("scroll", ({ scroll }: { scroll: number }) => {
+          notifyScrollPosition(scroll);
+        });
 
         const raf = (time: number) => {
           lenis.raf(time);
@@ -106,10 +115,18 @@ export function LenisInit() {
 
     document.addEventListener("click", onDocumentClick);
 
+    const onNativeScroll = () => {
+      if (!lenisRef.current) {
+        notifyScrollPosition(window.scrollY);
+      }
+    };
+    window.addEventListener("scroll", onNativeScroll, { passive: true });
+
     return () => {
       destroyed = true;
       motion.removeEventListener("change", onMotionChange);
       document.removeEventListener("click", onDocumentClick);
+      window.removeEventListener("scroll", onNativeScroll);
       cancelAnimationFrame(rafId);
       lenisRef.current?.destroy();
       lenisRef.current = null;
@@ -124,14 +141,10 @@ export function LenisInit() {
     requestAnimationFrame(() => {
       lenis?.resize();
       if (hash) {
-        scrollToHash(hash);
+        scrollToHash(hash, { immediate: true });
         return;
       }
-      if (lenis) {
-        lenis.scrollTo(0, { immediate: false });
-      } else {
-        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-      }
+      scrollToTop({ immediate: true });
     });
   }, [pathname]);
 

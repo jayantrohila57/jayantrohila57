@@ -1,7 +1,6 @@
 "use client";
 
 import { Download, Printer } from "lucide-react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { RESUME_PDF_PATH, resumeData } from "@/lib/resume-data";
 
@@ -15,40 +14,39 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
   };
 
   return (
-    <div className="resume-print-root mx-auto w-full max-w-3xl">
+    <div className="resume-print-root mx-auto w-full max-w-none">
       {showActions ? (
         <div className="resume-no-print mb-8 flex flex-wrap items-center gap-3">
-          <Button asChild variant="accent">
+          <Button asChild variant="accent" className="gap-2">
             <a href={RESUME_PDF_PATH} download>
               <Download className="size-4" aria-hidden />
               Download PDF
             </a>
           </Button>
-          <Button type="button" variant="outline" onClick={handlePrint}>
+          <Button
+            type="button"
+            variant="outline"
+            className="gap-2 shadow-xs"
+            onClick={handlePrint}
+          >
             <Printer className="size-4" aria-hidden />
             Print
           </Button>
-          <Link
-            href="/about"
-            className="text-sm text-muted-foreground underline-offset-4 hover:underline"
-          >
-            Back to about
-          </Link>
         </div>
       ) : null}
 
       <article
-        className="resume-document rounded-xl border border-border bg-panel text-foreground shadow-sm print:border-0 print:shadow-none print:rounded-none print:p-0"
+        className="resume-document border border-border bg-panel text-foreground print:border-0 print:bg-white print:text-black print:shadow-none"
         aria-label="Resume"
       >
-        <header className="border-b border-border pb-6 print:border-black/20">
-          <h1 className="text-3xl font-semibold tracking-tight">
+        <header className="border-b border-border px-4 py-6 md:px-8 md:py-8 print:border-black/20">
+          <h1 className="text-2xl font-semibold tracking-tight md:text-3xl">
             {resumeData.name}
           </h1>
-          <p className="mt-1 text-lg text-muted-foreground print:text-black/70">
+          <p className="mt-2 text-base text-muted-foreground md:text-lg print:text-black/70">
             {resumeData.headline}
           </p>
-          <p className="mt-3 text-sm leading-relaxed">
+          <p className="mt-4 font-mono text-xs text-muted-foreground md:text-sm print:text-black/80">
             {resumeData.location} ·{" "}
             <a
               href={`mailto:${resumeData.email}`}
@@ -57,7 +55,7 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
               {resumeData.email}
             </a>
           </p>
-          <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+          <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
             {resumeData.links.map((link) => (
               <li key={link.href}>
                 <a
@@ -73,104 +71,126 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
           </ul>
         </header>
 
-        <section className="mt-6">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-muted print:text-black">
-            Summary
-          </h2>
-          <p className="mt-2 text-sm leading-relaxed">{resumeData.summary}</p>
-        </section>
+        <div className="px-4 py-6 md:px-8 md:py-8">
+          <section>
+            <h2 className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase print:text-black">
+              Summary
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base print:text-black">
+              {resumeData.summary}
+            </p>
+          </section>
 
-        <section className="mt-8">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-muted print:text-black">
-            Experience
-          </h2>
-          <ul className="mt-4 space-y-6">
-            {resumeData.experience.map((role) => (
-              <li key={`${role.organization}-${role.period}`}>
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="font-medium">{role.title}</h3>
-                  <span className="text-sm text-muted print:text-black/70">
-                    {role.period}
-                  </span>
-                </div>
-                <p className="text-sm text-muted print:text-black/80">
-                  {role.organization}
-                  {role.location ? ` · ${role.location}` : ""}
-                </p>
-                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-relaxed">
-                  {role.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mt-8">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-muted print:text-black">
-            Education
-          </h2>
-          <ul className="mt-4 space-y-3 text-sm">
-            {resumeData.education.map((item) => (
-              <li key={item.credential}>
-                <span className="font-medium">{item.credential}</span>
-                {" — "}
-                {item.institution}
-                <span className="text-muted print:text-black/70">
-                  {" "}
-                  ({item.period})
-                </span>
-                {"href" in item && item.href ? (
-                  <>
-                    {" · "}
-                    <a
-                      href={item.href}
-                      className="underline-offset-2 hover:underline print:text-black"
-                      rel="noreferrer noopener"
-                      target="_blank"
-                    >
-                      Certificate
-                    </a>
-                  </>
-                ) : null}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mt-8">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-muted print:text-black">
-            Skills
-          </h2>
-          <ul className="mt-3 space-y-1 text-sm leading-relaxed">
-            {resumeData.skills.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mt-8">
-          <h2 className="text-xs font-semibold uppercase tracking-wide text-muted print:text-black">
-            Selected projects
-          </h2>
-          <ul className="mt-3 space-y-2 text-sm">
-            {resumeData.projects.map((project) => (
-              <li key={project.href}>
-                <a
-                  href={project.href}
-                  className="font-medium underline-offset-2 hover:underline print:text-black"
-                  rel="noreferrer noopener"
-                  target="_blank"
+          <section className="mt-10">
+            <h2 className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase print:text-black">
+              Experience
+            </h2>
+            <ul className="mt-5 divide-y divide-border">
+              {resumeData.experience.map((role) => (
+                <li
+                  key={`${role.organization}-${role.period}`}
+                  className="py-6 first:pt-0 last:pb-0"
                 >
-                  {project.name}
-                </a>
-                {" — "}
-                {project.summary}
-              </li>
-            ))}
-          </ul>
-        </section>
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 className="font-medium text-foreground">{role.title}</h3>
+                    <span className="font-mono text-xs text-muted-foreground print:text-black/70">
+                      {role.period}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground print:text-black/80">
+                    {role.organization}
+                    {role.location ? ` · ${role.location}` : ""}
+                  </p>
+                  <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground print:text-black">
+                    {role.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase print:text-black">
+              Education
+            </h2>
+            <ul className="mt-5 space-y-4 text-sm">
+              {resumeData.education.map((item) => (
+                <li key={item.credential}>
+                  <p className="font-medium text-foreground">{item.credential}</p>
+                  <p className="text-muted-foreground print:text-black/80">
+                    {item.institution}
+                  </p>
+                  <p className="font-mono text-xs text-muted-foreground print:text-black/70">
+                    {item.period}
+                    {"href" in item && item.href ? (
+                      <>
+                        {" · "}
+                        <a
+                          href={item.href}
+                          className="underline-offset-2 hover:underline print:text-black"
+                          rel="noreferrer noopener"
+                          target="_blank"
+                        >
+                          Certificate
+                        </a>
+                      </>
+                    ) : null}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase print:text-black">
+              Skills
+            </h2>
+            <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground print:text-black">
+              {resumeData.skills.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="mt-10">
+            <h2 className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase print:text-black">
+              Selected projects
+            </h2>
+            <ul className="mt-4 space-y-3 text-sm">
+              {resumeData.projects.map((project) => (
+                <li key={project.href} className="leading-relaxed">
+                  <a
+                    href={project.href}
+                    className="font-medium text-foreground underline-offset-2 hover:underline print:text-black"
+                    rel="noreferrer noopener"
+                    target="_blank"
+                  >
+                    {project.name}
+                  </a>
+                  <span className="text-muted-foreground print:text-black/80">
+                    {" "}
+                    — {project.summary}
+                  </span>
+                  {project.liveHref ? (
+                    <>
+                      {" "}
+                      <a
+                        href={project.liveHref}
+                        className="text-link-accent underline-offset-2 hover:underline print:text-black"
+                        rel="noreferrer noopener"
+                        target="_blank"
+                      >
+                        Live demo
+                      </a>
+                    </>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
       </article>
     </div>
   );

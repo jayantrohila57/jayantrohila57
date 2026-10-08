@@ -1,14 +1,10 @@
 import { getAbsoluteUrl } from "@/config/site";
 import type { PortfolioProject } from "@/data/portfolio";
-import {
-  projectBreadcrumbStructuredData,
-  projectWebPageStructuredData,
-} from "@/lib/structured-data";
+import { projectWebPageStructuredData } from "@/lib/structured-data";
 
 export function WorkProjectJsonLd({ project }: { project: PortfolioProject }) {
   const graph: Record<string, unknown>[] = [
     JSON.parse(projectWebPageStructuredData(project)),
-    JSON.parse(projectBreadcrumbStructuredData(project)),
   ];
 
   if (project.links.github) {

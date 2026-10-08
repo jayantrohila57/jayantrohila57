@@ -14,3 +14,8 @@ Product Engineer in Noida.
 - [Codethread Black](https://github.com/jayantrohila57/codethread-black) — dark VS Code theme. [Marketplace](https://marketplace.visualstudio.com/items?itemName=JayantRohila.codethread-black)
 
 This repository is the source for [jayantrohila.com](https://jayantrohila.com).
+
+## Development notes
+
+- [Lenis smooth scroll & nested scroll areas](./docs/LENIS.md)
+- Portfolio screenshots use the `.content-image` class via `ProjectMedia` (`src/lib/content-image.ts`)

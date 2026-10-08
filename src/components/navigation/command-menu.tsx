@@ -51,7 +51,10 @@ export function CommandMenu() {
               placeholder="Navigate or search projects…"
               className="w-full border-b border-border bg-transparent px-4 py-3 text-sm outline-none placeholder:text-muted"
             />
-            <Command.List className="max-h-80 overflow-y-auto p-2">
+            <Command.List
+              className="lenis-prevent max-h-80 overflow-y-auto p-2"
+              data-lenis-prevent=""
+            >
               <Command.Empty className="px-3 py-6 text-center text-sm text-muted">
                 No results.
               </Command.Empty>

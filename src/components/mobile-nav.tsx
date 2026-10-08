@@ -58,11 +58,12 @@ export function MobileNav({
           <PortalBackdrop />
           <div
             className={cn(
-              "relative z-10 flex min-h-0 flex-1 flex-col overflow-y-auto bg-background px-4 pt-14 pb-4",
+              "lenis-prevent relative z-10 flex min-h-0 flex-1 flex-col overflow-y-auto bg-background px-4 pt-14 pb-4",
               "data-[slot=open]:zoom-in-97 ease-out data-[slot=open]:animate-in",
             )}
             data-slot={open ? "open" : "closed"}
             id="mobile-menu"
+            data-lenis-prevent=""
           >
             <div className="flex w-full flex-col gap-y-1">
               {mainNav.map((link) => (

@@ -9,6 +9,7 @@ export type ResumeExperience = {
 export type ResumeProject = {
   name: string;
   href: string;
+  liveHref?: string;
   summary: string;
 };
 
@@ -29,12 +30,12 @@ export const resumeData = {
   experience: [
     {
       organization: "aiQmen Designs & Technologies Pvt. Ltd.",
-      title: "Product Engineer (Consultant – Product Engineer on offer)",
+      title: "Product Engineer",
       period: "18 May 2026 – Present",
       location: "Noida",
       bullets: [
-        "Product Engineer building interfaces and full-stack features with TypeScript, React, and Next.js.",
-        "Offer title: Consultant – Product Engineer; client names not listed on this public resume.",
+        "Building product interfaces and full-stack features with TypeScript, React, and Next.js on client software engagements.",
+        "Own UI implementation, component structure, and API integration for product-facing features.",
       ],
     },
     {
@@ -43,8 +44,9 @@ export const resumeData = {
       period: "18 Mar 2024 – 16 Apr 2026",
       location: "Noida",
       bullets: [
-        "Production React/Next.js features — forms, tables, API integration, responsive UI in a services team.",
-        "Trainee Mar–Jun 2024; Associate Software Developer Jun 2024 – Apr 2026.",
+        "Shipped production React and Next.js features — forms, tables, REST integration, and responsive UI in a services team.",
+        "Built and maintained client-facing UI flows with validation-heavy forms, data tables, filters, and responsive layouts.",
+        "Integrated frontend views with backend APIs and handled loading, error, and empty states.",
       ],
     },
     {
@@ -89,31 +91,32 @@ export const resumeData = {
     "TypeScript, JavaScript, HTML/CSS, React, Next.js (App Router), Tailwind, shadcn/ui, TanStack Query, React Hook Form, Zod",
     "Node.js, Express, REST, tRPC, PostgreSQL, Neon, Drizzle, Prisma, MongoDB (where used in projects)",
     "Better Auth, Razorpay (e-commerce), Vercel, Docker, GitHub Actions, Vitest, ESLint/Biome",
-    "ServiceNow (Braeon era — partial); not claiming microfrontends or unverified employer platforms here",
+    "ServiceNow administration (trainee role, Braeon Technocrats)",
   ],
   projects: [
     {
       name: "E-commerce",
       href: "https://github.com/jayantrohila57/e-commerce",
-      summary:
-        "Storefront — Next.js, tRPC, Drizzle, Better Auth, Razorpay. Live: e-commerce-jayantrohila.vercel.app",
+      liveHref: "https://e-commerce-jayantrohila.vercel.app",
+      summary: "Storefront — Next.js, tRPC, Drizzle, Better Auth, Razorpay.",
     },
     {
       name: "Env Manager",
       href: "https://github.com/jayantrohila57/env-manager",
-      summary:
-        "Secrets and env vars across environments — Better Auth, Neon. Live: env-manager-web.vercel.app",
+      liveHref: "https://env-manager-web.vercel.app",
+      summary: "Secrets and env vars across environments — Better Auth, Neon.",
     },
     {
       name: "Taskflow",
       href: "https://github.com/jayantrohila57/taskflow",
-      summary:
-        "Multi-tenant task platform — tRPC, Prisma, next-intl. Live: v1-taskflow.vercel.app",
+      liveHref: "https://v1-taskflow.vercel.app",
+      summary: "Multi-tenant task platform — tRPC, Prisma, next-intl.",
     },
     {
       name: "Portfolio site",
       href: "https://github.com/jayantrohila57/jayantrohila57",
-      summary: "jayantrohila.com — Next.js App Router portfolio.",
+      liveHref: "https://jayantrohila.com",
+      summary: "Next.js App Router portfolio and case studies.",
     },
   ] satisfies ResumeProject[],
 };

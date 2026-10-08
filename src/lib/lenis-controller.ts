@@ -9,10 +9,29 @@ export type LenisController = {
   resize: () => void;
   stop: () => void;
   start: () => void;
+  on: (
+    event: "scroll",
+    callback: (payload: { scroll: number }) => void,
+  ) => void;
 };
 
 let activeLenis: LenisController | null = null;
 let lockCount = 0;
+const scrollListeners = new Set<(y: number) => void>();
+
+export function subscribeScrollPosition(listener: (y: number) => void) {
+  scrollListeners.add(listener);
+  listener(window.scrollY);
+  return () => {
+    scrollListeners.delete(listener);
+  };
+}
+
+export function notifyScrollPosition(y: number) {
+  for (const listener of scrollListeners) {
+    listener(y);
+  }
+}
 
 export function registerLenis(instance: LenisController | null) {
   activeLenis = instance;
@@ -57,4 +76,18 @@ export function scrollToHash(
     target.scrollIntoView({ block: "start" });
   }
   return true;
+}
+
+export function scrollToTop(options?: { immediate?: boolean }) {
+  const lenis = activeLenis;
+  if (lenis) {
+    lenis.scrollTo(0, { immediate: options?.immediate ?? false });
+  } else {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: options?.immediate ? "auto" : "smooth",
+    });
+  }
+  notifyScrollPosition(0);
 }

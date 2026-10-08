@@ -480,7 +480,6 @@ export const experience: ExperienceEntry[] = [
     summary:
       "Building product interfaces and full-stack web features with TypeScript, React, and Next.js on client software engagements.",
     highlights: [
-      "Official offer title: Consultant – Product Engineer; this site uses Product Engineer for clarity.",
       "Own UI implementation, component structure, and API integration for product-facing features.",
       "Work GitHub: github.com/jayantaiqmen (client names and deliverables stay off the public portfolio).",
     ],

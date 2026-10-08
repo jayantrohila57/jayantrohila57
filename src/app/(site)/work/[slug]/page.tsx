@@ -83,7 +83,7 @@ export default async function ProjectPage({ params }: Props) {
         </dl>
       </div>
 
-      <div className="mx-4 my-8 p-2 md:p-4">
+      <div className="group mx-4 my-8 p-2 md:p-4">
         <ProjectMedia project={project} priority />
       </div>
 

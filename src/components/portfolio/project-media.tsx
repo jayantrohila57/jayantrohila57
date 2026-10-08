@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { ProjectPreviewBySlug } from "@/components/portfolio/project-previews";
 import type { PortfolioProject } from "@/data/portfolio";
+import { contentImageClass } from "@/lib/content-image";
 import { cn } from "@/lib/cn";
 import {
   getProjectScreenshotPath,
@@ -27,7 +28,10 @@ export function ProjectMedia({
 
   if (useFallback) {
     return (
-      <div className={cn("relative", className)} aria-hidden>
+      <div
+        className={cn("relative", contentImageClass(), className)}
+        aria-hidden
+      >
         <ProjectPreviewBySlug project={project} />
       </div>
     );
@@ -49,7 +53,9 @@ export function ProjectMedia({
         height={720}
         priority={priority}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
-        className="h-auto w-full object-cover object-top"
+        className={contentImageClass(
+          "h-auto w-full object-cover object-top",
+        )}
         onError={() => setUseFallback(true)}
       />
     </div>
