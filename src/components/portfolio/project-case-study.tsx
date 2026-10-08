@@ -22,7 +22,7 @@ export function ProjectCaseStudyAtGlance({
   const metricsOdd = metrics.length % 2 === 1;
 
   return (
-    <PageBleed className="mb-8 border-y border-border bg-border">
+    <PageBleed className="border-b border-border bg-border">
       <div className={cn(PAGE_GUTTER_CLASS, "bg-background py-6 md:py-8")}>
         <p className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
           At a glance

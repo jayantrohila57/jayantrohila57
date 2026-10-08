@@ -13,8 +13,9 @@ export const PAGE_GUTTER_CLASS = "px-4 md:px-6";
  * Negate gutter padding so rules and grids span column border to border.
  * Explicit width calc avoids subpixel gaps at the right rail (esp. with overflow-x-clip).
  */
+/** Negative margin only — avoid width calc that widens scrollWidth on mobile. */
 export const PAGE_BLEED_CLASS =
-  "relative -mx-4 w-[calc(100%+2rem)] max-w-none md:-mx-6 md:w-[calc(100%+3rem)]";
+  "relative -mx-4 max-w-none md:-mx-6";
 
 export function pageColumnClassName(className?: string) {
   return cn(
@@ -44,7 +45,7 @@ export function PageColumn({
       className={cn(
         PAGE_MAX_WIDTH_CLASS,
         bordered && PAGE_COLUMN_BORDER_CLASS,
-        "min-w-0 overflow-visible",
+        "min-w-0 overflow-x-clip",
         className,
       )}
     >

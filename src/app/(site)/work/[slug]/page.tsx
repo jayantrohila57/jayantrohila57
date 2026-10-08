@@ -53,7 +53,13 @@ function MetaCell({
   className?: string;
 }) {
   return (
-    <div className={cn("bg-background px-4 py-4 md:px-6 md:py-5", className)}>
+    <div
+      className={cn(
+        PAGE_GUTTER_CLASS,
+        "bg-background py-4 md:py-5",
+        className,
+      )}
+    >
       <p className="font-mono text-[10px] text-muted-foreground uppercase">
         {label}
       </p>
@@ -91,14 +97,13 @@ export default async function ProjectPage({ params }: Props) {
         </p>
       </div>
 
-      <PageBleed className="mt-8 grid gap-px border-y border-border bg-border md:grid-cols-2">
-        {metaRows.map((row) => (
-          <MetaCell key={row.label} label={row.label} value={row.value} />
-        ))}
-      </PageBleed>
-
-      <PageBleed className="group mt-8 border-y border-border">
-        <div className={cn(PAGE_GUTTER_CLASS, "py-4 md:py-6")}>
+      <PageBleed className="mt-8 border-t border-border">
+        <div className="grid gap-px border-b border-border bg-border md:grid-cols-2">
+          {metaRows.map((row) => (
+            <MetaCell key={row.label} label={row.label} value={row.value} />
+          ))}
+        </div>
+        <div className="group">
           <ProjectMedia project={project} priority />
         </div>
       </PageBleed>

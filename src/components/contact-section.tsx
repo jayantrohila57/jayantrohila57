@@ -7,6 +7,7 @@ import { DecorIcon } from "@/components/decor-icon";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
+import { PAGE_GUTTER_CLASS } from "@/components/primitives/page-column";
 import { cn } from "@/lib/utils";
 
 const channels = [
@@ -134,6 +135,13 @@ export function PortfolioContactPanel({
     </div>
   );
 
+  const cellPad = flush
+    ? cn(PAGE_GUTTER_CLASS, "py-6 md:py-8")
+    : "p-6 md:p-8";
+  const stackedPad = flush
+    ? cn(PAGE_GUTTER_CLASS, "py-8")
+    : "px-6 py-8";
+
   return (
     <div
       className={cn(
@@ -145,21 +153,26 @@ export function PortfolioContactPanel({
     >
       {layout === "split" ? (
         <div className="grid h-full min-h-full gap-px bg-border md:grid-cols-2">
-          <div className="flex min-h-full flex-col space-y-6 bg-background p-6 md:p-8">
+          <div
+            className={cn(
+              "flex min-h-full flex-col space-y-6 bg-background",
+              cellPad,
+            )}
+          >
             {intro}
             {channelList}
           </div>
-          <div className="flex min-h-full flex-col bg-background p-6 md:p-8">
+          <div className={cn("flex min-h-full flex-col bg-background", cellPad)}>
             {actions}
           </div>
         </div>
       ) : (
         <>
-          <div className="space-y-6 border-b px-6 py-8">
+          <div className={cn("space-y-6 border-b", stackedPad)}>
             {intro}
             {channelList}
           </div>
-          <div className="px-6 py-6">{actions}</div>
+          <div className={cn(stackedPad, !flush && "py-6")}>{actions}</div>
         </>
       )}
       {!flush ? (

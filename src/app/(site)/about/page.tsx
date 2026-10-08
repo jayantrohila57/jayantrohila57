@@ -50,7 +50,12 @@ export default function AboutPage() {
           description={specializationLine}
         />
         <PageBleed className="grid gap-px border-t border-border bg-border lg:grid-cols-3">
-          <div className="bg-background p-6 md:px-6 lg:col-span-2">
+          <div
+            className={cn(
+              PAGE_GUTTER_CLASS,
+              "bg-background py-6 lg:col-span-2",
+            )}
+          >
             <p className="leading-relaxed text-muted-foreground">
               {profile.longBio}
             </p>
@@ -58,7 +63,7 @@ export default function AboutPage() {
               {profile.title} · {profile.location}
             </p>
           </div>
-          <div className="bg-background p-6 md:px-6">
+          <div className={cn(PAGE_GUTTER_CLASS, "bg-background py-6")}>
             <p className="font-mono text-[10px] text-muted-foreground uppercase">
               Strengths
             </p>

@@ -1,24 +1,12 @@
 "use client";
 
 import { Mail } from "lucide-react";
-import dynamic from "next/dynamic";
 import { GithubIcon } from "@/components/icons/github-icon";
 import { HeaderIconButton } from "@/components/layout/header-icon-button";
+import { MobileNav } from "@/components/mobile-nav";
+import { CommandMenu } from "@/components/navigation/command-menu";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { siteConfig } from "@/config/site";
-
-const CommandMenu = dynamic(
-  () =>
-    import("@/components/navigation/command-menu").then(
-      (mod) => mod.CommandMenu,
-    ),
-  { ssr: false },
-);
-
-const MobileNav = dynamic(
-  () => import("@/components/mobile-nav").then((mod) => mod.MobileNav),
-  { ssr: false },
-);
 
 function HeaderGitHubButton() {
   return (

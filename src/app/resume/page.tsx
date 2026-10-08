@@ -1,4 +1,8 @@
-import { PageBleed } from "@/components/primitives/page-column";
+import {
+  PAGE_GUTTER_CLASS,
+  PageBleed,
+} from "@/components/primitives/page-column";
+import { cn } from "@/lib/utils";
 import {
   SectionFrame,
   SectionIntro,
@@ -22,7 +26,7 @@ export default function ResumePage() {
         description="Product engineer focused on React, Next.js, and typed full-stack delivery — PDF export matches this on-page version."
       />
       <PageBleed className="border-y border-border">
-        <div className="px-4 py-8 md:px-6 md:py-10">
+        <div className={cn(PAGE_GUTTER_CLASS, "py-8 md:py-10")}>
           <ResumeView />
         </div>
       </PageBleed>

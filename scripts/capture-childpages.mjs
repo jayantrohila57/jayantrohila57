@@ -8,20 +8,13 @@ mkdirSync(outDir, { recursive: true });
 
 const routes = [
   "/",
+  "/about",
+  "/contact",
   "/work",
   "/work/taskflow",
-  "/work/env-manager",
-  "/work/e-commerce",
-  "/work/libyui",
-  "/work/stats-on-spotify",
-  "/work/inkly-cms",
-  "/work/image-editor",
-  "/work/patternlab",
   "/engineering",
-  "/about",
-  "/resume",
-  "/contact",
   "/experiments",
+  "/resume",
   "/does-not-exist-404",
 ];
 
@@ -32,16 +25,20 @@ const viewports = [
 ];
 
 async function waitForDeploy(page) {
-  for (let i = 0; i < 30; i++) {
-    const res = await page.goto(`${base}/about`, {
-      waitUntil: "domcontentloaded",
-      timeout: 60_000,
+  for (let i = 0; i < 40; i++) {
+    const res = await page.goto(`${base}/work/taskflow`, {
+      waitUntil: "networkidle",
+      timeout: 120_000,
     });
     const html = await res?.text();
-    if (html?.includes("Go back") && !html?.includes("PAGE_COLUMN_BORDER")) {
+    if (
+      html?.includes('title="Search') &&
+      html?.includes("Toggle menu") &&
+      !html?.includes("w-[calc(100%+2rem)]")
+    ) {
       return;
     }
-    await page.waitForTimeout(12_000);
+    await page.waitForTimeout(15_000);
   }
   throw new Error("deploy wait timeout");
 }
