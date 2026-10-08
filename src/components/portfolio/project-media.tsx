@@ -44,7 +44,7 @@ export function ProjectMedia({
     >
       <Image
         src={src}
-        alt={`Screenshot of ${project.title}`}
+        alt={`${project.title} — ${project.summary}`}
         width={1280}
         height={720}
         priority={priority}

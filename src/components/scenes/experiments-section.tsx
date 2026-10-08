@@ -58,15 +58,17 @@ function ExperimentCard({ exp }: { exp: Experiment }) {
 
 /** Efferd `blogs-2` card grid for lab projects. */
 export function ExperimentsSection() {
-  const items = experiments.filter((exp) => exp.slug !== "jayantrohila57");
+  const items = experiments.filter(
+    (exp) => exp.slug !== "jayantrohila57" && exp.slug !== "libyui",
+  );
 
   return (
     <SectionFrame id="experiments" border>
       <div className="px-4 pt-2">
-        <SectionLabel index="05" label="Experiments" />
+        <SectionLabel index="05" label="Lab" />
         <SectionIntro
-          title="Smaller tools, libraries, and UI experiments."
-          description="Inkly CMS, libyui, Stats on Spotify, and other public repos with demos where available."
+          title="Experiments and smaller public repos."
+          description="Side projects and UI explorations — flagship case studies are in Selected work above."
           action={
             <Link href="/experiments" className={sectionActionLinkClass}>
               Open lab →

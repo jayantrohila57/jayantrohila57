@@ -213,7 +213,7 @@ export const projects: PortfolioProject[] = [
     description:
       "Web app to securely manage environment variables, secrets, and credentials with multi-environment workflows and CI/CD integration as stated goals in the README.",
     status: "Open source · Live demo",
-    role: "Personal project",
+    role: "Solo · product engineering",
     year: "2025–2026",
     stack: [
       "Next.js",
@@ -275,7 +275,7 @@ export const projects: PortfolioProject[] = [
     description:
       "Organization management, RBAC, task and project workflows, collaboration features, internationalized routes, and PWA-related configuration documented in the repo.",
     status: "Open source · Live demo",
-    role: "Personal project",
+    role: "Solo · product engineering",
     year: "2024–2026",
     stack: [
       "Next.js",
@@ -289,7 +289,7 @@ export const projects: PortfolioProject[] = [
     ],
     categories: ["product", "frontend", "backend"],
     featured: true,
-    visualType: "architecture",
+    visualType: "dashboard",
     links: {
       live: "https://v1-taskflow.vercel.app/",
       github: "https://github.com/jayantrohila57/taskflow",
@@ -474,16 +474,17 @@ export const experience: ExperienceEntry[] = [
   {
     id: "aiqmen",
     company: "aiQmen Designs & Technologies Pvt. Ltd.",
-    role: "Product Engineer (offer title: Consultant – Product Engineer)",
+    role: "Product Engineer",
     period: "18 May 2026 – Present",
     location: "Noida · onsite",
     summary:
-      "Building product interfaces and full-stack web features with TypeScript, React, and Next.js across software engagements.",
+      "Building product interfaces and full-stack web features with TypeScript, React, and Next.js on client software engagements.",
     highlights: [
-      "Work GitHub: github.com/jayantaiqmen.",
-      "Client-facing deliverables stay confidential; portfolio focuses on open-source work.",
+      "Official offer title: Consultant – Product Engineer; this site uses Product Engineer for clarity.",
+      "Own UI implementation, component structure, and API integration for product-facing features.",
+      "Work GitHub: github.com/jayantaiqmen (client names and deliverables stay off the public portfolio).",
     ],
-    technologies: ["TypeScript", "React", "Next.js"],
+    technologies: ["TypeScript", "React", "Next.js", "REST APIs"],
   },
   {
     id: "binmile",
@@ -492,12 +493,15 @@ export const experience: ExperienceEntry[] = [
     period: "18 Mar 2024 – 16 Apr 2026",
     location: "Noida",
     summary:
-      "Built and maintained production web features across React/Next.js interfaces, APIs, forms, and integration work in a services environment.",
+      "Shipped production web features in a product-engineering services team — React and Next.js interfaces, forms and tables, REST integration, and sprint delivery alongside designers and backend engineers.",
     highlights: [
-      "Associate Software Developer from June 2024; trainee from March 2024.",
-      "Last working day 16 April 2026.",
+      "Joined as trainee (18 Mar 2024); Associate Software Developer from 17 Jun 2024 through last working day 16 Apr 2026.",
+      "Built and maintained client-facing UI flows: validation-heavy forms, data tables, filters, and responsive layouts.",
+      "Integrated frontend views with backend APIs and handled edge cases in loading, error, and empty states.",
+      "Client and product names are confidential; evidence of engineering depth is in the open-source case studies on this site.",
     ],
-    technologies: ["TypeScript", "Next.js", "React"],
+    technologies: ["TypeScript", "React", "Next.js", "REST APIs", "Git"],
+    projectSlugs: ["taskflow", "env-manager", "e-commerce"],
   },
   {
     id: "teevro",

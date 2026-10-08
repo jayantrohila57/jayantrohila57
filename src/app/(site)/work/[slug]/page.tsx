@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { WorkProjectJsonLd } from "@/components/json-ld-work";
-import { ProjectCaseStudySections } from "@/components/portfolio/project-case-study";
+import {
+  ProjectCaseStudyAtGlance,
+  ProjectCaseStudySections,
+} from "@/components/portfolio/project-case-study";
 import { ProjectMedia } from "@/components/portfolio/project-media";
 import { SectionFrame } from "@/components/primitives/section-frame";
 import { Button } from "@/components/ui/button";
 import { generatePageMetadata } from "@/config/metadata";
+import { projectPageSeo } from "@/config/page-seo";
 import { getAbsoluteUrl } from "@/config/site";
 import { getProject, projects } from "@/data/portfolio";
 import { getProjectCaseStudy } from "@/data/project-case-studies";
@@ -21,13 +25,16 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
-  const ogDescription = project.ogDescription ?? project.summary;
-  const ogTitle = project.ogTitle ?? project.title;
+  const seo = projectPageSeo[slug];
+  const ogDescription =
+    seo?.description ?? project.ogDescription ?? project.summary;
+  const ogTitle = seo?.title ?? project.ogTitle ?? project.title;
+  const ogImage = getAbsoluteUrl(getProjectOgImage(project));
   return generatePageMetadata({
     title: ogTitle,
     description: ogDescription,
     path: `/work/${slug}`,
-    images: [getAbsoluteUrl(getProjectOgImage(project))],
+    images: [ogImage],
   });
 }
 
@@ -81,7 +88,10 @@ export default async function ProjectPage({ params }: Props) {
       </div>
 
       {caseStudy ? (
-        <ProjectCaseStudySections study={caseStudy} />
+        <>
+          <ProjectCaseStudyAtGlance study={caseStudy} />
+          <ProjectCaseStudySections study={caseStudy} />
+        </>
       ) : (
         <div className="space-y-10 px-4 pb-8">
           {project.sections.map((section, i) => (

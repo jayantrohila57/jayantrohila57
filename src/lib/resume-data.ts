@@ -14,7 +14,7 @@ export type ResumeProject = {
 
 export const resumeData = {
   name: "Jayant Rohila",
-  headline: "Product Engineer (Frontend) | Next.js · React.js · TypeScript",
+  headline: "Frontend-first Product Engineer | Next.js · React · TypeScript",
   location: "Noida, India",
   email: "jrohila55@gmail.com",
   summary:
@@ -33,8 +33,8 @@ export const resumeData = {
       period: "18 May 2026 – Present",
       location: "Noida",
       bullets: [
-        "Building product interfaces and full-stack web features with TypeScript, React, and Next.js.",
-        "Client names and employer deliverables are not listed on this public resume.",
+        "Product Engineer building interfaces and full-stack features with TypeScript, React, and Next.js.",
+        "Offer title: Consultant – Product Engineer; client names not listed on this public resume.",
       ],
     },
     {
@@ -43,8 +43,8 @@ export const resumeData = {
       period: "18 Mar 2024 – 16 Apr 2026",
       location: "Noida",
       bullets: [
-        "Trainee from join; Associate Software Developer from 17 Jun 2024.",
-        "Associate Software Developer from June 2024; trainee from March 2024.",
+        "Production React/Next.js features — forms, tables, API integration, responsive UI in a services team.",
+        "Trainee Mar–Jun 2024; Associate Software Developer Jun 2024 – Apr 2026.",
       ],
     },
     {

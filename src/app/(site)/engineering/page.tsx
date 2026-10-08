@@ -6,12 +6,12 @@ import {
   SectionIntro,
 } from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
+import { staticPageSeo } from "@/config/page-seo";
 import { engineeringPrinciples } from "@/data/portfolio";
 
 export const metadata = generatePageMetadata({
-  title: "Engineering",
-  description:
-    "How Jayant Rohila approaches product UI, type-safe architecture, reusable systems, and delivery.",
+  title: staticPageSeo.engineering.title,
+  description: staticPageSeo.engineering.description,
   path: "/engineering",
 });
 

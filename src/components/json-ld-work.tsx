@@ -1,3 +1,4 @@
+import { getAbsoluteUrl } from "@/config/site";
 import type { PortfolioProject } from "@/data/portfolio";
 import {
   projectBreadcrumbStructuredData,
@@ -5,10 +6,26 @@ import {
 } from "@/lib/structured-data";
 
 export function WorkProjectJsonLd({ project }: { project: PortfolioProject }) {
-  const graph = [
+  const graph: Record<string, unknown>[] = [
     JSON.parse(projectWebPageStructuredData(project)),
     JSON.parse(projectBreadcrumbStructuredData(project)),
   ];
+
+  if (project.links.github) {
+    graph.push({
+      "@type": "SoftwareSourceCode",
+      name: project.title,
+      description: project.ogDescription ?? project.summary,
+      url: project.links.github,
+      codeRepository: project.links.github,
+      programmingLanguage: "TypeScript",
+      author: {
+        "@type": "Person",
+        name: "Jayant Rohila",
+        url: getAbsoluteUrl("/"),
+      },
+    });
+  }
 
   return (
     <script

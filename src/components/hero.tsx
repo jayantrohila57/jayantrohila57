@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { EfferdRail } from "@/components/efferd-rail";
 import { buttonVariants } from "@/components/ui/button";
-import { heroHeadline, siteConfig } from "@/config/site";
+import {
+  heroHeadline,
+  heroStatusLine,
+  heroSupportingLine,
+  siteConfig,
+} from "@/config/site";
 import { profile } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -39,7 +44,7 @@ export function PortfolioHero() {
             )}
           >
             <p className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
-              Product engineer
+              {profile.title}
             </p>
             <div className="space-y-2.5 md:space-y-3">
               <h1
@@ -50,18 +55,16 @@ export function PortfolioHero() {
               >
                 {profile.name}
               </h1>
-              <p className="text-balance text-lg text-muted-foreground md:text-xl">
+              <p className="text-balance text-lg text-foreground md:text-xl">
                 {heroHeadline}
               </p>
             </div>
 
             <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-              I work across product UI, frontend architecture, typed APIs, and
-              data-heavy workflows — primarily with TypeScript, React, and
-              Next.js.
+              {heroSupportingLine}
             </p>
             <p className="font-mono text-[11px] tracking-wide text-muted-foreground">
-              Next.js · React · TypeScript
+              {heroStatusLine}
             </p>
 
             <div className="flex w-fit flex-wrap items-center gap-3 border-t border-border pt-6 md:pt-7">
@@ -70,16 +73,19 @@ export function PortfolioHero() {
                 prefetch={false}
                 className={cn(buttonVariants({ variant: "accent" }))}
               >
-                View work
+                View selected work
                 <ArrowRightGlyph className="size-4" />
               </Link>
               <Link
-                href={siteConfig.resumePath}
+                href={siteConfig.resumePdfPath}
                 prefetch={false}
                 className={cn(buttonVariants({ variant: "outline" }))}
               >
-                Resume
+                Download résumé
               </Link>
+              <span className="font-mono text-[10px] text-muted-foreground">
+                {siteConfig.resumeUpdatedLabel}
+              </span>
               <Link
                 href="/contact"
                 prefetch={false}

@@ -98,6 +98,8 @@ export function generatePageMetadata(options: {
   images?: string[];
   keywords?: string[];
   noIndex?: boolean;
+  /** When true, do not apply the `%s · SiteName` layout template. */
+  absoluteTitle?: boolean;
 }): Metadata {
   const {
     title,
@@ -106,6 +108,7 @@ export function generatePageMetadata(options: {
     images,
     keywords = [],
     noIndex = false,
+    absoluteTitle = true,
   } = options;
 
   const url = getAbsoluteUrl(path);
@@ -116,7 +119,7 @@ export function generatePageMetadata(options: {
   const pageKeywords = [...siteConfig.seo.keywords, ...keywords];
 
   return {
-    title: pageTitle,
+    title: absoluteTitle ? { absolute: pageTitle } : pageTitle,
     description: pageDescription,
     keywords: pageKeywords,
     openGraph: {

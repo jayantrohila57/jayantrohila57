@@ -1,24 +1,27 @@
 import type { Viewport } from "next";
+import { homePageDescription, homePageTitle } from "@/config/page-seo";
 
 export const publicHeadline =
-  "Product Engineer (Frontend) | Next.js · React.js · TypeScript";
+  "Product Engineer (Frontend) | React & Next.js · TypeScript";
 
 export const heroHeadline =
-  "Product Engineer building complex web applications that feel simple.";
+  "I build complex SaaS interfaces, dashboards, and product workflows with React, Next.js, and TypeScript.";
+
+export const heroSupportingLine =
+  "Complex web applications that feel simple — with enough full-stack depth to own features from UI through API and data.";
 
 export const heroStatusLine =
-  "Currently building product software at aiQmen · Noida, India";
+  "Product Engineer at aiQmen · Noida · open to frontend and product engineering roles";
 
 export const specializationLine =
-  "Complex web applications, frontend architecture, and data-heavy UX.";
+  "Frontend-first product engineering — complex UI, typed APIs, and data-heavy workflows.";
 
 /** Longer bio for page body, JSON-LD, and social image cards — not for HTML meta snippets. */
 export const longAbout =
-  "Product Engineer building web products in React, Next.js, and TypeScript — from responsive UIs and typed APIs through to production deploys. Open-source work includes Taskflow, Env Manager, and libyui with live demos. Based in Noida; open to in-office, hybrid, and remote roles across India.";
+  "Frontend-first Product Engineer in Noida. I ship React and Next.js product interfaces — dashboards, forms, and multi-step workflows — and own the full stack when a feature needs typed APIs, auth, and PostgreSQL. Open-source case studies include Taskflow, Env Manager, and libyui (live demos on this site). ~2 years in production software at Binmile; now at aiQmen.";
 
 /** ~150 chars for meta / OG / Twitter descriptions. */
-export const metaDescription =
-  "Product Engineer (Frontend) at aiQmen, Noida. Next.js, React, TypeScript—portfolio, open-source repos, and production web apps.";
+export const metaDescription = homePageDescription;
 
 /** @deprecated Use `longAbout` or `metaDescription` explicitly. */
 export const shortAbout = longAbout;
@@ -36,35 +39,25 @@ export const elsewhereLinks: ElsewhereLink[] = [
   },
   { label: "GitHub", href: "https://github.com/jayantrohila57" },
   {
+    label: "Work GitHub",
+    href: "https://github.com/jayantaiqmen",
+  },
+  {
     label: "HackerRank",
     href: "https://www.hackerrank.com/profile/jayantrohila57",
   },
-  {
-    label: "Upwork",
-    href: "https://www.upwork.com/freelancers/~01319719b0761ff361",
-  },
-  { label: "Freelancer", href: "https://www.freelancer.com/u/IAMSTRONG57" },
-  { label: "Malt", href: "https://www.malt.com/profile/jayantrohila" },
-  { label: "Arc.dev", href: "https://arc.dev/@jayantrohila57" },
-  {
-    label: "Truelancer",
-    href: "https://www.truelancer.com/freelancer/jayantrohila",
-  },
-  { label: "Contra", href: "https://contra.com/jayant_rohila_qrutb9cv" },
-  { label: "Fiverr", href: "https://www.fiverr.com/jayant_rohila" },
-  { label: "Linktree", href: "https://linktr.ee/JayantRohila" },
 ];
 
 export const siteConfig = {
   siteName: "Jayant Rohila",
-  siteTitle: `Jayant Rohila — ${publicHeadline}`,
+  siteTitle: homePageTitle,
   siteDescription: metaDescription,
   longDescription: longAbout,
   siteUrl: "https://jayantrohila.com",
 
   author: {
     name: "Jayant Rohila",
-    role: "Product Engineer (Frontend)",
+    role: "Frontend-first Product Engineer",
     jobTitle: publicHeadline,
     employer: "aiQmen Designs & Technologies Pvt. Ltd.",
   },
@@ -78,15 +71,8 @@ export const siteConfig = {
   social: {
     github: "https://github.com/jayantrohila57",
     linkedin: "https://www.linkedin.com/in/jayant-rohila/",
-    linktree: "https://linktr.ee/JayantRohila",
     hackerrank: "https://www.hackerrank.com/profile/jayantrohila57",
-    upwork: "https://www.upwork.com/freelancers/~01319719b0761ff361",
-    freelancer: "https://www.freelancer.com/u/IAMSTRONG57",
-    malt: "https://www.malt.com/profile/jayantrohila",
-    arc: "https://arc.dev/@jayantrohila57",
-    truelancer: "https://www.truelancer.com/freelancer/jayantrohila",
-    contra: "https://contra.com/jayant_rohila_qrutb9cv",
-    fiverr: "https://www.fiverr.com/jayant_rohila",
+    workGithub: "https://github.com/jayantaiqmen",
   },
 
   seo: {
@@ -122,6 +108,8 @@ export const siteConfig = {
   },
 
   resumePath: "/resume",
+  resumePdfPath: "/resume.pdf",
+  resumeUpdatedLabel: "PDF · updated Oct 2026",
 };
 
 export const baseViewport: Viewport = {

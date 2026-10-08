@@ -5,11 +5,12 @@ import {
   SectionIntro,
 } from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
+import { staticPageSeo } from "@/config/page-seo";
 import { experiments } from "@/data/portfolio";
 
 export const metadata = generatePageMetadata({
-  title: "Experiments",
-  description: "Secondary libraries, CMS experiments, and meta projects.",
+  title: staticPageSeo.experiments.title,
+  description: staticPageSeo.experiments.description,
   path: "/experiments",
 });
 

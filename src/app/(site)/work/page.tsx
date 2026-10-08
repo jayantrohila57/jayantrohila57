@@ -7,12 +7,12 @@ import {
   SectionIntro,
 } from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
+import { staticPageSeo } from "@/config/page-seo";
 import { getWorkPageProjectsByTier } from "@/data/portfolio";
 
 export const metadata = generatePageMetadata({
-  title: "Work",
-  description:
-    "Flagship and supporting software projects — Taskflow, Env Manager, libyui, commerce, and experiments.",
+  title: staticPageSeo.work.title,
+  description: staticPageSeo.work.description,
   path: "/work",
 });
 

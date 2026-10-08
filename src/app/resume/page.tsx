@@ -1,11 +1,11 @@
 import { SectionFrame } from "@/components/primitives/section-frame";
 import { ResumeView } from "@/components/resume-view";
 import { generatePageMetadata } from "@/config/metadata";
+import { staticPageSeo } from "@/config/page-seo";
 
 export const metadata = generatePageMetadata({
-  title: "Resume",
-  description:
-    "Printable resume for Jayant Rohila — Product Engineer (Frontend), Noida.",
+  title: staticPageSeo.resume.title,
+  description: staticPageSeo.resume.description,
   path: "/resume",
 });
 

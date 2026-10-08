@@ -2,6 +2,9 @@ import type { PortfolioProject } from "@/data/portfolio";
 
 /** Captured demo screenshots live under `public/projects/{slug}.png`. */
 export function getProjectScreenshotPath(slug: string): string {
+  if (slug === "taskflow") {
+    return "/projects/taskflow-app.png";
+  }
   return `/projects/${slug}.png`;
 }
 

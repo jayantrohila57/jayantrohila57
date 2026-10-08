@@ -1,17 +1,19 @@
 import { type BlogListItem, BlogsList } from "@/components/blogs-section";
 import { PortfolioContactPanel } from "@/components/contact-section";
+import { RootJsonLd } from "@/components/json-ld";
 import {
   SectionFrame,
   SectionIntro,
 } from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
+import { staticPageSeo } from "@/config/page-seo";
 import { specializationLine } from "@/config/site";
 import { experience, profile } from "@/data/portfolio";
 import { resumeData } from "@/lib/resume-data";
 
 export const metadata = generatePageMetadata({
-  title: "About",
-  description: profile.shortBio,
+  title: staticPageSeo.about.title,
+  description: staticPageSeo.about.description,
   path: "/about",
 });
 
@@ -26,12 +28,16 @@ export default function AboutPage() {
   const timeline: BlogListItem[] = experience.map((item) => ({
     title: `${item.role} · ${item.company}`,
     date: item.period,
-    description: item.summary,
+    description:
+      item.highlights.length > 0
+        ? `${item.summary} ${item.highlights[0]}`
+        : item.summary,
     href: "#experience",
   }));
 
   return (
     <>
+      <RootJsonLd />
       <SectionFrame border={false} spacing="tight" className="pt-8">
         <div className="px-4">
           <SectionIntro

@@ -4,8 +4,9 @@ import { SectionFrame } from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
 
 export const metadata = generatePageMetadata({
-  title: "Page not found",
-  description: "The requested page could not be found.",
+  title: "Page not found | Jayant Rohila",
+  description:
+    "This page does not exist on jayantrohila.com. Browse work, about, or contact from the homepage.",
   noIndex: true,
 });
 

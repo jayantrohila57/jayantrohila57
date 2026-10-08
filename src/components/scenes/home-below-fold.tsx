@@ -15,11 +15,11 @@ export function HomeBelowFold() {
   return (
     <div className="[contain-intrinsic-size:auto_1200px] [content-visibility:auto]">
       <SelectedWorkSection />
+      <ExperienceSection />
       <EngineeringSection />
       <StackSection />
       <CurrentFocusSection />
       <ExperimentsSection />
-      <ExperienceSection />
       <AboutTeaserSection />
       <ContactSection />
       <FinalCtaSection />

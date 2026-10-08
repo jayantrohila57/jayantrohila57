@@ -5,11 +5,11 @@ import {
   SectionIntro,
 } from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
+import { staticPageSeo } from "@/config/page-seo";
 
 export const metadata = generatePageMetadata({
-  title: "Contact",
-  description:
-    "Email, GitHub, and LinkedIn for product engineering roles and collaborations.",
+  title: staticPageSeo.contact.title,
+  description: staticPageSeo.contact.description,
   path: "/contact",
 });
 
