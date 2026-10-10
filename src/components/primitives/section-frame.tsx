@@ -40,7 +40,8 @@ export function SectionFrame({
     <section id={id} className={cn("relative w-full", className)}>
       {border ? <PageRule /> : null}
       {bleedContent ? (
-        children
+        /** Bleed bands need a gutter parent so `PageBleed` (-mx) aligns to column rails. */
+        <PageGutter className="min-w-0">{children}</PageGutter>
       ) : (
         <PageGutter className={cn("min-w-0", spacingClass)}>{children}</PageGutter>
       )}
