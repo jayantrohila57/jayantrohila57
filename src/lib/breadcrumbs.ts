@@ -8,11 +8,14 @@ export type BreadcrumbCrumb = {
 
 const STATIC_LABELS: Record<string, string> = {
   work: "Work",
+  writing: "Writing",
   engineering: "Engineering",
   about: "About",
   resume: "Resume",
   contact: "Contact",
   experiments: "Experiments",
+  elsewhere: "Elsewhere",
+  interests: "Interests",
 };
 
 /** Route hierarchy for child pages (empty on homepage). */

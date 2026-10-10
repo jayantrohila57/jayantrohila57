@@ -68,14 +68,28 @@ const config = {
       { source: "/career/education", destination: "/about", permanent: true },
       { source: "/work/projects", destination: "/work", permanent: true },
       { source: "/projects", destination: "/work", permanent: true },
-      { source: "/blog", destination: "/work", permanent: true },
+      { source: "/blog", destination: "/writing", permanent: true },
+      {
+        source: "/engineering",
+        destination: "/writing#engineering",
+        permanent: true,
+      },
+      {
+        source: "/experiments",
+        destination: "/work?type=personal#lab",
+        permanent: true,
+      },
       { source: "/work/case-studies", destination: "/work", permanent: true },
       {
         source: "/work/case-studies/:slug",
         destination: "/work/:slug",
         permanent: true,
       },
-      { source: "/work/skills", destination: "/engineering", permanent: true },
+      {
+        source: "/work/skills",
+        destination: "/writing#engineering",
+        permanent: true,
+      },
     ];
   },
 };

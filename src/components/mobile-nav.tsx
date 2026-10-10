@@ -77,6 +77,13 @@ export function MobileNav({
                 </Link>
               ))}
             </div>
+            <div className="mt-6 border-t border-border pt-6">
+              <Button asChild variant="accent" className="w-full">
+                <Link href="/contact" onClick={() => setOpen(false)}>
+                  Contact
+                </Link>
+              </Button>
+            </div>
           </div>
         </Portal>
       )}

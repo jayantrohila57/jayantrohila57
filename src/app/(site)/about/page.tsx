@@ -11,7 +11,9 @@ import {
 } from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
-import { specializationLine } from "@/config/site";
+import { siteConfig, specializationLine } from "@/config/site";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { experience, profile } from "@/data/portfolio";
 import { resumeData } from "@/lib/resume-data";
 import { cn } from "@/lib/utils";
@@ -48,6 +50,16 @@ export default function AboutPage() {
           label="About"
           title={profile.name}
           description={specializationLine}
+          action={
+            <div className="flex flex-wrap gap-2">
+              <Button asChild variant="accent">
+                <Link href={siteConfig.resumePath}>View résumé</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <a href={siteConfig.resumePdfPath}>Download PDF</a>
+              </Button>
+            </div>
+          }
         />
         <PageBleed className="grid gap-px border-t border-border bg-border lg:grid-cols-3">
           <div

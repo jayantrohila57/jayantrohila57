@@ -24,6 +24,7 @@ function experimentAsProject(exp: Experiment): PortfolioProject {
     year: "",
     stack: exp.stack,
     categories: ["experiments"],
+    workEngagement: "personal",
     featured: false,
     visualType: exp.visualType,
     links: exp.links,
@@ -78,7 +79,7 @@ export function ExperimentsSection() {
           title="Experiments and smaller public repos."
           description="Side projects and UI explorations — flagship case studies are in Selected work above."
           action={
-            <Link href="/experiments" className={sectionActionLinkClass}>
+            <Link href="/work?type=personal#lab" className={sectionActionLinkClass}>
               Open lab →
             </Link>
           }

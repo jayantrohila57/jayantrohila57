@@ -8,9 +8,24 @@ export const homePageDescription =
 
 export const staticPageSeo = {
   work: {
-    title: "Frontend projects — Jayant Rohila | React, Next.js & TypeScript",
+    title: "Work & projects — Jayant Rohila | React, Next.js & TypeScript",
     description:
-      "Case studies and demos: Taskflow (multi-tenant SaaS), Env Manager, libyui, e-commerce, and lab experiments — built by Jayant Rohila in Noida.",
+      "Filterable project index: personal open-source case studies, lab repos, and demos — Taskflow, Env Manager, libyui, e-commerce, and more.",
+  },
+  writing: {
+    title: "Writing — Jayant Rohila | Case studies & engineering notes",
+    description:
+      "Project case studies and how-I-build engineering notes. Blog posts and snippets are not published yet — honest placeholders only.",
+  },
+  elsewhere: {
+    title: "Elsewhere — Jayant Rohila | GitHub, LinkedIn & profiles",
+    description:
+      "Public profile links for Jayant Rohila — GitHub, LinkedIn, work GitHub, and HackerRank from site config.",
+  },
+  interests: {
+    title: "Interests — Jayant Rohila",
+    description:
+      "Personal interests (music, anime, travel, tech) — secondary section, coming later on jayantrohila.com.",
   },
   engineering: {
     title: "Engineering approach — Jayant Rohila | Product UI & typed APIs",

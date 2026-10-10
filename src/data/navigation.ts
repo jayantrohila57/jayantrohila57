@@ -13,9 +13,8 @@ export const primaryNav: NavItem[] = [
 ];
 
 export const moreNav: NavItem[] = [
-  { label: "Resume", href: "/resume" },
-  { label: "Engineering", href: "/engineering" },
-  { label: "Experiments", href: "/experiments" },
+  { label: "Writing", href: "/writing" },
+  { label: "Elsewhere", href: "/elsewhere" },
   {
     label: "GitHub",
     href: "https://github.com/jayantrohila57",

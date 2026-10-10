@@ -8,7 +8,7 @@ import { useCallback, useEffect, useState } from "react";
 import { HeaderIconButton } from "@/components/layout/header-icon-button";
 import { useLenisScrollLock } from "@/components/smooth-scroll";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { mainNav } from "@/config/navigation";
+import { commandNavExtras, mainNav } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { profile, projects } from "@/data/portfolio";
 
@@ -83,14 +83,49 @@ export function CommandMenu() {
                     {item.label}
                   </Command.Item>
                 ))}
+                {commandNavExtras.map((item) => (
+                  <Command.Item
+                    key={item.href}
+                    onSelect={() => {
+                      router.push(item.href);
+                      setOpen(false);
+                    }}
+                    className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                  >
+                    {item.label}
+                  </Command.Item>
+                ))}
+              </Command.Group>
+              <Command.Group
+                heading="Writing"
+                className="px-2 py-2 text-[10px] font-mono tracking-widest text-muted uppercase"
+              >
                 <Command.Item
                   onSelect={() => {
-                    router.push("/contact");
+                    router.push("/writing");
                     setOpen(false);
                   }}
                   className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
                 >
-                  Contact
+                  Writing overview
+                </Command.Item>
+                <Command.Item
+                  onSelect={() => {
+                    router.push("/writing#case-studies");
+                    setOpen(false);
+                  }}
+                  className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                >
+                  Case studies index
+                </Command.Item>
+                <Command.Item
+                  onSelect={() => {
+                    router.push("/writing#engineering");
+                    setOpen(false);
+                  }}
+                  className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                >
+                  Engineering notes
                 </Command.Item>
               </Command.Group>
               <Command.Group

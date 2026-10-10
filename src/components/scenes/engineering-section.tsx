@@ -23,7 +23,7 @@ export function EngineeringSection() {
           title="How I build software."
           description="Where UX, architecture, and maintainability meet — backed by real project patterns."
           action={
-            <Link href="/engineering" className={sectionActionLinkClass}>
+            <Link href="/writing#engineering" className={sectionActionLinkClass}>
               Deep dive →
             </Link>
           }

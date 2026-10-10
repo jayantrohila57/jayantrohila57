@@ -6,6 +6,7 @@ import {
   siteConfig,
   specializationLine,
 } from "@/config/site";
+import type { WorkEngagement } from "@/data/work-engagement";
 
 export type ProjectVisualType =
   | "dashboard"
@@ -34,6 +35,8 @@ export type PortfolioProject = {
   year: string;
   stack: string[];
   categories: string[];
+  /** Personal OSS, employer case study, or freelance — for /work filters. */
+  workEngagement: WorkEngagement;
   featured: boolean;
   visualType: ProjectVisualType;
   links: { live?: string; github?: string };
@@ -151,6 +154,7 @@ export const projects: PortfolioProject[] = [
       "Tailwind CSS",
     ],
     categories: ["product", "frontend", "backend"],
+    workEngagement: "personal",
     featured: false,
     visualType: "dashboard",
     links: {
@@ -226,6 +230,7 @@ export const projects: PortfolioProject[] = [
       "Neon",
     ],
     categories: ["product", "systems", "frontend"],
+    workEngagement: "personal",
     featured: true,
     visualType: "terminal",
     links: {
@@ -288,6 +293,7 @@ export const projects: PortfolioProject[] = [
       "Tailwind CSS",
     ],
     categories: ["product", "frontend", "backend"],
+    workEngagement: "personal",
     featured: true,
     visualType: "dashboard",
     links: {
@@ -342,6 +348,7 @@ export const projects: PortfolioProject[] = [
     year: "2024–2025",
     stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
     categories: ["experiment", "frontend"],
+    workEngagement: "personal",
     featured: false,
     visualType: "editor",
     links: {
@@ -372,6 +379,7 @@ export const projects: PortfolioProject[] = [
     year: "2024–2025",
     stack: ["React", "TypeScript", "Tailwind CSS"],
     categories: ["experiment", "frontend"],
+    workEngagement: "personal",
     featured: true,
     visualType: "custom",
     links: {
@@ -398,6 +406,7 @@ export const projects: PortfolioProject[] = [
     year: "2024–2025",
     stack: ["Next.js", "TypeScript", "React"],
     categories: ["experiment", "frontend"],
+    workEngagement: "personal",
     featured: false,
     visualType: "browser",
     links: {
@@ -424,6 +433,7 @@ export const projects: PortfolioProject[] = [
     year: "2023–2025",
     stack: ["Next.js", "TypeScript", "React"],
     categories: ["experiment", "data"],
+    workEngagement: "personal",
     featured: false,
     visualType: "data",
     links: {
@@ -452,6 +462,7 @@ export const projects: PortfolioProject[] = [
     year: "2024–2025",
     stack: ["Next.js", "TypeScript", "Tailwind CSS"],
     categories: ["experiment", "frontend"],
+    workEngagement: "personal",
     featured: false,
     visualType: "custom",
     links: {
@@ -748,4 +759,14 @@ export function getProjectsByStack(name: string) {
   return projects.filter((p) =>
     p.stack.some((s) => s.toLowerCase().includes(name.toLowerCase())),
   );
+}
+
+export function getProjectsByEngagement(engagement: WorkEngagement) {
+  return projects.filter((p) => p.workEngagement === engagement);
+}
+
+/** Lab shelf items (former /experiments) — external repos without a dedicated case-study page. */
+export function getLabShelfExperiments() {
+  const projectSlugs = new Set(projects.map((p) => p.slug));
+  return experiments.filter((exp) => !projectSlugs.has(exp.slug));
 }
