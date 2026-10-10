@@ -56,14 +56,13 @@ export function PageGutter({
   return <div className={cn(SHELL_GUTTER_X_CLASS, className)}>{children}</div>;
 }
 
+/** Full-width rule between rails (no negative margin — not inside a gutter band). */
 export function SectionRule({ className }: { className?: string }) {
   return (
-    <SectionBleed>
-      <div
-        className={cn("box-border h-px w-full shrink-0 bg-border", className)}
-        aria-hidden
-      />
-    </SectionBleed>
+    <div
+      className={cn("box-border h-px w-full shrink-0 bg-border", className)}
+      aria-hidden
+    />
   );
 }
 

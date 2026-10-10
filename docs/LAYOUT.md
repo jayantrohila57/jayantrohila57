@@ -95,7 +95,7 @@ Stacks and rows with consistent gaps.
 |--------|------|
 | `SHELL_MAX_WIDTH_CLASS` | `max-w-5xl` + centering |
 | `SHELL_RAILS_CLASS` | `border-x` |
-| `SHELL_GUTTER_X_CLASS` | `px-4 md:px-6` |
+| `SHELL_GUTTER_X_CLASS` | `shell-gutter-x` (1rem / 1.5rem at md) |
 | `SHELL_BLEED_CLASS` | Negative margin to rails |
 | `SHELL_SECTION_PAD_*` | Section vertical padding |
 | `SHELL_CELL_CLASS` / `shellCellClassName()` | Bordered cell padding |

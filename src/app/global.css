@@ -222,6 +222,38 @@ body {
 }
 
 @layer utilities {
+  /** Layout shells — literal spacing (not tied to --spacing). */
+  .shell-gutter-x {
+    padding-inline: 1rem;
+  }
+  @media (width >= 48rem) {
+    .shell-gutter-x {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  .shell-bleed-x {
+    position: relative;
+    margin-inline: -1rem;
+    max-width: none;
+  }
+  @media (width >= 48rem) {
+    .shell-bleed-x {
+      margin-inline: -1.5rem;
+    }
+  }
+
+  .shell-cell {
+    min-width: 0;
+    background-color: var(--background);
+    padding: 1rem;
+  }
+  @media (width >= 48rem) {
+    .shell-cell {
+      padding: 1.5rem;
+    }
+  }
+
   .text-link-accent {
     color: var(--color-brand);
   }

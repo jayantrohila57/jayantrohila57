@@ -1,8 +1,5 @@
 import Link from "next/link";
-import {
-  SectionBleed,
-  SHELL_GUTTER_X_CLASS,
-} from "@/components/layout/shells";
+import { SHELL_GUTTER_X_CLASS } from "@/components/layout/shells";
 import { footerNavGroups, interestsNavItem } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
@@ -12,9 +9,8 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto w-full">
-      <SectionBleed className="border-t border-border">
-        <div className={cn(SHELL_GUTTER_X_CLASS, "py-10")}>
+    <footer className="mt-auto w-full border-t border-border">
+      <div className={cn(SHELL_GUTTER_X_CLASS, "py-10")}>
           <div className="grid gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)] md:gap-12">
             <div className="space-y-3">
               <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
@@ -62,8 +58,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-      </SectionBleed>
-      <SectionBleed className="border-t border-border">
+      <div className="border-t border-border">
         <div
           className={cn(
             SHELL_GUTTER_X_CLASS,
@@ -80,7 +75,7 @@ export function Footer() {
             {interestsNavItem.label}
           </Link>
         </div>
-      </SectionBleed>
+      </div>
     </footer>
   );
 }
