@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
 import {
+  PAGE_BORDERED_CELL_CLASS,
   PAGE_GUTTER_CLASS,
   PageBleed,
+  PageBorderedCell,
 } from "@/components/primitives/page-column";
 import type { ProjectCaseStudy } from "@/data/project-case-studies";
 import { cn } from "@/lib/utils";
@@ -23,16 +25,13 @@ export function ProjectCaseStudyAtGlance({
 
   return (
     <PageBleed className="border-b border-border bg-border">
-      <div className={cn(PAGE_GUTTER_CLASS, "bg-background py-6 md:py-8")}>
+      <PageBorderedCell className="md:py-8">
         <p className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
           At a glance
         </p>
         <dl className="mt-4 grid gap-px border border-border bg-border sm:grid-cols-2">
           {rows.map((row) => (
-            <div
-              key={row.label}
-              className="bg-background px-4 py-3 md:px-5 md:py-4"
-            >
+            <div key={row.label} className={cn(PAGE_BORDERED_CELL_CLASS, "md:py-4")}>
               <dt className="font-mono text-[10px] text-muted-foreground uppercase">
                 {row.label}
               </dt>
@@ -52,7 +51,9 @@ export function ProjectCaseStudyAtGlance({
                 <li
                   key={metric.label}
                   className={cn(
-                    "flex justify-between gap-3 bg-background px-4 py-2 text-sm md:px-5",
+                    "flex justify-between gap-3 bg-background text-sm",
+                    PAGE_BORDERED_CELL_CLASS,
+                    "py-3 md:py-4",
                     metricsOdd &&
                       index === metrics.length - 1 &&
                       "sm:col-span-2",
@@ -67,7 +68,7 @@ export function ProjectCaseStudyAtGlance({
             </ul>
           </div>
         ) : null}
-      </div>
+      </PageBorderedCell>
     </PageBleed>
   );
 }

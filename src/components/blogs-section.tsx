@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import {
-  PAGE_GUTTER_CLASS,
+  PAGE_BORDERED_CELL_CLASS,
   PageBleed,
 } from "@/components/primitives/page-column";
 import { cn } from "@/lib/utils";
@@ -33,7 +33,8 @@ export function WorkListRow({
     <Link
       href={href}
       className={cn(
-        "group flex min-h-20 w-full min-w-0 max-w-full items-start gap-4 px-4 py-4 transition-colors hover:bg-secondary/50 md:items-center md:gap-6 md:px-6 md:py-6",
+        "group flex min-h-20 w-full min-w-0 max-w-full items-start gap-4 transition-colors hover:bg-secondary/50 md:items-center md:gap-6 md:py-6",
+        PAGE_BORDERED_CELL_CLASS,
         className,
       )}
     >
@@ -88,7 +89,8 @@ export function BlogCard({
   return (
     <Link
       className={cn(
-        "group flex min-h-24 w-full max-w-full min-w-0 flex-col justify-center gap-y-1 overflow-hidden px-4 py-4 hover:cursor-pointer hover:bg-secondary/60 active:bg-secondary md:px-6",
+        "group flex min-h-24 w-full max-w-full min-w-0 flex-col justify-center gap-y-1 overflow-hidden hover:cursor-pointer hover:bg-secondary/60 active:bg-secondary",
+        PAGE_BORDERED_CELL_CLASS,
         className,
       )}
       {...props}

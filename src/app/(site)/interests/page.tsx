@@ -1,8 +1,5 @@
 import Link from "next/link";
-import {
-  PAGE_GUTTER_CLASS,
-  PageBleed,
-} from "@/components/primitives/page-column";
+import { PageBleed, PageBorderedCell } from "@/components/primitives/page-column";
 import {
   SectionFrame,
   SectionIntro,
@@ -27,7 +24,7 @@ export default function InterestsPage() {
         description="Personal interests will live here when there is something worth publishing — kept secondary to professional work on this site."
       />
       <PageBleed className="border-y border-border">
-        <div className={cn(PAGE_GUTTER_CLASS, "py-10")}>
+        <PageBorderedCell className="py-10">
           <p className="text-sm leading-relaxed text-muted-foreground">
             This section is not built yet. For now, explore{" "}
             <Link href="/work" className={inlineBodyLinkClass}>
@@ -39,7 +36,7 @@ export default function InterestsPage() {
             </Link>
             .
           </p>
-        </div>
+        </PageBorderedCell>
       </PageBleed>
     </SectionFrame>
   );

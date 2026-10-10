@@ -61,7 +61,7 @@ export function PageChrome() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd }}
       />
-      <PageGutter className="flex min-h-9 flex-row items-center gap-0 py-2">
+      <PageGutter className="flex min-h-9 flex-row items-center gap-0 py-4">
         <button
           type="button"
           className={backButtonClass}

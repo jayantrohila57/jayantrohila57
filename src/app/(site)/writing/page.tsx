@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { EngineeringContent } from "@/components/portfolio/engineering-content";
 import {
+  PAGE_BORDERED_CELL_CLASS,
   PAGE_GUTTER_CLASS,
   PageBleed,
+  PageBorderedCell,
 } from "@/components/primitives/page-column";
 import {
   SectionFrame,
@@ -30,8 +32,8 @@ function WritingEmptyState({
   return (
     <div
       className={cn(
-        PAGE_GUTTER_CLASS,
-        "rounded-md border border-dashed border-border bg-background/50 py-8 text-center",
+        PAGE_BORDERED_CELL_CLASS,
+        "rounded-md border border-dashed border-border bg-background/50 text-center md:py-8",
       )}
     >
       <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
@@ -74,8 +76,8 @@ export default function WritingPage() {
                 <Link
                   href={`/work/${project.slug}`}
                   className={cn(
-                    PAGE_GUTTER_CLASS,
-                    "block py-4 transition-colors hover:bg-secondary/40",
+                    PAGE_BORDERED_CELL_CLASS,
+                    "block transition-colors hover:bg-secondary/40",
                   )}
                 >
                   <p className="font-medium text-foreground">{project.title}</p>

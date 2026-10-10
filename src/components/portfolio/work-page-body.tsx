@@ -1,10 +1,7 @@
 import Link from "next/link";
 import { type BlogListItem, BlogsList } from "@/components/blogs-section";
 import { ProjectScene } from "@/components/portfolio/project-scene";
-import {
-  PAGE_GUTTER_CLASS,
-  PageBleed,
-} from "@/components/primitives/page-column";
+import { PageBleed, PageBorderedCell } from "@/components/primitives/page-column";
 import {
   inlineBodyLinkClass,
   SectionIntro,
@@ -71,13 +68,13 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
 
       {filteredProjects.length === 0 ? (
         <PageBleed className="mt-8 border-t border-border">
-          <div className={cn(PAGE_GUTTER_CLASS, "py-10")}>
+          <PageBorderedCell className="py-10">
             <p className="text-sm leading-relaxed text-muted-foreground">
               {filter !== "all"
                 ? emptyCopy[filter as WorkEngagement]
                 : "No projects to show."}
             </p>
-          </div>
+          </PageBorderedCell>
         </PageBleed>
       ) : (
         tiers.map((tier) => {
@@ -88,16 +85,11 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
           return (
             <div key={tier.key} className="mt-8">
               <PageBleed className="border-t border-border">
-                <div
-                  className={cn(
-                    PAGE_GUTTER_CLASS,
-                    "border-b border-border py-6",
-                  )}
-                >
+                <PageBorderedCell className="border-b border-border md:py-6">
                   <h2 className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
                     {tier.title}
                   </h2>
-                </div>
+                </PageBorderedCell>
                 <div className="grid gap-px bg-border">
                   {tierProjects.map((project) => {
                     sceneIndex += 1;
@@ -119,7 +111,7 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
       {showLab && labList.length > 0 ? (
         <div id="lab" className="mt-8 scroll-mt-20">
           <PageBleed className="border-t border-border">
-            <div className={cn(PAGE_GUTTER_CLASS, "py-6")}>
+            <PageBorderedCell className="md:py-6">
               <h2 className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
                 Lab shelf
               </h2>
@@ -127,7 +119,7 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
                 Smaller public repos and meta projects (formerly on{" "}
                 <span className="text-foreground">/experiments</span>).
               </p>
-            </div>
+            </PageBorderedCell>
           </PageBleed>
           <BlogsList items={labList} />
         </div>

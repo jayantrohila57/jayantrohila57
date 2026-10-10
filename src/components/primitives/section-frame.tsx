@@ -1,5 +1,9 @@
 import type { ReactNode } from "react";
-import { PageGutter, PageRule } from "@/components/primitives/page-column";
+import {
+  PAGE_BORDERED_CELL_CLASS,
+  PageGutter,
+  PageRule,
+} from "@/components/primitives/page-column";
 import { cn } from "@/lib/cn";
 
 /** Shared vertical padding for homepage bands (identical top/bottom). */
@@ -128,7 +132,9 @@ export function BentoPanel({
   return (
     <div
       className={cn(
-        "relative border border-border bg-background p-4 md:p-6",
+        "relative border border-border bg-background",
+        PAGE_BORDERED_CELL_CLASS,
+        "md:py-6",
         dominant && "bg-card",
         className,
       )}

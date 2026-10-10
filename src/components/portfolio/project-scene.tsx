@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ProjectMedia } from "@/components/portfolio/project-media";
 import type { PortfolioProject } from "@/data/portfolio";
+import { PAGE_BORDERED_CELL_CLASS } from "@/components/primitives/page-column";
 import { cn } from "@/lib/cn";
 
 export function ProjectVisual({
@@ -39,7 +40,13 @@ export function ProjectScene({
           reverse && "lg:[&>*:first-child]:order-2",
         )}
       >
-        <div className="border-b border-border p-6 lg:border-r lg:border-b-0">
+        <div
+          className={cn(
+            "border-b border-border lg:border-r lg:border-b-0",
+            PAGE_BORDERED_CELL_CLASS,
+            "md:py-6",
+          )}
+        >
           <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
             {String(index).padStart(2, "0")} · {project.eyebrow}
           </p>
@@ -65,7 +72,7 @@ export function ProjectScene({
             View project →
           </p>
         </div>
-        <div className="p-4 md:p-6">
+        <div className={cn(PAGE_BORDERED_CELL_CLASS, "md:py-6")}>
           <ProjectVisual project={project} />
         </div>
       </div>

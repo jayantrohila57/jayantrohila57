@@ -6,7 +6,10 @@ import {
   ZapIcon,
 } from "lucide-react";
 import type React from "react";
-import { PageBleedGrid } from "@/components/primitives/page-column";
+import {
+  PAGE_BORDERED_CELL_CLASS,
+  PageBleedGrid,
+} from "@/components/primitives/page-column";
 import { cn } from "@/lib/utils";
 
 export type FeatureItem = {
@@ -56,7 +59,8 @@ export function FeatureCard({
   return (
     <div
       className={cn(
-        "flex h-full min-h-[10.5rem] flex-col bg-background p-4 md:min-h-[11.5rem] md:p-6",
+        "flex h-full min-h-[10.5rem] flex-col bg-background md:min-h-[11.5rem] md:py-6",
+        PAGE_BORDERED_CELL_CLASS,
         className,
       )}
       {...props}

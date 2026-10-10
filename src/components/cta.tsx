@@ -1,6 +1,8 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
+import { PAGE_BORDERED_CELL_CLASS } from "@/components/primitives/page-column";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type CallToActionProps = {
   title?: string;
@@ -22,7 +24,10 @@ export function CallToAction({
 }: CallToActionProps) {
   return (
     <div
-      className="flex w-full flex-col justify-between gap-y-4 bg-background px-4 py-10 md:px-6 md:py-12"
+      className={cn(
+        "flex w-full flex-col justify-between gap-y-4 bg-background md:py-12",
+        PAGE_BORDERED_CELL_CLASS,
+      )}
     >
       <p className="text-center font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
         Collaborate

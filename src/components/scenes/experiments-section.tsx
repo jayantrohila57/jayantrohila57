@@ -50,7 +50,7 @@ function ExperimentCard({ exp }: { exp: Experiment }) {
           />
         </div>
       ) : null}
-      <div className="flex flex-1 flex-col gap-2 p-4 md:p-5">
+      <div className="flex flex-1 flex-col gap-2 px-4 py-4 md:px-6 md:py-4">
         <h3 className="font-medium text-lg group-hover:text-link-accent">
           {exp.title}
         </h3>

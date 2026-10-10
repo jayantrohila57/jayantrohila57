@@ -6,10 +6,7 @@ import {
   ProjectCaseStudySections,
 } from "@/components/portfolio/project-case-study";
 import { ProjectMedia } from "@/components/portfolio/project-media";
-import {
-  PAGE_GUTTER_CLASS,
-  PageBleed,
-} from "@/components/primitives/page-column";
+import { PageBleed, PageBorderedCell } from "@/components/primitives/page-column";
 import { SectionFrame } from "@/components/primitives/section-frame";
 import { Button } from "@/components/ui/button";
 import { generatePageMetadata } from "@/config/metadata";
@@ -53,18 +50,12 @@ function MetaCell({
   className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        PAGE_GUTTER_CLASS,
-        "bg-background py-4 md:py-5",
-        className,
-      )}
-    >
+    <PageBorderedCell className={cn("md:py-5", className)}>
       <p className="font-mono text-[10px] text-muted-foreground uppercase">
         {label}
       </p>
       <p className="mt-1 text-sm leading-relaxed text-foreground">{value}</p>
-    </div>
+    </PageBorderedCell>
   );
 }
 
@@ -131,12 +122,7 @@ export default async function ProjectPage({ params }: Props) {
       )}
 
       <PageBleed className="mt-8 border-t border-border">
-        <div
-          className={cn(
-            PAGE_GUTTER_CLASS,
-            "flex flex-wrap gap-3 py-8",
-          )}
-        >
+        <PageBorderedCell className="flex flex-wrap gap-3 md:py-8">
           {project.links.live ? (
             <Button asChild variant="accent">
               <a
@@ -162,7 +148,7 @@ export default async function ProjectPage({ params }: Props) {
           <Button asChild variant="ghost">
             <Link href="/work">All work</Link>
           </Button>
-        </div>
+        </PageBorderedCell>
       </PageBleed>
     </SectionFrame>
   );

@@ -2,10 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import {
-  PAGE_GUTTER_CLASS,
-  PageBleed,
-} from "@/components/primitives/page-column";
+import { PageBleed, PageBorderedCell } from "@/components/primitives/page-column";
 import {
   type WorkEngagement,
   workEngagementFilters,
@@ -29,11 +26,8 @@ export function WorkEngagementFilter() {
 
   return (
     <PageBleed className="border-t border-border">
-      <div
-        className={cn(
-          PAGE_GUTTER_CLASS,
-          "flex flex-col gap-3 py-4 md:flex-row md:items-center md:justify-between",
-        )}
+      <PageBorderedCell
+        className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
       >
         <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
           Filter by type
@@ -63,7 +57,7 @@ export function WorkEngagementFilter() {
             );
           })}
         </div>
-      </div>
+      </PageBorderedCell>
     </PageBleed>
   );
 }

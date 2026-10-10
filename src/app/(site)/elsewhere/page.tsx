@@ -1,6 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import {
-  PAGE_GUTTER_CLASS,
+  PAGE_BORDERED_CELL_CLASS,
   PageBleed,
 } from "@/components/primitives/page-column";
 import {
@@ -18,6 +18,11 @@ export const metadata = generatePageMetadata({
   path: "/elsewhere",
 });
 
+const rowClass = cn(
+  PAGE_BORDERED_CELL_CLASS,
+  "flex items-center justify-between gap-4 text-sm transition-colors hover:bg-secondary/40",
+);
+
 export default function ElsewherePage() {
   return (
     <SectionFrame border={false} spacing="tight">
@@ -34,10 +39,7 @@ export default function ElsewherePage() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
-                  PAGE_GUTTER_CLASS,
-                  "flex items-center justify-between gap-4 py-4 text-sm transition-colors hover:bg-secondary/40",
-                )}
+                className={rowClass}
               >
                 <span className="font-medium text-foreground">{link.label}</span>
                 <ExternalLink
@@ -48,13 +50,7 @@ export default function ElsewherePage() {
             </li>
           ))}
           <li>
-            <a
-              href={`mailto:${siteConfig.contact.email}`}
-              className={cn(
-                PAGE_GUTTER_CLASS,
-                "flex items-center justify-between gap-4 py-4 text-sm transition-colors hover:bg-secondary/40",
-              )}
-            >
+            <a href={`mailto:${siteConfig.contact.email}`} className={rowClass}>
               <span className="font-medium text-foreground">Email</span>
               <span className="text-muted-foreground">
                 {siteConfig.contact.email}

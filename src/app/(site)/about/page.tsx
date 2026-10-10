@@ -4,6 +4,7 @@ import { RootJsonLd } from "@/components/json-ld";
 import {
   PAGE_GUTTER_CLASS,
   PageBleed,
+  PageBorderedCell,
 } from "@/components/primitives/page-column";
 import {
   SectionFrame,
@@ -62,20 +63,15 @@ export default function AboutPage() {
           }
         />
         <PageBleed className="grid gap-px border-t border-border bg-border lg:grid-cols-3">
-          <div
-            className={cn(
-              PAGE_GUTTER_CLASS,
-              "bg-background py-6 lg:col-span-2",
-            )}
-          >
+          <PageBorderedCell className="lg:col-span-2 md:py-6">
             <p className="leading-relaxed text-muted-foreground">
               {profile.longBio}
             </p>
             <p className="mt-6 font-mono text-sm text-muted-foreground">
               {profile.title} · {profile.location}
             </p>
-          </div>
-          <div className={cn(PAGE_GUTTER_CLASS, "bg-background py-6")}>
+          </PageBorderedCell>
+          <PageBorderedCell className="md:py-6">
             <p className="font-mono text-[10px] text-muted-foreground uppercase">
               Strengths
             </p>
@@ -84,7 +80,7 @@ export default function AboutPage() {
                 <li key={item}>· {item}</li>
               ))}
             </ul>
-          </div>
+          </PageBorderedCell>
         </PageBleed>
       </SectionFrame>
       <SectionFrame id="experience" border spacing="none" bleedContent>

@@ -136,11 +136,11 @@ export function PortfolioContactPanel({
   );
 
   const cellPad = flush
-    ? cn(PAGE_GUTTER_CLASS, "py-6 md:py-8")
-    : "p-6 md:p-8";
+    ? cn(PAGE_GUTTER_CLASS, "py-4 md:py-8")
+    : "px-4 py-4 md:px-6 md:py-8";
   const stackedPad = flush
-    ? cn(PAGE_GUTTER_CLASS, "py-8")
-    : "px-6 py-8";
+    ? cn(PAGE_GUTTER_CLASS, "py-4 md:py-8")
+    : "px-4 py-4 md:px-6 md:py-8";
 
   return (
     <div

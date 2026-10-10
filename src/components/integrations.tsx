@@ -1,4 +1,5 @@
 import type React from "react";
+import { PAGE_BORDERED_CELL_CLASS } from "@/components/primitives/page-column";
 import { DecorIcon } from "@/components/decor-icon";
 import { stackGroups } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
@@ -49,7 +50,8 @@ function IntegrationCard({
   return (
     <div
       className={cn(
-        "relative flex flex-col items-start gap-3 bg-background p-4 text-start md:p-6 md:even:bg-background/75",
+        "relative flex flex-col items-start gap-3 bg-background text-start md:py-6 md:even:bg-background/75",
+        PAGE_BORDERED_CELL_CLASS,
         className,
       )}
       {...props}
