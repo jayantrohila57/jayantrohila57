@@ -87,7 +87,10 @@ for (const vp of [
 
   if (vp.name === "390") {
     await page.getByRole("button", { name: "Toggle menu" }).click();
-    const hasContact = await page.getByRole("link", { name: "Contact" }).isVisible();
+    const hasContact = await page
+      .locator('#mobile-menu a[href="/contact"]')
+      .first()
+      .isVisible();
     if (!hasContact) {
       failures.push({ issue: "mobile menu contact CTA", vp: vp.name });
     }
