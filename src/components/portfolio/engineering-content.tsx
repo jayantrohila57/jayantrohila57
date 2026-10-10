@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FeatureBento } from "@/components/feature-section";
+import { CodeBlock } from "@/components/primitives/code-block";
 import { PortfolioStackIntegrations } from "@/components/integrations";
 import {
   ContentShell,
@@ -32,21 +33,21 @@ export function EngineeringContent({ showIntro = true }: { showIntro?: boolean }
       <SectionBleed className="mt-8 border border-border">
         <GridCell className="font-mono text-xs leading-relaxed text-muted-foreground md:py-8">
           <p className="text-foreground">Frontend systems</p>
-          <pre className="lenis-prevent mt-3 overflow-x-auto">
+          <CodeBlock className="mt-3">
             {`App → Layout → Feature → Data query → UI state`}
-          </pre>
+          </CodeBlock>
           <p className="mt-8 text-foreground">
             Data & API (where used in projects)
           </p>
-          <pre className="lenis-prevent mt-3 overflow-x-auto">
+          <CodeBlock className="mt-3">
             {`Client → tRPC / REST → Auth → PostgreSQL`}
-          </pre>
+          </CodeBlock>
           <p className="mt-8 text-foreground">
             Infrastructure (documented in repos)
           </p>
-          <pre className="lenis-prevent mt-3 overflow-x-auto">
+          <CodeBlock className="mt-3">
             {`Git push → GitHub Actions → Build → Vercel deploy`}
-          </pre>
+          </CodeBlock>
         </GridCell>
       </SectionBleed>
       <Link

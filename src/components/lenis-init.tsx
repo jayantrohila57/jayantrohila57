@@ -62,6 +62,7 @@ export function LenisInit() {
           syncTouch: false,
           autoResize: true,
           respectReducedMotion: true,
+          allowNestedScroll: true,
           prevent: (node) =>
             node instanceof HTMLElement && shouldLenisPreventScroll(node),
         }) as LenisController;

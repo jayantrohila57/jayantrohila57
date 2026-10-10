@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { CodeBlock } from "@/components/primitives/code-block";
 import { cn } from "@/lib/cn";
 
 export function BlogProse({
@@ -27,13 +28,12 @@ export function BlogProse({
   );
 }
 
-export function BlogPre({ children }: { children: string }) {
-  return (
-    <pre
-      className="lenis-prevent mt-4 overflow-x-auto rounded-md border border-border bg-elevated p-4 font-mono text-xs leading-relaxed text-foreground"
-      data-lenis-prevent=""
-    >
-      {children}
-    </pre>
-  );
+export function BlogPre({
+  children,
+  maxHeightClass,
+}: {
+  children: string;
+  maxHeightClass?: string;
+}) {
+  return <CodeBlock maxHeightClass={maxHeightClass}>{children}</CodeBlock>;
 }

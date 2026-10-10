@@ -316,4 +316,8 @@ body {
   .lenis-prevent {
     overscroll-behavior: contain;
   }
+
+  .code-block {
+    overscroll-behavior-x: contain;
+  }
 }
