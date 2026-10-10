@@ -42,6 +42,7 @@ export const footerNavGroups: { title: string; items: NavItem[] }[] = [
       { label: "Overview", href: "/writing" },
       { label: "Case studies", href: "/writing#case-studies" },
       { label: "Engineering", href: "/writing#engineering" },
+      { label: "Blog", href: "/writing#blog" },
     ],
   },
   {

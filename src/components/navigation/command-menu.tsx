@@ -11,10 +11,12 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { commandNavExtras, mainNav } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { profile, projects } from "@/data/portfolio";
+import { getBlogPosts } from "@/lib/blog";
 
 export function CommandMenu() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  const blogPosts = getBlogPosts();
 
   useLenisScrollLock(open);
 
@@ -127,6 +129,27 @@ export function CommandMenu() {
                 >
                   Engineering notes
                 </Command.Item>
+                <Command.Item
+                  onSelect={() => {
+                    router.push("/writing#blog");
+                    setOpen(false);
+                  }}
+                  className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                >
+                  Blog posts
+                </Command.Item>
+                {blogPosts.map((post) => (
+                  <Command.Item
+                    key={post.slug}
+                    onSelect={() => {
+                      router.push(`/writing/${post.slug}`);
+                      setOpen(false);
+                    }}
+                    className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                  >
+                    {post.title}
+                  </Command.Item>
+                ))}
               </Command.Group>
               <Command.Group
                 heading="Projects"

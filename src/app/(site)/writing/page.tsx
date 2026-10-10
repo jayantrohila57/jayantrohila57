@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { EngineeringContent } from "@/components/portfolio/engineering-content";
+import { getBlogPosts, formatBlogDate } from "@/lib/blog";
 import {
   ContentShell,
   GridCell,
@@ -38,6 +39,7 @@ function WritingEmptyState({ title, body }: { title: string; body: string }) {
 }
 
 export default function WritingPage() {
+  const blogPosts = getBlogPosts();
   const caseStudies = [...projects].sort((a, b) =>
     a.title.localeCompare(b.title),
   );
@@ -48,7 +50,7 @@ export default function WritingPage() {
         <ContentShell
           eyebrow="Writing"
           title="Case studies & notes"
-          description="Long-form project write-ups and engineering notes live here. Blog posts and short snippets are not published yet."
+          description="Case studies, engineering notes, and blog posts on frontend craft — from this site's layout system to Lenis and Next.js caching patterns."
           variant="page"
           headingLevel="h1"
         />
@@ -88,12 +90,43 @@ export default function WritingPage() {
         </div>
       </SectionShell>
 
-      <SectionShell id="blog" spacing="compact">
-        <ContentShell variant="compact" title="Blog posts" />
-        <WritingEmptyState
-          title="Coming later"
-          body="No blog posts are published yet. Case studies above cover the flagship project narratives."
-        />
+      <SectionShell id="blog" spacing="compact" bleed>
+        <SectionBleed className="border-t border-border">
+          <GridCell className="scroll-mt-20 pt-8 pb-4 md:pt-10">
+            <ContentShell
+              variant="compact"
+              title="Blog posts"
+              description="Notes on implementation details from this site and patterns I reuse in product work."
+            />
+          </GridCell>
+        </SectionBleed>
+        <SectionBleed className="border-y border-border">
+          <ul className="divide-y divide-border">
+            {blogPosts.map((post) => (
+              <li key={post.slug}>
+                <Link
+                  href={`/writing/${post.slug}`}
+                  className={cn(
+                    shellCellClassName(),
+                    "block transition-colors hover:bg-secondary/40",
+                  )}
+                >
+                  <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+                    {formatBlogDate(post.publishedAt)} · {post.readingTimeMinutes}{" "}
+                    min
+                  </p>
+                  <p className="mt-2 font-medium text-foreground">{post.title}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {post.summary}
+                  </p>
+                  <p className="mt-2 font-mono text-[10px] text-muted-foreground">
+                    {post.tags.join(" · ")}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </SectionBleed>
       </SectionShell>
 
       <SectionShell id="snippets" spacing="compact">

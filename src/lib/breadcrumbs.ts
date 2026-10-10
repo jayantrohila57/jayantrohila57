@@ -1,4 +1,5 @@
 import { getAbsoluteUrl, siteConfig } from "@/config/site";
+import { getBlogPost } from "@/lib/blog";
 import { getProject, projects } from "@/data/portfolio";
 
 export type BreadcrumbCrumb = {
@@ -38,6 +39,19 @@ export function getBreadcrumbs(pathname: string): BreadcrumbCrumb[] {
       crumbs.push({
         label: project?.title ?? formatSlugLabel(slug),
         href: `/work/${slug}`,
+      });
+    }
+    return crumbs;
+  }
+
+  if (root === "writing") {
+    crumbs.push({ label: "Writing", href: "/writing" });
+    const slug = rest[0];
+    if (slug) {
+      const post = getBlogPost(slug);
+      crumbs.push({
+        label: post?.title ?? formatSlugLabel(slug),
+        href: `/writing/${slug}`,
       });
     }
     return crumbs;
