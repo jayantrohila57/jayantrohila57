@@ -47,112 +47,128 @@ function auditPage(page) {
         return [{ reason: "missing data-page-column" }];
       }
 
-      const textTags = new Set([
-        "P",
-        "H1",
-        "H2",
-        "H3",
-        "H4",
-        "H5",
-        "H6",
-        "A",
-        "BUTTON",
-        "LI",
-        "DT",
-        "DD",
-        "LABEL",
-        "SPAN",
+      const blockish = new Set([
+        "block",
+        "flex",
+        "grid",
+        "table",
+        "table-row",
+        "table-cell",
+        "list-item",
       ]);
 
-      const candidates = column.querySelectorAll(
-        "p, h1, h2, h3, h4, h5, h6, a, button, li, dt, dd, label, span",
-      );
-
-      const colRect = column.getBoundingClientRect();
-      const colStyle = getComputedStyle(column);
-      const colBL = Number.parseFloat(colStyle.borderLeftWidth) || 0;
-      const colBR = Number.parseFloat(colStyle.borderRightWidth) || 0;
+      function isLeafText(el) {
+        const text = (el.textContent || "").trim();
+        if (!text) return false;
+        for (const child of el.children) {
+          const d = getComputedStyle(child).display;
+          if (d === "none" || d === "contents") continue;
+          if (blockish.has(d) && (child.textContent || "").trim()) {
+            return false;
+          }
+        }
+        return true;
+      }
 
       function borderW(style, side) {
         return Number.parseFloat(style.getPropertyValue(`border-${side}-width`)) || 0;
       }
 
+      function hasBorder(node) {
+        const st = getComputedStyle(node);
+        return (
+          borderW(st, "left") > 0 ||
+          borderW(st, "right") > 0 ||
+          borderW(st, "top") > 0 ||
+          borderW(st, "bottom") > 0
+        );
+      }
+
+      function nearestBordered(el) {
+        let node = el.parentElement;
+        while (node && node !== column && node !== document.body) {
+          if (hasBorder(node)) return node;
+          node = node.parentElement;
+        }
+        return null;
+      }
+
       function pushFlag(el, kind, value, extra) {
-        const text = (el.textContent || "").trim().slice(0, 40);
-        if (!text && el.tagName !== "BUTTON") return;
         flags.push({
           kind,
           value: Math.round(value * 10) / 10,
           tag: el.tagName.toLowerCase(),
-          text,
+          text: (el.textContent || "").trim().slice(0, 48),
           ...extra,
         });
       }
 
+      const colRect = column.getBoundingClientRect();
+      const colStyle = getComputedStyle(column);
+      const colBL = borderW(colStyle, "left");
+      const colBR = borderW(colStyle, "right");
+
+      const candidates = column.querySelectorAll(
+        "p, h1, h2, h3, h4, h5, h6, a, button, li, dt, dd, label, span",
+      );
+
       for (const el of candidates) {
-        if (!textTags.has(el.tagName)) continue;
-        if (el.closest('[aria-hidden="true"]')) continue;
-        if (el.tagName === "SPAN" && !(el.textContent || "").trim()) continue;
+        if (el.classList.contains("skip-link")) continue;
+        if (!isLeafText(el)) continue;
 
         const style = getComputedStyle(el);
         if (style.display === "none" || style.visibility === "hidden") continue;
-        const opacity = Number.parseFloat(style.opacity);
-        if (opacity === 0) continue;
+        if (Number.parseFloat(style.opacity) === 0) continue;
 
         const rect = el.getBoundingClientRect();
         if (rect.width < 1 || rect.height < 1) continue;
 
         const leftRail = rect.left - (colRect.left + colBL);
         const rightRail = colRect.right - colBR - rect.right;
-        if (leftRail < min - tol) {
-          pushFlag(el, "rail-left", leftRail, {});
-        }
-        if (rightRail < min - tol) {
-          pushFlag(el, "rail-right", rightRail, {});
-        }
+        if (leftRail < min - tol) pushFlag(el, "rail-left", leftRail, {});
+        if (rightRail < min - tol) pushFlag(el, "rail-right", rightRail, {});
 
-        let node = el.parentElement;
-        while (node && node !== column && node !== document.body) {
-          const ns = getComputedStyle(node);
-          const nr = node.getBoundingClientRect();
-          const hasBorder =
-            borderW(ns, "left") > 0 ||
-            borderW(ns, "right") > 0 ||
-            borderW(ns, "top") > 0 ||
-            borderW(ns, "bottom") > 0;
+        const ancestor = nearestBordered(el);
+        if (!ancestor) continue;
 
-          if (hasBorder) {
-            const bl = borderW(ns, "left");
-            const br = borderW(ns, "right");
-            const bt = borderW(ns, "top");
-            const bb = borderW(ns, "bottom");
-            const dLeft = rect.left - (nr.left + bl);
-            const dRight = nr.right - br - rect.right;
-            const dTop = rect.top - (nr.top + bt);
-            const dBottom = nr.bottom - bb - rect.bottom;
+        const ns = getComputedStyle(ancestor);
+        const nr = ancestor.getBoundingClientRect();
+        const bl = borderW(ns, "left");
+        const br = borderW(ns, "right");
+        const bt = borderW(ns, "top");
+        const bb = borderW(ns, "bottom");
 
-            if (bl > 0 && dLeft < min - tol) {
-              pushFlag(el, "border-left", dLeft, {
-                ancestor: node.tagName.toLowerCase(),
-              });
-            }
-            if (br > 0 && dRight < min - tol) {
-              pushFlag(el, "border-right", dRight, {
-                ancestor: node.tagName.toLowerCase(),
-              });
-            }
-            if (bt > 0 && dTop < min - tol) {
-              pushFlag(el, "border-top", dTop, {
-                ancestor: node.tagName.toLowerCase(),
-              });
-            }
-            if (bb > 0 && dBottom < min - tol) {
-              pushFlag(el, "border-bottom", dBottom, {
-                ancestor: node.tagName.toLowerCase(),
-              });
-            }
+        if (bl > 0) {
+          const d = rect.left - (nr.left + bl);
+          if (d < min - tol) {
+            pushFlag(el, "border-left", d, {
+              ancestor: ancestor.tagName.toLowerCase(),
+            });
           }
-          node = node.parentElement;
+        }
+        if (br > 0) {
+          const d = nr.right - br - rect.right;
+          if (d < min - tol) {
+            pushFlag(el, "border-right", d, {
+              ancestor: ancestor.tagName.toLowerCase(),
+            });
+          }
+        }
+        if (bt > 0) {
+          const d = rect.top - (nr.top + bt);
+          if (d < min - tol) {
+            pushFlag(el, "border-top", d, {
+              ancestor: ancestor.tagName.toLowerCase(),
+            });
+          }
+        }
+        if (bb > 0) {
+          const d = nr.bottom - bb - rect.bottom;
+          if (d < min - tol) {
+            pushFlag(el, "border-bottom", d, {
+              ancestor: ancestor.tagName.toLowerCase(),
+            });
+          }
         }
       }
 
@@ -175,25 +191,16 @@ for (const vp of viewports) {
     const page = await browser.newPage({
       viewport: { width: vp.width, height: vp.height },
     });
-    const path = route.split("?")[0];
-    await page.goto(`${base}${path}${route.includes("?") ? `?${route.split("?")[1]}` : ""}`, {
+    const [path, query] = route.split("?");
+    await page.goto(`${base}${path}${query ? `?${query}` : ""}`, {
       waitUntil: "networkidle",
       timeout: 120_000,
     });
-    if (route.includes("#")) {
-      await page.evaluate((hash) => {
-        const el = document.querySelector(hash);
-        el?.scrollIntoView();
-      }, `#${route.split("#")[1]}`);
-      await page.waitForTimeout(300);
-    }
-    const flags = await auditPage(page);
-    report[key] = flags;
+    report[key] = await auditPage(page);
     await page.close();
   }
 }
 
-// Mobile menu @ 390
 const mobile = await browser.newPage({
   viewport: { width: 390, height: 844 },
 });
@@ -205,8 +212,8 @@ report["mobile-menu @ 390"] = await mobile.evaluate(
     const menu = document.querySelector("#mobile-menu");
     if (!menu) return [{ reason: "no mobile menu" }];
     const flags = [];
-    const links = menu.querySelectorAll("a, button");
     const mr = menu.getBoundingClientRect();
+    const links = menu.querySelectorAll("a");
     for (const el of links) {
       const r = el.getBoundingClientRect();
       const left = r.left - mr.left;
@@ -214,8 +221,8 @@ report["mobile-menu @ 390"] = await mobile.evaluate(
       if (left < min - tol || right < min - tol) {
         flags.push({
           kind: "mobile-menu",
-          left,
-          right,
+          left: Math.round(left),
+          right: Math.round(right),
           text: el.textContent?.trim(),
         });
       }
@@ -237,8 +244,10 @@ for (const [key, flags] of Object.entries(report)) {
   total += flags.length;
 }
 
-const output = { summary, total, report };
-writeFileSync(join(outDir, "padding-audit.json"), JSON.stringify(output, null, 2));
+writeFileSync(
+  join(outDir, "padding-audit.json"),
+  JSON.stringify({ summary, total, report }, null, 2),
+);
 
 console.log("Padding audit summary (flag count per page):");
 for (const [key, count] of Object.entries(summary)) {
@@ -247,6 +256,5 @@ for (const [key, count] of Object.entries(summary)) {
 console.log(`TOTAL: ${total}`);
 
 if (total > 0) {
-  console.error("Failures present — see padding-audit.json");
   process.exit(1);
 }

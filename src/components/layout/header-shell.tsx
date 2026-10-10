@@ -26,7 +26,7 @@ export function HeaderShell({ children, actions }: HeaderShellProps) {
       <nav
         className={cn(
           PAGE_GUTTER_CLASS,
-          "flex h-14 w-full items-center justify-between",
+          "flex min-h-14 w-full items-center justify-between py-4",
         )}
         aria-label="Site"
       >
