@@ -53,11 +53,11 @@ export function ProjectScene({
             {project.summary}
           </p>
           <dl className="mt-6 grid gap-2 font-mono text-xs text-muted-foreground uppercase">
-            <div className="flex justify-between gap-4 border-t border-border pt-2">
+            <div className="flex justify-between gap-4 border-t border-border pt-4">
               <dt>Status</dt>
               <dd className="text-foreground normal-case">{project.status}</dd>
             </div>
-            <div className="flex justify-between gap-4 border-t border-border pt-2">
+            <div className="flex justify-between gap-4 border-t border-border pt-4">
               <dt>Stack</dt>
               <dd className="max-w-[60%] text-right text-foreground normal-case">
                 {project.stack.slice(0, 4).join(" · ")}
