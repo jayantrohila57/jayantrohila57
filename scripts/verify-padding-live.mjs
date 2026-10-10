@@ -12,6 +12,7 @@ const routes = [
   "/work?type=personal",
   "/work/taskflow",
   "/writing",
+  "/writing/smooth-scroll-nested-scroll-areas",
   "/about",
   "/elsewhere",
   "/interests",
