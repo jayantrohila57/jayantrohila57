@@ -1,10 +1,10 @@
 import { PortfolioContactPanel } from "@/components/contact-section";
 import { CallToAction } from "@/components/cta";
-import { PageBleed } from "@/components/primitives/page-column";
 import {
-  SectionFrame,
-  SectionIntro,
-} from "@/components/primitives/section-frame";
+  ContentShell,
+  SectionBleed,
+  SectionShell,
+} from "@/components/layout/shells";
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
 
@@ -17,19 +17,20 @@ export const metadata = generatePageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <SectionFrame border={false} spacing="tight">
-        <SectionIntro
-          compact
-          label="Contact"
+      <SectionShell dividerTop={false} spacing="compact">
+        <ContentShell
+          eyebrow="Contact"
           title="Get in touch"
           description="For hiring, product engineering, collaborations, and open-source discussions."
+          variant="page"
+          headingLevel="h1"
         />
-        <PageBleed className="mt-6 border border-border">
+        <SectionBleed className="mt-6 border border-border">
           <PortfolioContactPanel layout="split" flush showIntro={false} />
-        </PageBleed>
-      </SectionFrame>
-      <SectionFrame border spacing="none" bleedContent>
-        <PageBleed className="border-t border-border">
+        </SectionBleed>
+      </SectionShell>
+      <SectionShell bleed>
+        <SectionBleed className="border-t border-border">
           <CallToAction
             title="Have a product or role in mind?"
             description="Send a short note with context — repo link, problem space, or timeline."
@@ -38,8 +39,8 @@ export default function ContactPage() {
             secondaryHref="/work"
             secondaryLabel="View work"
           />
-        </PageBleed>
-      </SectionFrame>
+        </SectionBleed>
+      </SectionShell>
     </>
   );
 }

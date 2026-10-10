@@ -1,8 +1,8 @@
-import { Suspense } from "react";
 import { WorkPageBody } from "@/components/portfolio/work-page-body";
-import { SectionFrame } from "@/components/primitives/section-frame";
+import { SectionShell } from "@/components/layout/shells";
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
+import { Suspense } from "react";
 
 export const metadata = generatePageMetadata({
   title: staticPageSeo.work.title,
@@ -18,10 +18,10 @@ export default async function WorkPage({ searchParams }: Props) {
   const { type } = await searchParams;
 
   return (
-    <SectionFrame border={false} spacing="tight">
+    <SectionShell dividerTop={false} spacing="compact">
       <Suspense fallback={null}>
         <WorkPageBody typeParam={type} />
       </Suspense>
-    </SectionFrame>
+    </SectionShell>
   );
 }

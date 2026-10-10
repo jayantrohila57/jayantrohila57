@@ -1,26 +1,25 @@
 import type { ReactNode } from "react";
 import {
-  PAGE_BORDERED_CELL_CLASS,
-  PageGutter,
-  PageRule,
-} from "@/components/primitives/page-column";
+  ContentShell,
+  SectionRule,
+  SectionShell,
+  type SectionSpacing,
+} from "@/components/layout/shells";
 import { cn } from "@/lib/cn";
 
-/** Shared vertical padding for homepage bands (identical top/bottom). */
-export const SECTION_BAND_PADDING_CLASS = "py-10 md:py-12";
+/** @deprecated Use SHELL_SECTION_PAD_DEFAULT from shells */
+export const SECTION_BAND_PADDING_CLASS = "py-8 md:py-12";
 
 type SectionFrameProps = {
   id?: string;
   children: ReactNode;
   className?: string;
-  /** Rail-to-rail top rule (default on). */
   border?: boolean;
-  /** Vertical rhythm inside the gutter. */
   spacing?: "default" | "tight" | "none";
-  /** Omit horizontal gutter (child uses PageBleed only). */
   bleedContent?: boolean;
 };
 
+/** @deprecated Prefer SectionShell */
 export function SectionFrame({
   id,
   children,
@@ -29,23 +28,19 @@ export function SectionFrame({
   spacing = "default",
   bleedContent = false,
 }: SectionFrameProps) {
-  const spacingClass =
-    spacing === "none"
-      ? ""
-      : spacing === "tight"
-        ? "pt-8 pb-8 md:pt-10 md:pb-10"
-        : SECTION_BAND_PADDING_CLASS;
+  const shellSpacing: SectionSpacing =
+    spacing === "tight" ? "compact" : spacing;
 
   return (
-    <section id={id} className={cn("relative w-full", className)}>
-      {border ? <PageRule /> : null}
-      {bleedContent ? (
-        /** Bleed bands need a gutter parent so `PageBleed` (-mx) aligns to column rails. */
-        <PageGutter className="min-w-0">{children}</PageGutter>
-      ) : (
-        <PageGutter className={cn("min-w-0", spacingClass)}>{children}</PageGutter>
-      )}
-    </section>
+    <SectionShell
+      id={id}
+      className={className}
+      dividerTop={border}
+      spacing={shellSpacing}
+      bleed={bleedContent}
+    >
+      {children}
+    </SectionShell>
   );
 }
 
@@ -76,6 +71,7 @@ export const sectionActionLinkClass =
 export const inlineBodyLinkClass =
   "font-medium text-foreground underline decoration-brand underline-offset-2 hover:text-link-accent";
 
+/** @deprecated Prefer ContentShell */
 export function SectionIntro({
   title,
   label,
@@ -90,37 +86,21 @@ export function SectionIntro({
   compact?: boolean;
 }) {
   return (
-    <div
-      className={cn(
-        "flex flex-col gap-4 md:flex-row md:items-end md:justify-between",
-        compact ? "mb-4 md:mb-5" : "mb-8 md:mb-10",
-      )}
-    >
-      <div className="max-w-2xl">
-        {label ? (
-          <p className="mb-2 font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
-            {label}
-          </p>
-        ) : null}
-        <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-          {title}
-        </h2>
-        {description ? (
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
-            {description}
-          </p>
-        ) : null}
-      </div>
-      {action ? <div className="shrink-0">{action}</div> : null}
-    </div>
+    <ContentShell
+      eyebrow={label}
+      title={title}
+      description={description}
+      action={action}
+      variant={compact ? "compact" : "section"}
+    />
   );
 }
 
 export function SectionBandDivider() {
-  return <PageRule />;
+  return <SectionRule />;
 }
 
-/** @deprecated Prefer FeatureCard / grid gap-px inside SectionFrame. */
+/** @deprecated Use GridCell inside GridShell */
 export function BentoPanel({
   children,
   className,
@@ -133,9 +113,7 @@ export function BentoPanel({
   return (
     <div
       className={cn(
-        "relative border border-border bg-background",
-        PAGE_BORDERED_CELL_CLASS,
-        "md:py-6",
+        "relative border border-border bg-background p-4 md:p-6",
         dominant && "bg-card",
         className,
       )}

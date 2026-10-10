@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { PageBleed, PageBorderedCell } from "@/components/primitives/page-column";
 import {
-  SectionFrame,
-  SectionIntro,
-  inlineBodyLinkClass,
-} from "@/components/primitives/section-frame";
+  ContentShell,
+  GridCell,
+  SectionBleed,
+  SectionShell,
+} from "@/components/layout/shells";
+import { inlineBodyLinkClass } from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
-import { cn } from "@/lib/utils";
 
 export const metadata = generatePageMetadata({
   title: staticPageSeo.interests.title,
@@ -17,14 +17,16 @@ export const metadata = generatePageMetadata({
 
 export default function InterestsPage() {
   return (
-    <SectionFrame border={false} spacing="tight">
-      <SectionIntro
-        label="Interests"
+    <SectionShell dividerTop={false} spacing="compact">
+      <ContentShell
+        eyebrow="Interests"
         title="Music, anime, travel, tech"
         description="Personal interests will live here when there is something worth publishing — kept secondary to professional work on this site."
+        variant="page"
+        headingLevel="h1"
       />
-      <PageBleed className="border-y border-border">
-        <PageBorderedCell className="py-10">
+      <SectionBleed className="border-y border-border">
+        <GridCell className="py-10">
           <p className="text-sm leading-relaxed text-muted-foreground">
             This section is not built yet. For now, explore{" "}
             <Link href="/work" className={inlineBodyLinkClass}>
@@ -36,8 +38,8 @@ export default function InterestsPage() {
             </Link>
             .
           </p>
-        </PageBorderedCell>
-      </PageBleed>
-    </SectionFrame>
+        </GridCell>
+      </SectionBleed>
+    </SectionShell>
   );
 }

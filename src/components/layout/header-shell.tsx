@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { PAGE_GUTTER_CLASS } from "@/components/primitives/page-column";
+import { SHELL_GUTTER_X_CLASS } from "@/components/layout/shells";
 import { useScroll } from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 
@@ -25,7 +25,7 @@ export function HeaderShell({ children, actions }: HeaderShellProps) {
     >
       <nav
         className={cn(
-          PAGE_GUTTER_CLASS,
+          SHELL_GUTTER_X_CLASS,
           "flex min-h-14 w-full items-center justify-between py-4",
         )}
         aria-label="Site"

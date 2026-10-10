@@ -6,7 +6,7 @@ import {
   SectionLabel,
   sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
-import { PageBleedGrid } from "@/components/primitives/page-column";
+import { GridShell } from "@/components/layout/shells";
 import { projectHasScreenshot } from "@/lib/project-media";
 import type { Experiment, PortfolioProject } from "@/data/portfolio";
 import { experiments, projects } from "@/data/portfolio";
@@ -50,7 +50,7 @@ function ExperimentCard({ exp }: { exp: Experiment }) {
           />
         </div>
       ) : null}
-      <div className="flex flex-1 flex-col gap-2 px-4 py-4 md:px-6 md:py-4">
+      <div className="flex flex-1 flex-col gap-2 p-4 md:p-6">
         <h3 className="font-medium text-lg group-hover:text-link-accent">
           {exp.title}
         </h3>
@@ -85,11 +85,11 @@ export function ExperimentsSection() {
           }
         />
       </div>
-      <PageBleedGrid className="grid-cols-1 sm:grid-cols-2">
+      <GridShell className="grid-cols-1 sm:grid-cols-2">
         {items.map((exp) => (
           <ExperimentCard key={exp.slug} exp={exp} />
         ))}
-      </PageBleedGrid>
+      </GridShell>
     </SectionFrame>
   );
 }

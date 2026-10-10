@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Fragment, useMemo } from "react";
-import { PageGutter, PageRule } from "@/components/primitives/page-column";
+import { SectionRule, SHELL_GUTTER_X_CLASS } from "@/components/layout/shells";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -61,7 +61,12 @@ export function PageChrome() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd }}
       />
-      <PageGutter className="flex min-h-9 flex-row items-center gap-0 py-4">
+      <div
+        className={cn(
+          SHELL_GUTTER_X_CLASS,
+          "flex min-h-9 flex-row items-center gap-0 py-4",
+        )}
+      >
         <button
           type="button"
           className={backButtonClass}
@@ -96,8 +101,8 @@ export function PageChrome() {
             })}
           </BreadcrumbList>
         </Breadcrumb>
-      </PageGutter>
-      <PageRule />
+      </div>
+      <SectionRule />
     </>
   );
 }

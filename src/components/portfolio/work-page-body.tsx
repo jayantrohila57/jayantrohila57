@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { type BlogListItem, BlogsList } from "@/components/blogs-section";
 import { ProjectScene } from "@/components/portfolio/project-scene";
-import { PageBleed, PageBorderedCell } from "@/components/primitives/page-column";
+import {
+  ContentShell,
+  GridCell,
+  SectionBleed,
+} from "@/components/layout/shells";
 import {
   inlineBodyLinkClass,
-  SectionIntro,
 } from "@/components/primitives/section-frame";
 import {
   getLabShelfExperiments,
@@ -17,7 +20,6 @@ import {
   type WorkEngagement,
   workEngagementFilters,
 } from "@/data/work-engagement";
-import { cn } from "@/lib/utils";
 import { WorkEngagementFilter } from "./work-engagement-filter";
 
 const emptyCopy: Record<WorkEngagement, string> = {
@@ -56,26 +58,28 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
 
   return (
     <>
-      <SectionIntro
-        label="Work"
+      <ContentShell
+        eyebrow="Work"
         title="Projects"
         description={
           filterMeta?.description ??
           "Curated open-source work with repositories and live demos where available."
         }
+        variant="page"
+        headingLevel="h1"
       />
       <WorkEngagementFilter />
 
       {filteredProjects.length === 0 ? (
-        <PageBleed className="mt-8 border-t border-border">
-          <PageBorderedCell className="py-10">
+        <SectionBleed className="mt-8 border-t border-border">
+          <GridCell className="py-10">
             <p className="text-sm leading-relaxed text-muted-foreground">
               {filter !== "all"
                 ? emptyCopy[filter as WorkEngagement]
                 : "No projects to show."}
             </p>
-          </PageBorderedCell>
-        </PageBleed>
+          </GridCell>
+        </SectionBleed>
       ) : (
         tiers.map((tier) => {
           const tierProjects = tier.projects.filter((p) =>
@@ -84,12 +88,12 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
           if (tierProjects.length === 0) return null;
           return (
             <div key={tier.key} className="mt-8">
-              <PageBleed className="border-t border-border">
-                <PageBorderedCell className="border-b border-border md:py-6">
+              <SectionBleed className="border-t border-border">
+                <GridCell className="border-b border-border md:py-6">
                   <h2 className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
                     {tier.title}
                   </h2>
-                </PageBorderedCell>
+                </GridCell>
                 <div className="grid gap-px bg-border">
                   {tierProjects.map((project) => {
                     sceneIndex += 1;
@@ -102,7 +106,7 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
                     );
                   })}
                 </div>
-              </PageBleed>
+              </SectionBleed>
             </div>
           );
         })
@@ -110,8 +114,8 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
 
       {showLab && labList.length > 0 ? (
         <div id="lab" className="mt-8 scroll-mt-20">
-          <PageBleed className="border-t border-border">
-            <PageBorderedCell className="md:py-6">
+          <SectionBleed className="border-t border-border">
+            <GridCell className="md:py-6">
               <h2 className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
                 Lab shelf
               </h2>
@@ -119,8 +123,8 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
                 Smaller public repos and meta projects (formerly on{" "}
                 <span className="text-foreground">/experiments</span>).
               </p>
-            </PageBorderedCell>
-          </PageBleed>
+            </GridCell>
+          </SectionBleed>
           <BlogsList items={labList} />
         </div>
       ) : null}

@@ -1,8 +1,9 @@
-import { PageBleed, PageBorderedCell } from "@/components/primitives/page-column";
 import {
-  SectionFrame,
-  SectionIntro,
-} from "@/components/primitives/section-frame";
+  ContentShell,
+  GridCell,
+  SectionBleed,
+  SectionShell,
+} from "@/components/layout/shells";
 import { ResumeView } from "@/components/resume-view";
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
@@ -15,17 +16,19 @@ export const metadata = generatePageMetadata({
 
 export default function ResumePage() {
   return (
-    <SectionFrame border={false} spacing="tight">
-      <SectionIntro
-        label="Resume"
+    <SectionShell dividerTop={false} spacing="compact">
+      <ContentShell
+        eyebrow="Resume"
         title="Jayant Rohila"
         description="Product engineer focused on React, Next.js, and typed full-stack delivery — PDF export matches this on-page version."
+        variant="page"
+        headingLevel="h1"
       />
-      <PageBleed className="border-y border-border">
-        <PageBorderedCell className="md:py-10">
+      <SectionBleed className="border-y border-border">
+        <GridCell className="md:py-10">
           <ResumeView />
-        </PageBorderedCell>
-      </PageBleed>
-    </SectionFrame>
+        </GridCell>
+      </SectionBleed>
+    </SectionShell>
   );
 }

@@ -2,13 +2,13 @@ import { type BlogListItem, BlogsList } from "@/components/blogs-section";
 import { PortfolioContactPanel } from "@/components/contact-section";
 import { RootJsonLd } from "@/components/json-ld";
 import {
-  PageBleed,
-  PageBorderedCell,
-} from "@/components/primitives/page-column";
-import {
-  SectionFrame,
-  SectionIntro,
-} from "@/components/primitives/section-frame";
+  ContentShell,
+  FlexShell,
+  GridCell,
+  GridShell,
+  SectionBleed,
+  SectionShell,
+} from "@/components/layout/shells";
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
 import { siteConfig, specializationLine } from "@/config/site";
@@ -30,13 +30,13 @@ const strengths = [
   "Shipping with Vercel, auth, and PostgreSQL-backed apps",
 ];
 
-function SectionBandIntro({ title }: { title: string }) {
+function BandIntro({ title }: { title: string }) {
   return (
-    <PageBleed className="border-t border-border">
-      <PageBorderedCell className="pt-8 pb-4 md:pt-10">
-        <SectionIntro compact title={title} />
-      </PageBorderedCell>
-    </PageBleed>
+    <SectionBleed className="border-t border-border">
+      <GridCell className="pt-8 pb-4 md:pt-10">
+        <ContentShell variant="compact" title={title} />
+      </GridCell>
+    </SectionBleed>
   );
 }
 
@@ -54,75 +54,77 @@ export default function AboutPage() {
   return (
     <>
       <RootJsonLd />
-      <SectionFrame border={false} spacing="tight">
-        <SectionIntro
-          label="About"
+      <SectionShell dividerTop={false} spacing="compact">
+        <ContentShell
+          eyebrow="About"
           title={profile.name}
           description={specializationLine}
+          variant="page"
+          headingLevel="h1"
         />
-        <PageBleed className="border-t border-border">
-          <PageBorderedCell className="flex flex-wrap gap-2 md:py-4">
-            <Button asChild variant="accent">
-              <Link href={siteConfig.resumePath}>View résumé</Link>
-            </Button>
-            <Button asChild variant="outline">
-              <a href={siteConfig.resumePdfPath}>Download PDF</a>
-            </Button>
-          </PageBorderedCell>
-        </PageBleed>
-        <PageBleed className="grid gap-px border-t border-border bg-border lg:grid-cols-3">
-          <PageBorderedCell className="lg:col-span-2 md:py-6">
+        <SectionBleed className="border-t border-border">
+          <GridCell>
+            <FlexShell direction="row" gap="2" wrap>
+              <Button asChild variant="accent">
+                <Link href={siteConfig.resumePath}>View résumé</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <a href={siteConfig.resumePdfPath}>Download PDF</a>
+              </Button>
+            </FlexShell>
+          </GridCell>
+        </SectionBleed>
+        <GridShell columns="lg:grid-cols-3">
+          <GridCell className="lg:col-span-2">
             <p className="leading-relaxed text-muted-foreground">
               {profile.longBio}
             </p>
             <p className="mt-6 font-mono text-sm text-muted-foreground">
               {profile.title} · {profile.location}
             </p>
-          </PageBorderedCell>
-          <PageBorderedCell className="md:py-6">
+          </GridCell>
+          <GridCell>
             <p className="font-mono text-[10px] text-muted-foreground uppercase">
               Strengths
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
               {strengths.map((item) => (
-                <li key={item} className="pl-0">
-                  · {item}
-                </li>
+                <li key={item}>· {item}</li>
               ))}
             </ul>
-          </PageBorderedCell>
-        </PageBleed>
-      </SectionFrame>
+          </GridCell>
+        </GridShell>
+      </SectionShell>
 
-      <SectionFrame id="experience" border spacing="none" bleedContent>
-        <SectionBandIntro title="Experience" />
+      <SectionShell id="experience" bleed>
+        <BandIntro title="Experience" />
         <BlogsList items={timeline} />
-      </SectionFrame>
+      </SectionShell>
 
-      <SectionFrame border spacing="none" bleedContent>
-        <SectionBandIntro title="Education" />
-        <PageBleed className="border-y border-border">
+      <SectionShell bleed>
+        <BandIntro title="Education" />
+        <SectionBleed className="border-y border-border">
           <ul className="divide-y divide-border">
             {resumeData.education.map((ed) => (
               <li key={ed.credential}>
-                <PageBorderedCell className="text-sm md:py-4">
+                <GridCell className="text-sm">
                   <p className="font-medium">{ed.credential}</p>
                   <p className="text-muted-foreground">{ed.institution}</p>
                   <p className="font-mono text-xs text-muted-foreground">
                     {ed.period}
                   </p>
-                </PageBorderedCell>
+                </GridCell>
               </li>
             ))}
           </ul>
-        </PageBleed>
-      </SectionFrame>
+        </SectionBleed>
+      </SectionShell>
 
-      <SectionFrame border spacing="none" bleedContent>
-        <PageBleed className="border-t border-border">
+      <SectionShell bleed>
+        <SectionBleed className="border-t border-border">
           <PortfolioContactPanel layout="split" flush showIntro={false} />
-        </PageBleed>
-      </SectionFrame>
+        </SectionBleed>
+      </SectionShell>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ProjectMedia } from "@/components/portfolio/project-media";
+import { GridCell } from "@/components/layout/shells";
 import type { PortfolioProject } from "@/data/portfolio";
-import { PAGE_BORDERED_CELL_CLASS } from "@/components/primitives/page-column";
 import { cn } from "@/lib/cn";
 
 export function ProjectVisual({
@@ -40,12 +40,8 @@ export function ProjectScene({
           reverse && "lg:[&>*:first-child]:order-2",
         )}
       >
-        <div
-          className={cn(
-            "border-b border-border lg:border-r lg:border-b-0",
-            PAGE_BORDERED_CELL_CLASS,
-            "md:py-6",
-          )}
+        <GridCell
+          className={cn("border-b border-border lg:border-r lg:border-b-0")}
         >
           <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
             {String(index).padStart(2, "0")} · {project.eyebrow}
@@ -71,10 +67,10 @@ export function ProjectScene({
           <p className="mt-4 font-mono text-[10px] text-link-accent uppercase">
             View project →
           </p>
-        </div>
-        <div className={cn(PAGE_BORDERED_CELL_CLASS, "md:py-6")}>
+        </GridCell>
+        <GridCell>
           <ProjectVisual project={project} />
-        </div>
+        </GridCell>
       </div>
     </Link>
   );

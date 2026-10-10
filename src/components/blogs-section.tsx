@@ -1,9 +1,9 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 import {
-  PAGE_BORDERED_CELL_CLASS,
-  PageBleed,
-} from "@/components/primitives/page-column";
+  SectionBleed,
+  shellCellClassName,
+} from "@/components/layout/shells";
 import { cn } from "@/lib/utils";
 
 export type BlogListItem = {
@@ -34,7 +34,7 @@ export function WorkListRow({
       href={href}
       className={cn(
         "group flex min-h-20 w-full min-w-0 max-w-full items-start gap-4 transition-colors hover:bg-secondary/50 md:items-center md:gap-6 md:py-6",
-        PAGE_BORDERED_CELL_CLASS,
+        shellCellClassName(),
         className,
       )}
     >
@@ -65,13 +65,13 @@ export function WorkListRow({
 
 export function WorkList({ items }: { items: WorkListItem[] }) {
   return (
-    <PageBleed className="relative min-w-0 max-w-full overflow-hidden border-y border-border">
+    <SectionBleed className="relative min-w-0 max-w-full overflow-hidden border-y border-border">
       <div className="min-w-0 divide-y divide-border">
         {items.map((item) => (
           <WorkListRow key={item.href + item.title} {...item} />
         ))}
       </div>
-    </PageBleed>
+    </SectionBleed>
   );
 }
 
@@ -90,7 +90,7 @@ export function BlogCard({
     <Link
       className={cn(
         "group flex min-h-24 w-full max-w-full min-w-0 flex-col justify-center gap-y-1 overflow-hidden hover:cursor-pointer hover:bg-secondary/60 active:bg-secondary",
-        PAGE_BORDERED_CELL_CLASS,
+        shellCellClassName(),
         className,
       )}
       {...props}
@@ -124,7 +124,7 @@ export function BlogsList({
   return (
     <div className="w-full">
       {intro ? (
-        <div className="space-y-2 px-4 py-8 md:py-10">
+        <div className={cn(shellCellClassName(), "space-y-2 md:py-10")}>
           <h2 className="font-semibold text-2xl tracking-wide md:text-3xl">
             {intro.title}
           </h2>
@@ -133,13 +133,13 @@ export function BlogsList({
           ) : null}
         </div>
       ) : null}
-      <PageBleed className="relative min-w-0 max-w-full overflow-hidden border-y border-border">
+      <SectionBleed className="relative min-w-0 max-w-full overflow-hidden border-y border-border">
         <div className="min-w-0 divide-y divide-border">
           {items.map((blog) => (
             <BlogCard {...blog} key={blog.href + blog.title} href={blog.href} />
           ))}
         </div>
-      </PageBleed>
+      </SectionBleed>
     </div>
   );
 }

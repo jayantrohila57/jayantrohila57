@@ -6,10 +6,7 @@ import {
   ZapIcon,
 } from "lucide-react";
 import type React from "react";
-import {
-  PAGE_BORDERED_CELL_CLASS,
-  PageBleedGrid,
-} from "@/components/primitives/page-column";
+import { GridCell, GridShell } from "@/components/layout/shells";
 import { cn } from "@/lib/utils";
 
 export type FeatureItem = {
@@ -34,7 +31,7 @@ export function FeatureBento({ features }: { features: FeatureItem[] }) {
         : "md:grid-cols-2 lg:grid-cols-3";
 
   return (
-    <PageBleedGrid className={cn("grid-cols-1", cols)}>
+    <GridShell className={cn("grid-cols-1", cols)}>
       {features.map((feature, i) => (
         <FeatureCard
           feature={{
@@ -44,7 +41,7 @@ export function FeatureBento({ features }: { features: FeatureItem[] }) {
           key={feature.title}
         />
       ))}
-    </PageBleedGrid>
+    </GridShell>
   );
 }
 
@@ -57,10 +54,9 @@ export function FeatureCard({
   feature: FeatureItem;
 }) {
   return (
-    <div
+    <GridCell
       className={cn(
-        "flex h-full min-h-[10.5rem] flex-col bg-background md:min-h-[11.5rem] md:py-6",
-        PAGE_BORDERED_CELL_CLASS,
+        "flex h-full min-h-[10.5rem] flex-col md:min-h-[11.5rem]",
         className,
       )}
       {...props}
@@ -80,7 +76,7 @@ export function FeatureCard({
         </p>
       </div>
       {children}
-    </div>
+    </GridCell>
   );
 }
 

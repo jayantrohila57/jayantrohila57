@@ -6,7 +6,7 @@ import React from "react";
 import { headerIconButtonClass } from "@/components/layout/header-icon-button";
 import { Portal, PortalBackdrop } from "@/components/portal";
 import { Button } from "@/components/ui/button";
-import { PAGE_GUTTER_CLASS } from "@/components/primitives/page-column";
+import { SHELL_GUTTER_X_CLASS } from "@/components/layout/shells";
 import { mainNav } from "@/config/navigation";
 import { cn } from "@/lib/utils";
 
@@ -60,7 +60,7 @@ export function MobileNav({
           <div
             className={cn(
               "lenis-prevent relative z-10 flex min-h-0 flex-1 flex-col overflow-y-auto bg-background pt-14 pb-6",
-              PAGE_GUTTER_CLASS,
+              SHELL_GUTTER_X_CLASS,
               "data-[slot=open]:zoom-in-97 ease-out data-[slot=open]:animate-in",
             )}
             data-slot={open ? "open" : "closed"}

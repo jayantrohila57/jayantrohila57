@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { PageBleed, PageBorderedCell } from "@/components/primitives/page-column";
+import { FlexShell, GridCell, SectionBleed } from "@/components/layout/shells";
 import {
   type WorkEngagement,
   workEngagementFilters,
@@ -25,18 +25,14 @@ export function WorkEngagementFilter() {
   if (pathname !== "/work") return null;
 
   return (
-    <PageBleed className="border-t border-border">
-      <PageBorderedCell
+    <SectionBleed className="border-t border-border">
+      <GridCell
         className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
       >
         <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
           Filter by type
         </p>
-        <div
-          className="flex flex-wrap gap-2"
-          role="tablist"
-          aria-label="Project type"
-        >
+        <FlexShell direction="row" gap="2" wrap className="flex-wrap">
           {workEngagementFilters.map((filter) => {
             const isActive = active === filter.key;
             return (
@@ -56,8 +52,8 @@ export function WorkEngagementFilter() {
               </Link>
             );
           })}
-        </div>
-      </PageBorderedCell>
-    </PageBleed>
+        </FlexShell>
+      </GridCell>
+    </SectionBleed>
   );
 }

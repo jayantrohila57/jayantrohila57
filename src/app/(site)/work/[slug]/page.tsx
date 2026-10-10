@@ -6,8 +6,13 @@ import {
   ProjectCaseStudySections,
 } from "@/components/portfolio/project-case-study";
 import { ProjectMedia } from "@/components/portfolio/project-media";
-import { PageBleed, PageBorderedCell } from "@/components/primitives/page-column";
-import { SectionFrame } from "@/components/primitives/section-frame";
+import {
+  ContentShell,
+  FlexShell,
+  GridCell,
+  SectionBleed,
+  SectionShell,
+} from "@/components/layout/shells";
 import { Button } from "@/components/ui/button";
 import { generatePageMetadata } from "@/config/metadata";
 import { projectPageSeo } from "@/config/page-seo";
@@ -50,12 +55,12 @@ function MetaCell({
   className?: string;
 }) {
   return (
-    <PageBorderedCell className={cn("md:py-5", className)}>
+    <GridCell className={cn("md:py-5", className)}>
       <p className="font-mono text-[10px] text-muted-foreground uppercase">
         {label}
       </p>
       <p className="mt-1 text-sm leading-relaxed text-foreground">{value}</p>
-    </PageBorderedCell>
+    </GridCell>
   );
 }
 
@@ -74,21 +79,17 @@ export default async function ProjectPage({ params }: Props) {
   ];
 
   return (
-    <SectionFrame border={false} spacing="tight">
+    <SectionShell dividerTop={false} spacing="compact">
       <WorkProjectJsonLd project={project} />
-      <div className="page-intro">
-        <p className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
-          {project.eyebrow}
-        </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
-          {project.title}
-        </h1>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-          {project.description || project.summary}
-        </p>
-      </div>
+      <ContentShell
+        eyebrow={project.eyebrow}
+        title={project.title}
+        description={project.description || project.summary}
+        variant="page"
+        headingLevel="h1"
+      />
 
-      <PageBleed className="mt-8 border-t border-border">
+      <SectionBleed className="mt-8 border-t border-border">
         <div className="grid gap-px border-b border-border bg-border md:grid-cols-2">
           {metaRows.map((row) => (
             <MetaCell key={row.label} label={row.label} value={row.value} />
@@ -97,7 +98,7 @@ export default async function ProjectPage({ params }: Props) {
         <div className="group">
           <ProjectMedia project={project} priority />
         </div>
-      </PageBleed>
+      </SectionBleed>
 
       {caseStudy ? (
         <>
@@ -121,35 +122,37 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       )}
 
-      <PageBleed className="mt-8 border-t border-border">
-        <PageBorderedCell className="flex flex-wrap gap-3 md:py-8">
-          {project.links.live ? (
-            <Button asChild variant="accent">
-              <a
-                href={project.links.live}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Live demo
-              </a>
+      <SectionBleed className="mt-8 border-t border-border">
+        <GridCell>
+          <FlexShell direction="row" gap="3" wrap>
+            {project.links.live ? (
+              <Button asChild variant="accent">
+                <a
+                  href={project.links.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Live demo
+                </a>
+              </Button>
+            ) : null}
+            {project.links.github ? (
+              <Button asChild variant="outline">
+                <a
+                  href={project.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+              </Button>
+            ) : null}
+            <Button asChild variant="ghost">
+              <Link href="/work">All work</Link>
             </Button>
-          ) : null}
-          {project.links.github ? (
-            <Button asChild variant="outline">
-              <a
-                href={project.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-            </Button>
-          ) : null}
-          <Button asChild variant="ghost">
-            <Link href="/work">All work</Link>
-          </Button>
-        </PageBorderedCell>
-      </PageBleed>
-    </SectionFrame>
+          </FlexShell>
+        </GridCell>
+      </SectionBleed>
+    </SectionShell>
   );
 }

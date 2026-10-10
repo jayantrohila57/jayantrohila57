@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import {
-  PAGE_BORDERED_CELL_CLASS,
-  PAGE_GUTTER_CLASS,
-  PageBleed,
-  PageBorderedCell,
-} from "@/components/primitives/page-column";
+  GridCell,
+  GridShell,
+  SectionBleed,
+  shellCellClassName,
+} from "@/components/layout/shells";
 import type { ProjectCaseStudy } from "@/data/project-case-studies";
 import { cn } from "@/lib/utils";
 
@@ -24,23 +24,23 @@ export function ProjectCaseStudyAtGlance({
   const metricsOdd = metrics.length % 2 === 1;
 
   return (
-    <PageBleed className="border-b border-border bg-border">
-      <PageBorderedCell className="md:py-8">
+    <SectionBleed className="border-b border-border bg-border">
+      <GridCell className="md:py-8">
         <p className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
           At a glance
         </p>
-        <dl className="mt-4 grid gap-px border border-border bg-border sm:grid-cols-2">
+        <GridShell columns="sm:grid-cols-2" border="none" className="mt-4 border border-border">
           {rows.map((row) => (
-            <div key={row.label} className={cn(PAGE_BORDERED_CELL_CLASS, "md:py-4")}>
+            <GridCell key={row.label}>
               <dt className="font-mono text-[10px] text-muted-foreground uppercase">
                 {row.label}
               </dt>
               <dd className="mt-1 text-sm leading-relaxed text-foreground">
                 {row.value}
               </dd>
-            </div>
+            </GridCell>
           ))}
-        </dl>
+        </GridShell>
         {metrics.length > 0 ? (
           <div className="mt-6 border-t border-border pt-4">
             <p className="font-mono text-[10px] text-muted-foreground uppercase">
@@ -51,9 +51,8 @@ export function ProjectCaseStudyAtGlance({
                 <li
                   key={metric.label}
                   className={cn(
-                    "flex justify-between gap-3 bg-background text-sm",
-                    PAGE_BORDERED_CELL_CLASS,
-                    "py-3 md:py-4",
+                    shellCellClassName(),
+                    "flex justify-between gap-3 text-sm",
                     metricsOdd &&
                       index === metrics.length - 1 &&
                       "sm:col-span-2",
@@ -68,8 +67,8 @@ export function ProjectCaseStudyAtGlance({
             </ul>
           </div>
         ) : null}
-      </PageBorderedCell>
-    </PageBleed>
+      </GridCell>
+    </SectionBleed>
   );
 }
 

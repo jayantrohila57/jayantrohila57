@@ -7,10 +7,7 @@ import { DecorIcon } from "@/components/decor-icon";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
-import {
-  PAGE_BORDERED_CELL_CLASS,
-  PAGE_GUTTER_CLASS,
-} from "@/components/primitives/page-column";
+import { shellCellClassName } from "@/components/layout/shells";
 import { cn } from "@/lib/utils";
 
 const channels = [
@@ -138,12 +135,8 @@ export function PortfolioContactPanel({
     </div>
   );
 
-  const cellPad = flush
-    ? cn(PAGE_BORDERED_CELL_CLASS, "md:py-8")
-    : cn(PAGE_BORDERED_CELL_CLASS, "md:py-8");
-  const stackedPad = flush
-    ? cn(PAGE_BORDERED_CELL_CLASS, "md:py-8")
-    : cn(PAGE_BORDERED_CELL_CLASS, "md:py-8");
+  const cellPad = shellCellClassName();
+  const stackedPad = shellCellClassName();
 
   return (
     <div

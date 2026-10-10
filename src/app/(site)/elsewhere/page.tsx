@@ -1,12 +1,10 @@
 import { ExternalLink } from "lucide-react";
 import {
-  PAGE_BORDERED_CELL_CLASS,
-  PageBleed,
-} from "@/components/primitives/page-column";
-import {
-  SectionFrame,
-  SectionIntro,
-} from "@/components/primitives/section-frame";
+  ContentShell,
+  SectionBleed,
+  SectionShell,
+  shellCellClassName,
+} from "@/components/layout/shells";
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
 import { elsewhereLinks, siteConfig } from "@/config/site";
@@ -19,19 +17,21 @@ export const metadata = generatePageMetadata({
 });
 
 const rowClass = cn(
-  PAGE_BORDERED_CELL_CLASS,
+  shellCellClassName(),
   "flex items-center justify-between gap-4 text-sm transition-colors hover:bg-secondary/40",
 );
 
 export default function ElsewherePage() {
   return (
-    <SectionFrame border={false} spacing="tight">
-      <SectionIntro
-        label="Elsewhere"
+    <SectionShell dividerTop={false} spacing="compact">
+      <ContentShell
+        eyebrow="Elsewhere"
         title="Profiles & links"
         description="Verified public profiles — same links as in site config, collected in one place."
+        variant="page"
+        headingLevel="h1"
       />
-      <PageBleed className="border-y border-border">
+      <SectionBleed className="border-y border-border">
         <ul className="divide-y divide-border">
           {elsewhereLinks.map((link) => (
             <li key={link.href}>
@@ -58,7 +58,7 @@ export default function ElsewherePage() {
             </a>
           </li>
         </ul>
-      </PageBleed>
-    </SectionFrame>
+      </SectionBleed>
+    </SectionShell>
   );
 }

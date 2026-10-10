@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
-import { PAGE_BORDERED_CELL_CLASS } from "@/components/primitives/page-column";
+import { shellCellClassName } from "@/components/layout/shells";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -26,7 +26,7 @@ export function CallToAction({
     <div
       className={cn(
         "flex w-full flex-col justify-between gap-y-4 bg-background md:py-12",
-        PAGE_BORDERED_CELL_CLASS,
+        shellCellClassName(),
       )}
     >
       <p className="text-center font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">

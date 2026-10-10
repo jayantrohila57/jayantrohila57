@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
-import { PAGE_GUTTER_CLASS } from "@/components/primitives/page-column";
+import { SHELL_GUTTER_X_CLASS } from "@/components/layout/shells";
 import { cn } from "@/lib/utils";
 
-/** Inner gutter padding — side borders live on `PageColumn`, not here. */
+/** Inner horizontal gutter — rails are on MainShell only. */
 export function EfferdRail({
   children,
   className,
@@ -10,12 +10,11 @@ export function EfferdRail({
 }: {
   children: ReactNode;
   className?: string;
-  /** @deprecated Borders are on PageColumn only; ignored. */
   bordered?: boolean;
   padding?: boolean;
 }) {
   return (
-    <div className={cn(padding && PAGE_GUTTER_CLASS, "min-w-0", className)}>
+    <div className={cn(padding && SHELL_GUTTER_X_CLASS, "min-w-0", className)}>
       {children}
     </div>
   );
