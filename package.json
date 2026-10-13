@@ -9,6 +9,7 @@
     "start": "next start",
     "types:check": "next typegen && tsc --noEmit",
     "lint": "biome check",
+    "verify:design": "node scripts/verify-design-tokens.mjs",
     "format": "biome format --write",
     "capture:screenshots": "node scripts/capture-project-screenshots.mjs"
   },
