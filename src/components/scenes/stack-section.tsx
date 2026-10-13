@@ -21,7 +21,7 @@ export function StackSection() {
       <PageBleed className="divide-y divide-border border-border">
         {stackGroups.map((group) => (
           <div key={group.id} className="px-4 py-6 md:px-6">
-            <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+            <p className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
               {group.label}
             </p>
             <div className="mt-4 flex flex-wrap gap-x-6 gap-y-3">

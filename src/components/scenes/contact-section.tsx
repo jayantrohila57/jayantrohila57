@@ -23,7 +23,7 @@ export function AboutTeaserSection() {
           </h2>
         </div>
         <div className="flex min-h-full flex-col justify-center bg-background p-6 md:min-h-[12rem] md:p-8">
-          <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+          <p className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
             Profile
           </p>
           <p className="mt-3 text-xl font-semibold">{profile.name}</p>

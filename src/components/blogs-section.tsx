@@ -51,7 +51,7 @@ export function WorkListRow({
         <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
           {description}
         </p>
-        <p className="font-mono text-[10px] tracking-wide text-muted-foreground uppercase md:text-[11px]">
+        <p className="font-mono type-caption tracking-wide text-muted-foreground uppercase md:type-meta">
           {meta}
         </p>
       </div>
@@ -103,7 +103,7 @@ export function BlogCard({
           aria-hidden
           className="mb-[6px] hidden min-w-0 flex-1 border-b-2 border-dashed border-border md:block"
         />
-        <span className="max-w-full shrink-0 self-start font-mono text-[11px] text-muted-foreground uppercase md:self-auto md:text-sm">
+        <span className="max-w-full shrink-0 self-start font-mono type-meta text-muted-foreground uppercase md:self-auto md:text-sm">
           {date}
         </span>
       </div>

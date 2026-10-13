@@ -30,7 +30,7 @@ function ExperienceCard({
             {item.role}
           </p>
         </div>
-        <p className="font-mono text-[11px] text-muted-foreground uppercase md:text-right">
+        <p className="font-mono type-meta text-muted-foreground uppercase md:text-right">
           {item.period}
           {item.location ? (
             <span className="mt-1 block normal-case">{item.location}</span>
@@ -53,7 +53,7 @@ function ExperienceCard({
         </ul>
       ) : null}
       {item.technologies.length > 0 ? (
-        <p className="mt-4 font-mono text-[10px] tracking-wide text-muted-foreground uppercase">
+        <p className="mt-4 font-mono type-caption tracking-wide text-muted-foreground uppercase">
           {item.technologies.join(" · ")}
         </p>
       ) : null}

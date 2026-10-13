@@ -5,53 +5,21 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #0b0d0f;
-  --foreground: #eceff3;
-  --muted: #9aa3af;
-  --surface: #12151a;
-  --panel: #161a21;
-  --elevated: #1c2129;
-  --border: #2a3038;
-  --border-subtle: #1f242b;
+  --font-sans: var(--font-ibm-plex), system-ui, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
+
   --brand: #7dd3a8;
   --brand-muted: #9ee4c7;
   --brand-foreground: #0b0d0f;
 
-  --font-sans: var(--font-ibm-plex), system-ui, sans-serif;
-  --font-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, monospace;
-
+  --radius: 0.625rem;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 12px;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted-foreground: #9aa3af;
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  --window-chrome-red: #ff5f57;
+  --window-chrome-yellow: #febc2e;
+  --window-chrome-green: #28c840;
 }
 
 @theme inline {
@@ -64,6 +32,13 @@
   --color-panel: var(--panel);
   --color-elevated: var(--elevated);
   --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-surface: var(--surface);
+  --color-panel: var(--panel);
+  --color-elevated: var(--elevated);
+  --color-window-chrome-red: var(--window-chrome-red);
+  --color-window-chrome-yellow: var(--window-chrome-yellow);
+  --color-window-chrome-green: var(--window-chrome-green);
   /* Portfolio green — literal hex so shadcn cannot override via --accent */
   --color-brand: #7dd3a8;
   --color-brand-muted: #9ee4c7;
@@ -319,5 +294,37 @@ body {
 
   .code-block {
     overscroll-behavior-x: contain;
+  }
+
+  .type-eyebrow {
+    font-size: 0.6875rem;
+    line-height: 1.35;
+    letter-spacing: 0.2em;
+  }
+
+  .type-eyebrow-sm {
+    font-size: 0.625rem;
+    line-height: 1.35;
+    letter-spacing: 0.2em;
+  }
+
+  .type-caption {
+    font-size: 0.625rem;
+    line-height: 1.4;
+  }
+
+  .type-meta {
+    font-size: 0.6875rem;
+    line-height: 1.4;
+  }
+
+  .bg-window-chrome-red {
+    background-color: var(--window-chrome-red);
+  }
+  .bg-window-chrome-yellow {
+    background-color: var(--window-chrome-yellow);
+  }
+  .bg-window-chrome-green {
+    background-color: var(--window-chrome-green);
   }
 }

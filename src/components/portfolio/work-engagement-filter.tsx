@@ -29,7 +29,7 @@ export function WorkEngagementFilter() {
       <GridCell
         className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
       >
-        <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+        <p className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
           Filter by type
         </p>
         <FlexShell direction="row" gap="2" wrap className="flex-wrap">

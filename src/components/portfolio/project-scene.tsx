@@ -64,7 +64,7 @@ export function ProjectScene({
               </dd>
             </div>
           </dl>
-          <p className="mt-4 font-mono text-[10px] text-link-accent uppercase">
+          <p className="mt-4 font-mono type-caption text-link-accent uppercase">
             View project →
           </p>
         </GridCell>

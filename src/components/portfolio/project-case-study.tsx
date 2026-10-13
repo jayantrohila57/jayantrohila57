@@ -26,13 +26,13 @@ export function ProjectCaseStudyAtGlance({
   return (
     <SectionBleed className="border-b border-border bg-border">
       <GridCell className="md:py-8">
-        <p className="font-mono text-[11px] tracking-[0.18em] text-muted-foreground uppercase">
+        <p className="type-eyebrow font-mono text-muted-foreground uppercase tracking-[0.18em]">
           At a glance
         </p>
         <GridShell columns="sm:grid-cols-2" border="none" className="mt-4 border border-border">
           {rows.map((row) => (
             <GridCell key={row.label}>
-              <dt className="font-mono text-[10px] text-muted-foreground uppercase">
+              <dt className="font-mono type-caption text-muted-foreground uppercase">
                 {row.label}
               </dt>
               <dd className="mt-1 text-sm leading-relaxed text-foreground">
@@ -43,7 +43,7 @@ export function ProjectCaseStudyAtGlance({
         </GridShell>
         {metrics.length > 0 ? (
           <div className="mt-6 border-t border-border pt-4">
-            <p className="font-mono text-[10px] text-muted-foreground uppercase">
+            <p className="font-mono type-caption text-muted-foreground uppercase">
               Engineering metrics (from public repos)
             </p>
             <ul className="mt-3 grid gap-px border border-border bg-border sm:grid-cols-2">
@@ -146,7 +146,7 @@ export function ProjectCaseStudySections({
         <section key={section.key} aria-labelledby={`case-${section.key}`}>
           <h2
             id={`case-${section.key}`}
-            className="font-mono text-[11px] text-muted-foreground uppercase tracking-[0.18em]"
+            className="type-eyebrow font-mono text-muted-foreground uppercase tracking-[0.18em]"
           >
             {String(index + 1).padStart(2, "0")} — {section.label}
           </h2>

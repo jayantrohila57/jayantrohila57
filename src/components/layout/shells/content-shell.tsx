@@ -52,7 +52,7 @@ export function ContentShell({
     >
       <div className={cn("max-w-2xl", align === "center" && "mx-auto")}>
         {eyebrow ? (
-          <p className="mb-2 font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
+          <p className="mb-2 type-eyebrow font-mono text-muted-foreground uppercase">
             {icon ? (
               <span className="inline-flex items-center gap-2">
                 {icon}

@@ -33,12 +33,12 @@ export function DialogContent({
       <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm" />
       <DialogPrimitive.Content
         className={cn(
-          "fixed top-[15%] left-1/2 z-50 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 rounded-[var(--radius-md)] border border-border bg-panel p-0 shadow-xl outline-none",
+          "fixed top-[15%] left-1/2 z-50 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 rounded-md border border-border bg-panel p-0 shadow-xl outline-none",
           className,
         )}
       >
         {children}
-        <DialogPrimitive.Close className="absolute top-3 right-3 rounded-[var(--radius-sm)] p-1 text-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-accent/50">
+        <DialogPrimitive.Close className="absolute top-3 right-3 rounded-sm p-1 text-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-accent/50">
           <X className="size-4" />
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>

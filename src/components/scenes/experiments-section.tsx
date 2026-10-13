@@ -57,7 +57,7 @@ function ExperimentCard({ exp }: { exp: Experiment }) {
         <p className="text-sm leading-relaxed text-muted-foreground">
           {exp.summary}
         </p>
-        <p className="mt-auto font-mono text-[10px] tracking-wide text-muted-foreground uppercase">
+        <p className="mt-auto font-mono type-caption tracking-wide text-muted-foreground uppercase">
           {exp.stack.slice(0, 4).join(" · ")}
         </p>
       </div>

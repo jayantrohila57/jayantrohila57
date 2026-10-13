@@ -44,7 +44,7 @@ export function EcommerceProjectPreview() {
 export function EnvManagerProjectPreview() {
   return (
     <PreviewShell url="env-manager / staging">
-      <div className="flex gap-1 text-[10px]">
+      <div className="flex gap-1 type-caption">
         {["dev", "staging", "prod"].map((env, i) => (
           <span
             key={env}
@@ -67,7 +67,7 @@ export function EnvManagerProjectPreview() {
           <span className="text-brand">••••••</span>
         </div>
       ))}
-      <p className="text-[10px] text-muted-foreground">
+      <p className="type-caption text-muted-foreground">
         Variable groups · masked secrets · per environment
       </p>
     </PreviewShell>
@@ -81,7 +81,7 @@ export function TaskflowProjectPreview() {
         <span className="text-sm text-foreground">Acme Org</span>
         <StatusBadge label="workspace" status="demo" />
       </div>
-      <div className="grid grid-cols-3 gap-2 text-[10px] text-muted-foreground">
+      <div className="grid grid-cols-3 gap-2 type-caption text-muted-foreground">
         {["Projects", "Tasks", "Members"].map((tab) => (
           <div key={tab} className="border border-border py-1 text-center">
             {tab}
@@ -114,10 +114,10 @@ export function InklyCmsPreview() {
         <span className="text-foreground">Draft · Product launch notes</span>
         <span className="text-muted-foreground">Publish</span>
       </div>
-      <div className="min-h-[4rem] border border-border p-2 text-[10px] leading-relaxed text-muted-foreground">
+      <div className="min-h-[4rem] border border-border p-2 type-caption leading-relaxed text-muted-foreground">
         Rich text editor · headings, lists, and embeds
       </div>
-      <div className="flex flex-wrap gap-1 text-[10px]">
+      <div className="flex flex-wrap gap-1 type-caption">
         {["Authors", "Categories", "Media"].map((tag) => (
           <span key={tag} className="border border-border px-1.5 py-0.5">
             {tag}
@@ -137,7 +137,7 @@ export function LibyuiPreview() {
         {components.map((name) => (
           <div
             key={name}
-            className="flex items-center justify-center border border-border py-2 text-[10px] text-muted-foreground"
+            className="flex items-center justify-center border border-border py-2 type-caption text-muted-foreground"
           >
             {name}
           </div>
@@ -151,10 +151,10 @@ export function ImageEditorPreview() {
   return (
     <PreviewShell url="editor / canvas">
       <div className="grid grid-cols-[1fr_4rem] gap-2">
-        <div className="flex min-h-[5rem] items-center justify-center border border-dashed border-border text-[10px] text-muted-foreground">
+        <div className="flex min-h-[5rem] items-center justify-center border border-dashed border-border type-caption text-muted-foreground">
           Canvas preview
         </div>
-        <div className="flex flex-col gap-1 text-[10px]">
+        <div className="flex flex-col gap-1 type-caption">
           {["Crop", "Filter", "Export"].map((tool) => (
             <span
               key={tool}
@@ -174,15 +174,15 @@ export function SpotifyStatsPreview() {
     <PreviewShell url="spotify / insights">
       <div className="grid grid-cols-2 gap-2 text-xs">
         <div className="border border-border p-2">
-          <p className="text-[10px] text-muted-foreground">Top artists</p>
+          <p className="type-caption text-muted-foreground">Top artists</p>
           <p className="mt-1 text-foreground">Listening mix</p>
         </div>
         <div className="border border-border p-2">
-          <p className="text-[10px] text-muted-foreground">Top tracks</p>
+          <p className="type-caption text-muted-foreground">Top tracks</p>
           <p className="mt-1 text-foreground">This month</p>
         </div>
       </div>
-      <ul className="space-y-1 text-[10px] text-muted-foreground">
+      <ul className="space-y-1 type-caption text-muted-foreground">
         <li>· Genres & listening time</li>
         <li>· Recent history chart</li>
       </ul>
@@ -193,13 +193,13 @@ export function SpotifyStatsPreview() {
 export function PatternlabPreview() {
   return (
     <PreviewShell url="patternlab / runner">
-      <div className="font-mono text-[10px] text-muted-foreground">
+      <div className="font-mono type-caption text-muted-foreground">
         <p className="text-xs text-foreground">Pattern challenge</p>
         <pre className="mt-2 leading-relaxed">{`function solve(input) {
   // your solution
 }`}</pre>
       </div>
-      <div className="flex justify-between text-[10px]">
+      <div className="flex justify-between type-caption">
         <span className="text-muted-foreground">Run tests</span>
         <span className="text-brand">3 / 3 passed</span>
       </div>

@@ -84,7 +84,7 @@ export default function AboutPage() {
             </p>
           </GridCell>
           <GridCell>
-            <p className="font-mono text-[10px] text-muted-foreground uppercase">
+            <p className="font-mono type-caption text-muted-foreground uppercase">
               Strengths
             </p>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">

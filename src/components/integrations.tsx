@@ -56,7 +56,7 @@ function IntegrationCard({
       )}
       {...props}
     >
-      <span className="font-mono text-[10px] tracking-widest text-muted-foreground uppercase">
+      <span className="font-mono type-caption tracking-widest text-muted-foreground uppercase">
         {integration.name}
       </span>
       <div className="space-y-1">

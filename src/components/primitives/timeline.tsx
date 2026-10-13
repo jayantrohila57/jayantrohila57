@@ -47,7 +47,7 @@ export function TimelineItem({
         aria-hidden
         className="absolute top-9 left-0 size-[15px] rounded-full border border-border bg-background"
       />
-      <p className="font-mono text-[11px] tracking-wide text-muted uppercase">
+      <p className="font-mono type-meta tracking-wide text-muted uppercase">
         {period}
       </p>
       <h3 className="mt-2 text-xl font-semibold tracking-tight">{title}</h3>
@@ -63,7 +63,7 @@ export function TimelineItem({
         </ul>
       ) : null}
       {technologies && technologies.length > 0 ? (
-        <p className="mt-4 font-mono text-[11px] text-muted">
+        <p className="mt-4 font-mono type-meta text-muted">
           {technologies.join(" · ")}
         </p>
       ) : null}

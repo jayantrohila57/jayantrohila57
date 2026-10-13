@@ -67,7 +67,7 @@ export function PortfolioContactPanel({
 
   const channelList = (
     <div className="grid gap-4">
-      <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+      <p className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
         Contact
       </p>
       {channels.map((item) => (
@@ -97,7 +97,7 @@ export function PortfolioContactPanel({
                 <button
                   type="button"
                   onClick={copyEmail}
-                  className="text-[10px] text-muted-foreground hover:text-foreground"
+                  className="type-caption text-muted-foreground hover:text-foreground"
                 >
                   {copied ? "Copied" : "Copy email"}
                 </button>
@@ -111,7 +111,7 @@ export function PortfolioContactPanel({
 
   const actions = (
     <div className="flex flex-col gap-4">
-      <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+      <p className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
         Message
       </p>
       <p className="text-sm leading-relaxed text-muted-foreground">

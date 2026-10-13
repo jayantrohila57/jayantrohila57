@@ -1,4 +1,9 @@
 import type { ReactNode } from "react";
+import {
+  WINDOW_CHROME_GREEN_CLASS,
+  WINDOW_CHROME_RED_CLASS,
+  WINDOW_CHROME_YELLOW_CLASS,
+} from "@/lib/design-tokens";
 import { cn } from "@/lib/cn";
 
 export function InterfaceWindow({
@@ -15,15 +20,19 @@ export function InterfaceWindow({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-[var(--radius-md)] border border-border bg-surface shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset]",
+        "overflow-hidden rounded-md border border-border bg-surface shadow-[0_1px_0_0_rgba(255,255,255,0.04)_inset]",
         className,
       )}
     >
       {chrome ? (
         <div className="flex items-center gap-2 border-b border-border bg-elevated/60 px-3 py-2">
-          <span className="size-2 rounded-full bg-[#ff5f57]" />
-          <span className="size-2 rounded-full bg-[#febc2e]" />
-          <span className="size-2 rounded-full bg-[#28c840]" />
+          <span className={cn("size-2 rounded-full", WINDOW_CHROME_RED_CLASS)} />
+          <span
+            className={cn("size-2 rounded-full", WINDOW_CHROME_YELLOW_CLASS)}
+          />
+          <span
+            className={cn("size-2 rounded-full", WINDOW_CHROME_GREEN_CLASS)}
+          />
           {title ? (
             <span className="ml-2 truncate font-mono text-xs text-muted">
               {title}
@@ -97,7 +106,7 @@ export function StatusBadge({
         ? "bg-amber-400"
         : "bg-muted";
   return (
-    <span className="inline-flex items-center gap-2 rounded-[var(--radius-sm)] border border-border px-2 py-1 font-mono text-xs text-muted uppercase">
+    <span className="inline-flex items-center gap-2 rounded-sm border border-border px-2 py-1 font-mono text-xs text-muted uppercase">
       <span className={cn("size-1.5 rounded-full", dot)} />
       {label}
     </span>

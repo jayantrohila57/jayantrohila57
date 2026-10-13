@@ -90,7 +90,7 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
             <div key={tier.key} className="mt-8">
               <SectionBleed className="border-t border-border">
                 <GridCell className="border-b border-border md:py-6">
-                  <h2 className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
+                  <h2 className="type-eyebrow font-mono text-muted-foreground uppercase">
                     {tier.title}
                   </h2>
                 </GridCell>
@@ -116,7 +116,7 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
         <div id="lab" className="mt-8 scroll-mt-20">
           <SectionBleed className="border-t border-border">
             <GridCell className="md:py-6">
-              <h2 className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
+              <h2 className="type-eyebrow font-mono text-muted-foreground uppercase">
                 Lab shelf
               </h2>
               <p className="mt-2 text-sm text-muted-foreground">

@@ -56,7 +56,7 @@ function MetaCell({
 }) {
   return (
     <GridCell className={cn("md:py-5", className)}>
-      <p className="font-mono text-[10px] text-muted-foreground uppercase">
+      <p className="font-mono type-caption text-muted-foreground uppercase">
         {label}
       </p>
       <p className="mt-1 text-sm leading-relaxed text-foreground">{value}</p>
@@ -109,7 +109,7 @@ export default async function ProjectPage({ params }: Props) {
         <div className="space-y-10 pb-8">
           {project.sections.map((section, i) => (
             <section key={section.id}>
-              <h2 className="font-mono text-[11px] text-muted-foreground uppercase tracking-[0.18em]">
+              <h2 className="type-eyebrow font-mono text-muted-foreground uppercase tracking-[0.18em]">
                 {String(i + 1).padStart(2, "0")} — {section.title}
               </h2>
               <div className="mt-4 max-w-3xl space-y-3 text-sm leading-relaxed text-muted-foreground">

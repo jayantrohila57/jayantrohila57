@@ -38,7 +38,7 @@ function BlockFrame({
   return (
     <section className="border-b border-border py-16" id={id}>
       <div className="mb-8 px-4">
-        <p className="font-mono text-[10px] text-muted uppercase tracking-widest">
+        <p className="font-mono type-caption text-muted uppercase tracking-widest">
           @efferd/{id}
         </p>
         <h2 className="mt-2 font-medium text-xl">{title}</h2>

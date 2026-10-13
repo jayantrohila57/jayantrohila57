@@ -56,7 +56,7 @@ export function SectionLabel({
   return (
     <p
       className={cn(
-        "mb-3 font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase",
+        "mb-3 type-eyebrow font-mono text-muted-foreground uppercase",
         className,
       )}
     >

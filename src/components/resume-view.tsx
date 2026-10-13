@@ -73,7 +73,7 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
 
         <div className="px-4 py-6 md:px-8 md:py-8">
           <section>
-            <h2 className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase print:text-black">
+            <h2 className="font-mono type-caption tracking-[0.18em] text-muted-foreground uppercase print:text-black">
               Summary
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base print:text-black">
@@ -82,7 +82,7 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
           </section>
 
           <section className="mt-10">
-            <h2 className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase print:text-black">
+            <h2 className="font-mono type-caption tracking-[0.18em] text-muted-foreground uppercase print:text-black">
               Experience
             </h2>
             <ul className="mt-5 divide-y divide-border">
@@ -112,7 +112,7 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
           </section>
 
           <section className="mt-10">
-            <h2 className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase print:text-black">
+            <h2 className="font-mono type-caption tracking-[0.18em] text-muted-foreground uppercase print:text-black">
               Education
             </h2>
             <ul className="mt-5 space-y-4 text-sm">
@@ -144,7 +144,7 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
           </section>
 
           <section className="mt-10">
-            <h2 className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase print:text-black">
+            <h2 className="font-mono type-caption tracking-[0.18em] text-muted-foreground uppercase print:text-black">
               Skills
             </h2>
             <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted-foreground print:text-black">
@@ -155,7 +155,7 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
           </section>
 
           <section className="mt-10">
-            <h2 className="font-mono text-[10px] tracking-[0.18em] text-muted-foreground uppercase print:text-black">
+            <h2 className="font-mono type-caption tracking-[0.18em] text-muted-foreground uppercase print:text-black">
               Selected projects
             </h2>
             <ul className="mt-4 space-y-3 text-sm">

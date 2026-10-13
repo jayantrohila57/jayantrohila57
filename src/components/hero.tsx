@@ -42,7 +42,7 @@ export function PortfolioHero() {
               "md:gap-5 md:py-16 lg:py-20",
             )}
           >
-            <p className="font-mono text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
+            <p className="type-eyebrow font-mono text-muted-foreground uppercase">
               {profile.title}
             </p>
             <div className="space-y-2.5 md:space-y-3">
@@ -62,7 +62,7 @@ export function PortfolioHero() {
             <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
               {heroSupportingLine}
             </p>
-            <p className="font-mono text-[11px] tracking-wide text-muted-foreground">
+            <p className="font-mono type-meta tracking-wide text-muted-foreground">
               {heroStatusLine}
             </p>
 
@@ -82,7 +82,7 @@ export function PortfolioHero() {
               >
                 Download résumé
               </Link>
-              <span className="font-mono text-[10px] text-muted-foreground">
+              <span className="font-mono type-caption text-muted-foreground">
                 {siteConfig.resumeUpdatedLabel}
               </span>
               <Link

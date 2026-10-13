@@ -29,7 +29,7 @@ export function CallToAction({
         shellCellClassName(),
       )}
     >
-      <p className="text-center font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+      <p className="text-center type-eyebrow-sm font-mono text-muted-foreground uppercase">
         Collaborate
       </p>
       <h2 className="text-center font-semibold text-xl md:text-3xl">{title}</h2>

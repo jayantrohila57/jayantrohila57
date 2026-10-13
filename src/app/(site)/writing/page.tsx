@@ -28,7 +28,7 @@ function WritingEmptyState({ title, body }: { title: string; body: string }) {
         "rounded-md border border-dashed border-border bg-background/50 text-center",
       )}
     >
-      <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+      <p className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
         {title}
       </p>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -111,7 +111,7 @@ export default function WritingPage() {
                     "block transition-colors hover:bg-secondary/40",
                   )}
                 >
-                  <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+                  <p className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
                     {formatBlogDate(post.publishedAt)} · {post.readingTimeMinutes}{" "}
                     min
                   </p>
@@ -119,7 +119,7 @@ export default function WritingPage() {
                   <p className="mt-1 text-sm text-muted-foreground">
                     {post.summary}
                   </p>
-                  <p className="mt-2 font-mono text-[10px] text-muted-foreground">
+                  <p className="mt-2 font-mono type-caption text-muted-foreground">
                     {post.tags.join(" · ")}
                   </p>
                 </Link>

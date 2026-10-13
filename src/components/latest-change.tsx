@@ -27,7 +27,7 @@ export function LatestChange() {
     >
       <div className="relative flex size-full flex-col gap-1.5 overflow-hidden px-3 pt-4 pb-1">
         <p className="font-medium text-xs">{latestChange.title}</p>
-        <span className="text-[10px] text-muted-foreground">
+        <span className="type-caption text-muted-foreground">
           {latestChange.description}
         </span>
         <Button

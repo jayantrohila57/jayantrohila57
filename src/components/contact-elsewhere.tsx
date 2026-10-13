@@ -20,7 +20,7 @@ export function ContactElsewhereLinks() {
               className="block rounded-md border border-border px-4 py-3 text-sm transition-colors hover:bg-muted/50"
             >
               <span className="font-medium">{item.label}</span>
-              <span className="mt-0.5 block truncate font-mono text-[11px] text-muted-foreground">
+              <span className="mt-0.5 block truncate font-mono type-meta text-muted-foreground">
                 {item.href.replace(/^https?:\/\/(www\.)?/, "")}
               </span>
             </Link>

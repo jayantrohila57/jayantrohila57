@@ -5,6 +5,7 @@ import { ArrowUpRight, Copy, Mail, Search } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 import { HeaderIconButton } from "@/components/layout/header-icon-button";
 import { useLenisScrollLock } from "@/components/smooth-scroll";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -12,6 +13,10 @@ import { commandNavExtras, mainNav } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { profile, projects } from "@/data/portfolio";
 import { getBlogPosts } from "@/lib/blog";
+import {
+  CMDK_GROUP_HEADING_CLASS,
+  INTERACTIVE_LIST_ITEM_CLASS,
+} from "@/lib/design-tokens";
 
 export function CommandMenu() {
   const [open, setOpen] = useState(false);
@@ -62,14 +67,14 @@ export function CommandMenu() {
               </Command.Empty>
               <Command.Group
                 heading="Navigate"
-                className="px-2 py-2 text-[10px] font-mono tracking-widest text-muted uppercase [&_[cmdk-group-heading]]:mb-2"
+                className={CMDK_GROUP_HEADING_CLASS}
               >
                 <Command.Item
                   onSelect={() => {
                     router.push("/");
                     setOpen(false);
                   }}
-                  className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                  className={INTERACTIVE_LIST_ITEM_CLASS}
                 >
                   Home
                 </Command.Item>
@@ -80,7 +85,7 @@ export function CommandMenu() {
                       router.push(item.href);
                       setOpen(false);
                     }}
-                    className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                    className={INTERACTIVE_LIST_ITEM_CLASS}
                   >
                     {item.label}
                   </Command.Item>
@@ -92,7 +97,7 @@ export function CommandMenu() {
                       router.push(item.href);
                       setOpen(false);
                     }}
-                    className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                    className={INTERACTIVE_LIST_ITEM_CLASS}
                   >
                     {item.label}
                   </Command.Item>
@@ -100,14 +105,14 @@ export function CommandMenu() {
               </Command.Group>
               <Command.Group
                 heading="Writing"
-                className="px-2 py-2 text-[10px] font-mono tracking-widest text-muted uppercase"
+                className={CMDK_GROUP_HEADING_CLASS}
               >
                 <Command.Item
                   onSelect={() => {
                     router.push("/writing");
                     setOpen(false);
                   }}
-                  className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                  className={INTERACTIVE_LIST_ITEM_CLASS}
                 >
                   Writing overview
                 </Command.Item>
@@ -116,7 +121,7 @@ export function CommandMenu() {
                     router.push("/writing#case-studies");
                     setOpen(false);
                   }}
-                  className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                  className={INTERACTIVE_LIST_ITEM_CLASS}
                 >
                   Case studies index
                 </Command.Item>
@@ -125,7 +130,7 @@ export function CommandMenu() {
                     router.push("/writing#engineering");
                     setOpen(false);
                   }}
-                  className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                  className={INTERACTIVE_LIST_ITEM_CLASS}
                 >
                   Engineering notes
                 </Command.Item>
@@ -134,7 +139,7 @@ export function CommandMenu() {
                     router.push("/writing#blog");
                     setOpen(false);
                   }}
-                  className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                  className={INTERACTIVE_LIST_ITEM_CLASS}
                 >
                   Blog posts
                 </Command.Item>
@@ -145,7 +150,7 @@ export function CommandMenu() {
                       router.push(`/writing/${post.slug}`);
                       setOpen(false);
                     }}
-                    className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                    className={INTERACTIVE_LIST_ITEM_CLASS}
                   >
                     {post.title}
                   </Command.Item>
@@ -153,7 +158,7 @@ export function CommandMenu() {
               </Command.Group>
               <Command.Group
                 heading="Projects"
-                className="px-2 py-2 text-[10px] font-mono tracking-widest text-muted uppercase"
+                className={CMDK_GROUP_HEADING_CLASS}
               >
                 {projects.map((p) => (
                   <Command.Item
@@ -162,7 +167,7 @@ export function CommandMenu() {
                       router.push(`/work/${p.slug}`);
                       setOpen(false);
                     }}
-                    className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                    className={INTERACTIVE_LIST_ITEM_CLASS}
                   >
                     {p.title}
                   </Command.Item>
@@ -170,14 +175,14 @@ export function CommandMenu() {
               </Command.Group>
               <Command.Group
                 heading="Actions"
-                className="px-2 py-2 text-[10px] font-mono tracking-widest text-muted uppercase"
+                className={CMDK_GROUP_HEADING_CLASS}
               >
                 <Command.Item
                   onSelect={() => {
                     window.open(siteConfig.social.github, "_blank");
                     setOpen(false);
                   }}
-                  className="flex cursor-pointer items-center gap-2 rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                  className={cn(INTERACTIVE_LIST_ITEM_CLASS, "flex items-center gap-2")}
                 >
                   Open GitHub <ArrowUpRight className="size-3" />
                 </Command.Item>
@@ -186,13 +191,13 @@ export function CommandMenu() {
                     window.location.href = `mailto:${profile.social.email}`;
                     setOpen(false);
                   }}
-                  className="flex cursor-pointer items-center gap-2 rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                  className={cn(INTERACTIVE_LIST_ITEM_CLASS, "flex items-center gap-2")}
                 >
                   Send email <Mail className="size-3" />
                 </Command.Item>
                 <Command.Item
                   onSelect={copyEmail}
-                  className="flex cursor-pointer items-center gap-2 rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                  className={cn(INTERACTIVE_LIST_ITEM_CLASS, "flex items-center gap-2")}
                 >
                   Copy email <Copy className="size-3" />
                 </Command.Item>
@@ -201,7 +206,7 @@ export function CommandMenu() {
                     router.push(siteConfig.resumePath);
                     setOpen(false);
                   }}
-                  className="cursor-pointer rounded-[var(--radius-sm)] px-3 py-2 text-sm aria-selected:bg-elevated"
+                  className={INTERACTIVE_LIST_ITEM_CLASS}
                 >
                   View resume
                 </Command.Item>

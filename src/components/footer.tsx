@@ -13,7 +13,7 @@ export function Footer() {
       <div className={cn(SHELL_GUTTER_X_CLASS, "py-10")}>
           <div className="grid gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)] md:gap-12">
             <div className="space-y-3">
-              <p className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+              <p className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
                 {profile.name}
               </p>
               <p className="text-sm font-medium text-foreground">
@@ -27,7 +27,7 @@ export function Footer() {
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {footerNavGroups.map((group) => (
                 <div key={group.title}>
-                  <h3 className="font-mono text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
+                  <h3 className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
                     {group.title}
                   </h3>
                   <ul className="mt-3 space-y-2">
