@@ -19,3 +19,9 @@ This repository is the source for [jayantrohila.com](https://jayantrohila.com).
 
 - [Lenis smooth scroll & nested scroll areas](./docs/LENIS.md)
 - Portfolio screenshots use the `.content-image` class via `ProjectMedia` (`src/lib/content-image.ts`)
+
+## Sponsor
+
+If you find this project useful, consider supporting its development:
+
+[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-db61a2?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/jayantrohila57)
