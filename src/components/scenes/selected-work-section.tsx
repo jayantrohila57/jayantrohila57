@@ -18,7 +18,7 @@ export function SelectedWorkSection() {
         <SectionLabel index="01" label="Selected work" />
         <SectionIntro
           title="Case studies from real products."
-          description="Taskflow, Env Manager, and libyui — problem, decisions, metrics, and live demos."
+          description="Taskflow, Loftlancer, and Lucsum — problem, decisions, metrics, and live demos."
           action={
             <Link href="/work" className={sectionActionLinkClass}>
               View all →

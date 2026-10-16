@@ -19,7 +19,7 @@ export const resumeData = {
   location: "Noida, India",
   email: "jrohila55@gmail.com",
   summary:
-    "Product engineer building full-stack web applications — clear UX, typed APIs, and maintainable delivery. Public GitHub work includes storefront, env tooling, and multi-tenant task platforms with live demos.",
+    "Product engineer building full-stack web applications — clear UX, typed APIs, and maintainable delivery. Public GitHub work includes Lucsum (e-commerce), Loftlancer (secrets manager), and multi-tenant task platforms with live demos.",
   links: [
     { label: "Portfolio", href: "https://jayantrohila.com" },
     { label: "GitHub", href: "https://github.com/jayantrohila57" },
@@ -95,15 +95,15 @@ export const resumeData = {
   ],
   projects: [
     {
-      name: "E-commerce",
-      href: "https://github.com/jayantrohila57/e-commerce",
+      name: "Lucsum",
+      href: "https://github.com/jayantrohila57/lucsum",
       liveHref: "https://e-commerce-jayantrohila.vercel.app",
-      summary: "Storefront — Next.js, tRPC, Drizzle, Better Auth, Razorpay.",
+      summary: "E-commerce — Next.js, tRPC, Drizzle, Better Auth, Razorpay.",
     },
     {
-      name: "Env Manager",
-      href: "https://github.com/jayantrohila57/env-manager",
-      liveHref: "https://env-manager-web.vercel.app",
+      name: "Loftlancer",
+      href: "https://github.com/jayantrohila57/loftlancer",
+      liveHref: "https://loftlancer.com",
       summary: "Secrets and env vars across environments — Better Auth, Neon.",
     },
     {

@@ -64,7 +64,7 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     maturity:
       "If this were heading to production, I’d add audit logging for permission changes, stricter org isolation tests, and operational metrics on hot tRPC paths.",
   },
-  "env-manager": {
+  loftlancer: {
     atGlance: {
       role: "Solo builder — monorepo, UI, encryption, auth",
       duration: "2025–2026",
@@ -74,71 +74,29 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     problem:
       "Environment variables and secrets scatter across repos, machines, and deploy targets — engineers need a single place to manage values per project and environment without exposing secrets in plain text.",
     contribution:
-      "Built the pnpm/Turbo monorepo and web dashboard: encrypted secret storage, per-environment views, audit log, import/export of .env files, and GitHub OAuth via Better Auth.",
+      "Built the pnpm/Turbo monorepo and web dashboard: encrypted secret storage, per-environment views, audit timeline, notifications, and GitHub OAuth via Better Auth.",
     challenges: [
       "Encryption at rest — AES-256-GCM with a dedicated crypto package so the web app never stores raw secrets in the database.",
-      "Monorepo boundaries — shared api, auth, db, crypto, and env packages consumed by apps/web.",
+      "Monorepo boundaries — shared api, actions, auth, db, crypto, notifications, and env packages consumed by the apps.",
       "Developer UX — tabs for dev / staging / production and masked values in the UI for day-to-day rotation workflows.",
     ],
     features: [
       "Project-scoped variable groups and environment tabs",
-      "Encrypted values, audit log, and .env import/export",
+      "Encrypted values, audit timeline, and notifications",
       "Better Auth + GitHub OAuth for the management surface",
-      "Six shared workspace packages (api, auth, db, crypto, env, config)",
+      "Org roles (Owner, Manager, Member) via a canonical actions layer",
     ],
     decisions: [
       "Prioritized clarity for engineers over generic CRUD — the UI emphasizes per-environment context.",
-      "Stacked on Next.js, Prisma/Neon, and Vercel for a familiar full-stack shape with a small operational footprint.",
+      "Stacked on Next.js, tRPC, Drizzle, and Vercel for a familiar full-stack shape with a small operational footprint.",
     ],
-    metrics: [
-      { label: "Monorepo packages", value: "6 shared workspace packages" },
-      { label: "Web routes", value: "6 App Router pages in apps/web" },
-      { label: "DB tables (Drizzle)", value: "11 pgTable definitions" },
-    ],
+    metrics: [],
     outcome:
-      "Working open-source repository and live demo that demonstrate secure configuration management — no claimed production team adoption.",
+      "Working open-source repository and live app that demonstrate secure configuration management — no claimed production team adoption.",
     maturity:
-      "Next steps for a team rollout would be RBAC on projects, rotation reminders, and CI integrations that pull secrets without logging values.",
+      "Next steps for a team rollout would be rotation reminders and CI integrations that pull secrets without logging values.",
   },
-  libyui: {
-    atGlance: {
-      role: "Author — components, docs site, examples",
-      duration: "2024–2025",
-      team: "Solo",
-      stack: "React · TypeScript · Tailwind CSS · Next.js docs app",
-    },
-    problem:
-      "Shipping multiple React apps meant re-solving the same buttons, forms, dialogs, and tables — consistency and speed both suffered.",
-    contribution:
-      "Published a TypeScript + Tailwind component library with reusable primitives and a live documentation-style demo site.",
-    challenges: [
-      "Composable APIs — small primitives (dialog, sheet, table) that compose without a heavy runtime design-system framework.",
-      "Documentation — live examples on the hosted demo so consumers can see states, not just read props.",
-      "Theming — Tailwind-based styling so apps can theme without fighting CSS-in-JS.",
-    ],
-    features: [
-      "Composable UI primitives (inputs, dialogs, tables, tabs, cards)",
-      "Shared tokens and spacing conventions",
-      "Documented examples on the hosted demo",
-      "Open-source package consumable from other repos",
-    ],
-    decisions: [
-      "Kept APIs small and composable rather than shipping a heavy design-system framework.",
-      "Used Tailwind for styling so consumers can theme without fighting a runtime CSS-in-JS layer.",
-    ],
-    metrics: [
-      {
-        label: "UI primitives",
-        value: "18 components under src/components/ui",
-      },
-      { label: "Component TSX files", value: "33 under src/components" },
-    ],
-    outcome:
-      "Reusable library used as evidence of UI architecture skill — live demo plus GitHub source for reviewers.",
-    maturity:
-      "I’d add visual regression tests and a published npm package with semver changelog before calling it a org-wide design system.",
-  },
-  "e-commerce": {
+  lucsum: {
     atGlance: {
       role: "Solo builder — storefront, staff tools, payments",
       duration: "2024–2026",
@@ -202,34 +160,6 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     outcome:
       "Shows API integration, visualization-minded UI, and dashboard IA in a public repo and demo.",
   },
-  "inkly-cms": {
-    atGlance: {
-      role: "Solo builder",
-      duration: "2024–2025",
-      team: "Solo",
-      stack: "Next.js · TypeScript · Prisma · PostgreSQL",
-    },
-    problem:
-      "Blogging and content sites need editor UX, publishing workflow, and structured content — not just a markdown file in git.",
-    contribution:
-      "Built a self-hosted CMS-style app with rich-text editing patterns, content modeling, and authenticated publishing flows.",
-    challenges: [
-      "Editor reliability — TipTap-oriented patterns for long-form content without losing draft state.",
-      "Publishing workflow — drafts, categories, and authors without over-building a full enterprise CMS.",
-    ],
-    features: [
-      "Rich-text editing (TipTap-oriented patterns)",
-      "Content list and draft/publish workflow",
-      "Authors, categories, and media-oriented content structure",
-      "React Query–driven client data layer",
-    ],
-    decisions: [
-      "Chose a headless CMS shape so the same content layer could power multiple frontends later.",
-      "Kept the stack familiar: Next.js, TypeScript, Prisma, PostgreSQL.",
-    ],
-    outcome:
-      "Secondary open-source project that demonstrates CMS and editor UX beyond storefront or dashboard clones.",
-  },
   "image-editor": {
     atGlance: {
       role: "Solo builder",
@@ -257,34 +187,6 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     ],
     outcome:
       "Public demo that shows client-side media UX exploration without overstating production usage.",
-  },
-  patternlab: {
-    atGlance: {
-      role: "Solo builder",
-      duration: "2024–2025",
-      team: "Solo",
-      stack: "Next.js · TypeScript · Tailwind CSS",
-    },
-    problem:
-      "Programming patterns are easier to internalize when you can run code, see tests, and iterate — not only read static examples.",
-    contribution:
-      "Built an interactive pattern practice surface with runnable snippets and test feedback in the browser.",
-    challenges: [
-      "Safe in-browser execution boundaries for learner-submitted code.",
-      "Clear feedback loop between failing tests and the editable solution area.",
-    ],
-    features: [
-      "Pattern challenges with editable solution area",
-      "Test runner feedback in the UI",
-      "Hosted demo for quick trials",
-      "Open-source repository for reviewers",
-    ],
-    decisions: [
-      "Aligned portfolio copy with the repo’s learning-platform identity instead of calling it a generic UI kit.",
-      "Kept scope small — exercises and runner UX over a full course platform.",
-    ],
-    outcome:
-      "Experiment that highlights problem-solving and developer tooling UX alongside larger product repos.",
   },
 };
 

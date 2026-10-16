@@ -90,13 +90,10 @@ export const workPageOrder: {
   tier: (typeof workPageTierLabels)[number]["key"];
 }[] = [
   { slug: "taskflow", tier: "flagship" },
-  { slug: "env-manager", tier: "flagship" },
-  { slug: "libyui", tier: "flagship" },
-  { slug: "e-commerce", tier: "supporting" },
+  { slug: "loftlancer", tier: "flagship" },
+  { slug: "lucsum", tier: "flagship" },
   { slug: "stats-on-spotify", tier: "supporting" },
-  { slug: "inkly-cms", tier: "experiments" },
   { slug: "image-editor", tier: "experiments" },
-  { slug: "patternlab", tier: "experiments" },
 ];
 
 export const profile = {
@@ -133,8 +130,8 @@ export const profile = {
 
 export const projects: PortfolioProject[] = [
   {
-    slug: "e-commerce",
-    title: "E-commerce",
+    slug: "lucsum",
+    title: "Lucsum",
     eyebrow: "PROJECT / PRODUCT",
     summary:
       "Full-stack commerce platform with authenticated customer flows, staff operations, and server-authoritative Razorpay checkout.",
@@ -155,11 +152,11 @@ export const projects: PortfolioProject[] = [
     ],
     categories: ["product", "frontend", "backend"],
     workEngagement: "personal",
-    featured: false,
+    featured: true,
     visualType: "dashboard",
     links: {
       live: "https://e-commerce-jayantrohila.vercel.app",
-      github: "https://github.com/jayantrohila57/e-commerce",
+      github: "https://github.com/jayantrohila57/lucsum",
     },
     sections: [
       {
@@ -207,15 +204,15 @@ export const projects: PortfolioProject[] = [
     ],
   },
   {
-    slug: "env-manager",
-    title: "Env Manager",
+    slug: "loftlancer",
+    title: "Loftlancer",
     eyebrow: "PROJECT / DEVELOPER TOOL",
     ogDescription:
-      "Developer workspace for environment variables and secrets across dev, staging, and production.",
+      "Environment and secrets manager across dev, staging, and production.",
     summary:
-      "Developer-first system to manage environment variables and secrets across repos and deployment targets.",
+      "Environment and secrets manager for organizations, projects, and environments.",
     description:
-      "Web app to securely manage environment variables, secrets, and credentials with multi-environment workflows and CI/CD integration as stated goals in the README.",
+      "Web dashboard and pnpm/Turbo monorepo for storing and organizing environment variables across organizations, projects, and environments. Values are encrypted at rest, with an audit timeline and notifications.",
     status: "Open source · Live demo",
     role: "Solo · product engineering",
     year: "2025–2026",
@@ -223,19 +220,18 @@ export const projects: PortfolioProject[] = [
       "Next.js",
       "React",
       "TypeScript",
-      "Tailwind CSS",
-      "shadcn/ui",
+      "tRPC",
+      "Drizzle ORM",
       "Better Auth",
-      "Prisma",
-      "Neon",
+      "Turborepo",
     ],
     categories: ["product", "systems", "frontend"],
     workEngagement: "personal",
     featured: true,
     visualType: "terminal",
     links: {
-      live: "https://env-manager-web.vercel.app",
-      github: "https://github.com/jayantrohila57/env-manager",
+      live: "https://loftlancer.com",
+      github: "https://github.com/jayantrohila57/loftlancer",
     },
     sections: [
       {
@@ -256,14 +252,14 @@ export const projects: PortfolioProject[] = [
         id: "stack",
         title: "Stack",
         body: [
-          "Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, Better Auth, Neon, Prisma, deployed on Vercel.",
+          "Next.js, React, TypeScript, tRPC, Drizzle, Better Auth, coss/shadcn UI, pnpm/Turbo monorepo, deployed on Vercel.",
         ],
       },
       {
         id: "outcome",
         title: "Outcome",
         body: [
-          "Shows secure secret handling, multi-environment tabs, and a UI aimed at day-to-day configuration workflows — open source with a hosted demo.",
+          "Shows secure secret handling, multi-environment tabs, and a UI aimed at day-to-day configuration workflows — open source with a live app.",
         ],
       },
     ],
@@ -337,64 +333,6 @@ export const projects: PortfolioProject[] = [
     ],
   },
   {
-    slug: "inkly-cms",
-    title: "Inkly CMS",
-    eyebrow: "EXPERIMENT / CMS",
-    summary:
-      "Self-hosted publishing with rich-text editing, taxonomy, and role-aware content workflows.",
-    description:
-      "Headless CMS-style blogging with TipTap editing patterns, React Query, and authenticated publishing flows.",
-    status: "Open source · Demo",
-    year: "2024–2025",
-    stack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-    categories: ["experiment", "frontend"],
-    workEngagement: "personal",
-    featured: false,
-    visualType: "editor",
-    links: {
-      live: "https://inkly-blog.vercel.app",
-      github: "https://github.com/jayantrohila57/inkly-cms",
-    },
-    sections: [
-      {
-        id: "overview",
-        title: "Overview",
-        body: [
-          "Self-hosted publishing with rich-text editing, taxonomy, media, and role-aware content workflows.",
-        ],
-      },
-    ],
-  },
-  {
-    slug: "libyui",
-    title: "libyui",
-    eyebrow: "LIBRARY",
-    ogDescription:
-      "Reusable React UI primitives and a live component gallery — TypeScript and Tailwind.",
-    summary:
-      "Reusable React UI system for consistent buttons, forms, dialogs, tables, and layout primitives.",
-    description:
-      "Reusable UI primitives published as an open-source component library.",
-    status: "Open source · Live demo",
-    year: "2024–2025",
-    stack: ["React", "TypeScript", "Tailwind CSS"],
-    categories: ["experiment", "frontend"],
-    workEngagement: "personal",
-    featured: true,
-    visualType: "custom",
-    links: {
-      live: "https://libyui.vercel.app/",
-      github: "https://github.com/jayantrohila57/libyui",
-    },
-    sections: [
-      {
-        id: "overview",
-        title: "Overview",
-        body: ["Component library for consistent UI building blocks."],
-      },
-    ],
-  },
-  {
     slug: "image-editor",
     title: "Image Editor",
     eyebrow: "EXPERIMENT / UI",
@@ -450,35 +388,6 @@ export const projects: PortfolioProject[] = [
       },
     ],
   },
-  {
-    slug: "patternlab",
-    title: "Patternlab",
-    eyebrow: "EXPERIMENT / UI",
-    summary:
-      "Interactive platform for practicing programming patterns with runnable examples and tests.",
-    description:
-      "Pattern challenges with a code runner and test feedback — explore solutions in the browser.",
-    status: "Open source · Live demo",
-    year: "2024–2025",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    categories: ["experiment", "frontend"],
-    workEngagement: "personal",
-    featured: false,
-    visualType: "custom",
-    links: {
-      live: "https://patternlab.vercel.app",
-      github: "https://github.com/jayantrohila57/patternlab",
-    },
-    sections: [
-      {
-        id: "overview",
-        title: "Overview",
-        body: [
-          "Focused on learning patterns through small exercises, live execution, and verifiable outputs.",
-        ],
-      },
-    ],
-  },
 ];
 
 export const experience: ExperienceEntry[] = [
@@ -511,7 +420,7 @@ export const experience: ExperienceEntry[] = [
       "Client and product names are confidential; evidence of engineering depth is in the open-source case studies on this site.",
     ],
     technologies: ["TypeScript", "React", "Next.js", "REST APIs", "Git"],
-    projectSlugs: ["taskflow", "env-manager", "e-commerce"],
+    projectSlugs: ["taskflow", "loftlancer", "lucsum"],
   },
   {
     id: "teevro",
@@ -536,28 +445,6 @@ export const experience: ExperienceEntry[] = [
 
 export const experiments: Experiment[] = [
   {
-    slug: "inkly-cms",
-    title: "Inkly CMS",
-    summary: "TipTap-based blogging CMS and headless content patterns.",
-    stack: ["Next.js", "Prisma"],
-    links: {
-      live: "https://inkly-blog.vercel.app",
-      github: "https://github.com/jayantrohila57/inkly-cms",
-    },
-    visualType: "editor",
-  },
-  {
-    slug: "libyui",
-    title: "libyui",
-    summary: "React + Tailwind component library with live docs site.",
-    stack: ["React", "Tailwind"],
-    links: {
-      live: "https://libyui.vercel.app/",
-      github: "https://github.com/jayantrohila57/libyui",
-    },
-    visualType: "custom",
-  },
-  {
     slug: "image-editor",
     title: "Image Editor",
     summary: "In-browser editing UI with a hosted v1 demo.",
@@ -579,15 +466,39 @@ export const experiments: Experiment[] = [
     visualType: "data",
   },
   {
-    slug: "patternlab",
-    title: "Patternlab",
-    summary: "UI pattern experiments with live preview.",
-    stack: ["Next.js", "Tailwind"],
+    slug: "modelry",
+    title: "Modelry",
+    summary:
+      "See what happens inside AI. An interactive AI laboratory to experiment with language models and learn how AI-powered software works.",
+    stack: ["Next.js", "tRPC", "Better Auth", "Drizzle"],
     links: {
-      live: "https://patternlab.vercel.app",
-      github: "https://github.com/jayantrohila57/patternlab",
+      live: "https://modelry.vercel.app",
+      github: "https://github.com/jayantrohila57/modelry",
     },
-    visualType: "custom",
+    visualType: "ai",
+  },
+  {
+    slug: "feature-kit",
+    title: "Featureskit",
+    summary: "Composable form and data-table kits for React and Next.js.",
+    stack: ["React", "Next.js"],
+    links: {
+      live: "https://feature-kit-pink.vercel.app",
+      github: "https://github.com/jayantrohila57/feature-kit",
+    },
+    visualType: "data",
+  },
+  {
+    slug: "codethread-black",
+    title: "Codethread Black",
+    summary:
+      "Dark VS Code theme. Install it from the Visual Studio Marketplace.",
+    stack: ["VS Code"],
+    links: {
+      live: "https://marketplace.visualstudio.com/items?itemName=JayantRohila.codethread-black",
+      github: "https://github.com/jayantrohila57/codethread-black",
+    },
+    visualType: "editor",
   },
   {
     slug: "jayantrohila57",
@@ -610,22 +521,19 @@ export const stackGroups: StackGroup[] = [
       {
         name: "Next.js",
         projectSlugs: [
-          "e-commerce",
-          "env-manager",
+          "lucsum",
+          "loftlancer",
           "taskflow",
-          "inkly-cms",
           "image-editor",
           "stats-on-spotify",
-          "patternlab",
         ],
       },
       {
         name: "React",
         projectSlugs: [
-          "e-commerce",
-          "env-manager",
+          "lucsum",
+          "loftlancer",
           "taskflow",
-          "libyui",
           "image-editor",
           "stats-on-spotify",
         ],
@@ -633,27 +541,18 @@ export const stackGroups: StackGroup[] = [
       {
         name: "TypeScript",
         projectSlugs: [
-          "e-commerce",
-          "env-manager",
+          "lucsum",
+          "loftlancer",
           "taskflow",
-          "inkly-cms",
-          "libyui",
           "image-editor",
           "stats-on-spotify",
-          "patternlab",
         ],
       },
       {
         name: "Tailwind CSS",
-        projectSlugs: [
-          "e-commerce",
-          "env-manager",
-          "taskflow",
-          "libyui",
-          "patternlab",
-        ],
+        projectSlugs: ["lucsum", "loftlancer", "taskflow"],
       },
-      { name: "shadcn/ui", projectSlugs: ["env-manager", "taskflow"] },
+      { name: "shadcn/ui", projectSlugs: ["loftlancer", "taskflow"] },
       { name: "TanStack Query", projectSlugs: ["taskflow"] },
     ],
   },
@@ -661,15 +560,15 @@ export const stackGroups: StackGroup[] = [
     id: "data-api",
     label: "Data / API",
     items: [
-      { name: "tRPC", projectSlugs: ["e-commerce", "taskflow"] },
+      { name: "tRPC", projectSlugs: ["lucsum", "taskflow"] },
       {
         name: "Prisma",
-        projectSlugs: ["env-manager", "taskflow", "inkly-cms"],
+        projectSlugs: ["taskflow"],
       },
-      { name: "Drizzle ORM", projectSlugs: ["e-commerce"] },
+      { name: "Drizzle ORM", projectSlugs: ["lucsum", "loftlancer"] },
       {
         name: "PostgreSQL / Neon",
-        projectSlugs: ["e-commerce", "env-manager", "taskflow"],
+        projectSlugs: ["lucsum", "loftlancer", "taskflow"],
       },
     ],
   },
@@ -677,23 +576,20 @@ export const stackGroups: StackGroup[] = [
     id: "platform",
     label: "Platform & quality",
     items: [
-      { name: "Better Auth", projectSlugs: ["e-commerce", "env-manager"] },
-      { name: "Razorpay", projectSlugs: ["e-commerce"] },
+      { name: "Better Auth", projectSlugs: ["lucsum", "loftlancer"] },
+      { name: "Razorpay", projectSlugs: ["lucsum"] },
       {
         name: "Vercel",
         projectSlugs: [
-          "e-commerce",
-          "env-manager",
+          "lucsum",
+          "loftlancer",
           "taskflow",
-          "inkly-cms",
-          "libyui",
           "image-editor",
           "stats-on-spotify",
-          "patternlab",
         ],
       },
-      { name: "Vitest", projectSlugs: ["e-commerce"] },
-      { name: "Biome", projectSlugs: ["e-commerce"] },
+      { name: "Vitest", projectSlugs: ["lucsum"] },
+      { name: "Biome", projectSlugs: ["lucsum"] },
       { name: "next-intl", projectSlugs: ["taskflow"] },
     ],
   },
@@ -718,7 +614,7 @@ export const engineeringPrinciples: EngineeringPrinciple[] = [
     id: "systems",
     title: "Reusable systems",
     description:
-      "Shared UI primitives, tokens, and modular application structure — especially in Taskflow and libyui.",
+      "Shared UI primitives, tokens, and modular application structure — especially in Taskflow and Loftlancer.",
     visual: "ui-stack",
   },
   {

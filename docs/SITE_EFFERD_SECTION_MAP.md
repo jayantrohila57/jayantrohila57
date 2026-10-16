@@ -19,7 +19,7 @@ Consistency rules:
 | Section (current) | Job | Best Efferd ref | Action |
 |---|---|---|---|
 | Hero | Name, role, CTAs, workspace feel | **`hero-3`** (+ `hero-2` type treatment) | Adapt `hero.tsx` with profile + Work/Contact/Resume |
-| Selected work | Flagship projects | **`blogs-1`/`blogs-2`** card list; bento ref `features-6` / Pro `blogs-4` | Project cards from portfolio projects (e-commerce, Env Manager, Taskflow) |
+| Selected work | Flagship projects | **`blogs-1`/`blogs-2`** card list; bento ref `features-6` / Pro `blogs-4` | Project cards from portfolio projects (Lucsum, Loftlancer, Taskflow) |
 | Engineering | How I build | **`features-6`** bento (no fake charts KPIs) | Map engineering themes from `architecture.ts` / engineering copy |
 | Stack | Tech map | **`logo-cloud-1`** + **`integrations-2`** | Bind `technologies.ts` |
 | Current focus | What’s active now | ref Pro `dashboard-10`; free: **`features-3`** + status list from SoT | aiQmen role + public projects only — no fake metrics |

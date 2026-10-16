@@ -17,7 +17,7 @@ export function EcommerceProjectPreview() {
   return (
     <PreviewShell url="store / admin">
       <div className="flex items-center justify-between border-b border-border pb-2">
-        <span className="text-foreground text-sm">Storefront</span>
+        <span className="text-foreground text-sm">Lucsum</span>
         <StatusBadge label="demo UI" status="demo" />
       </div>
       <div className="grid grid-cols-2 gap-2 text-xs">
@@ -41,9 +41,9 @@ export function EcommerceProjectPreview() {
   );
 }
 
-export function EnvManagerProjectPreview() {
+export function LoftlancerProjectPreview() {
   return (
-    <PreviewShell url="env-manager / staging">
+    <PreviewShell url="loftlancer / staging">
       <div className="flex gap-1 type-caption">
         {["dev", "staging", "prod"].map((env, i) => (
           <span
@@ -107,46 +107,6 @@ export function TaskflowProjectPreview() {
   );
 }
 
-export function InklyCmsPreview() {
-  return (
-    <PreviewShell url="inkly / editor">
-      <div className="flex justify-between text-xs">
-        <span className="text-foreground">Draft · Product launch notes</span>
-        <span className="text-muted-foreground">Publish</span>
-      </div>
-      <div className="min-h-[4rem] border border-border p-2 type-caption leading-relaxed text-muted-foreground">
-        Rich text editor · headings, lists, and embeds
-      </div>
-      <div className="flex flex-wrap gap-1 type-caption">
-        {["Authors", "Categories", "Media"].map((tag) => (
-          <span key={tag} className="border border-border px-1.5 py-0.5">
-            {tag}
-          </span>
-        ))}
-      </div>
-    </PreviewShell>
-  );
-}
-
-export function LibyuiPreview() {
-  const components = ["Button", "Input", "Dialog", "Table", "Tabs", "Card"];
-  return (
-    <PreviewShell url="libyui / components">
-      <p className="text-xs text-muted-foreground">Component library preview</p>
-      <div className="grid grid-cols-3 gap-1.5">
-        {components.map((name) => (
-          <div
-            key={name}
-            className="flex items-center justify-center border border-border py-2 type-caption text-muted-foreground"
-          >
-            {name}
-          </div>
-        ))}
-      </div>
-    </PreviewShell>
-  );
-}
-
 export function ImageEditorPreview() {
   return (
     <PreviewShell url="editor / canvas">
@@ -190,23 +150,6 @@ export function SpotifyStatsPreview() {
   );
 }
 
-export function PatternlabPreview() {
-  return (
-    <PreviewShell url="patternlab / runner">
-      <div className="font-mono type-caption text-muted-foreground">
-        <p className="text-xs text-foreground">Pattern challenge</p>
-        <pre className="mt-2 leading-relaxed">{`function solve(input) {
-  // your solution
-}`}</pre>
-      </div>
-      <div className="flex justify-between type-caption">
-        <span className="text-muted-foreground">Run tests</span>
-        <span className="text-brand">3 / 3 passed</span>
-      </div>
-    </PreviewShell>
-  );
-}
-
 export function NeutralProjectPreview({
   project,
 }: {
@@ -230,14 +173,11 @@ export function NeutralProjectPreview({
 }
 
 const previewBySlug: Record<string, () => ReactNode> = {
-  "e-commerce": () => <EcommerceProjectPreview />,
-  "env-manager": () => <EnvManagerProjectPreview />,
+  lucsum: () => <EcommerceProjectPreview />,
+  loftlancer: () => <LoftlancerProjectPreview />,
   taskflow: () => <TaskflowProjectPreview />,
-  "inkly-cms": () => <InklyCmsPreview />,
-  libyui: () => <LibyuiPreview />,
   "image-editor": () => <ImageEditorPreview />,
   "stats-on-spotify": () => <SpotifyStatsPreview />,
-  patternlab: () => <PatternlabPreview />,
 };
 
 export function ProjectPreviewBySlug({

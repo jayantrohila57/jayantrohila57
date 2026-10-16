@@ -11,14 +11,11 @@ export function getProjectScreenshotPath(slug: string): string {
 export function projectHasScreenshot(slug: string): boolean {
   return Boolean(
     [
-      "e-commerce",
-      "env-manager",
+      "lucsum",
+      "loftlancer",
       "taskflow",
-      "inkly-cms",
-      "libyui",
       "image-editor",
       "stats-on-spotify",
-      "patternlab",
     ].includes(slug),
   );
 }

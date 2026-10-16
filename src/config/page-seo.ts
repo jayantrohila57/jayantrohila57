@@ -10,7 +10,7 @@ export const staticPageSeo = {
   work: {
     title: "Work & projects — Jayant Rohila | React, Next.js & TypeScript",
     description:
-      "Filterable project index: personal open-source case studies, lab repos, and demos — Taskflow, Env Manager, libyui, e-commerce, and more.",
+      "Filterable project index: personal open-source case studies, lab repos, and demos — Taskflow, Loftlancer, Lucsum, and more.",
   },
   writing: {
     title: "Writing — Jayant Rohila | Case studies & engineering notes",
@@ -50,7 +50,7 @@ export const staticPageSeo = {
   experiments: {
     title: "Lab projects — Jayant Rohila | UI experiments & side repos",
     description:
-      "Inkly CMS, Stats on Spotify, PatternLab, and other public experiments by Jayant Rohila — secondary to flagship case studies on the homepage.",
+      "Stats on Spotify, Modelry, Featureskit, and other public experiments by Jayant Rohila — secondary to flagship case studies on the homepage.",
   },
 } as const;
 
@@ -70,18 +70,13 @@ export const projectPageSeo: Record<
     description:
       "Taskflow is a multi-tenant SaaS workspace with organizations, RBAC, tasks, and i18n — Next.js, TypeScript, tRPC, Prisma, and PostgreSQL by Jayant Rohila.",
   },
-  "env-manager": {
-    title: projectSeoTitle("Env Manager", "Secrets & env vars"),
+  loftlancer: {
+    title: projectSeoTitle("Loftlancer", "Environment and secrets manager"),
     description:
-      "Env Manager is a developer dashboard for encrypted environment variables across dev, staging, and production — built by Jayant Rohila with Next.js and Better Auth.",
+      "Loftlancer is an environment and secrets manager for organizations, projects, and environments (dev, staging, production) — built by Jayant Rohila with Next.js, tRPC, Drizzle, and Better Auth.",
   },
-  libyui: {
-    title: projectSeoTitle("libyui", "React UI component library"),
-    description:
-      "libyui is a reusable React + TypeScript + Tailwind UI library with a live docs site — open-source component primitives by Jayant Rohila.",
-  },
-  "e-commerce": {
-    title: projectSeoTitle("E-commerce", "Storefront & Razorpay checkout"),
+  lucsum: {
+    title: projectSeoTitle("Lucsum", "E-commerce & Razorpay checkout"),
     description:
       "Full-stack Next.js storefront with Better Auth, Drizzle, tRPC, and server-authoritative Razorpay checkout — open-source commerce case study by Jayant Rohila.",
   },
@@ -90,19 +85,9 @@ export const projectPageSeo: Record<
     description:
       "Stats on Spotify turns listening history into dashboard summaries and charts — a Next.js data UI experiment by Jayant Rohila with a public demo.",
   },
-  "inkly-cms": {
-    title: projectSeoTitle("Inkly CMS", "Headless blogging CMS"),
-    description:
-      "Inkly CMS is a self-hosted publishing app with rich-text editing and draft workflows — Next.js, Prisma, and PostgreSQL by Jayant Rohila.",
-  },
   "image-editor": {
     title: projectSeoTitle("Image Editor", "In-browser canvas tools"),
     description:
       "Browser-based image editor exploring canvas tools, transforms, and export — a Next.js UI experiment by Jayant Rohila with a hosted demo.",
-  },
-  patternlab: {
-    title: projectSeoTitle("PatternLab", "Interactive pattern practice"),
-    description:
-      "PatternLab is an interactive practice surface for programming patterns with runnable code and test feedback — built by Jayant Rohila in Next.js.",
   },
 };

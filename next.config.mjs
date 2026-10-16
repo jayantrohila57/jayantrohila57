@@ -63,6 +63,19 @@ const config = {
   },
   async redirects() {
     return [
+      {
+        source: "/work/env-manager",
+        destination: "/work/loftlancer",
+        permanent: true,
+      },
+      {
+        source: "/work/e-commerce",
+        destination: "/work/lucsum",
+        permanent: true,
+      },
+      { source: "/work/libyui", destination: "/work", permanent: true },
+      { source: "/work/patternlab", destination: "/work", permanent: true },
+      { source: "/work/inkly-cms", destination: "/work", permanent: true },
       { source: "/about/overview", destination: "/about", permanent: true },
       { source: "/career/timeline", destination: "/about", permanent: true },
       { source: "/career/education", destination: "/about", permanent: true },

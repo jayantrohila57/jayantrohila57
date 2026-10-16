@@ -6,14 +6,11 @@ const outDir = join(process.cwd(), "public", "projects");
 mkdirSync(outDir, { recursive: true });
 
 const targets = [
-  { slug: "e-commerce", url: "https://e-commerce-jayantrohila.vercel.app" },
-  { slug: "env-manager", url: "https://env-manager-web.vercel.app" },
+  { slug: "lucsum", url: "https://e-commerce-jayantrohila.vercel.app" },
+  { slug: "loftlancer", url: "https://loftlancer.com" },
   { slug: "taskflow", url: "https://v1-taskflow.vercel.app/" },
-  { slug: "inkly-cms", url: "https://inkly-blog.vercel.app" },
-  { slug: "libyui", url: "https://libyui.vercel.app/" },
   { slug: "image-editor", url: "https://v1-image-editor.vercel.app" },
   { slug: "stats-on-spotify", url: "https://statsonspotify.vercel.app/" },
-  { slug: "patternlab", url: "https://patternlab.vercel.app" },
 ];
 
 const browser = await chromium.launch({ headless: true });

@@ -26,7 +26,6 @@ export const metadata = generatePageMetadata({
 const strengths = [
   "Next.js and React product interfaces",
   "Typed APIs (tRPC / REST) and data-heavy views",
-  "Design systems and reusable UI (libyui)",
   "Shipping with Vercel, auth, and PostgreSQL-backed apps",
 ];
 

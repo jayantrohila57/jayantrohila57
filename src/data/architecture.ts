@@ -10,12 +10,12 @@ export type ArchitectureSpec = {
 
 /** Diagrams derived from public README / case-study wording only. */
 export const architectureByProject: Record<string, ArchitectureSpec> = {
-  "e-commerce": {
+  lucsum: {
     title: "Checkout & payments flow",
     sourceNote:
-      "From e-commerce repo docs (tRPC order procedures, Razorpay webhook).",
+      "From Lucsum repo docs (tRPC order procedures, Razorpay webhook).",
     nodes: [
-      { id: "ui", label: "Storefront UI", sub: "Next.js App Router" },
+      { id: "ui", label: "Lucsum UI", sub: "Next.js App Router" },
       {
         id: "api",
         label: "tRPC API",
@@ -33,14 +33,15 @@ export const architectureByProject: Record<string, ArchitectureSpec> = {
       { from: "pay", to: "api", label: "webhook" },
     ],
   },
-  "env-manager": {
-    title: "Env management stack",
-    sourceNote: "From Env Manager README (Next.js, Better Auth, Prisma, Neon).",
+  loftlancer: {
+    title: "Environment and secrets stack",
+    sourceNote:
+      "From Loftlancer README (Next.js apps, tRPC, Better Auth, Drizzle).",
     nodes: [
       { id: "dev", label: "Developer", sub: "browser" },
-      { id: "app", label: "Env Manager UI", sub: "Next.js 16" },
+      { id: "app", label: "Loftlancer Studio", sub: "Next.js" },
       { id: "auth", label: "Better Auth", sub: "sessions" },
-      { id: "data", label: "Prisma", sub: "Neon PostgreSQL" },
+      { id: "data", label: "Drizzle", sub: "PostgreSQL" },
     ],
     edges: [
       { from: "dev", to: "app" },
