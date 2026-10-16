@@ -390,7 +390,7 @@ export const experiments: Experiment[] = [
   },
   {
     slug: "feature-kit",
-    title: "Featureskit",
+    title: "Feature Kits",
     summary: "Composable form and data-table kits for React and Next.js.",
     stack: ["React", "Next.js"],
     links: {
@@ -495,7 +495,7 @@ export const engineeringPrinciples: EngineeringPrinciple[] = [
     id: "systems",
     title: "Reusable systems",
     description:
-      "Shared UI primitives, tokens, and modular application structure — especially in Loftlancer and Featureskit.",
+      "Shared UI primitives, tokens, and modular application structure — especially in Loftlancer and Feature Kits.",
     visual: "ui-stack",
   },
   {

@@ -50,7 +50,7 @@ export const staticPageSeo = {
   experiments: {
     title: "Lab projects — Jayant Rohila | UI experiments & side repos",
     description:
-      "Stats on Spotify, Modelry, Featureskit, and other public experiments by Jayant Rohila — secondary to flagship case studies on the homepage.",
+      "Stats on Spotify, Modelry, Feature Kits, and other public experiments by Jayant Rohila — secondary to flagship case studies on the homepage.",
   },
 } as const;
 

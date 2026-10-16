@@ -9,7 +9,7 @@
 | Project | What it is | Links |
 | --- | --- | --- |
 | **Loftlancer** | Environment and secrets manager | [Code](https://github.com/jayantrohila57/loftlancer) · [Live](https://loftlancer.com) |
-| **Featureskit** | Composable form, data-table and layout kits for React and Next.js, shipped as a shadcn registry | [Code](https://github.com/jayantrohila57/feature-kit) · [Docs](https://feature-kits.vercel.app) |
+| **Feature Kits** | Composable form, data-table and layout kits for React and Next.js, shipped as a shadcn registry | [Code](https://github.com/jayantrohila57/feature-kit) · [Docs](https://feature-kits.vercel.app) |
 | **Modelry** | Interactive AI lab: streaming chat with Ollama or Google Gemini, threads and a credits system | [Code](https://github.com/jayantrohila57/modelry) · [Live](https://modelry.vercel.app) |
 
 ## More work
