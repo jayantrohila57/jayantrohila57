@@ -74,61 +74,6 @@ export function LoftlancerProjectPreview() {
   );
 }
 
-export function TaskflowProjectPreview() {
-  return (
-    <PreviewShell url="taskflow / workspace">
-      <div className="flex items-center justify-between border-b border-border pb-2">
-        <span className="text-sm text-foreground">Acme Org</span>
-        <StatusBadge label="workspace" status="demo" />
-      </div>
-      <div className="grid grid-cols-3 gap-2 type-caption text-muted-foreground">
-        {["Projects", "Tasks", "Members"].map((tab) => (
-          <div key={tab} className="border border-border py-1 text-center">
-            {tab}
-          </div>
-        ))}
-      </div>
-      <ul className="space-y-1 text-xs">
-        {[
-          ["Launch checkout", "In progress"],
-          ["RBAC audit", "Review"],
-          ["i18n routes", "Done"],
-        ].map(([task, state]) => (
-          <li
-            key={task}
-            className="flex justify-between gap-2 border-t border-border pt-1"
-          >
-            <span>{task}</span>
-            <span className="text-muted-foreground">{state}</span>
-          </li>
-        ))}
-      </ul>
-    </PreviewShell>
-  );
-}
-
-export function ImageEditorPreview() {
-  return (
-    <PreviewShell url="editor / canvas">
-      <div className="grid grid-cols-[1fr_4rem] gap-2">
-        <div className="flex min-h-[5rem] items-center justify-center border border-dashed border-border type-caption text-muted-foreground">
-          Canvas preview
-        </div>
-        <div className="flex flex-col gap-1 type-caption">
-          {["Crop", "Filter", "Export"].map((tool) => (
-            <span
-              key={tool}
-              className="border border-border px-1 py-1 text-center"
-            >
-              {tool}
-            </span>
-          ))}
-        </div>
-      </div>
-    </PreviewShell>
-  );
-}
-
 export function SpotifyStatsPreview() {
   return (
     <PreviewShell url="spotify / insights">
@@ -175,8 +120,6 @@ export function NeutralProjectPreview({
 const previewBySlug: Record<string, () => ReactNode> = {
   lucsum: () => <EcommerceProjectPreview />,
   loftlancer: () => <LoftlancerProjectPreview />,
-  taskflow: () => <TaskflowProjectPreview />,
-  "image-editor": () => <ImageEditorPreview />,
   "stats-on-spotify": () => <SpotifyStatsPreview />,
 };
 

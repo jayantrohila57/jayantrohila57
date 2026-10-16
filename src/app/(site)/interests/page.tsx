@@ -9,11 +9,14 @@ import { inlineBodyLinkClass } from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
 
-export const metadata = generatePageMetadata({
-  title: staticPageSeo.interests.title,
-  description: staticPageSeo.interests.description,
-  path: "/interests",
-});
+export const metadata = {
+  ...generatePageMetadata({
+    title: staticPageSeo.interests.title,
+    description: staticPageSeo.interests.description,
+    path: "/interests",
+  }),
+  robots: { index: false, follow: true },
+};
 
 export default function InterestsPage() {
   return (

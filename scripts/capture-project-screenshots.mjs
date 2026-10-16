@@ -6,10 +6,8 @@ const outDir = join(process.cwd(), "public", "projects");
 mkdirSync(outDir, { recursive: true });
 
 const targets = [
-  { slug: "lucsum", url: "https://e-commerce-jayantrohila.vercel.app" },
+  { slug: "lucsum", url: "https://lucsum.vercel.app" },
   { slug: "loftlancer", url: "https://loftlancer.com" },
-  { slug: "taskflow", url: "https://v1-taskflow.vercel.app/" },
-  { slug: "image-editor", url: "https://v1-image-editor.vercel.app" },
   { slug: "stats-on-spotify", url: "https://statsonspotify.vercel.app/" },
 ];
 
@@ -35,40 +33,5 @@ for (const { slug, url } of targets) {
 }
 
 await defaultContext.close();
-
-const taskflowAppContext = await browser.newContext({
-  viewport: { width: 1440, height: 900 },
-  deviceScaleFactor: 2,
-  colorScheme: "dark",
-});
-const taskflowPage = await taskflowAppContext.newPage();
-try {
-  await taskflowPage.goto("https://v1-taskflow.vercel.app/en-US/auth/sign-in", {
-    waitUntil: "networkidle",
-    timeout: 60_000,
-  });
-  await taskflowPage.waitForTimeout(2000);
-  await taskflowPage.evaluate(() => {
-    const nav = document.querySelector("header");
-    if (nav) nav.style.display = "none";
-  });
-  const main = taskflowPage.locator("main").first();
-  const appPath = join(outDir, "taskflow-app.png");
-  if (await main.count()) {
-    await main.screenshot({ path: appPath });
-  } else {
-    await taskflowPage.screenshot({ path: appPath });
-  }
-  console.log("ok", "taskflow-app");
-} catch (error) {
-  console.warn(
-    "skip",
-    "taskflow-app",
-    error instanceof Error ? error.message : error,
-  );
-} finally {
-  await taskflowPage.close();
-}
-await taskflowAppContext.close();
 
 await browser.close();

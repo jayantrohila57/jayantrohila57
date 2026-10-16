@@ -18,7 +18,7 @@ export const specializationLine =
 
 /** Longer bio for page body, JSON-LD, and social image cards — not for HTML meta snippets. */
 export const longAbout =
-  "Frontend-first Product Engineer in Noida. I ship React and Next.js product interfaces — dashboards, forms, and multi-step workflows — and own the full stack when a feature needs typed APIs, auth, and PostgreSQL. Open-source case studies include Taskflow, Loftlancer, and Lucsum (live demos on this site). ~2 years in production software at Binmile; now at aiQmen.";
+  "Frontend-first Product Engineer in Noida. I ship React and Next.js product interfaces — dashboards, forms, and multi-step workflows — and own the full stack when a feature needs typed APIs, auth, and PostgreSQL. Open-source case studies include Loftlancer, Lucsum, and Modelry. ~2.5 years in production software (Binmile, now aiQmen).";
 
 /** ~150 chars for meta / OG / Twitter descriptions. */
 export const metaDescription = homePageDescription;

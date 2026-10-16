@@ -24,46 +24,6 @@ export type ProjectCaseStudy = {
 
 /** Honest case-study copy keyed by project slug (metrics sourced from public repos). */
 export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
-  taskflow: {
-    atGlance: {
-      role: "Solo builder — architecture, UI, API, data model",
-      duration: "2024–2026",
-      team: "Solo",
-      stack: "Next.js · TypeScript · tRPC · Prisma · PostgreSQL · next-intl",
-    },
-    problem:
-      "Team-scale product work needs more than a todo demo — organizations, roles, and shared project context have to stay coherent as features grow, without data leaking across tenants.",
-    contribution:
-      "Designed and implemented the modular App Router application: auth and sessions, organization hierarchy, RBAC, project and task workflows, locale-aware routing, and reusable UI patterns across domain modules.",
-    challenges: [
-      "Multi-tenancy — organization-scoped queries and UI states so one workspace cannot read another’s data.",
-      "RBAC — permissions modeled in Prisma and enforced through tRPC procedures before data hits the client.",
-      "Data fetching — tRPC + TanStack Query for typed contracts and cache-friendly panels across many routes.",
-      "UI repetition — domain modules (org, project, task, team) share table/form patterns instead of one-off screens.",
-    ],
-    features: [
-      "Organization hierarchy with role-based access",
-      "Project and task workflows with typed tRPC APIs",
-      "Five locales (en-US, hi-IN, ja-JP, sk-IN, ur-PK) via next-intl",
-      "TanStack Query + split Prisma schema by domain",
-    ],
-    decisions: [
-      "Split Prisma schema by domain under prisma/schema/ as models grew past a single file.",
-      "Used tRPC for end-to-end types between UI and server procedures instead of ad hoc REST handlers.",
-      "Treated the app as a SaaS-shaped sandbox — closer to real product constraints than a single-user CRUD tutorial.",
-    ],
-    metrics: [
-      { label: "Domain modules", value: "12 under src/modules" },
-      { label: "Prisma models", value: "31 across split schema files" },
-      { label: "tRPC routers", value: "21 createTRPCRouter definitions" },
-      { label: "App Router pages", value: "73 page.tsx routes" },
-      { label: "Locales", value: "5 (next-intl config)" },
-    ],
-    outcome:
-      "Open-source repository with a hosted demo that shows multi-tenancy, RBAC, i18n, and modular frontend architecture in one codebase.",
-    maturity:
-      "If this were heading to production, I’d add audit logging for permission changes, stricter org isolation tests, and operational metrics on hot tRPC paths.",
-  },
   loftlancer: {
     atGlance: {
       role: "Solo builder — monorepo, UI, encryption, auth",
@@ -135,7 +95,7 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
   "stats-on-spotify": {
     atGlance: {
       role: "Solo builder",
-      duration: "2023–2025",
+      duration: "2023–2026",
       team: "Solo",
       stack: "Next.js · TypeScript · React",
     },
@@ -159,34 +119,6 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     ],
     outcome:
       "Shows API integration, visualization-minded UI, and dashboard IA in a public repo and demo.",
-  },
-  "image-editor": {
-    atGlance: {
-      role: "Solo builder",
-      duration: "2024–2025",
-      team: "Solo",
-      stack: "Next.js · React · TypeScript",
-    },
-    problem:
-      "Image tooling in the browser has to balance canvas performance, tool discoverability, and export — worth exploring as a focused UI experiment.",
-    contribution:
-      "Shipped a browser-based image editor demo with tool panels, canvas preview, and export-oriented flows on the web platform.",
-    challenges: [
-      "Canvas performance on mid-tier mobile devices.",
-      "Tool discoverability without cluttering the editing surface.",
-    ],
-    features: [
-      "Canvas-centered editing surface",
-      "Tool rail for crop, filter, and export actions",
-      "Hosted v1 demo on Vercel",
-      "Next.js + React UI shell",
-    ],
-    decisions: [
-      "Scoped the project as an interaction and performance experiment rather than a full Photoshop replacement.",
-      "Prioritized a clear editor layout over backend complexity.",
-    ],
-    outcome:
-      "Public demo that shows client-side media UX exploration without overstating production usage.",
   },
 };
 

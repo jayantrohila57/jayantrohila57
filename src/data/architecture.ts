@@ -49,31 +49,4 @@ export const architectureByProject: Record<string, ArchitectureSpec> = {
       { from: "app", to: "data" },
     ],
   },
-  taskflow: {
-    title: "Modular App Router layout",
-    sourceNote: "From Taskflow README (modules/, tRPC, Prisma schema split).",
-    nodes: [
-      {
-        id: "routes",
-        label: "[locale] routes",
-        sub: "public · protected · panel",
-      },
-      {
-        id: "modules",
-        label: "src/modules",
-        sub: "auth · org · task · project",
-      },
-      {
-        id: "trpc",
-        label: "tRPC routers",
-        sub: "users · orgs · projects · tasks",
-      },
-      { id: "prisma", label: "prisma/schema", sub: "PostgreSQL" },
-    ],
-    edges: [
-      { from: "routes", to: "modules" },
-      { from: "modules", to: "trpc" },
-      { from: "trpc", to: "prisma" },
-    ],
-  },
 };

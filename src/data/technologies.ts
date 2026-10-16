@@ -16,31 +16,31 @@ export const technologies: Technology[] = [
     id: "typescript",
     label: "TypeScript",
     category: "language",
-    projectSlugs: ["lucsum", "loftlancer", "taskflow"],
+    projectSlugs: ["lucsum", "loftlancer"],
   },
   {
     id: "nextjs",
     label: "Next.js",
     category: "frontend",
-    projectSlugs: ["lucsum", "loftlancer", "taskflow", "jayantrohila57"],
+    projectSlugs: ["lucsum", "loftlancer", "jayantrohila57"],
   },
   {
     id: "react",
     label: "React",
     category: "frontend",
-    projectSlugs: ["lucsum", "loftlancer", "taskflow"],
+    projectSlugs: ["lucsum", "loftlancer"],
   },
   {
     id: "trpc",
     label: "tRPC",
     category: "backend",
-    projectSlugs: ["lucsum", "taskflow", "modelry"],
+    projectSlugs: ["lucsum", "modelry"],
   },
   {
     id: "postgresql",
     label: "PostgreSQL / Neon",
     category: "data",
-    projectSlugs: ["lucsum", "loftlancer", "taskflow"],
+    projectSlugs: ["lucsum", "loftlancer"],
   },
   {
     id: "better-auth",
@@ -55,12 +55,6 @@ export const technologies: Technology[] = [
     projectSlugs: ["lucsum"],
   },
   {
-    id: "prisma",
-    label: "Prisma",
-    category: "data",
-    projectSlugs: ["taskflow"],
-  },
-  {
     id: "drizzle",
     label: "Drizzle ORM",
     category: "data",
@@ -70,13 +64,13 @@ export const technologies: Technology[] = [
     id: "tailwind",
     label: "Tailwind CSS",
     category: "frontend",
-    projectSlugs: ["lucsum", "loftlancer", "taskflow"],
+    projectSlugs: ["lucsum", "loftlancer"],
   },
   {
     id: "vercel",
     label: "Vercel",
     category: "platform",
-    projectSlugs: ["lucsum", "loftlancer", "taskflow"],
+    projectSlugs: ["lucsum", "loftlancer"],
   },
 ];
 

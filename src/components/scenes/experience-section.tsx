@@ -71,7 +71,7 @@ export function ExperienceSection() {
         <SectionLabel index="02" label="Experience" />
         <SectionIntro
           title="Production software before side projects."
-          description="~2 years shipping client-facing web features at Binmile; now Product Engineer at aiQmen."
+          description="~2.5 years in production software (Binmile, now aiQmen)."
           action={
             <Link href="/about#experience" className={sectionActionLinkClass}>
               Full timeline →

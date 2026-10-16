@@ -89,11 +89,10 @@ export const workPageOrder: {
   slug: string;
   tier: (typeof workPageTierLabels)[number]["key"];
 }[] = [
-  { slug: "taskflow", tier: "flagship" },
   { slug: "loftlancer", tier: "flagship" },
   { slug: "lucsum", tier: "flagship" },
+  { slug: "modelry", tier: "flagship" },
   { slug: "stats-on-spotify", tier: "supporting" },
-  { slug: "image-editor", tier: "experiments" },
 ];
 
 export const profile = {
@@ -155,7 +154,7 @@ export const projects: PortfolioProject[] = [
     featured: true,
     visualType: "dashboard",
     links: {
-      live: "https://e-commerce-jayantrohila.vercel.app",
+      live: "https://lucsum.vercel.app",
       github: "https://github.com/jayantrohila57/lucsum",
     },
     sections: [
@@ -213,7 +212,7 @@ export const projects: PortfolioProject[] = [
       "Environment and secrets manager for organizations, projects, and environments.",
     description:
       "Web dashboard and pnpm/Turbo monorepo for storing and organizing environment variables across organizations, projects, and environments. Values are encrypted at rest, with an audit timeline and notifications.",
-    status: "Open source · Live demo",
+    status: "Open source · Live app",
     role: "Solo · product engineering",
     year: "2025–2026",
     stack: [
@@ -265,97 +264,31 @@ export const projects: PortfolioProject[] = [
     ],
   },
   {
-    slug: "taskflow",
-    title: "Taskflow",
-    eyebrow: "PROJECT / SAAS SANDBOX",
-    ogTitle: "Taskflow — multi-tenant workspace",
-    ogDescription:
-      "Organizations, RBAC, tasks, and i18n in a Next.js + tRPC sandbox with a live demo.",
+    slug: "modelry",
+    title: "Modelry",
+    eyebrow: "PROJECT / AI",
     summary:
-      "Multi-tenant workspace for teams — organizations, roles, tasks, and projects with internationalized routing.",
+      "See what happens inside AI. An interactive AI laboratory to experiment with language models and learn how AI-powered software works.",
     description:
-      "Organization management, RBAC, task and project workflows, collaboration features, internationalized routes, and PWA-related configuration documented in the repo.",
-    status: "Open source · Live demo",
+      "An interactive AI laboratory to experiment with language models and learn how AI-powered software works.",
+    status: "Open source · Live app",
     role: "Solo · product engineering",
-    year: "2024–2026",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "tRPC",
-      "TanStack Query",
-      "Prisma",
-      "PostgreSQL",
-      "next-intl",
-      "Tailwind CSS",
-    ],
+    year: "2026",
+    stack: ["Next.js", "TypeScript", "tRPC", "Better Auth", "Drizzle ORM"],
     categories: ["product", "frontend", "backend"],
     workEngagement: "personal",
     featured: true,
-    visualType: "dashboard",
+    visualType: "ai",
     links: {
-      live: "https://v1-taskflow.vercel.app/",
-      github: "https://github.com/jayantrohila57/taskflow",
+      live: "https://modelry.vercel.app",
+      github: "https://github.com/jayantrohila57/modelry",
     },
     sections: [
       {
         id: "overview",
         title: "Overview",
         body: [
-          "Sandbox to practice team-scale product shape: organizations, roles, tasks, and projects — closer to SaaS than a tutorial todo app.",
-        ],
-      },
-      {
-        id: "built",
-        title: "What I built",
-        body: [
-          "Modular src/modules layout for auth, organization, project, task, and user areas; App Router segments for public, protected, handler, and panel routes under [locale].",
-        ],
-      },
-      {
-        id: "architecture",
-        title: "Architecture",
-        body: [
-          "Multi-tenant model with organization hierarchy and RBAC. tRPC routers for users, organizations, projects, and tasks. Prisma schema split under prisma/schema/.",
-        ],
-      },
-      {
-        id: "stack",
-        title: "Stack",
-        body: [
-          "Next.js App Router, TypeScript, Prisma, PostgreSQL, tRPC, TanStack Query, Radix UI, shadcn/ui, Tailwind CSS, and next-intl.",
-        ],
-      },
-      {
-        id: "outcome",
-        title: "Outcome",
-        body: ["Open-source repository with a hosted demo on Vercel."],
-      },
-    ],
-  },
-  {
-    slug: "image-editor",
-    title: "Image Editor",
-    eyebrow: "EXPERIMENT / UI",
-    summary:
-      "Browser-based image editor exploring canvas tools, transforms, and export on the web platform.",
-    description:
-      "Client-side image editing demo with tool panels and canvas preview — hosted on Vercel.",
-    status: "Live demo",
-    year: "2024–2025",
-    stack: ["Next.js", "TypeScript", "React"],
-    categories: ["experiment", "frontend"],
-    workEngagement: "personal",
-    featured: false,
-    visualType: "browser",
-    links: {
-      live: "https://v1-image-editor.vercel.app",
-    },
-    sections: [
-      {
-        id: "overview",
-        title: "Overview",
-        body: [
-          "Browser-based image editing experiment with a hosted preview on Vercel.",
+          "See what happens inside AI. An interactive AI laboratory to experiment with language models and learn how AI-powered software works.",
         ],
       },
     ],
@@ -368,7 +301,7 @@ export const projects: PortfolioProject[] = [
     description:
       "Hosted on Vercel; scope and stack documented in the GitHub repository.",
     status: "Open source · Live demo",
-    year: "2023–2025",
+    year: "2023–2026",
     stack: ["Next.js", "TypeScript", "React"],
     categories: ["experiment", "data"],
     workEngagement: "personal",
@@ -420,7 +353,7 @@ export const experience: ExperienceEntry[] = [
       "Client and product names are confidential; evidence of engineering depth is in the open-source case studies on this site.",
     ],
     technologies: ["TypeScript", "React", "Next.js", "REST APIs", "Git"],
-    projectSlugs: ["taskflow", "loftlancer", "lucsum"],
+    projectSlugs: ["loftlancer", "lucsum"],
   },
   {
     id: "teevro",
@@ -445,16 +378,6 @@ export const experience: ExperienceEntry[] = [
 
 export const experiments: Experiment[] = [
   {
-    slug: "image-editor",
-    title: "Image Editor",
-    summary: "In-browser editing UI with a hosted v1 demo.",
-    stack: ["Next.js", "React"],
-    links: {
-      live: "https://v1-image-editor.vercel.app",
-    },
-    visualType: "browser",
-  },
-  {
     slug: "stats-on-spotify",
     title: "Stats On Spotify",
     summary: "Spotify listening stats visualization.",
@@ -464,18 +387,6 @@ export const experiments: Experiment[] = [
       github: "https://github.com/jayantrohila57/Stats-On-Spotify",
     },
     visualType: "data",
-  },
-  {
-    slug: "modelry",
-    title: "Modelry",
-    summary:
-      "See what happens inside AI. An interactive AI laboratory to experiment with language models and learn how AI-powered software works.",
-    stack: ["Next.js", "tRPC", "Better Auth", "Drizzle"],
-    links: {
-      live: "https://modelry.vercel.app",
-      github: "https://github.com/jayantrohila57/modelry",
-    },
-    visualType: "ai",
   },
   {
     slug: "feature-kit",
@@ -520,55 +431,32 @@ export const stackGroups: StackGroup[] = [
     items: [
       {
         name: "Next.js",
-        projectSlugs: [
-          "lucsum",
-          "loftlancer",
-          "taskflow",
-          "image-editor",
-          "stats-on-spotify",
-        ],
+        projectSlugs: ["lucsum", "loftlancer", "stats-on-spotify"],
       },
       {
         name: "React",
-        projectSlugs: [
-          "lucsum",
-          "loftlancer",
-          "taskflow",
-          "image-editor",
-          "stats-on-spotify",
-        ],
+        projectSlugs: ["lucsum", "loftlancer", "stats-on-spotify"],
       },
       {
         name: "TypeScript",
-        projectSlugs: [
-          "lucsum",
-          "loftlancer",
-          "taskflow",
-          "image-editor",
-          "stats-on-spotify",
-        ],
+        projectSlugs: ["lucsum", "loftlancer", "stats-on-spotify"],
       },
       {
         name: "Tailwind CSS",
-        projectSlugs: ["lucsum", "loftlancer", "taskflow"],
+        projectSlugs: ["lucsum", "loftlancer"],
       },
-      { name: "shadcn/ui", projectSlugs: ["loftlancer", "taskflow"] },
-      { name: "TanStack Query", projectSlugs: ["taskflow"] },
+      { name: "shadcn/ui", projectSlugs: ["loftlancer"] },
     ],
   },
   {
     id: "data-api",
     label: "Data / API",
     items: [
-      { name: "tRPC", projectSlugs: ["lucsum", "taskflow"] },
-      {
-        name: "Prisma",
-        projectSlugs: ["taskflow"],
-      },
+      { name: "tRPC", projectSlugs: ["lucsum"] },
       { name: "Drizzle ORM", projectSlugs: ["lucsum", "loftlancer"] },
       {
         name: "PostgreSQL / Neon",
-        projectSlugs: ["lucsum", "loftlancer", "taskflow"],
+        projectSlugs: ["lucsum", "loftlancer"],
       },
     ],
   },
@@ -580,17 +468,10 @@ export const stackGroups: StackGroup[] = [
       { name: "Razorpay", projectSlugs: ["lucsum"] },
       {
         name: "Vercel",
-        projectSlugs: [
-          "lucsum",
-          "loftlancer",
-          "taskflow",
-          "image-editor",
-          "stats-on-spotify",
-        ],
+        projectSlugs: ["lucsum", "loftlancer", "stats-on-spotify"],
       },
       { name: "Vitest", projectSlugs: ["lucsum"] },
       { name: "Biome", projectSlugs: ["lucsum"] },
-      { name: "next-intl", projectSlugs: ["taskflow"] },
     ],
   },
 ];
@@ -614,7 +495,7 @@ export const engineeringPrinciples: EngineeringPrinciple[] = [
     id: "systems",
     title: "Reusable systems",
     description:
-      "Shared UI primitives, tokens, and modular application structure — especially in Taskflow and Loftlancer.",
+      "Shared UI primitives, tokens, and modular application structure — especially in Loftlancer and Featureskit.",
     visual: "ui-stack",
   },
   {

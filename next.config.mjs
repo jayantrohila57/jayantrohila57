@@ -73,6 +73,8 @@ const config = {
         destination: "/work/lucsum",
         permanent: true,
       },
+      { source: "/work/taskflow", destination: "/work", permanent: true },
+      { source: "/work/image-editor", destination: "/work", permanent: true },
       { source: "/work/libyui", destination: "/work", permanent: true },
       { source: "/work/patternlab", destination: "/work", permanent: true },
       { source: "/work/inkly-cms", destination: "/work", permanent: true },

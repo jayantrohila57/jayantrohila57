@@ -11,7 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/writing",
     "/about",
     "/elsewhere",
-    "/interests",
     "/contact",
     "/resume",
   ];

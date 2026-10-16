@@ -19,7 +19,7 @@ export const resumeData = {
   location: "Noida, India",
   email: "jrohila55@gmail.com",
   summary:
-    "Product engineer building full-stack web applications — clear UX, typed APIs, and maintainable delivery. Public GitHub work includes Lucsum (e-commerce), Loftlancer (secrets manager), and multi-tenant task platforms with live demos.",
+    "Product engineer building full-stack web applications — clear UX, typed APIs, and maintainable delivery. Public GitHub work includes Lucsum (e-commerce), Loftlancer (secrets manager), and Modelry (AI lab) with live apps.",
   links: [
     { label: "Portfolio", href: "https://jayantrohila.com" },
     { label: "GitHub", href: "https://github.com/jayantrohila57" },
@@ -89,7 +89,7 @@ export const resumeData = {
   ],
   skills: [
     "TypeScript, JavaScript, HTML/CSS, React, Next.js (App Router), Tailwind, shadcn/ui, TanStack Query, React Hook Form, Zod",
-    "Node.js, Express, REST, tRPC, PostgreSQL, Neon, Drizzle, Prisma, MongoDB (where used in projects)",
+    "Node.js, Express, REST, tRPC, PostgreSQL, Neon, Drizzle, MongoDB (where used in projects)",
     "Better Auth, Razorpay (e-commerce), Vercel, Docker, GitHub Actions, Vitest, ESLint/Biome",
     "ServiceNow administration (trainee role, Braeon Technocrats)",
   ],
@@ -97,7 +97,7 @@ export const resumeData = {
     {
       name: "Lucsum",
       href: "https://github.com/jayantrohila57/lucsum",
-      liveHref: "https://e-commerce-jayantrohila.vercel.app",
+      liveHref: "https://lucsum.vercel.app",
       summary: "E-commerce — Next.js, tRPC, Drizzle, Better Auth, Razorpay.",
     },
     {
@@ -107,10 +107,10 @@ export const resumeData = {
       summary: "Secrets and env vars across environments — Better Auth, Neon.",
     },
     {
-      name: "Taskflow",
-      href: "https://github.com/jayantrohila57/taskflow",
-      liveHref: "https://v1-taskflow.vercel.app",
-      summary: "Multi-tenant task platform — tRPC, Prisma, next-intl.",
+      name: "Modelry",
+      href: "https://github.com/jayantrohila57/modelry",
+      liveHref: "https://modelry.vercel.app",
+      summary: "Interactive AI laboratory to experiment with language models.",
     },
     {
       name: "Portfolio site",

@@ -10,7 +10,7 @@ export const staticPageSeo = {
   work: {
     title: "Work & projects — Jayant Rohila | React, Next.js & TypeScript",
     description:
-      "Filterable project index: personal open-source case studies, lab repos, and demos — Taskflow, Loftlancer, Lucsum, and more.",
+      "Filterable project index: personal open-source case studies, lab repos, and demos — Loftlancer, Lucsum, Modelry, and more.",
   },
   writing: {
     title: "Writing — Jayant Rohila | Case studies & engineering notes",
@@ -65,11 +65,6 @@ export const projectPageSeo: Record<
   string,
   { title: string; description: string }
 > = {
-  taskflow: {
-    title: projectSeoTitle("Taskflow", "Multi-tenant SaaS workspace"),
-    description:
-      "Taskflow is a multi-tenant SaaS workspace with organizations, RBAC, tasks, and i18n — Next.js, TypeScript, tRPC, Prisma, and PostgreSQL by Jayant Rohila.",
-  },
   loftlancer: {
     title: projectSeoTitle("Loftlancer", "Environment and secrets manager"),
     description:
@@ -84,10 +79,5 @@ export const projectPageSeo: Record<
     title: projectSeoTitle("Stats on Spotify", "Listening analytics dashboard"),
     description:
       "Stats on Spotify turns listening history into dashboard summaries and charts — a Next.js data UI experiment by Jayant Rohila with a public demo.",
-  },
-  "image-editor": {
-    title: projectSeoTitle("Image Editor", "In-browser canvas tools"),
-    description:
-      "Browser-based image editor exploring canvas tools, transforms, and export — a Next.js UI experiment by Jayant Rohila with a hosted demo.",
   },
 };
