@@ -1,18 +1,26 @@
 # Jayant Rohila
 
-Product Engineer at aiQmen, Noida. I work across React/Next.js, full-stack and AI.
+**Product Engineer at aiQmen, Noida.** About 2.5 years building web products with React and Next.js, working across the full stack and on AI features.
 
-[jayantrohila.com](https://jayantrohila.com) · [LinkedIn](https://www.linkedin.com/in/jayant-rohila/)
+[Portfolio](https://jayantrohila.com) · [Résumé](https://jayantrohila.com/resume) · [LinkedIn](https://www.linkedin.com/in/jayant-rohila/)
 
-## Projects
+## Featured projects
 
-- [Loftlancer](https://github.com/jayantrohila57/loftlancer): environment and secrets manager. [Live](https://loftlancer.com)
-- [Modelry](https://github.com/jayantrohila57/modelry): an interactive AI laboratory to experiment with language models and learn how AI-powered software works. [Live](https://modelry.vercel.app)
-- [Featureskit](https://github.com/jayantrohila57/feature-kit): composable form and data-table kits for React and Next.js. [Live](https://feature-kit-pink.vercel.app)
+| Project | What it is | Links |
+| --- | --- | --- |
+| **Loftlancer** | Environment and secrets manager | [Code](https://github.com/jayantrohila57/loftlancer) · [Live](https://loftlancer.com) |
+| **Featureskit** | Composable form, data-table and layout kits for React and Next.js, shipped as a shadcn registry | [Code](https://github.com/jayantrohila57/feature-kit) · [Docs](https://feature-kits.vercel.app) |
+| **Modelry** | Interactive AI lab: streaming chat with Ollama or Google Gemini, threads and a credits system | [Code](https://github.com/jayantrohila57/modelry) · [Live](https://modelry.vercel.app) |
+
+## More work
+
 - [Lucsum](https://github.com/jayantrohila57/lucsum): storefront with Next.js App Router, tRPC, Drizzle + PostgreSQL (Neon), Better Auth and Razorpay. [Live](https://lucsum.vercel.app)
 - [Stats On Spotify](https://github.com/jayantrohila57/Stats-On-Spotify): Spotify listening stats in the browser, built with Next.js. [Live](https://statsonspotify.vercel.app)
 - [Codethread Black](https://github.com/jayantrohila57/codethread-black): dark VS Code theme. [Marketplace](https://marketplace.visualstudio.com/items?itemName=JayantRohila.codethread-black)
-- [jayantrohila.com](https://jayantrohila.com): my portfolio. This repository is its source. Development notes are in [docs/DEVELOPMENT.md](./docs/DEVELOPMENT.md).
+
+## About this repository
+
+This repository is the source of [jayantrohila.com](https://jayantrohila.com). Development notes are in [docs/DEVELOPMENT.md](./docs/DEVELOPMENT.md).
 
 ## Sponsor
 

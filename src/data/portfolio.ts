@@ -394,7 +394,7 @@ export const experiments: Experiment[] = [
     summary: "Composable form and data-table kits for React and Next.js.",
     stack: ["React", "Next.js"],
     links: {
-      live: "https://feature-kit-pink.vercel.app",
+      live: "https://feature-kits.vercel.app",
       github: "https://github.com/jayantrohila57/feature-kit",
     },
     visualType: "data",
