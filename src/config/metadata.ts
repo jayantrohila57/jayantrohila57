@@ -33,7 +33,7 @@ export const baseMetadata: Metadata = {
         url: ogImageUrl,
         width: 1280,
         height: 720,
-        alt: `${siteConfig.siteName} — ${siteConfig.siteDescription}`,
+        alt: `${siteConfig.siteName} — Product Engineer: React/Next.js, full-stack, AI features`,
       },
     ],
   },
@@ -42,7 +42,7 @@ export const baseMetadata: Metadata = {
     title: siteConfig.siteTitle,
     description: siteConfig.siteDescription,
     images: [twitterImageUrl],
-    creator: "@jayantrohila",
+    creator: "@jayant_rohila",
   },
   appleWebApp: {
     capable: true,
@@ -98,6 +98,8 @@ export function generatePageMetadata(options: {
   images?: string[];
   keywords?: string[];
   noIndex?: boolean;
+  /** Open Graph type — "article" for blog posts. */
+  ogType?: "website" | "article";
   /** When true, do not apply the `%s · SiteName` layout template. */
   absoluteTitle?: boolean;
 }): Metadata {
@@ -109,6 +111,7 @@ export function generatePageMetadata(options: {
     keywords = [],
     noIndex = false,
     absoluteTitle = true,
+    ogType = "website",
   } = options;
 
   const url = getAbsoluteUrl(path);
@@ -124,14 +127,15 @@ export function generatePageMetadata(options: {
     keywords: pageKeywords,
     openGraph: {
       ...baseMetadata.openGraph,
+      type: ogType,
       title: pageTitle,
       description: pageDescription,
       url,
       images:
         images?.map((img) => ({
           url: img,
-          width: 1200,
-          height: 630,
+          width: 1280,
+          height: 720,
           alt: pageTitle,
         })) || baseMetadata.openGraph?.images,
     },

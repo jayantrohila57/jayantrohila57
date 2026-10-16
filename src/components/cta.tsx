@@ -16,7 +16,7 @@ type CallToActionProps = {
 /** Final homepage CTA — rail-to-rail width; borders come from section rules only. */
 export function CallToAction({
   title = "Have something worth building?",
-  description = "I work on product interfaces, frontend architecture, and full-stack web applications.",
+  description = "I work on product interfaces, full-stack web applications, and AI features.",
   primaryHref = "/contact",
   primaryLabel = "Get in touch",
   secondaryHref = "/work",

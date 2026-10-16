@@ -117,11 +117,10 @@ export function WorkPageBody({ typeParam }: WorkPageBodyProps) {
           <SectionBleed className="border-t border-border">
             <GridCell className="md:py-6">
               <h2 className="type-eyebrow font-mono text-muted-foreground uppercase">
-                Lab shelf
+                Other projects
               </h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                Smaller public repos and meta projects (formerly on{" "}
-                <span className="text-foreground">/experiments</span>).
+                Smaller public repos and side projects.
               </p>
             </GridCell>
           </SectionBleed>

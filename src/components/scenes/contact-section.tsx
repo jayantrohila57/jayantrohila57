@@ -18,8 +18,8 @@ export function AboutTeaserSection() {
       <PageBleedGrid className="md:grid-cols-2">
         <div className="flex min-h-full flex-col justify-center bg-background p-6 md:min-h-[12rem] md:p-8">
           <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
-            I build modern web products with a strong focus on frontend systems,
-            complex interactions, and maintainable architecture.
+            I build web products across React/Next.js, the full stack, and AI
+            features — with complex interactions and maintainable architecture.
           </h2>
         </div>
         <div className="flex min-h-full flex-col justify-center bg-background p-6 md:min-h-[12rem] md:p-8">

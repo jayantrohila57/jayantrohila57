@@ -20,24 +20,6 @@ export const metadata = generatePageMetadata({
   path: "/writing",
 });
 
-function WritingEmptyState({ title, body }: { title: string; body: string }) {
-  return (
-    <div
-      className={cn(
-        shellCellClassName(),
-        "rounded-md border border-dashed border-border bg-background/50 text-center",
-      )}
-    >
-      <p className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
-        {title}
-      </p>
-      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-        {body}
-      </p>
-    </div>
-  );
-}
-
 export default function WritingPage() {
   const blogPosts = getBlogPosts();
   const caseStudies = [...projects].sort((a, b) =>
@@ -50,7 +32,7 @@ export default function WritingPage() {
         <ContentShell
           eyebrow="Writing"
           title="Case studies & notes"
-          description="Case studies, engineering notes, and blog posts on frontend craft — from this site's layout system to Lenis and Next.js caching patterns."
+          description="Case studies, engineering notes, and blog posts on product engineering — from this site's layout system to Lenis and Next.js caching patterns."
           variant="page"
           headingLevel="h1"
         />
@@ -129,13 +111,8 @@ export default function WritingPage() {
         </SectionBleed>
       </SectionShell>
 
-      <SectionShell id="snippets" spacing="compact">
-        <ContentShell variant="compact" title="Snippets & walkthroughs" />
-        <WritingEmptyState
-          title="Coming later"
-          body="Short code walkthroughs and UI snippets may be added here. For now, see Engineering notes and project repos on GitHub."
-        />
-        <p className="mt-8 text-sm text-muted-foreground">
+      <SectionShell id="more" spacing="compact">
+        <p className="text-sm text-muted-foreground">
           <Link href="/work" className={inlineBodyLinkClass}>
             Browse all projects
           </Link>

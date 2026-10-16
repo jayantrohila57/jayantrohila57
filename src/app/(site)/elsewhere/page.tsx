@@ -27,7 +27,7 @@ export default function ElsewherePage() {
       <ContentShell
         eyebrow="Elsewhere"
         title="Profiles & links"
-        description="Verified public profiles — same links as in site config, collected in one place."
+        description="Public profiles, collected in one place."
         variant="page"
         headingLevel="h1"
       />

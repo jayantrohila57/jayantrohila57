@@ -122,7 +122,12 @@ async function main() {
   drawLine("SELECTED PROJECTS", 10, true);
   for (const project of resumeData.projects) {
     drawLine(`${project.name} — ${project.summary}`, 9);
-    drawLine(project.href, 8, false, rgb(0.2, 0.2, 0.5));
+    drawLine(
+      project.liveHref ? `${project.liveHref} · ${project.href}` : project.href,
+      8,
+      false,
+      rgb(0.2, 0.2, 0.5),
+    );
     y -= 2;
   }
 

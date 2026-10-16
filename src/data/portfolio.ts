@@ -81,7 +81,7 @@ export type EngineeringPrinciple = {
 
 export const workPageTierLabels = [
   { key: "flagship", title: "Flagship projects" },
-  { key: "supporting", title: "Strong supporting work" },
+  { key: "supporting", title: "More projects" },
   { key: "experiments", title: "Experiments" },
 ] as const;
 
@@ -90,8 +90,9 @@ export const workPageOrder: {
   tier: (typeof workPageTierLabels)[number]["key"];
 }[] = [
   { slug: "loftlancer", tier: "flagship" },
-  { slug: "lucsum", tier: "flagship" },
+  { slug: "feature-kit", tier: "flagship" },
   { slug: "modelry", tier: "flagship" },
+  { slug: "lucsum", tier: "flagship" },
   { slug: "stats-on-spotify", tier: "supporting" },
 ];
 
@@ -114,11 +115,12 @@ export const profile = {
     "NODE.JS",
     "REST APIs",
     "VERCEL",
+    "AI SDK",
   ],
   focus: {
     building: "Web products in React.js, Next.js, and TypeScript",
     active: "Responsive UIs, REST APIs, design handoff to production",
-    exploring: "Data-heavy interfaces and developer tooling",
+    exploring: "AI features with the Vercel AI SDK and data-heavy interfaces",
   },
   social: {
     email: siteConfig.contact.email,
@@ -135,9 +137,9 @@ export const projects: PortfolioProject[] = [
     summary:
       "Full-stack commerce platform with authenticated customer flows, staff operations, and server-authoritative Razorpay checkout.",
     description:
-      "A Next.js storefront with App Router routes, authenticated customer flows, staff Studio (restricted to staff/admin per repo docs), and Razorpay checkout with webhook verification.",
-    status: "Open source · Live demo",
-    role: "Personal project",
+      "The storefront for Lucsum, my Indian streetwear brand from Saharanpur — a Next.js App Router store with authenticated customer flows, a staff-only Studio, a catalogue imported from Shopify, and Razorpay checkout with webhook verification.",
+    status: "Open source · Live store",
+    role: "Solo · product engineering",
     year: "2024–2026",
     stack: [
       "Next.js",
@@ -162,14 +164,14 @@ export const projects: PortfolioProject[] = [
         id: "overview",
         title: "Overview",
         body: [
-          "Personal project built with production-minded architecture: real auth, database-backed catalog and orders, and payment flows where totals stay aligned with provider charges.",
+          "Storefront for my own streetwear brand, built with production-minded architecture: real auth, database-backed catalog and orders, and payment flows where totals stay aligned with provider charges.",
         ],
       },
       {
         id: "context",
         title: "Context",
         body: [
-          "Built as a learning and portfolio codebase shaped like a real storefront — not a static product grid.",
+          "Lucsum started on Shopify; this codebase replaces it with a store I own end to end — the catalogue, menus and redirects are imported from the Shopify export.",
         ],
       },
       {
@@ -197,7 +199,7 @@ export const projects: PortfolioProject[] = [
         id: "outcome",
         title: "Outcome",
         body: [
-          "Demonstrates server-authoritative checkout, authenticated customer flows, staff operations, and payment webhook verification in one codebase — open source with a live demo.",
+          "Demonstrates server-authoritative checkout, authenticated customer flows, staff operations, and payment webhook verification in one codebase — open source and live at lucsum.vercel.app.",
         ],
       },
     ],
@@ -268,13 +270,23 @@ export const projects: PortfolioProject[] = [
     title: "Modelry",
     eyebrow: "PROJECT / AI",
     summary:
-      "See what happens inside AI. An interactive AI laboratory to experiment with language models and learn how AI-powered software works.",
+      "Interactive AI lab with streaming chat, threads, attachments, and a credits ledger — Vercel AI SDK with Ollama or Google Gemini.",
     description:
-      "An interactive AI laboratory to experiment with language models and learn how AI-powered software works.",
+      "An interactive AI laboratory for experimenting with language models: authenticated streaming chat, thread history, file attachments, and credits reserved before each model call and settled after it.",
     status: "Open source · Live app",
     role: "Solo · product engineering",
     year: "2026",
-    stack: ["Next.js", "TypeScript", "tRPC", "Better Auth", "Drizzle ORM"],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Vercel AI SDK",
+      "tRPC",
+      "Better Auth",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Tailwind CSS",
+    ],
     categories: ["product", "frontend", "backend"],
     workEngagement: "personal",
     featured: true,
@@ -288,7 +300,81 @@ export const projects: PortfolioProject[] = [
         id: "overview",
         title: "Overview",
         body: [
-          "See what happens inside AI. An interactive AI laboratory to experiment with language models and learn how AI-powered software works.",
+          "Modelry is an AI lab for developers: run prompts against real providers, follow streaming responses and credit costs, and see the parts of an AI product beyond the text box — auth, persistence, uploads, usage limits, and billing.",
+        ],
+      },
+      {
+        id: "built",
+        title: "What I built",
+        body: [
+          "An authenticated, thread-aware streaming chat route (/api/ai/chat) on the Vercel AI SDK; create, rename, delete, and revisit threads; file attachments on Vercel Blob with configurable limits; Better Auth with email/password, GitHub OAuth, and Resend email verification.",
+        ],
+      },
+      {
+        id: "architecture",
+        title: "Architecture",
+        body: [
+          "App Router UI → tRPC 11 procedures → Drizzle on Neon Postgres. One AI_PROVIDER switch selects the model backend: Ollama for local models or Google Gemini. Arcjet protects the chat, upload, and tRPC mutation routes.",
+        ],
+      },
+      {
+        id: "stack",
+        title: "Stack",
+        body: [
+          "Next.js 16, React 19, TypeScript, Vercel AI SDK, tRPC, TanStack Query, Better Auth, Drizzle ORM, Neon Postgres, Tailwind CSS 4, shadcn/ui, Biome.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "feature-kit",
+    title: "Feature Kits",
+    eyebrow: "PROJECT / UI SYSTEMS",
+    summary:
+      "Composable form, data-table, layout, and uploader kits for React and Next.js, distributed as a shadcn registry.",
+    description:
+      "Open-source UI kits for product engineering — schema-driven forms (React Hook Form + Zod), TanStack Table data tables, layout shells, and spreadsheet import — installable with the shadcn CLI and documented with live previews.",
+    status: "Open source · Live docs",
+    role: "Solo · product engineering",
+    year: "2026",
+    stack: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "React Hook Form",
+      "Zod",
+      "TanStack Table",
+      "shadcn/ui",
+      "Tailwind CSS",
+    ],
+    categories: ["product", "frontend", "systems"],
+    workEngagement: "personal",
+    featured: true,
+    visualType: "data",
+    links: {
+      live: "https://feature-kits.vercel.app",
+      github: "https://github.com/jayantrohila57/feature-kit",
+    },
+    sections: [
+      {
+        id: "overview",
+        title: "Overview",
+        body: [
+          "The form, table, and layout code every admin app rewrites — packaged as kits you install into your own codebase.",
+        ],
+      },
+      {
+        id: "built",
+        title: "What I built",
+        body: [
+          "Registry items for form, data-table, dashboard-shell, layout, breadcrumb, auth, theme, and uploader, plus blocks such as data-table CRUD, settings area, and uploader import. Install with: npx shadcn@latest add https://feature-kits.vercel.app/r/form.json",
+        ],
+      },
+      {
+        id: "architecture",
+        title: "Architecture",
+        body: [
+          "A pnpm monorepo: kits under feature/*, shared primitives in packages/ui and packages/format, and a Next.js docs app (Fumadocs MDX) in apps/web. A build script generates the shadcn registry JSON served from /r.",
         ],
       },
     ],
@@ -299,10 +385,10 @@ export const projects: PortfolioProject[] = [
     eyebrow: "EXPERIMENT / DATA",
     summary: "Spotify stats visualization side project with a public demo.",
     description:
-      "Hosted on Vercel; scope and stack documented in the GitHub repository.",
+      "Next.js dashboard for top artists, tracks, playlists, and recently played, using Spotify sign-in. The demo is in Spotify development mode, so sign-in only works for approved accounts.",
     status: "Open source · Live demo",
     year: "2023–2026",
-    stack: ["Next.js", "TypeScript", "React"],
+    stack: ["Next.js", "TypeScript", "React", "Auth.js"],
     categories: ["experiment", "data"],
     workEngagement: "personal",
     featured: false,
@@ -424,54 +510,60 @@ export const experiments: Experiment[] = [
   },
 ];
 
+const ALL = [
+  "loftlancer",
+  "feature-kit",
+  "modelry",
+  "lucsum",
+  "stats-on-spotify",
+];
+const FULL_STACK = ["loftlancer", "modelry", "lucsum"];
+
 export const stackGroups: StackGroup[] = [
   {
     id: "frontend",
     label: "Frontend",
     items: [
-      {
-        name: "Next.js",
-        projectSlugs: ["lucsum", "loftlancer", "stats-on-spotify"],
-      },
-      {
-        name: "React",
-        projectSlugs: ["lucsum", "loftlancer", "stats-on-spotify"],
-      },
-      {
-        name: "TypeScript",
-        projectSlugs: ["lucsum", "loftlancer", "stats-on-spotify"],
-      },
+      { name: "Next.js", projectSlugs: ALL },
+      { name: "React", projectSlugs: ALL },
+      { name: "TypeScript", projectSlugs: ALL },
       {
         name: "Tailwind CSS",
-        projectSlugs: ["lucsum", "loftlancer"],
+        projectSlugs: ["lucsum", "loftlancer", "modelry", "feature-kit"],
       },
-      { name: "shadcn/ui", projectSlugs: ["loftlancer"] },
+      {
+        name: "shadcn/ui",
+        projectSlugs: ["loftlancer", "modelry", "feature-kit"],
+      },
     ],
   },
   {
     id: "data-api",
     label: "Data / API",
     items: [
-      { name: "tRPC", projectSlugs: ["lucsum"] },
-      { name: "Drizzle ORM", projectSlugs: ["lucsum", "loftlancer"] },
-      {
-        name: "PostgreSQL / Neon",
-        projectSlugs: ["lucsum", "loftlancer"],
-      },
+      { name: "tRPC", projectSlugs: FULL_STACK },
+      { name: "Drizzle ORM", projectSlugs: FULL_STACK },
+      { name: "PostgreSQL / Neon", projectSlugs: FULL_STACK },
     ],
   },
   {
     id: "platform",
     label: "Platform & quality",
     items: [
-      { name: "Better Auth", projectSlugs: ["lucsum", "loftlancer"] },
-      { name: "Razorpay", projectSlugs: ["lucsum"] },
-      {
-        name: "Vercel",
-        projectSlugs: ["lucsum", "loftlancer", "stats-on-spotify"],
-      },
+      { name: "Better Auth", projectSlugs: FULL_STACK },
+      { name: "Razorpay", projectSlugs: ["lucsum", "modelry"] },
+      { name: "Vercel", projectSlugs: ALL },
       { name: "Vitest", projectSlugs: ["lucsum"] },
-      { name: "Biome", projectSlugs: ["lucsum"] },
+      { name: "Biome", projectSlugs: ["lucsum", "modelry"] },
+    ],
+  },
+  {
+    id: "ai",
+    label: "AI",
+    items: [
+      { name: "Vercel AI SDK", projectSlugs: ["modelry"] },
+      { name: "Ollama", projectSlugs: ["modelry"] },
+      { name: "Google Gemini", projectSlugs: ["modelry"] },
     ],
   },
 ];
@@ -542,7 +634,7 @@ export function getProjectsByEngagement(engagement: WorkEngagement) {
   return projects.filter((p) => p.workEngagement === engagement);
 }
 
-/** Lab shelf items (former /experiments) — external repos without a dedicated case-study page. */
+/** Other projects — external repos without a dedicated case-study page. */
 export function getLabShelfExperiments() {
   const projectSlugs = new Set(projects.map((p) => p.slug));
   return experiments.filter((exp) => !projectSlugs.has(exp.slug));

@@ -9,6 +9,8 @@ const targets = [
   { slug: "lucsum", url: "https://lucsum.vercel.app" },
   { slug: "loftlancer", url: "https://loftlancer.com" },
   { slug: "stats-on-spotify", url: "https://statsonspotify.vercel.app/" },
+  { slug: "modelry", url: "https://modelry.vercel.app" },
+  { slug: "feature-kit", url: "https://feature-kits.vercel.app" },
 ];
 
 const browser = await chromium.launch({ headless: true });

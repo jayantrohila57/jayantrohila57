@@ -59,8 +59,8 @@ export function PortfolioContactPanel({
         Let&apos;s work together
       </h2>
       <p className="text-muted-foreground text-sm leading-relaxed">
-        Available for product engineering conversations, frontend architecture,
-        and open-source collaboration.
+        Open to frontend, full-stack and AI product engineering roles across
+        India — in-office (Noida/NCR), hybrid, or remote.
       </p>
     </div>
   ) : null;

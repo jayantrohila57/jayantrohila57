@@ -15,17 +15,16 @@ export type ResumeProject = {
 
 export const resumeData = {
   name: "Jayant Rohila",
-  headline: "Frontend-first Product Engineer | Next.js · React · TypeScript",
+  headline: "Product Engineer: React/Next.js, full-stack, AI features",
   location: "Noida, India",
   email: "jrohila55@gmail.com",
   summary:
-    "Product engineer building full-stack web applications — clear UX, typed APIs, and maintainable delivery. Public GitHub work includes Lucsum (e-commerce), Loftlancer (secrets manager), and Modelry (AI lab) with live apps.",
+    "Product Engineer with ~2.5 years shipping React and Next.js products — validation-heavy forms and data tables, typed APIs, and AI features. Open-source work includes Loftlancer (encrypted secrets manager), Feature Kits (shadcn registry of form and data-table kits), Modelry (streaming AI lab with a credits ledger), and Lucsum (storefront for my streetwear brand).",
   links: [
     { label: "Portfolio", href: "https://jayantrohila.com" },
     { label: "GitHub", href: "https://github.com/jayantrohila57" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/jayant-rohila/" },
     { label: "Work GitHub", href: "https://github.com/jayantaiqmen" },
-    { label: "Linktree", href: "https://linktr.ee/JayantRohila" },
   ],
   experience: [
     {
@@ -89,34 +88,39 @@ export const resumeData = {
   ],
   skills: [
     "TypeScript, JavaScript, HTML/CSS, React, Next.js (App Router), Tailwind, shadcn/ui, TanStack Query, React Hook Form, Zod",
+    "Vercel AI SDK, Ollama, Google Gemini (Modelry)",
     "Node.js, Express, REST, tRPC, PostgreSQL, Neon, Drizzle, MongoDB (where used in projects)",
     "Better Auth, Razorpay (e-commerce), Vercel, Docker, GitHub Actions, Vitest, ESLint/Biome",
     "ServiceNow administration (trainee role, Braeon Technocrats)",
   ],
   projects: [
     {
-      name: "Lucsum",
-      href: "https://github.com/jayantrohila57/lucsum",
-      liveHref: "https://lucsum.vercel.app",
-      summary: "E-commerce — Next.js, tRPC, Drizzle, Better Auth, Razorpay.",
-    },
-    {
       name: "Loftlancer",
       href: "https://github.com/jayantrohila57/loftlancer",
       liveHref: "https://loftlancer.com",
-      summary: "Secrets and env vars across environments — Better Auth, Neon.",
+      summary:
+        "Environment and secrets manager — AES-256-GCM encryption at rest, tRPC, Drizzle, Better Auth, Turborepo.",
+    },
+    {
+      name: "Feature Kits",
+      href: "https://github.com/jayantrohila57/feature-kit",
+      liveHref: "https://feature-kits.vercel.app",
+      summary:
+        "Form, data-table, layout and uploader kits for React/Next.js, shipped as a shadcn registry — React Hook Form, Zod, TanStack Table.",
     },
     {
       name: "Modelry",
       href: "https://github.com/jayantrohila57/modelry",
       liveHref: "https://modelry.vercel.app",
-      summary: "Interactive AI laboratory to experiment with language models.",
+      summary:
+        "AI lab — streaming chat on the Vercel AI SDK (Ollama / Gemini), threads, credits ledger, tRPC, Drizzle, Better Auth.",
     },
     {
-      name: "Portfolio site",
-      href: "https://github.com/jayantrohila57/jayantrohila57",
-      liveHref: "https://jayantrohila.com",
-      summary: "Next.js App Router portfolio and case studies.",
+      name: "Lucsum",
+      href: "https://github.com/jayantrohila57/lucsum",
+      liveHref: "https://lucsum.vercel.app",
+      summary:
+        "Storefront for my streetwear brand — Next.js, tRPC, Drizzle, Better Auth, server-verified Razorpay checkout.",
     },
   ] satisfies ResumeProject[],
 };

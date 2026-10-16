@@ -1,26 +1,26 @@
 /** Search-oriented titles and descriptions (absolute titles — no layout template suffix). */
 
 export const homePageTitle =
-  "Jayant Rohila — Product Engineer (Frontend) | React & Next.js";
+  "Jayant Rohila — Product Engineer | React, Next.js & AI Features";
 
 export const homePageDescription =
-  "Jayant Rohila is a frontend-first Product Engineer in Noida building SaaS interfaces with React, Next.js, and TypeScript — case studies and open source.";
+  "Jayant Rohila is a Product Engineer in Noida building SaaS interfaces and AI features with React, Next.js, and TypeScript. Case studies and open source.";
 
 export const staticPageSeo = {
   work: {
     title: "Work & projects — Jayant Rohila | React, Next.js & TypeScript",
     description:
-      "Filterable project index: personal open-source case studies, lab repos, and demos — Loftlancer, Lucsum, Modelry, and more.",
+      "Open-source case studies and side projects — Loftlancer, Feature Kits, Modelry, Lucsum, and more.",
   },
   writing: {
     title: "Writing — Jayant Rohila | Case studies & engineering notes",
     description:
-      "Project case studies and how-I-build engineering notes. Blog posts and snippets are not published yet — honest placeholders only.",
+      "Engineering notes on Next.js caching, layout systems, smooth scrolling and accessible UI, plus case studies from Loftlancer, Feature Kits, Modelry and Lucsum.",
   },
   elsewhere: {
     title: "Elsewhere — Jayant Rohila | GitHub, LinkedIn & profiles",
     description:
-      "Public profile links for Jayant Rohila — GitHub, LinkedIn, work GitHub, and HackerRank from site config.",
+      "Public profile links for Jayant Rohila — GitHub, LinkedIn, work GitHub, and HackerRank.",
   },
   interests: {
     title: "Interests — Jayant Rohila",
@@ -33,24 +33,24 @@ export const staticPageSeo = {
       "How Jayant Rohila builds product UI, type-safe tRPC/REST layers, reusable systems, and delivery workflows across open-source portfolio projects.",
   },
   about: {
-    title: "About Jayant Rohila — Product Engineer (Frontend), Noida",
+    title: "About Jayant Rohila — Product Engineer, Noida",
     description:
       "Experience at aiQmen and Binmile, education, and strengths in React, Next.js, TypeScript, and complex product interfaces — Jayant Rohila portfolio.",
   },
   contact: {
     title: "Contact Jayant Rohila — Product Engineer, Noida",
     description:
-      "Email, GitHub, and LinkedIn for frontend and product engineering roles. Jayant Rohila — open to opportunities across India (in-office, hybrid, remote).",
+      "Email, GitHub, and LinkedIn for frontend, full-stack and AI product engineering roles. Jayant Rohila — open to opportunities across India (in-office, hybrid, remote).",
   },
   resume: {
-    title: "Résumé — Jayant Rohila | Product Engineer (Frontend)",
+    title: "Résumé — Jayant Rohila | Product Engineer",
     description:
       "Download or print Jayant Rohila’s résumé: Product Engineer at aiQmen, former Associate Software Developer at Binmile, Next.js and React portfolio.",
   },
   experiments: {
-    title: "Lab projects — Jayant Rohila | UI experiments & side repos",
+    title: "More projects — Jayant Rohila | Side projects & experiments",
     description:
-      "Stats on Spotify, Modelry, Feature Kits, and other public experiments by Jayant Rohila — secondary to flagship case studies on the homepage.",
+      "Stats On Spotify, Codethread Black, and other public side projects by Jayant Rohila.",
   },
 } as const;
 
@@ -71,13 +71,23 @@ export const projectPageSeo: Record<
       "Loftlancer is an environment and secrets manager for organizations, projects, and environments (dev, staging, production) — built by Jayant Rohila with Next.js, tRPC, Drizzle, and Better Auth.",
   },
   lucsum: {
-    title: projectSeoTitle("Lucsum", "E-commerce & Razorpay checkout"),
+    title: projectSeoTitle("Lucsum", "Streetwear storefront & Razorpay checkout"),
     description:
       "Full-stack Next.js storefront with Better Auth, Drizzle, tRPC, and server-authoritative Razorpay checkout — open-source commerce case study by Jayant Rohila.",
+  },
+  modelry: {
+    title: projectSeoTitle("Modelry", "AI lab with streaming chat & credits"),
+    description:
+      "Modelry is an interactive AI lab by Jayant Rohila — streaming chat on the Vercel AI SDK with Ollama or Gemini, threads, attachments, and a credits ledger, built with Next.js, tRPC, Drizzle, and Better Auth.",
+  },
+  "feature-kit": {
+    title: projectSeoTitle("Feature Kits", "React & Next.js UI kits"),
+    description:
+      "Feature Kits — form, data-table, layout, and uploader kits for React and Next.js, distributed as a shadcn registry with Fumadocs docs. Open source by Jayant Rohila.",
   },
   "stats-on-spotify": {
     title: projectSeoTitle("Stats on Spotify", "Listening analytics dashboard"),
     description:
-      "Stats on Spotify turns listening history into dashboard summaries and charts — a Next.js data UI experiment by Jayant Rohila with a public demo.",
+      "Stats On Spotify turns listening history into dashboard summaries and charts — a Next.js data UI side project by Jayant Rohila (demo sign-in is limited to approved Spotify accounts).",
   },
 };

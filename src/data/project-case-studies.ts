@@ -80,17 +80,71 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     ],
     decisions: [
       "Kept payment verification on the server with HMAC-checked webhooks instead of trusting client-side amounts.",
-      "Structured the repo as a personal project with production-minded boundaries (auth, migrations, seeds, tests).",
-    ],
-    metrics: [
-      { label: "Vitest files", value: "4 test modules in the repo" },
-      {
-        label: "Automated cases",
-        value: "9 it()/test() blocks (source count)",
-      },
+      "Structured the repo with production-minded boundaries (auth, migrations, seeds, tests) for my own brand's store.",
     ],
     outcome:
       "Demonstrates server-authoritative checkout, authenticated flows, and staff operations in a single codebase — open source with a live demo.",
+  },
+  modelry: {
+    atGlance: {
+      role: "Solo builder — AI chat, credits, auth, data",
+      duration: "2026",
+      team: "Solo",
+      stack:
+        "Next.js 16 · React 19 · Vercel AI SDK · tRPC · Better Auth · Drizzle · Neon · Arcjet",
+    },
+    problem:
+      "Most AI demos are a text box over an API key. Modelry builds the rest of an AI product — auth, persistence, uploads, usage limits, and billing — and makes streaming, token usage, and credit cost visible to the person using it.",
+    contribution:
+      "Built the whole app: an authenticated, thread-aware streaming chat route; provider switching between local Ollama and Google Gemini; thread history; Vercel Blob attachments; Better Auth with email/password and GitHub; and a credits wallet with a ledger.",
+    challenges: [
+      "Credits during streaming — credits are reserved before each model call and settled after it, so cost is accounted for while the response streams.",
+      "Provider switching — one AI_PROVIDER setting in a single module selects Ollama or Google Gemini; unsupported values fail fast.",
+      "Abuse protection — Arcjet guards the chat, upload, and tRPC mutation routes.",
+    ],
+    features: [
+      "Streaming AI chat on the Vercel AI SDK",
+      "Threads: create, rename, delete, revisit",
+      "Credits wallet and ledger with one-time starter credits",
+      "File attachments on Vercel Blob",
+      "Better Auth: email/password, GitHub OAuth, email verification",
+      "Billing scaffolding with Razorpay plans and subscriptions",
+    ],
+    decisions: [
+      "Typed end to end with tRPC 11 and Drizzle on Neon Postgres.",
+      "Kept local development free with Ollama as the default provider; Gemini is a configuration switch.",
+    ],
+    outcome:
+      "Live app and open-source repository — no claimed user counts.",
+  },
+  "feature-kit": {
+    atGlance: {
+      role: "Solo builder — kits, registry, docs",
+      duration: "2026",
+      team: "Solo",
+      stack:
+        "React · Next.js · TypeScript · React Hook Form · Zod · TanStack Table · shadcn registry · Fumadocs",
+    },
+    problem:
+      "Admin apps rebuild the same forms, tables, filters, shells, and import flows. Feature Kits packages them as source you install into your own app instead of an opaque SDK.",
+    contribution:
+      "Built the kits, the shadcn registry build, and the docs site with live previews.",
+    challenges: [
+      "Distribution — kits are private workspace packages, so external apps get them through a shadcn registry (feature-kits.vercel.app/r/<kit>.json) that copies source into the project.",
+      "Shared tokens — every kit relies on one shared UI stylesheet so themes stay consistent.",
+    ],
+    features: [
+      "FormKit and FieldKit — schema-driven fields with React Hook Form + Zod",
+      "Data table — TanStack Table toolbar, filters, pagination, selection, bulk actions",
+      "Layout and dashboard shell, breadcrumbs, auth, theme",
+      "Uploader — spreadsheet import, validation, template download",
+    ],
+    decisions: [
+      "Ship copyable source through the shadcn CLI rather than publishing npm packages.",
+      "Document every kit with Fumadocs MDX and embedded runnable demos.",
+    ],
+    outcome:
+      "Open source with live docs at feature-kits.vercel.app — no claimed adoption numbers.",
   },
   "stats-on-spotify": {
     atGlance: {
@@ -102,7 +156,7 @@ export const projectCaseStudies: Record<string, ProjectCaseStudy> = {
     problem:
       "Listening history is more interesting when it becomes explorable analytics — charts, rankings, and summaries instead of raw API payloads.",
     contribution:
-      "Built a dashboard-style experience that turns Spotify data into top artists, tracks, and listening views with a hosted demo.",
+      "Built a dashboard-style experience that turns Spotify data into top artists, tracks, and listening views. The hosted demo runs in Spotify development mode, so sign-in is limited to approved accounts.",
     challenges: [
       "OAuth and token handling for Spotify APIs without over-scoping permissions.",
       "Dashboard IA — prioritizing summaries a user actually scans on mobile.",

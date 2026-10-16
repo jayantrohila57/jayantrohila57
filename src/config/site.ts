@@ -2,23 +2,23 @@ import type { Viewport } from "next";
 import { homePageDescription, homePageTitle } from "@/config/page-seo";
 
 export const publicHeadline =
-  "Product Engineer (Frontend) | React & Next.js · TypeScript";
+  "Product Engineer: React/Next.js, full-stack, AI features";
 
 export const heroHeadline =
-  "I build complex SaaS interfaces, dashboards, and product workflows with React, Next.js, and TypeScript.";
+  "I build complex SaaS interfaces, dashboards, and AI-powered product workflows with React, Next.js, and TypeScript.";
 
 export const heroSupportingLine =
   "Complex web applications that feel simple — with enough full-stack depth to own features from UI through API and data.";
 
 export const heroStatusLine =
-  "Product Engineer at aiQmen · Noida · open to frontend and product engineering roles";
+  "Product Engineer at aiQmen · Noida · open to frontend, full-stack and AI product engineering roles";
 
 export const specializationLine =
-  "Frontend-first product engineering — complex UI, typed APIs, and data-heavy workflows.";
+  "Product engineering across the stack — complex UI, typed APIs, data-heavy workflows, and AI features.";
 
 /** Longer bio for page body, JSON-LD, and social image cards — not for HTML meta snippets. */
 export const longAbout =
-  "Frontend-first Product Engineer in Noida. I ship React and Next.js product interfaces — dashboards, forms, and multi-step workflows — and own the full stack when a feature needs typed APIs, auth, and PostgreSQL. Open-source case studies include Loftlancer, Lucsum, and Modelry. ~2.5 years in production software (Binmile, now aiQmen).";
+  "Product Engineer in Noida working across React/Next.js, the full stack, and AI features. I ship product interfaces — dashboards, forms, and multi-step workflows — and own features through typed APIs, auth, PostgreSQL, and LLM integrations. Open-source case studies include Loftlancer, Feature Kits, Modelry, and Lucsum. ~2.5 years in production software (Binmile, now aiQmen).";
 
 /** ~150 chars for meta / OG / Twitter descriptions. */
 export const metaDescription = homePageDescription;
@@ -57,7 +57,7 @@ export const siteConfig = {
 
   author: {
     name: "Jayant Rohila",
-    role: "Frontend-first Product Engineer",
+    role: "Product Engineer",
     jobTitle: publicHeadline,
     employer: "aiQmen Designs & Technologies Pvt. Ltd.",
   },
@@ -80,6 +80,8 @@ export const siteConfig = {
       "jayant rohila",
       "product engineer",
       "frontend engineer",
+      "full-stack engineer",
+      "ai features",
       "software engineer",
       "next.js",
       "react",
@@ -87,7 +89,7 @@ export const siteConfig = {
       "portfolio",
       "noida",
     ],
-    locale: "en_US",
+    locale: "en_IN",
     robots: "index" as const,
   },
 

@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: Props) {
     title: post.title,
     description: post.summary,
     path: `/writing/${slug}`,
+    ogType: "article",
   });
 }
 
