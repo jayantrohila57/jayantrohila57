@@ -1,37 +1,17 @@
-import { stack, work, writing } from "collections/server";
-import {
-  assertKnownStackSlugs,
-  assertNoDenylist,
-} from "../../../content/content-validation";
+import { stack, updates, work, writing } from "collections/server";
 
 export type WritingDoc = (typeof writing)[number];
 export type WorkDoc = (typeof work)[number];
 export type StackDoc = (typeof stack)[number];
+export type UpdatesDoc = (typeof updates)[number];
 
-function slugFromDoc(doc: { info: { path: string } }) {
+type DocWithInfo = { info: { path: string; fullPath: string } };
+
+/** Public URL slug — basename without extension (flat collections today). */
+export function slugFromDoc(doc: DocWithInfo) {
   const base = doc.info.path.split("/").pop() ?? doc.info.path;
   return base.replace(/\.mdx?$/i, "");
 }
-
-const stackSlugSet = new Set(stack.map((doc) => (doc as StackDoc).slug));
-
-function validateCorpus() {
-  for (const doc of writing) {
-    const slug = slugFromDoc(doc);
-    const { body: _b, toc: _t, structuredData: _s, _exports: _e, ...fm } = doc;
-    assertNoDenylist(JSON.stringify(fm), `writing/${slug}`);
-    const stackRefs = (doc as WritingDoc).stack;
-    if (stackRefs?.length) {
-      assertKnownStackSlugs(stackRefs, stackSlugSet, `writing/${slug}`);
-    }
-  }
-  for (const doc of work) {
-    const { body: _b, toc: _t, structuredData: _s, _exports: _e, ...fm } = doc;
-    assertNoDenylist(JSON.stringify(fm), `work/${slugFromDoc(doc)}`);
-  }
-}
-
-validateCorpus();
 
 export function getWritingPages(): WritingDoc[] {
   return writing;
@@ -53,4 +33,6 @@ export function getStackPages(): StackDoc[] {
   return stack;
 }
 
-export { slugFromDoc };
+export function getUpdatesPages(): UpdatesDoc[] {
+  return updates;
+}

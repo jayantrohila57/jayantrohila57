@@ -1,3 +1,4 @@
+import "@/lib/content/validate-corpus.server";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { IBM_Plex_Sans } from "next/font/google";

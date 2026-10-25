@@ -14,6 +14,14 @@ const sourceEntrySchema = z.object({
   id: z.string().min(1),
 });
 
+const categorySchema = z.enum([
+  "engineering",
+  "ai",
+  "building-loftlancer",
+  "project",
+  "career",
+]);
+
 const distributionSchema = z
   .object({
     x: z.string().optional(),
@@ -67,13 +75,7 @@ export const writing = defineCollections({
       .string()
       .regex(/^\d{4}-\d{2}-\d{2}$/)
       .optional(),
-    category: z.enum([
-      "engineering",
-      "ai",
-      "building-loftlancer",
-      "project",
-      "career",
-    ]),
+    category: categorySchema,
     tags: tagSchema,
     project: projectRefSchema,
     stack: z.array(z.string()).optional(),
@@ -92,11 +94,15 @@ export const updates = defineCollections({
   schema: z.object({
     title: z.string(),
     date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    project: z.enum(PROJECT_SLUGS),
+    category: categorySchema,
+    summary: z.string().optional(),
+    description: z.string().optional(),
+    project: projectRefSchema,
     tags: tagSchema,
     stack: z.array(z.string()).optional(),
     sources: z.array(sourceEntrySchema).min(1),
     status: z.enum(["shipped", "in-progress"]),
+    distribution: distributionSchema,
   }),
 });
 

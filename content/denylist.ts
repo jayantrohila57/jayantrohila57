@@ -1,4 +1,4 @@
-/** Build fails if any MDX body or frontmatter string mentions these terms. */
+/** Build fails if any MDX body or frontmatter string mentions these terms (case-insensitive). */
 export const CONTENT_DENYLIST = [
   "LibyUI",
   "SharePal",
@@ -9,11 +9,16 @@ export const CONTENT_DENYLIST = [
   "Image Editor",
   "Google Review App",
   "RD Group",
+  "Codethread Black",
+  "jayantaiqmen",
 ] as const;
 
 export function findDenylistViolation(text: string): string | undefined {
+  const lower = text.toLowerCase();
   for (const term of CONTENT_DENYLIST) {
-    if (text.includes(term)) return term;
+    if (lower.includes(term.toLowerCase())) {
+      return term;
+    }
   }
   return undefined;
 }
