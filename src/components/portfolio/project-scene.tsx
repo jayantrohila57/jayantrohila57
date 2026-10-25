@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ProjectMedia } from "@/components/portfolio/project-media";
 import { GridCell } from "@/components/layout/shells";
+import { ProjectMedia } from "@/components/portfolio/project-media";
 import type { PortfolioProject } from "@/data/portfolio";
 import { cn } from "@/lib/cn";
 

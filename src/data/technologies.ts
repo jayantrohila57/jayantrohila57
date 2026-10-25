@@ -34,7 +34,7 @@ export const technologies: Technology[] = [
     id: "trpc",
     label: "tRPC",
     category: "backend",
-    projectSlugs: ["lucsum", "modelry"],
+    projectSlugs: ["lucsum", "loftlancer", "modelry"],
   },
   {
     id: "postgresql",

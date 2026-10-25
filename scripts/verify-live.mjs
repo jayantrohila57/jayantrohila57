@@ -57,7 +57,9 @@ for (const vp of viewports) {
 }
 
 // Command palette scroll check (desktop)
-const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+const ctx = await browser.newContext({
+  viewport: { width: 1280, height: 800 },
+});
 const page = await ctx.newPage();
 await page.goto(base, { waitUntil: "networkidle" });
 await page.keyboard.press("Meta+k");

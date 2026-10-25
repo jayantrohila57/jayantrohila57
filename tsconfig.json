@@ -15,7 +15,8 @@
     "jsx": "react-jsx",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "collections/*": ["./.source/*"]
     },
     "plugins": [
       {
@@ -27,6 +28,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    ".source/**/*.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],

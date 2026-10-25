@@ -5,7 +5,6 @@ import { ArrowUpRight, Copy, Mail, Search } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
 import { HeaderIconButton } from "@/components/layout/header-icon-button";
 import { useLenisScrollLock } from "@/components/smooth-scroll";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -17,6 +16,7 @@ import {
   CMDK_GROUP_HEADING_CLASS,
   INTERACTIVE_LIST_ITEM_CLASS,
 } from "@/lib/design-tokens";
+import { cn } from "@/lib/utils";
 
 export function CommandMenu() {
   const [open, setOpen] = useState(false);
@@ -182,7 +182,10 @@ export function CommandMenu() {
                     window.open(siteConfig.social.github, "_blank");
                     setOpen(false);
                   }}
-                  className={cn(INTERACTIVE_LIST_ITEM_CLASS, "flex items-center gap-2")}
+                  className={cn(
+                    INTERACTIVE_LIST_ITEM_CLASS,
+                    "flex items-center gap-2",
+                  )}
                 >
                   Open GitHub <ArrowUpRight className="size-3" />
                 </Command.Item>
@@ -191,13 +194,19 @@ export function CommandMenu() {
                     window.location.href = `mailto:${profile.social.email}`;
                     setOpen(false);
                   }}
-                  className={cn(INTERACTIVE_LIST_ITEM_CLASS, "flex items-center gap-2")}
+                  className={cn(
+                    INTERACTIVE_LIST_ITEM_CLASS,
+                    "flex items-center gap-2",
+                  )}
                 >
                   Send email <Mail className="size-3" />
                 </Command.Item>
                 <Command.Item
                   onSelect={copyEmail}
-                  className={cn(INTERACTIVE_LIST_ITEM_CLASS, "flex items-center gap-2")}
+                  className={cn(
+                    INTERACTIVE_LIST_ITEM_CLASS,
+                    "flex items-center gap-2",
+                  )}
                 >
                   Copy email <Copy className="size-3" />
                 </Command.Item>

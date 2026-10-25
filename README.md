@@ -16,7 +16,6 @@
 ## More work
 
 - [Stats On Spotify](https://github.com/jayantrohila57/Stats-On-Spotify): Spotify listening stats dashboard built with Next.js (demo sign-in limited to approved accounts).
-- [Codethread Black](https://github.com/jayantrohila57/codethread-black): dark VS Code theme. [Marketplace](https://marketplace.visualstudio.com/items?itemName=JayantRohila.codethread-black)
 
 ## About this repository
 

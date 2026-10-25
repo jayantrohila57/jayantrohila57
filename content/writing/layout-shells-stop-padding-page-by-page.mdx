@@ -1,0 +1,160 @@
+---
+title: 'Layout shells: stop fixing padding page by page'
+summary: >-
+  MainShell, SectionShell, ContentShell, and GridShell replaced one-off padding
+  on jayantrohila.com — plus a Playwright audit that enforces a 16px minimum
+  inset.
+date: '2026-10-05'
+category: engineering
+tags:
+  - css
+  - design-systems
+  - nextjs
+---
+
+For a while I fixed spacing on jayantrohila.com the way most of us do:
+        add `px-4` on a section, bleed a divider with negative
+        margin, wrap a grid cell in another padding class, and hope the rails
+        still line up. It worked until it did not — text sitting on the column
+        border, double borders in bento grids, and footers that looked inset on
+        one breakpoint and flush on another.
+      
+
+      
+
+        The structural fix was to stop treating padding as a per-page concern
+        and introduce a small set of layout shells. Every route now composes the
+        same primitives; nothing else sets page width or side rails.
+      
+
+
+      
+## MainShell owns the column
+
+      
+
+        `MainShell` wraps the header, main, and footer. It is the only
+        place that applies `max-w-5xl`, centering, and 
+        `border-x` rails, plus `data-page-column` for
+        audits and tests.
+      
+
+      
+```
+// src/components/layout/shells/main-shell.tsx
+export function MainShell({ children, className }: MainShellProps) {
+  return (
+    <div
+      data-page-column=""
+      className={cn(
+        SHELL_MAX_WIDTH_CLASS,
+        SHELL_RAILS_CLASS,
+        "flex min-h-dvh min-w-0 flex-col overflow-x-clip",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
+}
+```
+
+      
+
+        Header and footer components only add horizontal gutter inside that
+        column — they do not re-declare max width.
+      
+
+
+      
+## SectionShell owns rhythm and dividers
+
+      
+
+        Each band on a page is a `SectionShell`. It renders a
+        rail-to-rail top rule via `SectionRule` and applies standard
+        vertical padding (`py-8 md:py-12`, with a compact variant).
+        The `bleed` flag switches to gutter-only wrapping so a child 
+        `GridShell` can cancel horizontal inset and span edge to edge
+        between the rails.
+      
+
+      
+
+        `SectionBleed` uses negative horizontal margin, but only
+        inside a gutter parent. Using bleed at the root of the column without a
+        gutter wrapper was one bug that put footer copy flush against the rails;
+        fixing that meant reserving bleed for nested bands.
+      
+
+
+      
+## ContentShell and GridShell
+
+      
+
+        `ContentShell` is the shared page and section header: eyebrow,
+        title, description, optional action — same type scale everywhere. 
+        `GridShell` and `GridCell` implement rail-to-rail
+        grids with `gap-px` so borders meet without double lines.
+        Cells always include cell padding (`shell-cell` in CSS) so
+        text never touches a border.
+      
+
+      
+```
+// src/components/layout/shells/grid-shell.tsx (excerpt)
+export function GridShell({ children, columns = "grid-cols-1", ... }) {
+  return (
+    <SectionBleed className={cn("grid gap-px bg-border", columns)}>
+      {children}
+    </SectionBleed>
+  );
+}
+
+export function GridCell({ children, className, ... }) {
+  return (
+    <div className={cn(shellCellClassName(), className)}>{children}</div>
+  );
+}
+```
+
+
+      
+## Gutter tokens that do not depend on Tailwind spacing
+
+      
+
+        Horizontal inset is `shell-gutter-x` in `global.css` 
+        (1rem / 1.5rem at md). That keeps gutters stable even when utility
+        spacing tokens differ between dev and production builds. Legacy names
+        like `PageGutter` re-export the same shell helpers for older
+        scene components on the homepage.
+      
+
+
+      
+## Enforcing 16px with a Playwright audit
+
+      
+
+        Shells are only useful if regressions are visible. The repo includes 
+        `scripts/verify-padding-live.mjs`, which loads each route at
+        390, 1024, and 1440px, finds leaf text nodes, and measures distance to
+        the column rails and to the nearest bordered ancestor. Anything under
+        16px (with a small tolerance) fails the run.
+      
+
+      
+
+        That script caught real issues: footer bleed without gutter, project
+        meta rows with `pt-2` inside bordered cells, and missing
+        horizontal padding when utilities were not emitted. After migrating pages
+        to shells, the audit reports zero flags across the site.
+      
+
+      
+
+        The API and migration notes live in `docs/LAYOUT.md`. New
+        pages should compose shells instead of adding ad-hoc padding — the audit
+        is the acceptance test.

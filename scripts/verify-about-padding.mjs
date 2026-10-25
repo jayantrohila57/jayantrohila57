@@ -40,12 +40,19 @@ function auditAbout(page) {
       }
 
       function bw(st, side) {
-        return Number.parseFloat(st.getPropertyValue(`border-${side}-width`)) || 0;
+        return (
+          Number.parseFloat(st.getPropertyValue(`border-${side}-width`)) || 0
+        );
       }
 
       function hasBorder(node) {
         const st = getComputedStyle(node);
-        return bw(st, "left") > 0 || bw(st, "right") > 0 || bw(st, "top") > 0 || bw(st, "bottom") > 0;
+        return (
+          bw(st, "left") > 0 ||
+          bw(st, "right") > 0 ||
+          bw(st, "top") > 0 ||
+          bw(st, "bottom") > 0
+        );
       }
 
       function nearestBordered(el) {
@@ -76,10 +83,18 @@ function auditAbout(page) {
         const lr = rect.left - (colRect.left + colBL);
         const rr = colRect.right - colBR - rect.right;
         if (lr < min - tol) {
-          flags.push({ kind: "rail-left", value: lr, text: el.textContent?.trim().slice(0, 40) });
+          flags.push({
+            kind: "rail-left",
+            value: lr,
+            text: el.textContent?.trim().slice(0, 40),
+          });
         }
         if (rr < min - tol) {
-          flags.push({ kind: "rail-right", value: rr, text: el.textContent?.trim().slice(0, 40) });
+          flags.push({
+            kind: "rail-right",
+            value: rr,
+            text: el.textContent?.trim().slice(0, 40),
+          });
         }
 
         const anc = nearestBordered(el);
@@ -92,7 +107,14 @@ function auditAbout(page) {
           ["top", 0, 0, bw(ast, "top"), 0],
           ["bottom", 0, 0, 0, bw(ast, "bottom")],
         ]) {
-          const w = side === "left" ? bl : side === "right" ? br : side === "top" ? bt : bb;
+          const w =
+            side === "left"
+              ? bl
+              : side === "right"
+                ? br
+                : side === "top"
+                  ? bt
+                  : bb;
           if (w <= 0) continue;
           let d = 0;
           if (side === "left") d = rect.left - (ar.left + bl);
@@ -123,12 +145,18 @@ for (const vp of viewports) {
   const page = await browser.newPage({
     viewport: { width: vp.width, height: vp.height },
   });
-  await page.goto(`${base}/about`, { waitUntil: "networkidle", timeout: 120_000 });
+  await page.goto(`${base}/about`, {
+    waitUntil: "networkidle",
+    timeout: 120_000,
+  });
   const flags = await auditAbout(page);
   summary[`/about @ ${vp.name}`] = flags.length;
   total += flags.length;
   if (flags.length) {
-    console.error(`/about @ ${vp.name} sample:`, JSON.stringify(flags.slice(0, 8), null, 2));
+    console.error(
+      `/about @ ${vp.name} sample:`,
+      JSON.stringify(flags.slice(0, 8), null, 2),
+    );
   }
   await page.close();
 }

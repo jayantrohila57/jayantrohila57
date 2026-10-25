@@ -1,6 +1,6 @@
 import { NotFoundPage } from "@/components/efferd-not-found";
-import { SiteShell } from "@/components/layout/site-shell";
 import { SectionShell } from "@/components/layout/shells";
+import { SiteShell } from "@/components/layout/site-shell";
 import { generatePageMetadata } from "@/config/metadata";
 
 export const metadata = generatePageMetadata({

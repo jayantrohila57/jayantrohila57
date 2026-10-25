@@ -16,22 +16,16 @@ export const workEngagementFilters: {
     label: "Personal",
     description: "Open-source and side projects with public repos or demos.",
   },
-  {
-    key: "professional",
-    label: "Professional",
-    description: "Work done as an employee — only what is cleared for public case studies.",
-  },
-  {
-    key: "freelance",
-    label: "Freelance",
-    description: "Client or contract work with a public write-up.",
-  },
 ];
 
 export function parseWorkEngagementFilter(
   value: string | undefined,
 ): WorkEngagement | "all" {
-  if (value === "personal" || value === "professional" || value === "freelance") {
+  if (
+    value === "personal" ||
+    value === "professional" ||
+    value === "freelance"
+  ) {
     return value;
   }
   return "all";

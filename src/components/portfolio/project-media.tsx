@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { ProjectPreviewBySlug } from "@/components/portfolio/project-previews";
 import type { PortfolioProject } from "@/data/portfolio";
-import { contentImageClass } from "@/lib/content-image";
 import { cn } from "@/lib/cn";
+import { contentImageClass } from "@/lib/content-image";
 import {
   getProjectScreenshotPath,
   projectHasScreenshot,
@@ -53,9 +53,7 @@ export function ProjectMedia({
         height={720}
         priority={priority}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
-        className={contentImageClass(
-          "h-auto w-full object-cover object-top",
-        )}
+        className={contentImageClass("h-auto w-full object-cover object-top")}
         onError={() => setUseFallback(true)}
       />
     </div>

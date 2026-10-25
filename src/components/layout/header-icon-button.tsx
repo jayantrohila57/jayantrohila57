@@ -9,8 +9,7 @@ import {
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
-export const headerIconButtonClass =
-  "size-9 shrink-0 border-border shadow-xs";
+export const headerIconButtonClass = "size-9 shrink-0 border-border shadow-xs";
 
 type HeaderIconButtonProps = {
   label: string;

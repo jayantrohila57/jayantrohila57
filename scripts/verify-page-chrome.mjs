@@ -37,7 +37,12 @@ for (const route of routes) {
     const visible = count > 0 ? await back.isVisible() : false;
     const breadcrumb = page.locator('nav[aria-label="breadcrumb"]');
     const crumbVisible = await breadcrumb.isVisible();
-    results.push({ route, viewport: vp.name, backVisible: visible, breadcrumb: crumbVisible });
+    results.push({
+      route,
+      viewport: vp.name,
+      backVisible: visible,
+      breadcrumb: crumbVisible,
+    });
     if (visible && crumbVisible) {
       const box = await page.locator("main .border-b").first().boundingBox();
       if (box) {

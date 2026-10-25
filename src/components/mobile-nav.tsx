@@ -4,9 +4,9 @@ import { MenuIcon, XIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { headerIconButtonClass } from "@/components/layout/header-icon-button";
+import { SHELL_GUTTER_X_CLASS } from "@/components/layout/shells";
 import { Portal, PortalBackdrop } from "@/components/portal";
 import { Button } from "@/components/ui/button";
-import { SHELL_GUTTER_X_CLASS } from "@/components/layout/shells";
 import { mainNav } from "@/config/navigation";
 import { cn } from "@/lib/utils";
 

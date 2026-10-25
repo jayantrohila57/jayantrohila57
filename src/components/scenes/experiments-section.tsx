@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GridShell } from "@/components/layout/shells";
 import { ProjectMedia } from "@/components/portfolio/project-media";
 import {
   SectionFrame,
@@ -6,10 +7,9 @@ import {
   SectionLabel,
   sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
-import { GridShell } from "@/components/layout/shells";
-import { projectHasScreenshot } from "@/lib/project-media";
 import type { Experiment, PortfolioProject } from "@/data/portfolio";
 import { experiments, projects } from "@/data/portfolio";
+import { projectHasScreenshot } from "@/lib/project-media";
 
 function experimentAsProject(exp: Experiment): PortfolioProject {
   const match = projects.find((p) => p.slug === exp.slug);

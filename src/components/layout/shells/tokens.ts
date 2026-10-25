@@ -27,7 +27,9 @@ export function pageColumnClassName(className?: string) {
   return cn(SHELL_MAX_WIDTH_CLASS, SHELL_RAILS_CLASS, "min-w-0", className);
 }
 
-export const shellSectionPadClass = (spacing: "default" | "compact" | "none") =>
+export const shellSectionPadClass = (
+  spacing: "default" | "compact" | "none",
+) =>
   spacing === "none"
     ? ""
     : spacing === "compact"

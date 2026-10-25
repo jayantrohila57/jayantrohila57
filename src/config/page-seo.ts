@@ -50,7 +50,7 @@ export const staticPageSeo = {
   experiments: {
     title: "More projects — Jayant Rohila | Side projects & experiments",
     description:
-      "Stats On Spotify, Codethread Black, and other public side projects by Jayant Rohila.",
+      "Stats On Spotify and other public side projects by Jayant Rohila.",
   },
 } as const;
 
@@ -71,7 +71,10 @@ export const projectPageSeo: Record<
       "Loftlancer is an environment and secrets manager for organizations, projects, and environments (dev, staging, production) — built by Jayant Rohila with Next.js, tRPC, Drizzle, and Better Auth.",
   },
   lucsum: {
-    title: projectSeoTitle("Lucsum", "Streetwear storefront & Razorpay checkout"),
+    title: projectSeoTitle(
+      "Lucsum",
+      "Streetwear storefront & Razorpay checkout",
+    ),
     description:
       "Full-stack Next.js storefront with Better Auth, Drizzle, tRPC, and server-authoritative Razorpay checkout — open-source commerce case study by Jayant Rohila.",
   },

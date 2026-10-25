@@ -1,15 +1,19 @@
 import Link from "next/link";
 import { FeatureBento } from "@/components/feature-section";
-import { CodeBlock } from "@/components/primitives/code-block";
 import { PortfolioStackIntegrations } from "@/components/integrations";
 import {
   ContentShell,
   GridCell,
   SectionBleed,
 } from "@/components/layout/shells";
+import { CodeBlock } from "@/components/primitives/code-block";
 import { engineeringPrinciples } from "@/data/portfolio";
 
-export function EngineeringContent({ showIntro = true }: { showIntro?: boolean }) {
+export function EngineeringContent({
+  showIntro = true,
+}: {
+  showIntro?: boolean;
+}) {
   const features = engineeringPrinciples.map((item) => ({
     title: item.title,
     description: item.description,

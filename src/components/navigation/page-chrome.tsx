@@ -76,10 +76,7 @@ export function PageChrome() {
         >
           <ArrowLeft className="size-3.5" strokeWidth={2} aria-hidden />
         </button>
-        <span
-          className="mx-2 h-3.5 w-px shrink-0 bg-border"
-          aria-hidden
-        />
+        <span className="mx-2 h-3.5 w-px shrink-0 bg-border" aria-hidden />
         <Breadcrumb className="min-w-0 flex-1">
           <BreadcrumbList className="text-sm leading-none">
             {crumbs.map((crumb, index) => {

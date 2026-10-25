@@ -1,3 +1,5 @@
+import { createMDX } from "fumadocs-mdx/next";
+
 /** @type {import('next').NextConfig} */
 const securityHeaders = [
   {
@@ -105,8 +107,11 @@ const config = {
         destination: "/writing#engineering",
         permanent: true,
       },
+      { source: "/interests", destination: "/", permanent: true },
     ];
   },
 };
 
-export default config;
+const withMDX = createMDX();
+
+export default withMDX(config);

@@ -23,7 +23,11 @@ const widths = [
 async function waitForDeploy(page) {
   for (let i = 0; i < 40; i++) {
     await page.goto(`${base}/`, { waitUntil: "networkidle", timeout: 120_000 });
-    if (await page.evaluate(() => Boolean(document.querySelector("[data-page-column]")))) {
+    if (
+      await page.evaluate(() =>
+        Boolean(document.querySelector("[data-page-column]")),
+      )
+    ) {
       return;
     }
     await page.waitForTimeout(15_000);

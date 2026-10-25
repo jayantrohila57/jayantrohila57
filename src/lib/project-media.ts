@@ -6,13 +6,15 @@ export function getProjectScreenshotPath(slug: string): string {
 }
 
 export function projectHasScreenshot(slug: string): boolean {
-  return Boolean([
-    "lucsum",
-    "loftlancer",
-    "stats-on-spotify",
-    "modelry",
-    "feature-kit",
-  ].includes(slug));
+  return Boolean(
+    [
+      "lucsum",
+      "loftlancer",
+      "stats-on-spotify",
+      "modelry",
+      "feature-kit",
+    ].includes(slug),
+  );
 }
 
 export function getProjectOgImage(project: PortfolioProject): string {

@@ -1,14 +1,16 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleJsonLd } from "@/components/blog/article-json-ld";
-import {
-  ContentShell,
-  SectionShell,
-} from "@/components/layout/shells";
-import { generatePageMetadata } from "@/config/metadata";
-import { blogContentBySlug } from "@/content/blog/registry";
-import { getBlogPost, getBlogPosts, formatBlogDate } from "@/lib/blog";
-import Link from "next/link";
+import { ContentShell, SectionShell } from "@/components/layout/shells";
 import { inlineBodyLinkClass } from "@/components/primitives/section-frame";
+import { generatePageMetadata } from "@/config/metadata";
+import {
+  formatBlogDate,
+  getBlogPost,
+  getBlogPosts,
+  getWritingPost,
+} from "@/lib/blog";
+import { getMDXComponents } from "@/mdx-components";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -31,9 +33,10 @@ export async function generateMetadata({ params }: Props) {
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = getBlogPost(slug);
-  const Content = blogContentBySlug[slug];
-  if (!post || !Content) notFound();
+  const loaded = getWritingPost(slug);
+  if (!post || !loaded) notFound();
 
+  const MDX = loaded.doc.body;
   const metaLine = `${formatBlogDate(post.publishedAt)} · ${post.readingTimeMinutes} min read · ${post.tags.join(", ")}`;
 
   return (
@@ -49,7 +52,7 @@ export default async function BlogPostPage({ params }: Props) {
         />
       </SectionShell>
       <SectionShell spacing="compact">
-        <Content />
+        <MDX components={getMDXComponents()} />
         <p className="mt-10 text-sm text-muted-foreground">
           <Link href="/writing#blog" className={inlineBodyLinkClass}>
             ← All blog posts

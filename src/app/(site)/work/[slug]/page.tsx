@@ -2,17 +2,17 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { WorkProjectJsonLd } from "@/components/json-ld-work";
 import {
-  ProjectCaseStudyAtGlance,
-  ProjectCaseStudySections,
-} from "@/components/portfolio/project-case-study";
-import { ProjectMedia } from "@/components/portfolio/project-media";
-import {
   ContentShell,
   FlexShell,
   GridCell,
   SectionBleed,
   SectionShell,
 } from "@/components/layout/shells";
+import {
+  ProjectCaseStudyAtGlance,
+  ProjectCaseStudySections,
+} from "@/components/portfolio/project-case-study";
+import { ProjectMedia } from "@/components/portfolio/project-media";
 import { Button } from "@/components/ui/button";
 import { generatePageMetadata } from "@/config/metadata";
 import { projectPageSeo } from "@/config/page-seo";

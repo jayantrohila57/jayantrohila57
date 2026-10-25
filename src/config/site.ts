@@ -39,10 +39,6 @@ export const elsewhereLinks: ElsewhereLink[] = [
   },
   { label: "GitHub", href: "https://github.com/jayantrohila57" },
   {
-    label: "Work GitHub",
-    href: "https://github.com/jayantaiqmen",
-  },
-  {
     label: "HackerRank",
     href: "https://www.hackerrank.com/profile/jayantrohila57",
   },
@@ -72,7 +68,6 @@ export const siteConfig = {
     github: "https://github.com/jayantrohila57",
     linkedin: "https://www.linkedin.com/in/jayant-rohila/",
     hackerrank: "https://www.hackerrank.com/profile/jayantrohila57",
-    workGithub: "https://github.com/jayantaiqmen",
   },
 
   seo: {

@@ -1,6 +1,6 @@
 import { getAbsoluteUrl, siteConfig } from "@/config/site";
-import { getBlogPost } from "@/lib/blog";
 import { getProject, projects } from "@/data/portfolio";
+import { getBlogPost } from "@/lib/blog";
 
 export type BreadcrumbCrumb = {
   label: string;
@@ -16,7 +16,6 @@ const STATIC_LABELS: Record<string, string> = {
   contact: "Contact",
   experiments: "Experiments",
   elsewhere: "Elsewhere",
-  interests: "Interests",
 };
 
 /** Route hierarchy for child pages (empty on homepage). */
@@ -24,9 +23,7 @@ export function getBreadcrumbs(pathname: string): BreadcrumbCrumb[] {
   const normalized = pathname.split("?")[0].replace(/\/$/, "") || "/";
   if (normalized === "/") return [];
 
-  const crumbs: BreadcrumbCrumb[] = [
-    { label: "Home", href: "/" },
-  ];
+  const crumbs: BreadcrumbCrumb[] = [{ label: "Home", href: "/" }];
 
   const parts = normalized.split("/").filter(Boolean);
   const [root, ...rest] = parts;

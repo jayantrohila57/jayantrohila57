@@ -107,9 +107,7 @@ await page.goto(`${base}/work/taskflow`, {
   timeout: 120_000,
 });
 const bandGap = await page.evaluate(() => {
-  const grid = document.querySelector(
-    ".grid.gap-px.border-b.border-border",
-  );
+  const grid = document.querySelector(".grid.gap-px.border-b.border-border");
   const media = grid?.nextElementSibling;
   if (!grid || !media) return { ok: false, reason: "nodes missing" };
   const g = grid.getBoundingClientRect();

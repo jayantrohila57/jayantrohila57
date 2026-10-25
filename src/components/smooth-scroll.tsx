@@ -1,7 +1,7 @@
 "use client";
 
-import { getLenis, setLenisScrollLocked } from "@/lib/lenis-controller";
 import { useEffect } from "react";
+import { getLenis, setLenisScrollLocked } from "@/lib/lenis-controller";
 
 /** Pause Lenis (or body scroll fallback) while overlays are open. */
 export function useLenisScrollLock(locked: boolean) {

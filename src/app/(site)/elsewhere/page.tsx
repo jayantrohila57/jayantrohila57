@@ -41,7 +41,9 @@ export default function ElsewherePage() {
                 rel="noopener noreferrer"
                 className={rowClass}
               >
-                <span className="font-medium text-foreground">{link.label}</span>
+                <span className="font-medium text-foreground">
+                  {link.label}
+                </span>
                 <ExternalLink
                   className="size-4 shrink-0 text-muted-foreground"
                   aria-hidden

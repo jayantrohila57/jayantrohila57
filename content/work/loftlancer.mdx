@@ -1,0 +1,65 @@
+---
+title: Loftlancer
+summary: Environment and secrets manager for organizations, projects, and environments.
+repo: https://github.com/jayantrohila57/loftlancer
+live: https://loftlancer.com
+years: 2025–2026
+role: Solo · product engineering
+stack:
+  - Next.js
+  - React
+  - TypeScript
+  - tRPC
+  - Drizzle ORM
+  - Better Auth
+  - Turborepo
+featured: true
+order: 1
+eyebrow: PROJECT / DEVELOPER TOOL
+description: >-
+  Web dashboard and pnpm/Turbo monorepo for storing and organizing environment variables across organizations, projects,
+  and environments. Values are encrypted at rest, with an audit timeline and notifications.
+status: Open source · Live app
+categories:
+  - product
+  - systems
+  - frontend
+workEngagement: personal
+visualType: terminal
+ogDescription: Environment and secrets manager across dev, staging, and production.
+caseStudy:
+  atGlance:
+    role: Solo builder — monorepo, UI, encryption, auth
+    duration: 2025–2026
+    team: Solo
+    stack: Next.js · TypeScript · Turbo monorepo · Better Auth · PostgreSQL
+  problem: >-
+    Environment variables and secrets scatter across repos, machines, and deploy targets — engineers need a single place
+    to manage values per project and environment without exposing secrets in plain text.
+  contribution: >-
+    Built the pnpm/Turbo monorepo and web dashboard: encrypted secret storage, per-environment views, audit timeline,
+    notifications, and GitHub OAuth via Better Auth.
+  challenges:
+    - >-
+      Encryption at rest — AES-256-GCM with a dedicated crypto package so the web app never stores raw secrets in the
+      database.
+    - Monorepo boundaries — shared api, actions, auth, db, crypto, notifications, and env packages consumed by the apps.
+    - Developer UX — tabs for dev / staging / production and masked values in the UI for day-to-day rotation workflows.
+  features:
+    - Project-scoped variable groups and environment tabs
+    - Encrypted values, audit timeline, and notifications
+    - Better Auth + GitHub OAuth for the management surface
+    - Org roles (Owner, Manager, Member) via a canonical actions layer
+  decisions:
+    - Prioritized clarity for engineers over generic CRUD — the UI emphasizes per-environment context.
+    - Stacked on Next.js, tRPC, Drizzle, and Vercel for a familiar full-stack shape with a small operational footprint.
+  metrics: []
+  outcome: >-
+    Working open-source repository and live app that demonstrate secure configuration management — no claimed production
+    team adoption.
+  maturity: >-
+    Next steps for a team rollout would be rotation reminders and CI integrations that pull secrets without logging
+    values.
+---
+
+

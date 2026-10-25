@@ -19,16 +19,14 @@ export function WorkEngagementFilter() {
   const searchParams = useSearchParams();
   const active =
     pathname === "/work"
-      ? (searchParams.get("type") as WorkEngagement | null) ?? "all"
+      ? ((searchParams.get("type") as WorkEngagement | null) ?? "all")
       : "all";
 
   if (pathname !== "/work") return null;
 
   return (
     <SectionBleed className="border-t border-border">
-      <GridCell
-        className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
-      >
+      <GridCell className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <p className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
           Filter by type
         </p>

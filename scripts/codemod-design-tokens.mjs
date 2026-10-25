@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
+import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 function walk(dir, acc = []) {
@@ -36,7 +36,7 @@ const rules = [
 let changed = 0;
 for (const file of walk("src")) {
   if (file.includes("design-tokens.ts")) continue;
-  let src = readFileSync(file, "utf8");
+  const src = readFileSync(file, "utf8");
   let next = src;
   for (const [re, rep] of rules) next = next.replace(re, rep);
   if (next !== src) {

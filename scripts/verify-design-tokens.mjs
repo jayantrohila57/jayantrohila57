@@ -1,11 +1,8 @@
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readdirSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = "src";
-const ALLOW_HEX = new Set([
-  "src/lib/design-tokens.ts",
-  "src/app/global.css",
-]);
+const ALLOW_HEX = new Set(["src/lib/design-tokens.ts", "src/app/global.css"]);
 
 function walk(dir, acc = []) {
   for (const name of readdirSync(dir)) {

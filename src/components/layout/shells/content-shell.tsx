@@ -46,7 +46,8 @@ export function ContentShell({
       className={cn(
         "flex flex-col gap-4 md:flex-row md:items-end md:justify-between",
         blockMargin[variant],
-        align === "center" && "items-center text-center md:flex-col md:items-center",
+        align === "center" &&
+          "items-center text-center md:flex-col md:items-center",
         className,
       )}
     >

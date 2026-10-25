@@ -1,0 +1,67 @@
+---
+title: Modelry
+summary: >-
+  Interactive AI lab with streaming chat, threads, attachments, and a credits ledger — Vercel AI SDK with Ollama or
+  Google Gemini.
+repo: https://github.com/jayantrohila57/modelry
+live: https://modelry.vercel.app
+years: '2026'
+role: Solo · product engineering
+stack:
+  - Next.js
+  - React
+  - TypeScript
+  - Vercel AI SDK
+  - tRPC
+  - Better Auth
+  - Drizzle ORM
+  - PostgreSQL
+  - Tailwind CSS
+featured: true
+order: 3
+eyebrow: PROJECT / AI
+description: >-
+  An interactive AI laboratory for experimenting with language models: authenticated streaming chat, thread history,
+  file attachments, and credits reserved before each model call and settled after it.
+status: Open source · Live app
+categories:
+  - product
+  - frontend
+  - backend
+workEngagement: personal
+visualType: ai
+caseStudy:
+  atGlance:
+    role: Solo builder — AI chat, credits, auth, data
+    duration: '2026'
+    team: Solo
+    stack: Next.js 16 · React 19 · Vercel AI SDK · tRPC · Better Auth · Drizzle · Neon · Arcjet
+  problem: >-
+    Most AI demos are a text box over an API key. Modelry builds the rest of an AI product — auth, persistence, uploads,
+    usage limits, and billing — and makes streaming, token usage, and credit cost visible to the person using it.
+  contribution: >-
+    Built the whole app: an authenticated, thread-aware streaming chat route; provider switching between local Ollama
+    and Google Gemini; thread history; Vercel Blob attachments; Better Auth with email/password and GitHub; and a
+    credits wallet with a ledger.
+  challenges:
+    - >-
+      Credits during streaming — credits are reserved before each model call and settled after it, so cost is accounted
+      for while the response streams.
+    - >-
+      Provider switching — one AI_PROVIDER setting in a single module selects Ollama or Google Gemini; unsupported
+      values fail fast.
+    - Abuse protection — Arcjet guards the chat, upload, and tRPC mutation routes.
+  features:
+    - Streaming AI chat on the Vercel AI SDK
+    - 'Threads: create, rename, delete, revisit'
+    - Credits wallet and ledger with one-time starter credits
+    - File attachments on Vercel Blob
+    - 'Better Auth: email/password, GitHub OAuth, email verification'
+    - Billing scaffolding with Razorpay plans and subscriptions
+  decisions:
+    - Typed end to end with tRPC 11 and Drizzle on Neon Postgres.
+    - Kept local development free with Ollama as the default provider; Gemini is a configuration switch.
+  outcome: Live app and open-source repository — no claimed user counts.
+---
+
+

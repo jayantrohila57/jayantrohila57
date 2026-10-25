@@ -1,8 +1,8 @@
-import { WorkPageBody } from "@/components/portfolio/work-page-body";
+import { Suspense } from "react";
 import { SectionShell } from "@/components/layout/shells";
+import { WorkPageBody } from "@/components/portfolio/work-page-body";
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
-import { Suspense } from "react";
 
 export const metadata = generatePageMetadata({
   title: staticPageSeo.work.title,

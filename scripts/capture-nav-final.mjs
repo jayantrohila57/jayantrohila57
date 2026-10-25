@@ -13,7 +13,10 @@ async function waitForDeploy(page) {
       timeout: 120_000,
     });
     const html = await res?.text();
-    if (html?.includes("Writing overview") || html?.includes('href="/writing"')) {
+    if (
+      html?.includes("Writing overview") ||
+      html?.includes('href="/writing"')
+    ) {
       const nav = await page.evaluate(() => {
         const links = [
           ...document.querySelectorAll('nav[aria-label="Primary"] a'),
@@ -92,9 +95,7 @@ await footerPage.goto(`${base}/`, {
   waitUntil: "networkidle",
   timeout: 120_000,
 });
-await footerPage.evaluate(() =>
-  window.scrollTo(0, document.body.scrollHeight),
-);
+await footerPage.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
 await footerPage.waitForTimeout(500);
 await footerPage.screenshot({
   path: join(outDir, "footer-1440.png"),

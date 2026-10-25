@@ -1,9 +1,9 @@
+import { PageBleed, PageRule } from "@/components/primitives/page-column";
 import {
   SectionFrame,
   SectionIntro,
   SectionLabel,
 } from "@/components/primitives/section-frame";
-import { PageBleed, PageRule } from "@/components/primitives/page-column";
 import { stackGroups } from "@/data/portfolio";
 
 /** Efferd `logo-cloud-1` — grouped technology labels from portfolio data. */

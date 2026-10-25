@@ -78,11 +78,17 @@ for (const vp of [
 
   await page.goto(`${base}/writing`, { waitUntil: "networkidle" });
   const writingActive = await page.evaluate(() => {
-    const link = document.querySelector('nav[aria-label="Primary"] a[aria-current="page"]');
+    const link = document.querySelector(
+      'nav[aria-label="Primary"] a[aria-current="page"]',
+    );
     return link?.textContent?.trim();
   });
   if (writingActive !== "Writing") {
-    failures.push({ issue: "active state writing", vp: vp.name, writingActive });
+    failures.push({
+      issue: "active state writing",
+      vp: vp.name,
+      writingActive,
+    });
   }
 
   if (vp.name === "390") {

@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
+import { cn } from "@/lib/cn";
 import {
   WINDOW_CHROME_GREEN_CLASS,
   WINDOW_CHROME_RED_CLASS,
   WINDOW_CHROME_YELLOW_CLASS,
 } from "@/lib/design-tokens";
-import { cn } from "@/lib/cn";
 
 export function InterfaceWindow({
   title,
@@ -26,7 +26,9 @@ export function InterfaceWindow({
     >
       {chrome ? (
         <div className="flex items-center gap-2 border-b border-border bg-elevated/60 px-3 py-2">
-          <span className={cn("size-2 rounded-full", WINDOW_CHROME_RED_CLASS)} />
+          <span
+            className={cn("size-2 rounded-full", WINDOW_CHROME_RED_CLASS)}
+          />
           <span
             className={cn("size-2 rounded-full", WINDOW_CHROME_YELLOW_CLASS)}
           />

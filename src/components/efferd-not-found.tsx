@@ -1,9 +1,6 @@
 import { CompassIcon, HomeIcon } from "lucide-react";
 import Link from "next/link";
-import {
-  SectionRule,
-  shellCellClassName,
-} from "@/components/layout/shells";
+import { SectionRule, shellCellClassName } from "@/components/layout/shells";
 import { Button } from "@/components/ui/button";
 import {
   Empty,
@@ -26,7 +23,9 @@ export function NotFoundPage() {
       >
         <Empty className="w-full max-w-lg border-0">
           <EmptyHeader>
-            <EmptyTitle className="font-black font-mono text-8xl">404</EmptyTitle>
+            <EmptyTitle className="font-black font-mono text-8xl">
+              404
+            </EmptyTitle>
             <EmptyDescription>This page doesn&apos;t exist.</EmptyDescription>
           </EmptyHeader>
           <EmptyContent>

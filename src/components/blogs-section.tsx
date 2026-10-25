@@ -1,9 +1,6 @@
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
-import {
-  SectionBleed,
-  shellCellClassName,
-} from "@/components/layout/shells";
+import { SectionBleed, shellCellClassName } from "@/components/layout/shells";
 import { cn } from "@/lib/utils";
 
 export type BlogListItem = {

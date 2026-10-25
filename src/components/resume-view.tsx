@@ -92,7 +92,9 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
                   className="py-6 first:pt-0 last:pb-0"
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-medium text-foreground">{role.title}</h3>
+                    <h3 className="font-medium text-foreground">
+                      {role.title}
+                    </h3>
                     <span className="font-mono text-xs text-muted-foreground print:text-black/70">
                       {role.period}
                     </span>
@@ -118,7 +120,9 @@ export function ResumeView({ showActions = true }: ResumeViewProps) {
             <ul className="mt-5 space-y-4 text-sm">
               {resumeData.education.map((item) => (
                 <li key={item.credential}>
-                  <p className="font-medium text-foreground">{item.credential}</p>
+                  <p className="font-medium text-foreground">
+                    {item.credential}
+                  </p>
                   <p className="text-muted-foreground print:text-black/80">
                     {item.institution}
                   </p>

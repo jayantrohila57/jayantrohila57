@@ -21,7 +21,9 @@ const page = await browser.newPage({
 
 await page.goto(url, { waitUntil: "networkidle", timeout: 120_000 });
 
-const pre = page.locator("pre.code-block, pre[data-lenis-prevent-horizontal]").first();
+const pre = page
+  .locator("pre.code-block, pre[data-lenis-prevent-horizontal]")
+  .first();
 await pre.waitFor({ state: "visible" });
 
 await pre.evaluate((el) => {

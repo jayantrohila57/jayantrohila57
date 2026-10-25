@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { type BlogListItem, BlogsList } from "@/components/blogs-section";
-import { ProjectScene } from "@/components/portfolio/project-scene";
 import {
   ContentShell,
   GridCell,
   SectionBleed,
 } from "@/components/layout/shells";
-import {
-  inlineBodyLinkClass,
-} from "@/components/primitives/section-frame";
+import { ProjectScene } from "@/components/portfolio/project-scene";
+import { inlineBodyLinkClass } from "@/components/primitives/section-frame";
 import {
   getLabShelfExperiments,
   getProjectsByEngagement,

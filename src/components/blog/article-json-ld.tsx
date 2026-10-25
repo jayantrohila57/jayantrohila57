@@ -1,5 +1,5 @@
-import type { BlogPostMeta } from "@/data/blog-posts";
 import { getAbsoluteUrl, siteConfig } from "@/config/site";
+import type { BlogPostMeta } from "@/lib/blog";
 
 export function ArticleJsonLd({ post }: { post: BlogPostMeta }) {
   const url = getAbsoluteUrl(`/writing/${post.slug}`);

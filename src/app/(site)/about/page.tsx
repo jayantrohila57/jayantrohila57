@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { type BlogListItem, BlogsList } from "@/components/blogs-section";
 import { PortfolioContactPanel } from "@/components/contact-section";
 import { RootJsonLd } from "@/components/json-ld";
@@ -9,11 +10,10 @@ import {
   SectionBleed,
   SectionShell,
 } from "@/components/layout/shells";
+import { Button } from "@/components/ui/button";
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
 import { siteConfig, specializationLine } from "@/config/site";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { experience, profile } from "@/data/portfolio";
 import { resumeData } from "@/lib/resume-data";
 
