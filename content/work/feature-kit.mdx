@@ -1,0 +1,56 @@
+---
+title: Feature Kits
+summary: Composable form, data-table, layout, and uploader kits for React and Next.js, distributed as a shadcn registry.
+repo: https://github.com/jayantrohila57/feature-kit
+live: https://feature-kits.vercel.app
+years: '2026'
+role: Solo · product engineering
+stack:
+  - React
+  - Next.js
+  - TypeScript
+  - React Hook Form
+  - Zod
+  - TanStack Table
+  - shadcn/ui
+  - Tailwind CSS
+featured: true
+order: 2
+eyebrow: PROJECT / UI SYSTEMS
+description: >-
+  Open-source UI kits for product engineering — schema-driven forms (React Hook Form + Zod), TanStack Table data tables,
+  layout shells, and spreadsheet import — installable with the shadcn CLI and documented with live previews.
+status: Open source · Live docs
+categories:
+  - product
+  - frontend
+  - systems
+workEngagement: personal
+visualType: data
+caseStudy:
+  atGlance:
+    role: Solo builder — kits, registry, docs
+    duration: '2026'
+    team: Solo
+    stack: React · Next.js · TypeScript · React Hook Form · Zod · TanStack Table · shadcn registry · Fumadocs
+  problem: >-
+    Admin apps rebuild the same forms, tables, filters, shells, and import flows. Feature Kits packages them as source
+    you install into your own app instead of an opaque SDK.
+  contribution: Built the kits, the shadcn registry build, and the docs site with live previews.
+  challenges:
+    - >-
+      Distribution — kits are private workspace packages, so external apps get them through a shadcn registry
+      (feature-kits.vercel.app/r/<kit>.json) that copies source into the project.
+    - Shared tokens — every kit relies on one shared UI stylesheet so themes stay consistent.
+  features:
+    - FormKit and FieldKit — schema-driven fields with React Hook Form + Zod
+    - Data table — TanStack Table toolbar, filters, pagination, selection, bulk actions
+    - Layout and dashboard shell, breadcrumbs, auth, theme
+    - Uploader — spreadsheet import, validation, template download
+  decisions:
+    - Ship copyable source through the shadcn CLI rather than publishing npm packages.
+    - Document every kit with Fumadocs MDX and embedded runnable demos.
+  outcome: Open source with live docs at feature-kits.vercel.app — no claimed adoption numbers.
+---
+
+

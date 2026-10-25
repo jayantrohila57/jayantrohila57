@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { EngineeringContent } from "@/components/portfolio/engineering-content";
-import { getBlogPosts, formatBlogDate } from "@/lib/blog";
 import {
   ContentShell,
   GridCell,
@@ -8,10 +6,12 @@ import {
   SectionShell,
   shellCellClassName,
 } from "@/components/layout/shells";
+import { EngineeringContent } from "@/components/portfolio/engineering-content";
 import { inlineBodyLinkClass } from "@/components/primitives/section-frame";
 import { generatePageMetadata } from "@/config/metadata";
 import { staticPageSeo } from "@/config/page-seo";
 import { projects } from "@/data/portfolio";
+import { formatBlogDate, getBlogPosts } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
 export const metadata = generatePageMetadata({
@@ -41,7 +41,11 @@ export default function WritingPage() {
       <SectionShell id="case-studies" bleed>
         <SectionBleed className="border-t border-border">
           <GridCell className="scroll-mt-20 pt-8 pb-4 md:pt-10">
-            <ContentShell variant="compact" title="Case studies" description="In-depth pages for open-source projects on this site." />
+            <ContentShell
+              variant="compact"
+              title="Case studies"
+              description="In-depth pages for open-source projects on this site."
+            />
           </GridCell>
         </SectionBleed>
         <SectionBleed className="border-y border-border">
@@ -94,10 +98,12 @@ export default function WritingPage() {
                   )}
                 >
                   <p className="type-eyebrow-sm font-mono text-muted-foreground uppercase">
-                    {formatBlogDate(post.publishedAt)} · {post.readingTimeMinutes}{" "}
-                    min
+                    {formatBlogDate(post.publishedAt)} ·{" "}
+                    {post.readingTimeMinutes} min
                   </p>
-                  <p className="mt-2 font-medium text-foreground">{post.title}</p>
+                  <p className="mt-2 font-medium text-foreground">
+                    {post.title}
+                  </p>
                   <p className="mt-1 text-sm text-muted-foreground">
                     {post.summary}
                   </p>

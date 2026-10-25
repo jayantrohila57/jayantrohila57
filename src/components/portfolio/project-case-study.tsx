@@ -29,7 +29,11 @@ export function ProjectCaseStudyAtGlance({
         <p className="type-eyebrow font-mono text-muted-foreground uppercase tracking-[0.18em]">
           At a glance
         </p>
-        <GridShell columns="sm:grid-cols-2" border="none" className="mt-4 border border-border">
+        <GridShell
+          columns="sm:grid-cols-2"
+          border="none"
+          className="mt-4 border border-border"
+        >
           {rows.map((row) => (
             <GridCell key={row.label}>
               <dt className="font-mono type-caption text-muted-foreground uppercase">

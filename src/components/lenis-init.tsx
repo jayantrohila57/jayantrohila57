@@ -1,16 +1,16 @@
 "use client";
 
-import {
-  ANCHOR_SCROLL_OFFSET,
-  registerLenis,
-  notifyScrollPosition,
-  scrollToHash,
-  scrollToTop,
-  type LenisController,
-} from "@/lib/lenis-controller";
-import { shouldLenisPreventScroll } from "@/lib/lenis-prevent";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
+import {
+  ANCHOR_SCROLL_OFFSET,
+  type LenisController,
+  notifyScrollPosition,
+  registerLenis,
+  scrollToHash,
+  scrollToTop,
+} from "@/lib/lenis-controller";
+import { shouldLenisPreventScroll } from "@/lib/lenis-prevent";
 
 function parseInPageHash(href: string): string | null {
   if (href.startsWith("#")) return href;

@@ -14,16 +14,10 @@ export const mainNav: NavItem[] = [
   { label: "Elsewhere", href: "/elsewhere" },
 ];
 
-export const interestsNavItem: NavItem = {
-  label: "Interests",
-  href: "/interests",
-};
-
 /** Command palette entries beyond mainNav. */
 export const commandNavExtras: NavItem[] = [
   { label: "Contact", href: "/contact" },
   { label: "Résumé", href: siteConfig.resumePath },
-  interestsNavItem,
 ];
 
 export const footerNavGroups: { title: string; items: NavItem[] }[] = [
@@ -32,8 +26,6 @@ export const footerNavGroups: { title: string; items: NavItem[] }[] = [
     items: [
       { label: "All projects", href: "/work" },
       { label: "Personal", href: "/work?type=personal" },
-      { label: "Professional", href: "/work?type=professional" },
-      { label: "Freelance", href: "/work?type=freelance" },
     ],
   },
   {

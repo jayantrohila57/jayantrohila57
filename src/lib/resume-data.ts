@@ -24,7 +24,6 @@ export const resumeData = {
     { label: "Portfolio", href: "https://jayantrohila.com" },
     { label: "GitHub", href: "https://github.com/jayantrohila57" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/jayant-rohila/" },
-    { label: "Work GitHub", href: "https://github.com/jayantaiqmen" },
   ],
   experience: [
     {

@@ -1,0 +1,62 @@
+---
+title: Lucsum
+summary: >-
+  Full-stack commerce platform with authenticated customer flows, staff operations, and server-authoritative Razorpay
+  checkout.
+repo: https://github.com/jayantrohila57/lucsum
+live: https://lucsum.vercel.app
+years: 2024–2026
+role: Solo · product engineering
+stack:
+  - Next.js
+  - TypeScript
+  - tRPC
+  - Drizzle ORM
+  - PostgreSQL
+  - Better Auth
+  - Razorpay
+  - Tailwind CSS
+featured: true
+order: 4
+eyebrow: PROJECT / PRODUCT
+description: >-
+  The storefront for Lucsum, my Indian streetwear brand from Saharanpur — a Next.js App Router store with authenticated
+  customer flows, a staff-only Studio, a catalogue imported from Shopify, and Razorpay checkout with webhook
+  verification.
+status: Open source · Live store
+categories:
+  - product
+  - frontend
+  - backend
+workEngagement: personal
+visualType: dashboard
+caseStudy:
+  atGlance:
+    role: Solo builder — storefront, staff tools, payments
+    duration: 2024–2026
+    team: Solo
+    stack: Next.js · tRPC · Drizzle · Better Auth · Razorpay
+  problem: >-
+    A credible storefront needs authenticated customers, staff tooling, and payments where server totals stay
+    authoritative — not a static product grid.
+  contribution: >-
+    Implemented full-stack commerce flows with Better Auth, Drizzle on PostgreSQL, tRPC, and Razorpay checkout with
+    webhook verification.
+  challenges:
+    - Checkout trust — server-side preview and create order flows so client cart state cannot override charged amounts.
+    - Webhook security — HMAC verification on Razorpay callbacks before updating order status.
+    - Staff vs customer surfaces — separate Studio routes with role checks documented in the repo.
+  features:
+    - Customer catalog, cart, and checkout
+    - Staff studio routes for operational work
+    - Server-authoritative checkout totals
+    - Health and readiness endpoints for deploys
+  decisions:
+    - Kept payment verification on the server with HMAC-checked webhooks instead of trusting client-side amounts.
+    - Structured the repo with production-minded boundaries (auth, migrations, seeds, tests) for my own brand's store.
+  outcome: >-
+    Demonstrates server-authoritative checkout, authenticated flows, and staff operations in a single codebase — open
+    source with a live demo.
+---
+
+

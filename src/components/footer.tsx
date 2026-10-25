@@ -20,8 +20,8 @@ export function Footer() {
               {profile.title}
             </p>
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Building web products across React/Next.js, the full stack, and
-              AI features.
+              Building web products across React/Next.js, the full stack, and AI
+              features.
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

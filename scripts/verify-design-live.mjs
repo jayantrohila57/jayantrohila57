@@ -16,7 +16,10 @@ async function waitForDeploy(page) {
       const bg = getComputedStyle(document.documentElement).getPropertyValue(
         "--background",
       );
-      return bg.trim().length > 0 && document.documentElement.classList.contains("dark");
+      return (
+        bg.trim().length > 0 &&
+        document.documentElement.classList.contains("dark")
+      );
     });
     if (ok) return;
     await page.waitForTimeout(12_000);
@@ -52,7 +55,9 @@ for (const route of routes) {
         border: cs.getPropertyValue("--border").trim(),
         bodyBg: body.backgroundColor,
         bodyColor: body.color,
-        hasTypeEyebrow: Boolean(document.querySelector(".type-eyebrow, .type-eyebrow-sm")),
+        hasTypeEyebrow: Boolean(
+          document.querySelector(".type-eyebrow, .type-eyebrow-sm"),
+        ),
       };
     });
 
@@ -60,7 +65,10 @@ for (const route of routes) {
     if (!report.tokenSample) report.tokenSample = tokens;
 
     await page.screenshot({
-      path: join(outDir, `${route === "/" ? "home" : route.slice(1)}-${width}.png`),
+      path: join(
+        outDir,
+        `${route === "/" ? "home" : route.slice(1)}-${width}.png`,
+      ),
       fullPage: true,
     });
     await page.close();
@@ -69,7 +77,10 @@ for (const route of routes) {
 
 await browser.close();
 
-writeFileSync(join(outDir, "design-verify.json"), JSON.stringify(report, null, 2));
+writeFileSync(
+  join(outDir, "design-verify.json"),
+  JSON.stringify(report, null, 2),
+);
 
 let failed = false;
 const expectedDarkBg = "#0b0d0f";

@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { ProjectScene } from "@/components/portfolio/project-scene";
+import { PageBleed } from "@/components/primitives/page-column";
 import {
   SectionFrame,
   SectionIntro,
   SectionLabel,
   sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
-import { PageBleed } from "@/components/primitives/page-column";
 import { getFeaturedProjects } from "@/data/portfolio";
 
 export function SelectedWorkSection() {

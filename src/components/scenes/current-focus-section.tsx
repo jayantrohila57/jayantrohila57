@@ -1,45 +1,15 @@
-import { FeatureCard } from "@/components/feature-section";
 import {
   SectionFrame,
-  SectionIntro,
   SectionLabel,
 } from "@/components/primitives/section-frame";
-import { PageBleedGrid } from "@/components/primitives/page-column";
-import { siteConfig } from "@/config/site";
 
-const focusItems = [
-  {
-    title: "01 · Product engineering",
-    description: `Building web products and software systems at ${siteConfig.author.employer.replace(" Pvt. Ltd.", "")}.`,
-  },
-  {
-    title: "02 · Complex interface systems",
-    description:
-      "Tables, forms, dashboards, responsive workflows, and reusable UI across production apps.",
-  },
-  {
-    title: "03 · Developer tooling",
-    description:
-      "Exploring tools that improve development workflows and application delivery.",
-  },
-];
-
-/** Efferd `features-3` — current status without fake metrics. */
+/** Reserved for live updates feed — structure only until P2 wiring. */
 export function CurrentFocusSection() {
   return (
     <SectionFrame id="focus" border>
       <div className="pt-2">
         <SectionLabel index="05" label="Current focus" />
-        <SectionIntro
-          title="What I am working on now."
-          description={`${siteConfig.author.role} · ${siteConfig.contact.location}`}
-        />
       </div>
-      <PageBleedGrid className="grid-cols-1 md:grid-cols-3">
-        {focusItems.map((item) => (
-          <FeatureCard feature={item} key={item.title} />
-        ))}
-      </PageBleedGrid>
     </SectionFrame>
   );
 }

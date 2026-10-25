@@ -1,15 +1,23 @@
-import { blogPosts, type BlogPostMeta } from "@/data/blog-posts";
+import {
+  getWritingPost,
+  getWritingPosts,
+  type WritingPostMeta,
+} from "@/lib/content/writing";
+
+export type BlogPostMeta = WritingPostMeta;
 
 export function getBlogPosts(): BlogPostMeta[] {
-  return [...blogPosts].sort(
+  return [...getWritingPosts()].sort(
     (a, b) =>
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 }
 
 export function getBlogPost(slug: string): BlogPostMeta | undefined {
-  return blogPosts.find((p) => p.slug === slug);
+  return getWritingPosts().find((p) => p.slug === slug);
 }
+
+export { getWritingPost };
 
 export function formatBlogDate(iso: string): string {
   const [year, month] = iso.split("-");

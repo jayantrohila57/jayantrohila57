@@ -1,6 +1,6 @@
 import type React from "react";
-import { shellCellClassName } from "@/components/layout/shells";
 import { DecorIcon } from "@/components/decor-icon";
+import { shellCellClassName } from "@/components/layout/shells";
 import { stackGroups } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 

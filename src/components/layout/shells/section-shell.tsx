@@ -37,7 +37,9 @@ export function SectionBleed({
   return (
     <div className={cn(SHELL_BLEED_CLASS, "box-border", className)}>
       {inset ? (
-        <div className={cn(SHELL_GUTTER_X_CLASS, "py-4 md:py-6")}>{children}</div>
+        <div className={cn(SHELL_GUTTER_X_CLASS, "py-4 md:py-6")}>
+          {children}
+        </div>
       ) : (
         children
       )}
@@ -82,7 +84,9 @@ export function SectionShell({
       {bleed ? (
         <div className={cn(SHELL_GUTTER_X_CLASS, "min-w-0")}>{children}</div>
       ) : (
-        <div className={cn(SHELL_GUTTER_X_CLASS, pad, "min-w-0")}>{children}</div>
+        <div className={cn(SHELL_GUTTER_X_CLASS, pad, "min-w-0")}>
+          {children}
+        </div>
       )}
     </section>
   );

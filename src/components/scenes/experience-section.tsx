@@ -1,11 +1,11 @@
 import Link from "next/link";
+import { PageBleed } from "@/components/primitives/page-column";
 import {
   SectionFrame,
   SectionIntro,
   SectionLabel,
   sectionActionLinkClass,
 } from "@/components/primitives/section-frame";
-import { PageBleed } from "@/components/primitives/page-column";
 import { experience } from "@/data/portfolio";
 
 function ExperienceCard({

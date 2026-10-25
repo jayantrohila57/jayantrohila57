@@ -72,7 +72,9 @@ function auditPage(page) {
       }
 
       function borderW(style, side) {
-        return Number.parseFloat(style.getPropertyValue(`border-${side}-width`)) || 0;
+        return (
+          Number.parseFloat(style.getPropertyValue(`border-${side}-width`)) || 0
+        );
       }
 
       function hasBorder(node) {

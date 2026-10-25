@@ -4,10 +4,10 @@ import { Code2, Link2, Mail } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { DecorIcon } from "@/components/decor-icon";
+import { shellCellClassName } from "@/components/layout/shells";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
 import { profile } from "@/data/portfolio";
-import { shellCellClassName } from "@/components/layout/shells";
 import { cn } from "@/lib/utils";
 
 const channels = [
@@ -142,7 +142,9 @@ export function PortfolioContactPanel({
     <div
       className={cn(
         "relative w-full",
-        !flush && layout === "stacked" && "mx-auto max-w-lg border border-border",
+        !flush &&
+          layout === "stacked" &&
+          "mx-auto max-w-lg border border-border",
         !flush && layout === "split" && "border border-border",
         className,
       )}
@@ -158,7 +160,9 @@ export function PortfolioContactPanel({
             {intro}
             {channelList}
           </div>
-          <div className={cn("flex min-h-full flex-col bg-background", cellPad)}>
+          <div
+            className={cn("flex min-h-full flex-col bg-background", cellPad)}
+          >
             {actions}
           </div>
         </div>
